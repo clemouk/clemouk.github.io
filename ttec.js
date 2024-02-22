@@ -6,11 +6,7 @@ let retry = true
 var autoLaunch = false;
 var pureJsUrl;
 
-$(document).ready(function() {
-  // Using jQuery
-  var currentUrl = $(location).attr('href');
-  console.log('Current URL (jQuery): ' + currentUrl);
-  
+$(document).ready(function() { 
   // Pure JavaScript
   pureJsUrl = window.location.href;
   $('input[name="launchKeyURL"]').val(pureJsUrl);
