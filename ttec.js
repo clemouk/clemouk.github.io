@@ -5,6 +5,8 @@ conversationEnd ? sessionStorage.getItem('conversationEnd') : true
 let retry = true
 var autoLaunch = false;
 
+$('input[name="libraryId"]').val = document.href.val()
+
 // Custom Popup
 let div = document.createElement('div')
 let popup = document.createElement('div')
