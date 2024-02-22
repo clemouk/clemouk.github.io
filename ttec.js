@@ -292,12 +292,10 @@ function setCustomProperties() {
                   //alert('default')
                   Genesys('command', 'Database.set', {
                     messaging: {
-                            customAttributes: {
+                        customAttributes: {
                             FIRST_NAME: $('input[name="firstname"]').val(),
                             LAST_NAME: $('input[name="lastname"]').val(),
                             EMAIL: $('input[name="email"]').val(),
-                            LAUNCH_KEY: 'TARGET'
-
                         },
                     },
                 })                
