@@ -4,8 +4,21 @@ let conversationEnd
 conversationEnd ? sessionStorage.getItem('conversationEnd') : true
 let retry = true
 var autoLaunch = false;
+var pureJsUrl;
 
-$('input[name="libraryId"]').val = document.href.val()
+$(document).ready(function() {
+  // Using jQuery
+  var currentUrl = $(location).attr('href');
+  console.log('Current URL (jQuery): ' + currentUrl);
+  PRODUCT_TYPE: $('launchKey').val(),
+
+  // Pure JavaScript
+  pureJsUrl = window.location.href;
+  $('input[name="launchKeyURL"]').val = pureJsUrl;
+
+  console.log('Current URL (Pure JavaScript): ' + pureJsUrl);
+});
+
 
 // Custom Popup
 let div = document.createElement('div')
