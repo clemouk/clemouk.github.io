@@ -275,7 +275,7 @@ function setCustomProperties() {
                               FIRST_NAME: $('input[name="firstname"]').val(),
                               LAST_NAME: $('input[name="lastname"]').val(),
                               EMAIL: $('input[name="email"]').val(),
-                              SCHEME_ID: "GF09837001",
+                              SCHEME_ID: "gf29075001",
                               PRODUCT_TYPE: "corporatePension",
                               LAUNCH_KEY: "clemouk.github.io"
                           },
