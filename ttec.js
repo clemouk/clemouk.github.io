@@ -268,15 +268,14 @@ function setCustomProperties() {
                     })
                     break;
                 case "Workplace": 
-                //alert('got here')
                     Genesys('command', 'Database.set', {
                       messaging: {
                               customAttributes: {
                               FIRST_NAME: $('input[name="firstname"]').val(),
                               LAST_NAME: $('input[name="lastname"]').val(),
                               EMAIL: $('input[name="email"]').val(),
-                              SCHEME_ID: "gf29075001",
-                              PRODUCT_TYPE: "corporatePension",
+                              SCHEME_ID:  $('input[name="schemeId"]').val(),
+                              PRODUCT_TYPE: $('input[name="productType"]').val(),
                               LAUNCH_KEY: "clemouk.github.io"
                           },
                       },
