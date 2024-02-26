@@ -277,7 +277,7 @@ function setCustomProperties() {
                               EMAIL: $('input[name="email"]').val(),
                               SCHEME_ID: "GF09837001",
                               PRODUCT_TYPE: "corporatePension",
-                              LAUNCH_KEY: $('input[name="launchKeyURL"]').val()
+                              LAUNCH_KEY: "clemouk.github.io"
                           },
                       },
                   })
