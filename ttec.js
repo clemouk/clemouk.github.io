@@ -262,7 +262,7 @@ function setCustomProperties() {
                                 FIRST_NAME: $('input[name="firstname"]').val(),
                                 LAST_NAME: $('input[name="lastname"]').val(),
                                 EMAIL: $('input[name="email"]').val(),
-                                LAUNCH_KEY: 'UNDERWRITING_LIMIT'
+                                LAUNCH_KEY: 'UNDERWRITING_LIMITw'
                             },
                         },
                     })
