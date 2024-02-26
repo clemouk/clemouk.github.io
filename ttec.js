@@ -275,9 +275,8 @@ function setCustomProperties() {
                               FIRST_NAME: $('input[name="firstname"]').val(),
                               LAST_NAME: $('input[name="lastname"]').val(),
                               EMAIL: $('input[name="email"]').val(),
-                              CATEGORY_ID: $('categoryId').val(),
-                              SCHEME_ID: $('schemeId').val(),
-                              PRODUCT_TYPE: $('productType').val(),
+                              SCHEME_ID: "GF09837001",
+                              PRODUCT_TYPE: "corporatePension",
                               LAUNCH_KEY: 'WORKPLACE_SCHEME'
                           },
                       },
