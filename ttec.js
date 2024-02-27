@@ -277,6 +277,7 @@ function setCustomProperties() {
                               SCHEME_ID:  $('input[name="schemeId"]').val(),
                               PRODUCT_TYPE: $('input[name="productType"]').val(),
                               POLICIES: $('input[name="policyId"]').val(),
+                              VALUATION_CLASS: $('input[name="valueClass"]').val(),
                               LAUNCH_KEY: "clemouk.github.io"
                           },
                       },
