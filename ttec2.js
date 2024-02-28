@@ -233,6 +233,7 @@ function setCustomProperties() {
             },
         },
     })
+    autoLaunch=true;
 }
 
 async function getUrls() {
