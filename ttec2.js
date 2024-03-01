@@ -95,6 +95,10 @@ function createLauncher() {
   
   }
 
+  function closeLauncher() {
+    Genesys("command", "Messenger.close");
+  }
+  
 function openLauncher() {
     let session = JSON.parse(localStorage.getItem(`_${deploymentId}:gcmcsessionActive`))
     let input = document.getElementById('input')

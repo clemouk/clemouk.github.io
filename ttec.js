@@ -187,6 +187,10 @@ Genesys('subscribe', 'Launcher.ready', function (o) {
   })
 })
 
+function closeLauncher() {
+  Genesys("command", "Messenger.close");
+}
+
 function launchGenesys() {
     console.log('Preparing Genesys Widget...');
 
