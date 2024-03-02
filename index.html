@@ -97,8 +97,17 @@
 		                        <div class="tab-content">
 		                            <div class="tab-pane" id="launchSettings">
 		                                <div class="row">
-		                                    <div class="col-sm-12">
-		                                        <h5 class="info-text"> UAT Launch Parameters </h5>
+											<div class="col-sm-5 col-sm-offset-1">
+		                                    	<div class="form-group">
+		                                            <label>Firstname</label>
+		                                            <input name="firstName" type="text" class="form-control" value="Joe">
+		                                        </div>
+		                                    </div>
+		                                    <div class="col-sm-5">
+		                                        <div class="form-group">
+		                                            <label>Surname</label>
+													<input name="lastName" type="text" class="form-control" value="Bloggs">
+												</div>
 		                                    </div>
                                             <div class="col-sm-10 col-sm-offset-1">
 		                                    	<div class="form-group">
@@ -135,14 +144,17 @@
 		                                    <div class="col-sm-5 col-sm-offset-1">
 		                                    	<div class="form-group">
 		                                            <label>Deep Link Id</label>
-		                                            <input name="launchKeyURL" type="text" class="form-control" value="" readonly>
+		                                            <input name="deepLinkId" type="text" class="form-control" value="">
 		                                        </div>
 		                                    </div>
 		                                    <div class="col-sm-5">
 		                                        <div class="form-group">
-		                                            <label>Valuation Class</label>
-		                                            <input name="valueClass" type="text" class="form-control" placeholder="Pipe '|' delimited list of values"/>
-		                                        </div>
+		                                            <label>Deep Link Type</label>
+													<select class="form-control" id="deepLinkType">
+                                                        <option>article</option>
+														<option>library</option>
+													</select>
+												</div>
 		                                    </div>
 		                                    <div class="col-sm-5 col-sm-offset-1">
 		                                        <div class="form-group">
@@ -152,33 +164,33 @@
 		                                    </div>
 		                                    <div class="col-sm-5">
 		                                        <div class="form-group" >
-		                                            <label>Policy Numbers<small>(array)</small></label><br>
-		                                            <!-- input name="gemId" type="text" class="form-control " placeholder="Inserting a GemId will override the launch" value="381a7767-dda9-4466-b662-e8d10c93b3ba" -->
-													<input name="policyId" type="text" class="form-control" placeholder="Pipe '|' delimited list of policies" value="P100100|P200200">
-		                                        </div>
+													<div class="form-group">
+														<label>Scheme <small>(leave blank for default)</small></label>
+														<input name="schemeId" type="text" class="form-control" placeholder="Pipe '|' delimited schemes, e.g gf29075001|gf10606001" value="gf29075001|gf10606001">
+													</div>													
 		                                    </div>
 											<div class="col-sm-5 col-sm-offset-1">
-		                                        <div class="form-group">
-		                                            <label>Scheme <small>(array)</small></label>
-		                                            <input name="schemeId" type="text" class="form-control" placeholder="GF Identifier or Microsite Name" value="gf29075001|gf10606001">
-		                                        </div>
+												<label>Policy Numbers<small>(no. of policies should match no. schemes)</small></label><br>
+		                                            <!-- input name="gemId" type="text" class="form-control " placeholder="Inserting a GemId will override the launch" value="381a7767-dda9-4466-b662-e8d10c93b3ba" -->
+													<input name="policyId" type="text" class="form-control" placeholder="Pipe '|' delimited list of policies" value="P100100|P200200">
 		                                    </div>
 		                                    <div class="col-sm-5">
 		                                        <div class="form-group">
 		                                            <label>Valuation Class</label><br>
-		                                            <input name="valueClass" type="text" class="form-control" placeholder="Valuation Class" value="Pipe '|' delimited list of values">
+		                                            <input name="valueClass" type="text" class="form-control" placeholder="Pipe '|' delimited valuation classes" value="">
 		                                        </div>
 		                                    </div>				
 											<div class="col-sm-5 col-sm-offset-1">
 		                                        <div class="form-group">
 		                                            <label>Syndication Id</label>
-		                                            <input name="syndicationId" type="text" class="form-control" placeholder="Syndication value, e.g BBDE" value="gf29075001|gf10606001">
+		                                            <input name="syndicationId" type="text" class="form-control" placeholder="Syndication value, e.g BBDE" value="">
 		                                        </div>
 		                                    </div>
 		                                    <div class="col-sm-5">
 		                                        <div class="form-group">
-		                                            <label>OSS Product Type <small>used with Syndication Id</small></label><br>
+		                                            <label>OSS Product Type <small>(used with Syndication Id)</small></label><br>
 													<select class="form-control" id="productType">
+														<option></option>
                                                         <option>ISA</option>
 														<option>PERSONAL_PENSION</option>
 													</select>
