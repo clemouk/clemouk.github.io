@@ -134,7 +134,7 @@
 		                                    </div>                                           
 		                                    <div class="col-sm-5 col-sm-offset-1">
 		                                    	<div class="form-group">
-		                                            <label>Launch Key</label>
+		                                            <label>Deep Link Id</label>
 		                                            <input name="launchKeyURL" type="text" class="form-control" value="" readonly>
 		                                        </div>
 		                                    </div>
@@ -147,28 +147,44 @@
 		                                    <div class="col-sm-5 col-sm-offset-1">
 		                                        <div class="form-group">
 		                                            <label>Product Template</label>
-		                                            <input name="productType" type="text" class="form-control " placeholder="Enter productTemplate from MA" value="corporatePension">
+		                                            <input name="productType" type="text" class="form-control" placeholder="Enter productTemplate from MA" value="corporatePension">
 		                                        </div>
 		                                    </div>
 		                                    <div class="col-sm-5">
 		                                        <div class="form-group" >
 		                                            <label>Policy Numbers<small>(array)</small></label><br>
 		                                            <!-- input name="gemId" type="text" class="form-control " placeholder="Inserting a GemId will override the launch" value="381a7767-dda9-4466-b662-e8d10c93b3ba" -->
-													<input name="policyId" type="text" class="form-control " placeholder="Pipe '|' delimited list of policies" value="P100100|P200200">
+													<input name="policyId" type="text" class="form-control" placeholder="Pipe '|' delimited list of policies" value="P100100|P200200">
 		                                        </div>
 		                                    </div>
 											<div class="col-sm-5 col-sm-offset-1">
 		                                        <div class="form-group">
 		                                            <label>Scheme <small>(array)</small></label>
-		                                            <input name="schemeId" type="text" class="form-control " placeholder="GF Identifier or Microsite Name" value="gf29075001|gf10606001">
+		                                            <input name="schemeId" type="text" class="form-control" placeholder="GF Identifier or Microsite Name" value="gf29075001|gf10606001">
 		                                        </div>
 		                                    </div>
 		                                    <div class="col-sm-5">
 		                                        <div class="form-group">
-		                                            <label>Category Id</label><br>
-		                                            <input name="categoryId" type="text" class="form-control " placeholder="Search using categoryId" value="MYA">
+		                                            <label>Valuation Class</label><br>
+		                                            <input name="valueClass" type="text" class="form-control" placeholder="Valuation Class" value="Pipe '|' delimited list of values">
 		                                        </div>
-		                                    </div>											
+		                                    </div>				
+											<div class="col-sm-5 col-sm-offset-1">
+		                                        <div class="form-group">
+		                                            <label>Syndication Id</label>
+		                                            <input name="syndicationId" type="text" class="form-control" placeholder="Syndication value, e.g BBDE" value="gf29075001|gf10606001">
+		                                        </div>
+		                                    </div>
+		                                    <div class="col-sm-5">
+		                                        <div class="form-group">
+		                                            <label>OSS Product Type <small>used with Syndication Id</small></label><br>
+													<select class="form-control" id="productType">
+                                                        <option>ISA</option>
+														<option>PERSONAL_PENSION</option>
+													</select>
+		                                        </div>
+		                                    </div>	
+											
 		                                </div>
 		                            </div>
 		                        </div>
