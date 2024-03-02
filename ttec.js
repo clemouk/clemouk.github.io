@@ -194,9 +194,24 @@ function closeLauncher() {
 function launchGenesys() {
     console.log('Preparing Genesys Widget...');
 
+    Genesys('command', 'Database.set', {
+      messaging: {
+              customAttributes: {
+              FIRST_NAME: $('input[name="firstname"]').val(),
+              LAST_NAME: $('input[name="lastname"]').val(),
+              EMAIL: $('input[name="email"]').val(),
+              SCHEME_ID:  $('input[name="schemeId"]').val(),
+              PRODUCT_TYPE: $('input[name="productType"]').val(),
+              POLICIES: $('input[name="policyId"]').val(),
+              VALUATION_CLASS: $('input[name="valueClass"]').val(),
+              LAUNCH_KEY: "clemouk.github.io"
+          },
+      },
+  })
+  
     $('#wizardContainer').fadeOut();
-    setCustomProperties();
-    createLauncher();
+    //setCustomProperties();
+    // createLauncher();
 
     // for the workplace demo, just open the messenger
     if(autoLaunch==true) {
