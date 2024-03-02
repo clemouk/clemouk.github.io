@@ -232,13 +232,12 @@ function launchGenesys() {
   })
 
   autoLaunch=true
-  
+
     $('#wizardContainer').fadeOut();
     //setCustomProperties();
      createLauncher();
 
     // for the workplace demo, just open the messenger
-    if(autoLaunch==true) {
       Genesys('command','Messenger.open',{},
         function (o) {
           closeLauncher()
@@ -247,8 +246,6 @@ function launchGenesys() {
           Genesys('command', 'Messenger.close')
         }
       )
-    }
-
 };
 
 function toggleMessenger(){
