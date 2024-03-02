@@ -231,9 +231,11 @@ function launchGenesys() {
       },
   })
 
+  autoLaunch=true
+  
     $('#wizardContainer').fadeOut();
     //setCustomProperties();
-    // createLauncher();
+     createLauncher();
 
     // for the workplace demo, just open the messenger
     if(autoLaunch==true) {
