@@ -197,18 +197,18 @@ function launchGenesys() {
     Genesys('command', 'Database.set', {
       messaging: {
               customAttributes: {
-              FIRST_NAME: $('input[name="firstname"]').val(),
-              LAST_NAME: $('input[name="lastname"]').val(),
-              EMAIL: $('input[name="email"]').val(),
-              SCHEME_ID:  $('input[name="schemeId"]').val(),
-              PRODUCT_TYPE: $('input[name="productType"]').val(),
-              POLICIES: $('input[name="policyId"]').val(),
-              VALUATION_CLASS: $('input[name="valueClass"]').val(),
-              LAUNCH_KEY: "clemouk.github.io"
+              firstName: $('input[name="firstname"]').val(),
+              lastName: $('input[name="lastname"]').val(),
+              productTemplate: $('input[name="productTemplate"]').val(),
+              schemeNumber:  $('input[name="schemeId"]').val(),
+              productType: $("#productType option:selected").text(),
+              policyNumber: $('input[name="policyId"]').val(),
+              valuationClass: $('input[name="valueClass"]').val(),
+              originURL: $("#launchKeyURL option:selected").text()
           },
       },
   })
-  
+
     $('#wizardContainer').fadeOut();
     //setCustomProperties();
     // createLauncher();
