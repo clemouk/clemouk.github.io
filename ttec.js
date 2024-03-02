@@ -1,17 +1,26 @@
-const datatableId = 'ENTER_YOUR_DATATABLE'
-const apiUrl = 'ENTER_YOUR_URL'
 let conversationEnd
 conversationEnd ? sessionStorage.getItem('conversationEnd') : true
 let retry = true
 var autoLaunch = false;
 var pureJsUrl;
+var deviceType;
 
 $(document).ready(function() { 
   // Pure JavaScript
   pureJsUrl = window.location.href;
   $('input[name="launchKeyURL"]').val(pureJsUrl);
-
   console.log('Current URL (Pure JavaScript): ' + pureJsUrl);
+
+  var browserDetails = "<u>Desktop</u>: " + $.browser.desktop + "<br />";
+  browserDetails += "<u>Mobile</u>: " + $.browser.mobile + "<br />";
+  browserDetails += "<u>Browser Name</u>: " + $.browser.name + "<br />";
+  browserDetails += "<u>Browser Platform</u>: " + $.browser.platform + "<br />";
+  browserDetails += "<u>Browser Version</u>: " + $.browser.version + "<br />";
+  browserDetails += "<u>Browser Version Number</u>: " + $.browser.versionNumber + "<br />";
+  browserDetails += "<u>Windows OS</u>: " + $.browser.win + "<br />";
+  browserDetails += "<u>WebKit</u>: " + $.browser.webkit + "<br />";
+  browserDetails += "<u>Mozilla</u>: " + $.browser.mozilla + "<br />";
+  browserDetails += "<u>Internet Explorer</u>: " + $.browser.msie + "<br />";
 });
 
 // Custom Popup
@@ -194,9 +203,17 @@ function closeLauncher() {
 function launchGenesys() {
     console.log('Preparing Genesys Widget...');
 
+    (function getDeviceType() {
+      if($.browser.mobile==true) {
+        deviceType = 'Mobile Device'
+      } else {
+        deviceType = 'Desktop'
+      }
+    })();
+
     Genesys('command', 'Database.set', {
       messaging: {
-              customAttributes: {
+          customAttributes: {
               firstName: $('input[name="firstname"]').val(),
               lastName: $('input[name="lastname"]').val(),
               productTemplate: $('input[name="productTemplate"]').val(),
@@ -206,7 +223,10 @@ function launchGenesys() {
               valuationClass: $('input[name="valueClass"]').val(),
               originURL: $("#launchKeyURL option:selected").text(),
               deepLinkType: $("#deepLinkType option:selected").text(),
-              deepLinkId: $('input[name="deepLinkId"]').val()
+              deepLinkId: $('input[name="deepLinkId"]').val(),
+              browserType: $.browser.platform,
+              browserVersion: $.browser.version,      
+              deviceType: deviceType      
           },
       },
   })
