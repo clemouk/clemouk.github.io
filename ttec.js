@@ -11,75 +11,12 @@ $(document).ready(function() {
   $('input[name="launchKeyURL"]').val(pureJsUrl);
   console.log('Current URL (Pure JavaScript): ' + pureJsUrl);
 
-  var browserDetails = "<u>Desktop</u>: " + $.browser.desktop + "<br />";
-  browserDetails += "<u>Mobile</u>: " + $.browser.mobile + "<br />";
-  browserDetails += "<u>Browser Name</u>: " + $.browser.name + "<br />";
-  browserDetails += "<u>Browser Platform</u>: " + $.browser.platform + "<br />";
-  browserDetails += "<u>Browser Version</u>: " + $.browser.version + "<br />";
-  browserDetails += "<u>Browser Version Number</u>: " + $.browser.versionNumber + "<br />";
-  browserDetails += "<u>Windows OS</u>: " + $.browser.win + "<br />";
-  browserDetails += "<u>WebKit</u>: " + $.browser.webkit + "<br />";
-  browserDetails += "<u>Mozilla</u>: " + $.browser.mozilla + "<br />";
-  browserDetails += "<u>Internet Explorer</u>: " + $.browser.msie + "<br />";
 });
-
-// Custom Popup
-let div = document.createElement('div')
-let popup = document.createElement('div')
-let header = document.createElement('div')
-let strong = document.createElement('strong')
-let closeButton = document.createElement('button')
-let body = document.createElement('div')
-let p = document.createElement('p')
-let transcriptButton = document.createElement('a')
-let surveyButton = document.createElement('a')
-
-div.id = 'CustomPopUpDiv'
-//div.className = 'position-fixed bottom-0 end-0 p-5'
-div.className = 'p-5'
-div.style = 'position: absolute; z-index: 0; top: 50%; left: 50%; margin-top: -50px; margin-left: -50px; width: 100px; height: 100px;'
-popup.id = 'CustomPopUp'
-popup.className = 'toast hide'
-popup.role = 'alert'
-header.className = 'toaster-header'
-header.style = 'background-color: grey; text-align: right;'
-strong.className = 'me-auto'
-strong.style = 'color: white;'
-closeButton.className = 'btn-close btn-close-white'
-closeButton.ariaLabel = 'Close'
-closeButton.onclick = function () {
-  closeCustomPopUp()
-}
-body.id = 'CustomPopUpBody'
-body.className = 'toast-body'
-body.style = 'text-align: center'
-p.innerHTML = 'Please select below if you want to download the content of this session'
-transcriptButton.id = 'transcriptbutton'
-transcriptButton.href = ''
-transcriptButton.target = '_blank'
-transcriptButton.innerHTML = 'Transcript'
-transcriptButton.className = 'btn btn-secondary m-1'
-surveyButton.id = 'surveybutton'
-surveyButton.href = ''
-surveyButton.target = '_blank'
-surveyButton.innerHTML = 'Survey'
-surveyButton.className = 'btn btn-secondary m-1'
-
-body.appendChild(p)
-body.appendChild(surveyButton)
-body.appendChild(transcriptButton)
-header.appendChild(closeButton)
-
-popup.appendChild(header)
-popup.appendChild(body)
-div.appendChild(popup)
-document.body.appendChild(div)
 
 
 // Custom launch button
 const hexColor = '#000000' //Color theme
 const launcher = document.createElement('button')
-
 
 function createLauncher() {
     //Create Launcher
@@ -101,7 +38,6 @@ function createLauncher() {
     //launcher.innerHTML = `CHAT<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"></svg>`
   
     document.body.appendChild(launcher)
-  
   }
 
 function openLauncher() {
@@ -224,6 +160,7 @@ function launchGenesys() {
               originURL: $("#launchKeyURL option:selected").text(),
               deepLinkType: $("#deepLinkType option:selected").text(),
               deepLinkId: $('input[name="deepLinkId"]').val(),
+              target:  $('input[name="target"]').val(),
               browserType: $.browser.platform,
               browserVersion: $.browser.version,      
               deviceType: deviceType      
@@ -234,14 +171,9 @@ function launchGenesys() {
   autoLaunch=true
 
     $('#wizardContainer').fadeOut();
-    //setCustomProperties();
-     createLauncher();
-
-    // for the workplace demo, just open the messenger
+    // for the  demo, just open the messenger
       Genesys('command','Messenger.open',{},
-        function (o) {
-          closeLauncher()
-        },
+        function (o) {},
         function (o) {
           Genesys('command', 'Messenger.close')
         }
