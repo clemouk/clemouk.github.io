@@ -30,7 +30,7 @@ function launchGenesys() {
           customAttributes: {
               firstName: $('input[name="firstName"]').val(),
               lastName: $('input[name="lastName"]').val(),
-              productTemplate: $('input[name="productTemplate"]').val(),
+              productTemplate: $("#productTemplate option:selected").text(), 
               schemeNumber:  $('input[name="schemeId"]').val(),
               productType: $("#productType option:selected").text(),
               policyNumber: $('input[name="policyId"]').val(),
