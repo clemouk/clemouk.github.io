@@ -28,8 +28,6 @@ function launchGenesys() {
     Genesys('command', 'Database.set', {
       messaging: {
           customAttributes: {
-              firstName: $('input[name="firstName"]').val(),
-              lastName: $('input[name="lastName"]').val(),
               productTemplate: $('input[name="productTemplate"]').val(),
               schemeNumber:  $('input[name="schemeId"]').val(),
               productType: $("#productType option:selected").text(),
