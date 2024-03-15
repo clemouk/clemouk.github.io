@@ -143,6 +143,22 @@
 		                                            <label>Valuation Class</label><br>
 		                                            <input name="valueClass" type="text" class="form-control" placeholder="Pipe '|' delimited valuation classes" value="" >
 		                                        </div>
+		                                    </div>	
+											<div class="col-sm-5 col-sm-offset-1">
+		                                        <div class="form-group">
+		                                            <label>Syndication Id</label>
+		                                            <input name="syndicationId" type="text" class="form-control" placeholder="Syndication value, e.g BBDE" value="">
+		                                        </div>
+		                                    </div>
+		                                    <div class="col-sm-5">
+		                                        <div class="form-group">
+		                                            <label>OSS Product Type <small>(used with Syndication Id)</small></label><br>
+													<select class="form-control" id="productType" readonly>
+														<option></option>
+                                                        <option>ISA</option>
+														<option>PERSONAL_PENSION</option>
+													</select>
+		                                        </div>
 		                                    </div>															
 		                                </div>
 		                            </div>
@@ -167,7 +183,7 @@
 
 	    <div class="footer">
 	        <div class="container text-center">
-	            Created for Legal and General by <a href="https://www.ttecdigital.com">TTEC Digital</a>. Version: v1.00.13 [UAT Release]
+	            Created for Legal and General by <a href="https://www.ttecdigital.com">TTEC Digital</a>. Version: v1.00.14 [UAT Release]
 	        </div>
 	    </div>
 		
