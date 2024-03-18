@@ -37,7 +37,7 @@ function launchGenesys() {
               deepLinkType: $("#deepLinkType option:selected").text(),
               deepLinkId: $('input[name="deepLinkId"]').val(),
               target:  $('input[name="target"]').val(),
-              browserType: $.browser.platform,
+              syndicationId: $('input[name="syndicationId"]').val(),
               browserVersion: $.browser.version,      
               deviceType: deviceType      
           },
