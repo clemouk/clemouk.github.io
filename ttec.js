@@ -33,7 +33,7 @@ function launchGenesys() {
               productType: $("#productType option:selected").text(),
               policyNumber: $('input[name="policyId"]').val(),
               valuationClass: $('input[name="valueClass"]').val(),
-              originUrl: $("#launchKeyURL option:selected").text(),
+              originURL: $("#launchKeyURL option:selected").text(),
               deepLinkType: $("#deepLinkType option:selected").text(),
               deepLinkId: $('input[name="deepLinkId"]').val(),
               target:  $('input[name="target"]').val(),
