@@ -11,6 +11,28 @@ $(document).ready(function() {
   $('input[name="launchKeyURL"]').val(pureJsUrl);
   console.log('Current URL (Pure JavaScript): ' + pureJsUrl);
 
+
+  // subscribe to ready event
+  Genesys('subscribe', 'Messenger.ready', function () {
+      // subsribe to close widget event
+      console.log('READY: subscribing to open event...');
+
+      Genesys("subscribe", "Messenger.opened", function(){
+        console.log('Messenger.open event invoked');
+        console.log('READY: subscribing to close event...');
+        Genesys('subscribe', 'Messenger.close', function(){
+          console.log('Messenger.close event invoked');
+          $('#wizardContainer').fadeIn();
+        });
+
+      });
+
+
+    
+    console.log('Opening form...')
+    $('#wizardContainer').fadeIn();
+  });
+
 });
 
 
@@ -28,9 +50,13 @@ function launchGenesys() {
 
   var _originUrl=$("#launchKeyURL option:selected").text();
 
+  if($('input[name="launchKeyURL-manual"]').val()!=""){
+    _originUrl=$('input[name="launchKeyURL-manual"]').val();
+  }
+
   if(_originUrl.includes('workplace')){
     _originUrl += $('input[name="schemeId"]').val();
-  }
+  }  
 
   Genesys('command', 'Database.set', {
     messaging: {
@@ -57,7 +83,7 @@ function launchGenesys() {
     Genesys('command','Messenger.open',{},
       function (o) {},
       function (o) {
-        Genesys('command', 'Messenger.close')
+        Genesys('command', 'Messenger.close');        
       }
     )
 };
