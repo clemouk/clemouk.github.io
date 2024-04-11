@@ -19,15 +19,13 @@ $(document).ready(function() {
 
       Genesys("subscribe", "Messenger.opened", function(){
         console.log('Messenger.open event invoked');
-        console.log('READY: subscribing to close event...');
-        Genesys('subscribe', 'Messenger.close', function(){
-          console.log('Messenger.close event invoked');
-          $('#wizardContainer').fadeIn();
-        });
-
       });
 
-
+      console.log('READY: subscribing to conversationCleared event...');
+      Genesys('subscribe', 'MessagingService.conversationCleared', function(){
+        console.log('MessagingService.conversationCleared event invoked');
+        $('#wizardContainer').fadeIn();
+      });
     
     console.log('Opening form...')
     $('#wizardContainer').fadeIn();
