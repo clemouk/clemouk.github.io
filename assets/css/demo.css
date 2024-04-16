@@ -254,3 +254,7 @@
 .fixed-plugin ul > li:last-child a{
     margin-bottom: 15px;
 }
+
+.deepLink {
+    color:white;
+}

@@ -4,7 +4,7 @@ let retry = true
 var autoLaunch = false;
 var pureJsUrl;
 var deviceType;
-
+var eventsWired = false;
 $(document).ready(function() { 
   // Pure JavaScript
   pureJsUrl = window.location.href;
@@ -31,8 +31,60 @@ $(document).ready(function() {
     $('#wizardContainer').fadeIn();
   });
 
+  if(!eventsWired) {
+    eventsWired=true;
+    wireEvents();
+  }
+
+
 });
 
+function wireEvents(){
+  console.log('wireEvents - begin');
+
+  $('.deepLink').click(function(e){
+    e.stopPropagation();
+    e.preventDefault();
+    console.log('DeepLink clicked');
+    var _deepLinkId = $(this).data('deeplinkid');
+    console.log('Selected deepLinkId = ' + _deepLinkId);
+    // set deeplink
+    // Genesys('command', 'Database.update', {
+    //   messaging: {
+    //       customAttributes: {              
+    //           deepLinkId: _deepLinkId                  
+    //       },
+    //   },
+    // });
+
+    Genesys("command", "Database.update", {
+      messaging: { customAttributes: { deepLinkId: _deepLinkId }}},
+      function(data){ 
+        console.log('Database update called - ',data);
+
+        // send "Searching" message
+        Genesys("command", "MessagingService.sendMessage", {
+          message: "Searching"
+          },
+              function() {
+                  /*fulfilled callback*/
+                  console.info('Searching message sent');
+              },
+              function() {
+                  /*rejected callback*/
+                  console.warn('Searching message NOT sent');
+              }
+          );
+      }, 
+      function(){ 
+        /* rejected */ 
+      }
+    );
+
+  });
+
+  console.log('wireEvents - end');
+}
 
 function launchGenesys() {
   console.log('Preparing Genesys Widget...');
