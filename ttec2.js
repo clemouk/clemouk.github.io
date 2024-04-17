@@ -12,8 +12,29 @@ $(document).ready(function() {
   console.log('Current URL (Pure JavaScript): ' + pureJsUrl);
 
 
-  // subscribe to ready event
-  Genesys('subscribe', 'Messenger.ready', function () {
+      // subscribe to ready event
+      Genesys('subscribe', 'Messenger.ready', function () {
+
+        if(!eventsWired) {
+          eventsWired=true;
+          wireEvents();
+        }
+
+      });
+
+    console.log('Opening form...')
+    $('#wizardContainer').fadeIn();
+  });
+
+  
+
+
+
+
+function wireEvents(){
+  console.log('wireEvents - begin');
+
+  
       // subsribe to close widget event
       console.log('READY: subscribing to open event...');
 
@@ -27,54 +48,68 @@ $(document).ready(function() {
         $('#wizardContainer').fadeIn();
       });
     
-    console.log('Opening form...')
-    $('#wizardContainer').fadeIn();
-  });
+      //subscribe to database updated event
 
-  if(!eventsWired) {
-    eventsWired=true;
-    wireEvents();
-  }
+      console.info('Subscribing to database.updated event...');
 
+      Genesys("subscribe", "Database.updated", function(e){
+        //console.log(e);
+        console.log("Database.updated", e.data)  // Updated database object
+        Genesys(
+            'command',
+            'Messenger.open',
+            {},
+            () => {
+             /*fulfilled callback*/
+             console.log('Messenger opened');
+            //  if(eventArray[0] === "opened" && eventArray[1]=="closed"){
+            //     console.log("Need to send message. Sending now.");
+            //     Genesys("command", "MessagingService.sendMessage", {
+            //         message: 'Searching'
+            //       },
+            //           function() {
+            //               /*fulfilled callback*/
+            //               console.log('sent searching message');
+            //           },
+            //           function() {
+            //               /*rejected callback*/
+            //           }
+            //       );
+            //  }
+            },
+            (error) => {
+             /*rejected callback*/
+             console.log("Couldn't open messenger.", error);
+             console.log(error);
+             if(error === "Messenger is already opened."){
+                Genesys("command", "MessagingService.sendMessage", {
+                    message: "Searching"
+                },
+                    function() {
+                        /*fulfilled callback*/
+                        console.log('sent searching message');
+                    },
+                    function() {
+                        /*rejected callback*/
+                    }
+                );
+             }
+            }
+          );
 
-});
-
-function wireEvents(){
-  console.log('wireEvents - begin');
+        });
 
   $('.deepLink').click(function(e){
-    e.stopPropagation();
+    
     e.preventDefault();
     console.log('DeepLink clicked');
     var _deepLinkId = $(this).data('deeplinkid');
     console.log('Selected deepLinkId = ' + _deepLinkId);
-    // set deeplink
-    // Genesys('command', 'Database.update', {
-    //   messaging: {
-    //       customAttributes: {              
-    //           deepLinkId: _deepLinkId                  
-    //       },
-    //   },
-    // });
-
+ 
     Genesys("command", "Database.update", {
       messaging: { customAttributes: { deepLinkId: _deepLinkId }}},
       function(data){ 
-        console.log('Database update called - ',data);
-
-        // send "Searching" message
-        Genesys("command", "MessagingService.sendMessage", {
-          message: "Searching"
-          },
-              function() {
-                  /*fulfilled callback*/
-                  console.info('Searching message sent');
-              },
-              function() {
-                  /*rejected callback*/
-                  console.warn('Searching message NOT sent');
-              }
-          );
+        console.log('Database update called - ',data);        
       }, 
       function(){ 
         /* rejected */ 
@@ -125,9 +160,12 @@ function launchGenesys() {
             syndicationId: $('input[name="syndicationId"]').val(),              
             browserType: $.browser.platform,
             browserVersion: $.browser.version,      
-            deviceType: deviceType      
+            deviceType: deviceType,
+            agencyName: $('input[name="agencyName"]').val(),
+            agencyNumber: $('input[name="agencyNumber"]').val(),
+            source: $('input[name="source"]').val()
         },
-    },
+    }
 })
 
   $('#wizardContainer').fadeOut();
