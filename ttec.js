@@ -11,6 +11,25 @@ $(document).ready(function() {
   $('input[name="launchKeyURL"]').val(pureJsUrl);
   console.log('Current URL (Pure JavaScript): ' + pureJsUrl);
 
+  // subscribe to ready event
+  Genesys('subscribe', 'Messenger.ready', function () {
+    // subsribe to close widget event
+    console.log('READY: subscribing to open event...');
+
+    Genesys("subscribe", "Messenger.opened", function(){
+      console.log('Messenger.open event invoked');
+    });
+
+    console.log('READY: subscribing to conversationCleared event...');
+    Genesys('subscribe', 'MessagingService.conversationCleared', function(){
+      console.log('MessagingService.conversationCleared event invoked');
+      $('#wizardContainer').fadeIn();
+    });
+  
+    console.log('Opening form...')
+    $('#wizardContainer').fadeIn();
+  });
+
 });
 
 
