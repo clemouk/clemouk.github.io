@@ -44,6 +44,15 @@ function launchGenesys() {
       }
     })();
 
+    var _originUrl=$("#launchKeyURL option:selected").text();
+
+    if(_originUrl.includes('workplace')){
+      var _schemeId = $('input[name="schemeId"]').val();
+      _originUrl += Array.from(_schemeId)[0] + "/" + _schemeId;
+      //_originUrl += $('input[name="schemeId"]').val();
+    } 
+
+
     Genesys('command', 'Database.set', {
       messaging: {
           customAttributes: {
@@ -52,7 +61,7 @@ function launchGenesys() {
               productType: $("#productType option:selected").text(),
               policyNumber: $('input[name="policyId"]').val(),
               valuationClass: $('input[name="valueClass"]').val(),
-              originUrl: $("#launchKeyURL option:selected").text(),
+              originUrl: _originUrl,
               //deepLinkType: $("#deepLinkType option:selected").text(),
               deepLinkId: $('input[name="deepLinkId"]').val(),
               target:  $('input[name="target"]').val(),
