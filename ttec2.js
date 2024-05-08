@@ -59,13 +59,14 @@ function wireEvents(){
           () => {
            /*fulfilled callback*/
            console.log('Messenger opened');
-           x.play();
+           
           },
           (error) => {
            /*rejected callback*/
            console.log("Couldn't open messenger.", error);
            if(error === "Messenger is already opened."){
             console.log("messenger already open - don't play audio.", error);
+            x.play();
            }
           }
         );
