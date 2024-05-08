@@ -48,29 +48,23 @@ function wireEvents(){
         $('#wizardContainer').fadeIn();
       });
 
+      let x = document.getElementById("myAudio");
+
+      Genesys("subscribe", "Messenger.opened", function(){
+        let messengerOpen = true;
+      });
+
+      Genesys("subscribe", "Messenger.closed", function(){
+        let messengerOpen = false;
+      });
+
       console.log('READY: subscribing to messagesReceived event...');
       Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
         console.log(data);
-        var x = document.getElementById("myAudio"); 
-        Genesys(
-          'command',
-          'Messenger.open',
-          {},
-          () => {
-           /*fulfilled callback*/
-           console.log('Messenger opened');
-              x.play;
-          },
-          (error) => {
-           /*rejected callback*/
-           console.log("Couldn't open messenger.", error);
-           if(error === "Messenger is already opened."){
-            console.log("messenger already open - don't play audio.", error);
-            
-           }
-          }
-        );
-      });
+        if(messengerOpen) {
+          x.play;
+        }; 
+      })
 
       //subscribe to database updated event
 
