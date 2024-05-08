@@ -5,6 +5,8 @@ var autoLaunch = false;
 var pureJsUrl;
 var deviceType;
 var eventsWired = false;
+var messengerOpen = false; 
+
 $(document).ready(function() { 
   // Pure JavaScript
   pureJsUrl = window.location.href;
