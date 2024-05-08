@@ -53,11 +53,11 @@ function wireEvents(){
       let x = document.getElementById("myAudio");
 
       Genesys("subscribe", "Messenger.opened", function(){
-        let messengerOpen = true;
+       messengerOpen = true;
       });
 
       Genesys("subscribe", "Messenger.closed", function(){
-        let messengerOpen = false;
+        messengerOpen = false;
       });
 
       console.log('READY: subscribing to messagesReceived event...');
