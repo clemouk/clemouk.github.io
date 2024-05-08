@@ -47,7 +47,30 @@ function wireEvents(){
         console.log('MessagingService.conversationCleared event invoked');
         $('#wizardContainer').fadeIn();
       });
-    
+
+      console.log('READY: subscribing to messagesReceived event...');
+      Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
+        console.log(data);
+        var x = document.getElementById("myAudio"); 
+        Genesys(
+          'command',
+          'Messenger.open',
+          {},
+          () => {
+           /*fulfilled callback*/
+           console.log('Messenger opened');
+           x.play();
+          },
+          (error) => {
+           /*rejected callback*/
+           console.log("Couldn't open messenger.", error);
+           if(error === "Messenger is already opened."){
+              x.play();
+           }
+          }
+        );
+      });
+
       //subscribe to database updated event
 
       console.info('Subscribing to database.updated event...');
