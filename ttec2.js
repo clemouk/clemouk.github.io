@@ -63,7 +63,7 @@ function wireEvents(){
       console.log('READY: subscribing to messagesReceived event...');
       Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
         console.log(data);
-        if(messengerOpen==true) {
+        if(messengerOpen==false) {
           x.play();
         }; 
       })
