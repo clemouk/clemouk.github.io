@@ -83,8 +83,8 @@ function wireEvents(){
             'Messenger.open',
             {},
             () => {
-             /*fulfilled callback*/
-             console.log('Messenger opened');
+            /*fulfilled callback*/
+            console.log('Messenger opened');
             //  if(eventArray[0] === "opened" && eventArray[1]=="closed"){
             //     console.log("Need to send message. Sending now.");
             //     Genesys("command", "MessagingService.sendMessage", {
@@ -161,10 +161,15 @@ function launchGenesys() {
   if($('input[name="launchKeyURL-manual"]').val()!=""){
     _originUrl=$('input[name="launchKeyURL-manual"]').val();
   }
+  else{
+    if(_originUrl.includes('workplace')){
+      var _schemeId = $('input[name="schemeId"]').val();
+      _originUrl += Array.from(_schemeId)[0] + "/" + _schemeId;
+      //_originUrl += $('input[name="schemeId"]').val();
+    } 
+  }
 
-  if(_originUrl.includes('workplace')){
-    _originUrl += $('input[name="schemeId"]').val();
-  }  
+   
 
   Genesys('command', 'Database.set', {
     messaging: {
