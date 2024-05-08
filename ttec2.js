@@ -5,7 +5,8 @@ var autoLaunch = false;
 var pureJsUrl;
 var deviceType;
 var eventsWired = false;
-var messengerOpen = false; 
+
+
 
 $(document).ready(function() { 
   // Pure JavaScript
@@ -65,6 +66,12 @@ function wireEvents(){
         console.log(data);
         if(messengerOpen==false) {
           x.play();
+          Genesys('command','Messenger.open',{},
+            function (o) {},
+            function (o) {
+              Genesys('command', 'Messenger.close');        
+            }
+          )
         }; 
       })
 
