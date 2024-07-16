@@ -5,6 +5,9 @@ var autoLaunch = false;
 var pureJsUrl;
 var deviceType;
 var eventsWired = false;
+
+
+
 $(document).ready(function() { 
   // Pure JavaScript
   pureJsUrl = window.location.href;
@@ -47,7 +50,31 @@ function wireEvents(){
         console.log('MessagingService.conversationCleared event invoked');
         $('#wizardContainer').fadeIn();
       });
-    
+
+      let x = document.getElementById("myAudio");
+
+      Genesys("subscribe", "Messenger.opened", function(){
+       messengerOpen = true;
+      });
+
+      Genesys("subscribe", "Messenger.closed", function(){
+        messengerOpen = false;
+      });
+
+      console.log('READY: subscribing to messagesReceived event...');
+      Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
+        console.log(data);
+        if(messengerOpen==false) {
+          x.play();
+          Genesys('command','Messenger.open',{},
+            function (o) {},
+            function (o) {
+              Genesys('command', 'Messenger.close');        
+            }
+          )
+        }; 
+      })
+
       //subscribe to database updated event
 
       console.info('Subscribing to database.updated event...');
