@@ -21,7 +21,8 @@ function wireHandlers(){
             memberForename: $('#memberForename').val(),
             bgroup: $('#broup').val(),
             referenceNumber: $('#referenceNumber').val(),
-            debugMode: $('#debugMode').val()
+            debugMode: $('#debugMode').val(),
+            smallImages: $('#smallImages').val(),
         }
         console.log('setting attributes: ',attributes);
         setDatabase();    
