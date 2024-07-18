@@ -1,0 +1,31 @@
+(function (coreTranslation, $, undefined) {
+
+  coreTranslation.setupLanguageSelectors = function(csrfToken) {
+    var method = (csrfToken == undefined) ? 'GET': 'POST';
+    $('a.language').off('click').on('click', function(evt) {
+      var $link = $(this);
+      evt.preventDefault();
+      evt.stopPropagation();
+      if (method == 'POST') {
+        $.ajaxSetup({
+          beforeSend: function(xhr, settings) {
+            if (!utilities.csrfSafeMethod(settings.type) && utilities.sameOrigin(settings.url)) {
+              xhr.setRequestHeader('X-CSRFToken', csrfToken);
+            }
+          }
+        });
+      };
+      $.ajax({
+        type: method,
+        url: $link.data('url-select'),
+        data: {},
+        success: function(data) {
+          if (data.status == 'ok') {
+            window.location.reload();
+          };
+        }
+      });
+    })
+
+  };
+}(window.coreTranslation = window.coreTranslation || {}, jQuery));

@@ -1,0 +1,23 @@
+var recaptcha_btn;
+
+(function() {
+  google_recaptcha.setUpButton = function(btn) {
+    var $googleRecaptchaBlock = $('div.g-recaptcha');
+    recaptcha_btn = btn;
+    if ($googleRecaptchaBlock.length>0) {
+        $(recaptcha_btn).prop('disabled', true);
+    } else {
+        $(recaptcha_btn).prop('disabled', false);
+    }
+  };
+} ( window.google_recaptcha = window.google_recaptcha || {}, jQuery ));
+
+function recaptchaCallback() {
+    $btn = $(recaptcha_btn);
+    $btn.prop('disabled', false);
+};
+
+function expiry_recaptcha_callback() {
+    $btn = $(recaptcha_btn);
+    $btn.prop('disabled', true);
+}

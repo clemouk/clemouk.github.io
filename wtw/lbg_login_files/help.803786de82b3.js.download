@@ -1,0 +1,45 @@
+(function(help, $, undefined) {
+  help.setupHelpText = function(section) {
+    var selector;
+    if (section === undefined) {
+      selector = "[id^=panelGroup]";
+    } else {
+      selector = section;
+    }
+    $(selector).each(function(i) {
+      var $group = $(this);
+      var $helpDiv = $group.find('div.help-panel');
+      var $helpButton = $group.find('.icon-page-help');
+      $helpDiv.attr('id','help-'+i);
+      $helpButton.attr('href','#help-'+i).attr('aria-controls','#help-'+i).attr('aria-label','help');
+      if ($helpDiv.length == 0) {
+        $helpButton.remove();
+      } else {
+        $helpDiv.hide().attr('aria-hidden','true');
+        $helpButton.attr('aria-expanded','false');
+        $helpButton.click(function(e) {
+          e.preventDefault();
+          $helpDiv.slideToggle(200, function(){
+            if ($(this).is(':visible')) {
+              $helpDiv.attr('aria-hidden','false');
+              $helpButton.attr('aria-expanded','true');
+            } else {
+              $helpDiv.attr('aria-hidden','true');
+              $helpButton.attr('aria-expanded','false');
+            }
+          });
+        });
+
+        $helpButton.keydown(function (e) {
+          const keyDown = e.key !== undefined ? e.key : e.keyCode;
+
+          if ((keyDown === 'Enter' || keyDown === 13) || (['Spacebar', ' '].indexOf(keyDown) >= 0 || keyDown === 32)) {
+            console.log('accessibility called');
+            this.click();
+            e.preventDefault();
+          }
+        });
+      }
+    });
+  };
+}( window.help = window.help || {}, jQuery ));

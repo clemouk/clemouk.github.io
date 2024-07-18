@@ -1,0 +1,1068 @@
+
+(function(utilities, $, undefined) {
+
+  var screenWidth = $(window).width();
+  var enable2FAFeatures = undefined;
+  var contactDetailsPanelId = undefined;
+  var addressSearchId = undefined;
+
+  // Private methods
+
+  function setArrows($elOpener, $elTarget) {
+    if ($elTarget.is(":hidden")) {
+      $elOpener.addClass("icon-caret-down-two").removeClass("icon-caret-right");
+    } else {
+      $elOpener.removeClass("icon-caret-down-two").addClass("icon-caret-right");
+    }
+  }
+
+  function setupBackButton($el) {
+    if (document.referrer.indexOf(window.location.host) !== -1) {
+      $el.click(function(e){
+        e.preventDefault();
+        $(this).unbind("click"); // unbind click event to prevent IE firing it twice
+        history.back();
+      });
+    }
+  }
+
+  function showSpinner ($pageOptions,$btns,spinnerId){
+    $pageOptions.addClass('has-spinner');
+    var spinnerOffset = 0;
+    $btns.each(function(){
+      $(this).attr('disabled', true).addClass('disabled');
+      if ($(this).is(':visible')) {spinnerOffset += $(this).outerWidth(true);}
+    });
+    try {
+      var config = spinnerConfig.optionsFormsAPI();
+      var $elSpinner = $("<div />").attr('id',spinnerId).addClass('spinner-container');
+      if (screenWidth > settings.tablet) {
+        $elSpinner.height($pageOptions.height()).css('margin-left',($pageOptions.width() - spinnerOffset));
+      } else {
+        $elSpinner.height(30).css('margin-left',(($pageOptions.width()/2)+15));
+      }
+      $pageOptions.append($elSpinner);
+      var target = document.getElementById(spinnerId);
+      var spinner = new Spinner(config).spin(target);
+    } catch(e) {
+      console.log('spinnerConfig not available - check external config file is loaded');
+    }
+  }
+
+  // Public methods
+
+  utilities.showSpinnerPublic = function($pageOptions,$btns,spinnerId) {
+    showSpinner($pageOptions,$btns,spinnerId);
+  }
+
+  utilities.ieVersion = function() {
+    var msie,
+        trident,
+        rv,
+        edge,
+        ua = window.navigator.userAgent;
+
+    msie = ua.indexOf('MSIE ');
+    if (msie > 0) {
+      return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+    }
+
+    trident = ua.indexOf('Trident/');
+    if (trident > 0) {
+      rv = ua.indexOf('rv:');
+      return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+    }
+
+    edge = ua.indexOf('Edge/');
+    if (edge > 0) {
+      return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+    }
+
+    return null;
+  };
+
+  /*
+   * Convert str to title-case
+   */
+  utilities.titleCase = function(str) {
+    return str.replace(/\w\S*/g, function(txt, offset) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  };
+
+  utilities.dateObject = function(inputDate, dateFormat) {
+    var formatParts = dateFormat.split('/');
+    var dateParts = inputDate.split('/');
+    if (formatParts[0] === 'dd') {
+      return new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
+    }
+    if (formatParts[0] === 'mm') {
+      return new Date(dateParts[2], dateParts[0] - 1, dateParts[1]);
+    }
+    return newDate(inputDate);
+  };
+
+  utilities.showMessage = function(message, messageClass) {
+    var $container;
+    var $messageHTML = $('<li></li>').addClass(messageClass).text(message);
+    var $messageDiv = $('<ul></ul>').append($messageHTML);
+    $container = $('div.messages');
+    if ($container.length) {
+      $container.empty();
+    } else {
+      $container = $('<div></div>').addClass('messages');
+    }
+    $container.append($messageDiv);
+    $('#contentPrimary').find('article').prepend($container);
+  };
+
+  /*
+    setupNextItemToggle()
+    ---------------------
+    Call function with the following parameters:
+    1. class whose link(s) should open/close next element.
+    2. boolean value for default target element state (true = visible, false = hidden).
+    3. boolean value to prevent default link behaviour.
+    4. boolean value to show arrows.
+  */
+  utilities.setupNextItemToggle = function(el, state, preventDefault, showArrows) {
+    var elOpener = $(el + " a").each(function(){
+      var elTarget = $(this).closest(el).next();
+      if (state == false)
+        elTarget.hide();
+      $(this).click(function(e){
+        if (preventDefault)
+          e.preventDefault();
+        if (showArrows)
+          setArrows($(this), elTarget);
+        elTarget.slideToggle();
+      });
+    });
+  };
+
+  /*
+    setupItemToggle()
+    -----------------
+    Call function with the following parameters:
+    1. class whose link(s) should open/close next element.
+    2. id of element to toggle.
+    3. boolean value for default target element state (true = visible, false = hidden).
+    4. boolean value to prevent default link behaviour.
+  */
+  utilities.setupItemToggle = function(elClass, targetElId, state, preventDefault) {
+    var elOpener = $(elClass + " a").each(function(){
+      var elTarget = $(targetElId);
+      if (state == false)
+        elTarget.hide();
+      $(this).click(function(e){
+        if (preventDefault)
+          e.preventDefault();
+        elTarget.slideToggle();
+      });
+    });
+  };
+
+  utilities.enforceRange = function($el, min, max) {
+    var value = $el.val();
+    if (value < min) { $el.val(min); return; }
+    if (value > max) { $el.val(max); return; }
+  };
+
+  /*
+    setupRadioToggle()
+    -----------------
+    Call function with the following parameters:
+    1. set the formId, the function will then go and find the radio buttons.
+    2. set easing speed (optional, in ms).
+  */
+  utilities.setupRadioToggle = function(formId, speed) {
+
+    // Cache the radio buttons
+    var $radButtons = $(formId).find("input:radio");
+      if ((typeof speed == "undefined") || (typeof speed == "") || (typeof speed == null)) {
+        speed = 0;
+    }
+
+
+    var setVisibility = function($el) {
+      var target = $el.data("toggle-target");
+      if ($el.is(":checked")) {
+        if (target !== "undefined")
+            $(target).fadeIn(speed);
+      } else {
+        if (target !== "undefined")
+          $(target).hide();
+      }
+    };
+
+    // Events
+    $radButtons.on("change",function(e){
+      $radButtons.each(function(){
+        setVisibility($(this));
+      });
+    });
+
+    // Initialise
+    $radButtons.each(function(){
+      setVisibility($(this));
+    });
+
+  };
+
+  utilities.setupAccessibleRadioToggle = function (formId) {
+
+    // Cache the radio buttons
+    var speed = 0;
+    var $radButtons = $(formId).find("input:radio");
+
+    var setVisibility = function ($el) {
+      var target = $el.data("toggle-target");
+
+      if (target !== "undefined") {
+        var isChecked = $el.is(":checked");
+        if (isChecked) {
+          $(target).fadeIn(speed);
+        } else {
+          $(target).hide();
+        }
+        toggleAriaAttributes($el, $(target), isChecked);
+      }
+    };
+
+    var toggleAriaAttributes = function ($el, $target, openIt) {
+      if (openIt) {
+        $el.attr('aria-expanded', true);
+        $target.attr('aria-hidden', false);
+      } else {
+        $el.attr('aria-expanded', false);
+        $target.attr('aria-hidden', true);
+      }
+    };
+
+    // Events
+    $radButtons.on("change", function (e) {
+      $radButtons.each(function () {
+        setVisibility($(this));
+      });
+    });
+
+    // Initialise
+    $radButtons.each(function () {
+      setVisibility($(this));
+    });
+  };
+
+  /*
+    setupRadioButtonState()
+    -----------------
+    Call function with the following parameters:
+    1. set the formId, the function will then go and find the radio buttons.
+  */
+  utilities.setupRadioButtonState = function(formId) {
+
+    // Cache the radio buttons
+    var $rads = $(formId).find("input:radio");
+    var $buttons = $(formId).find("button");
+
+    // Events
+    $rads.on("change",function(e){
+      $buttons.each(function(){
+        $(this).prop("disabled", false);
+      });
+    });
+
+    // Initialise
+    $buttons.each(function(){
+      $(this).prop("disabled", true);
+    });
+
+  };
+
+   /*
+   setupTabStrip()
+   -----------------
+   Call function with the following parameters:
+   1. ID of element that contains tab strip action elements, typically this might be rendered in
+      content-secondary/tertiary as . Location of mark-up can be manipulated using third argument.
+   2. Type of elements inside navGroupContainer - could be button/a...
+   3. Optional - as tab strips will probably be displayed forms API pages we might want to re-position mark-up after page has loaded.
+      The positionTabStrip argument allows us to define an element to prepend the action buttons container.
+      For example, fund balance page renders the tab strip in content-secondary block, then moves the buttons
+      inside #panelGroup2 on DOM ready.
+   */
+  utilities.setupTabStrip = function(navGroupContainer, navElementType, positionTabStrip) {
+
+    // Cache the group of elements
+    var $tabStripElements = $(navGroupContainer).find(navElementType);
+
+    // Local methods
+    var hideAll = function() {
+      $tabStripElements.each(function(e){
+        var elToHide = $(this).data("tab-target");
+        $(elToHide).hide();
+        $(this).removeClass("selected");
+      });
+    };
+
+    var setDefaultVisibility = function() {
+      $tabStripElements.each(function(e){
+        var display = $(this).data("default-display");
+        var target = $(this).data("tab-target");
+        if (display === "hidden") {
+          $(target).hide();
+        }
+      });
+    };
+
+    // Events
+    $tabStripElements.on("click",function(e){
+      e.preventDefault();
+      hideAll();
+      var elTarget = $(this).data("tab-target");
+      $(elTarget).show();
+      $(this).addClass("selected");
+    });
+
+    // Initialise
+    setDefaultVisibility();
+    //$(positionTabStrip).prepend($(navGroupContainer));
+    //$(navGroupContainer).fadeIn();
+  };
+
+  /*
+    trimString()
+    ------------
+    Call function with the following parameters:
+    1. element to trim.
+    2. character to start trim - must be > 0.
+    3. character to finish trim - must be > 0.
+  */
+  utilities.trimString = function(elToTrim, startChar, endChar){
+    startChar = parseInt(startChar) || 0; // if parseInt doesn't evaluate, columns is 0
+    endChar = parseInt(endChar) || 0;
+    if (endChar < 1)
+      return;
+    var el = $(elToTrim).each(function(i){
+      var str = $(this).text();
+      if (str.length > endChar)
+        $(this).text(str.substr(startChar,endChar)+"...");
+    });
+  };
+
+  /*
+    confirmTerms()
+    --------------
+    Call function with the following parameters:
+    1. id of checkbox used to toggle submit button state.
+    2. id of target submit button.
+  */
+  utilities.confirmTerms = function(elCheckbox, elSubmit) {
+    var checkbox = $(elCheckbox);
+    var submitBtn = $(elSubmit);
+    checkbox.click(function() {
+      ((checkbox.prop("checked")) ? submitBtn.prop("disabled", false) : submitBtn.prop("disabled", true));
+    });
+  };
+
+  /*
+    highlightFirstWord()
+    --------------------
+    Call function with the following parameters:
+    1. element to wrap span tag around first word
+    2. class of span tag
+  */
+  utilities.highlightFirstWord = function(elToFind, classToAdd){
+    $(elToFind).each(function() {
+      $(this).html(function(i,text){
+        return text.replace(/\w+\s/, function(match){ /* RegEx matches a word followed by a space */
+          return '<span class="' + classToAdd + '">' + match + '</span>';
+        });
+      });
+    });
+  };
+
+  /*
+    convertToTitleCase()
+    --------------------
+    Call function with the following parameters:
+    1. pass classname to overwrite default of 'titlecase'
+  */
+  utilities.convertToTitleCase = function(el){
+    // If no classname is passed, default to '.titlecase'
+    var elToFind = "";
+    (el === undefined) ? (elToFind = ".titlecase") : (elToFind = el);
+    $(elToFind).each(function() {
+      var localEl = $(this);
+      localEl.text(titleCase(localEl.text()));
+    });
+  };
+
+  /*
+   * Returns true if a given string ends with a given suffix, false otherwise
+   * str = string to test
+   * suffix = suffix to look for
+   */
+  utilities.endsWith = function(str, suffix) {
+    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+  };
+
+  utilities.startsWith = function(str, prefix) {
+    return str.slice(0, prefix.length) == prefix;
+  };
+
+  utilities.formatDate = function(value, format) {
+    var date;
+    var day;
+    var month;
+    var year;
+    function pad(n) {
+      return (n < 10) ? ('0' + n) : n;
+    }
+    if (value === "") {
+      return value;
+    }
+    date = new Date(value);
+    day = pad(date.getUTCDate());
+    month = pad((1 + date.getUTCMonth()));
+    year = date.getUTCFullYear();
+    if (utilities.startsWith(format, 'mm')) {
+      return [month, day, year].join('/');
+    }
+    return [day, month, year].join('/');
+  };
+
+  utilities.formatDatePanelView = function(value, $panel) {
+    var viewDateFormat = $panel.data("viewdateformat");
+    if (viewDateFormat == undefined) {
+      return value
+    };
+    viewDateFormat = viewDateFormat.replace('yyyy', 'yy');
+    return utilities.formatDate(value, viewDateFormat);
+  };
+
+  utilities.formPanelModified = function($form) {
+    var $panel = $form.closest('div[id^=panelBody]');
+    return ($form.find(":input").filter(function() {
+      if (!utilities.inputChanged(this)) {
+        return false;
+      };
+      if (this.getAttribute('type') == 'date') {
+        return (utilities.formatDatePanelView(this.defaultValue, $panel) != this.value);
+      };
+      return true;
+    }).length > 0);
+  };
+
+  /*
+   * Returns value of cookie with given name
+   *
+   */
+  utilities.getCookie = function(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie != '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = jQuery.trim(cookies[i]);
+        if (cookie.substring(0, name.length + 1) == (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  };
+
+  /*
+   * Returns true if given method is cross-site request forgery safe
+   *         false otherwise
+   */
+  utilities.csrfSafeMethod = function(method) {
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+  };
+
+  /*
+   * Return true if the given url is a same-origin URL (relative, scheme relative, or absolute)
+   *        false otherwise
+   */
+  utilities.sameOrigin = function(url) {
+    var host = document.location.host;
+    var protocol = document.location.protocol;
+    var sr_origin = '//' + host;
+    var origin = protocol + sr_origin;
+    return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||
+           (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||
+           !(/^(\/\/|http:|https:).*/.test(url));
+  };
+
+  utilities.setupBackButtons = function(el) {
+    $(el).each(function(e){
+      setupBackButton($(this));
+    });
+  };
+
+  utilities.setupTableLinks = function(tableId, baseUrl, column) {
+    var $activeTable = $("#" + tableId);
+    var $spinner = $('<span />').addClass("ajax-spinner");
+    $activeTable.find('tr')
+      .bind('click', function() {
+        $spinner.width('100%').height($activeTable.find('thead').height()).css("min-height","45px").fadeIn(150);
+        $activeTable.prepend($spinner);
+        $activeTable.find('td').css('color','#dbdbdb');
+        $(this).find('td').css('color','#000');
+        $(this).unbind('click');
+        window.document.location = baseUrl + $(this).find('td')[column].getAttribute('data-value') + '/';
+      })
+      .bind('mouseover', function(evt) {
+        evt.target.style.cursor = 'pointer';
+      });
+  };
+
+  utilities.updateTableDetailsText = function(tableId, text) {
+    $(tableId).find('span.details-text').text(text);
+  };
+
+  /*
+    linkAlert()
+    --------------------
+    Call function with the following parameters:
+    1. ID of container element.
+    2. Selector for elements inside 'container'.
+    3. Optional argument - maxwidth at which the dialog should appear.
+    NOTE: the element itself can also contain data-message="message for this link" that will replace the default setup in msg.
+  */
+  utilities.linkAlert = function (container, element, maxwidth){
+    $(container).on("click", element, function(e){
+      maxwidth = parseInt(maxwidth) || 0;             // Parse maxwidth, if not set then dialog will always be displayed.
+      if ($(window).width()<maxwidth) {
+        e.preventDefault();
+        var msg = "You are entering another site which may not be compatible with small screen sizes.";
+        var elMessage = $(this).data("message");
+        if (elMessage) {
+          msg = elMessage
+        }
+        var link  = this;
+        $("<p>" + msg + "</p>").dialog({
+          buttons: {
+            "Ok": function() {
+              $(this).dialog("close");
+              window.open(link.href);
+            },
+            "Cancel": function() {
+              $(this).dialog("close");
+            }
+          }
+        });
+      }
+    });
+  };
+
+  /*
+    formSubmitSpinner()
+    --------------------
+    1. form Id
+    2. option to only fire spinner only if form is valid
+  */
+  utilities.formSubmitSpinner = function(form, fireOnValidation){
+
+    var $form = $(form);
+    var $pageOptions = $form.find('.page-options');
+    var $btns = $form.find("button, .button");
+    var spinnerId = 'spn' + $form.attr('id');
+    var $msg = $(form).find(".alert-block");
+
+    $form.submit(function(e){
+      if ($(this).data('submitted') === true) {
+        e.preventDefault();                                     // Form has already been submitted
+      } else {
+        $(this).attr('data-submitted', true);                   // Add data attribute so we can detect multiple submissions
+        if (fireOnValidation===true) {
+          if ($(this).valid()) {
+            $msg.empty();
+            showSpinner($pageOptions,$btns,spinnerId);
+          }
+        } else {
+          $msg.empty();
+          showSpinner($pageOptions,$btns,spinnerId);
+        }
+      }
+    });
+
+    // This should solve back-forward caching issue in Safari mobile.
+    // It will reload the page if the page is pulled from bfcache.
+    $(window).bind("pageshow", function(event) {
+      if (event.originalEvent.persisted) {
+        window.location.reload()
+      }
+    });
+
+  };
+
+  /*
+    linkClickSpinner()
+    --------------------
+  */
+  utilities.linkClickSpinner = function(el){
+    var $elSpinner = $("<span />").addClass("ajax-spinner");
+    var offset = parseInt(($(el).outerWidth()/2)-10);
+    $(el).on("click", function(){
+      $(this).animate({opacity:0}, 300, function(){
+        $elSpinner.css("marginRight",offset+"px");
+        $(this).after($elSpinner);
+        $elSpinner.fadeIn(300);
+      });
+    });
+  };
+
+  /*
+    renderSmallSpinner()
+    --------------------
+  */
+  utilities.renderSmallSpinner = function($el, $wrapperEl) {
+    var $pageOptions = null;
+    if ($wrapperEl) {
+      $pageOptions = $($el).closest($wrapperEl);
+    } else {
+      $pageOptions = $($el).closest('.page-options');
+    };
+    var $btns = $pageOptions.find('button, .button');
+    var spinnerId = 'spn' + $($el).attr('id');
+    showSpinner($pageOptions,$btns,spinnerId);
+  };
+
+  utilities.removeSmallSpinner = function($el, $wrapperEl) {
+    var $pageOptions = null;
+    if ($wrapperEl) {
+      $pageOptions = $($el).closest($wrapperEl);
+    } else {
+      $pageOptions = $($el).closest('.page-options');
+    }
+    $pageOptions.removeClass('has-spinner');
+    $pageOptions.find('button, .button').each(function() {
+      $(this).attr('disabled', false).removeClass('disabled');
+    });
+    $('#spn' + $el.attr('id')).remove();
+  };
+
+  /*
+    goHome()
+    --------------------
+  */
+  utilities.goHome = function(el){
+    $(el).click(function(){
+      window.location.href = "/home/";
+    });
+  };
+
+  /*
+    goToPage()
+    --------------------
+  */
+  utilities.goToPage = function(el, url){
+    $(el).click(function(){
+      window.location.href=url;
+    });
+  };
+
+  /*
+    setupFancybox()
+    --------------------
+  */
+  utilities.setupMobileFancybox = function(el){
+    if (screenWidth<settings.tablet)
+      $(el).click(function(){
+        $(el).fancybox();
+      });
+  };
+
+  utilities.setupCountrySelector = function($select, changeHandler) {
+    $.widget("custom.iconselectmenu", $.ui.selectmenu, {
+      _renderMenu: function(ul, items) {
+        var that = this;
+        ul.css('z-index', 100);
+        $.each(items, function(index, item) {
+          that._renderItemData(ul, item);
+        });
+      },
+      _renderItem: function(ul, item) {
+        var li = $("<li>");
+        var wrapper = $("<div>", {text: item.label});
+
+        var value = item.element.val().toLowerCase();
+
+        if (value !== "") {
+          $("<span>", {
+            style: item.element.attr("data-style"),
+            "class": "ui-icon " + value
+          }).appendTo(wrapper);
+        }
+
+        return li.append(wrapper).appendTo(ul);
+      }
+    });
+    var menuOptions = {
+      width: 200,
+      icons: {
+        button: "ui-icon-circle-triangle-s"
+      }
+    };
+    if (changeHandler !== undefined) {
+      menuOptions.change = changeHandler;
+    }
+    $select.iconselectmenu(menuOptions).iconselectmenu('menuWidget').addClass('ui-menu-icons flag-icons');
+
+    var $parentSelector = $select.parent();
+    $parentSelector.addClass('country-lookup');
+    $parentSelector.find('span[role="combobox"]').attr('aria-description', 'Press space to open combobox then,');
+  };
+
+  /*
+    setupRequiredFieldsLabel()
+    --------------------
+    Add required fields label to last panel.
+    Text for label can be passed as an argument.
+  */
+  utilities.setupRequiredFieldsLabel = function(msg){
+    var $reqFields = $('span.required');
+    if ($reqFields.length>0) {
+      var $lastPanel = $('#contentPrimary').find('.panel').last().find('.panel-body'), labelText = "";
+      (msg) ? labelText = msg : labelText = "* required field" ;
+      $('<div>').text(labelText).addClass('required-field-label').appendTo($lastPanel);
+    }
+  };
+
+  utilities.setupCheckboxToggle = function(buttonSelector, checkboxSelector, resetCaption) {
+    var $button = $(buttonSelector);
+    var selectCaption = $button.text();
+    function selectAll() {
+      $(checkboxSelector).prop('checked', true);
+      $button.text(resetCaption).off('click', selectAll).on('click', function() {
+        resetAll();
+      });
+    }
+    function resetAll() {
+      $(checkboxSelector).each(function() {
+        $(this).prop('checked', false);
+      });
+      $button.text(selectCaption).off('click', resetAll).on('click', function() {
+        selectAll();
+      });
+    }
+    $button.on('click', function() {
+      selectAll();
+    });
+  };
+
+  utilities.setupAccessibleCheckboxToggle = function (buttonSelector, checkboxSelector,
+                                                      resetCaption, resetCaptionDesc) {
+    var $button = $(buttonSelector);
+    var selectCaption = $button.text();
+    var selectCaptionDesc = $button.attr('aria-label');
+
+    function selectAll() {
+      $(checkboxSelector).prop('checked', true);
+      $button.text(resetCaption)
+          .attr('aria-label', resetCaptionDesc)
+          .off('click', selectAll)
+          .on('click', function () {
+            resetAll();
+          });
+    }
+
+    function resetAll() {
+      $(checkboxSelector).each(function () {
+        $(this).prop('checked', false);
+      });
+      $button.text(selectCaption)
+          .attr('aria-label', selectCaptionDesc)
+          .off('click', resetAll)
+          .on('click', function () {
+            selectAll();
+          });
+    }
+
+    $button.on('click', function () {
+      selectAll();
+    });
+  };
+
+  utilities.decodeEntities = (function() {
+    var element = document.createElement('div');
+    function decodeHTMLEntities(str) {
+      if (str && typeof str === 'string') {
+        str = str.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
+        str = str.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
+        element.innerHTML = str;
+        str = element.textContent;
+        element.textContent = '';
+      }
+      return str;
+    }
+    return decodeHTMLEntities;
+  })();
+
+  utilities.inputChanged = function(el) {
+    var elType = el.tagName.toLowerCase();
+    if (elType == 'button') {
+      return false;
+    } else if (elType == 'select') {
+      if ( enable2FAFeatures && ( el.id.indexOf(contactDetailsPanelId)>-1 || el.id.indexOf(addressSearchId)>-1 ) ) {
+        // do not interpret as changed
+        return false;
+      }
+      if (!el.options[el.options.selectedIndex].defaultSelected) {
+        // Check if select is required and the first option (the default one) is selected
+        return !(el.hasAttribute('required') && (el.options.selectedIndex == 0))
+      }
+      return false;
+    } else {
+      return (el.defaultValue != el.value);
+    }
+  };
+
+  utilities.updateDefaultValue = function(el) {
+    var elType = el.tagName.toLowerCase();
+    if (elType == 'button') {
+      return;
+    } else if (elType == 'select') {
+      for (i=0; i<el.options.length; i++) {
+        el.options[i].defaultSelected = (i == el.options.selectedIndex) ? true : false
+      }
+    } else {
+      el.defaultValue = el.value;
+    }
+  };
+
+  utilities.getPanelBody = function (panelID) {
+    return $('#panelBody' + panelID);
+  };
+
+  utilities.findPanelId = function(el) {
+    var $panel = $(el).closest('div[id^="panelBody"]');
+    // exit if $panel is empty so slice() won't error out
+    if (!$panel.length) return
+    return $panel.attr('id').slice(9);
+  };
+
+  utilities.formInputs = function($form, notHidden) {
+    var params = {};
+    var onlyVisible = notHidden !== undefined ? notHidden : false;
+    var inputs = onlyVisible ? $form.find('[type!="hidden"]').serializeArray() : $form.serializeArray();
+    $.each(inputs, function(i, field) {
+      params[field.name] = field.value;
+    });
+    return params;
+  };
+
+  utilities.urlAddParams = function(url, params) {
+    var query = [];
+    for (var param in params) {
+      query.push(encodeURIComponent(param) + "=" + encodeURIComponent(params[param]));
+    };
+    return url + '?' + query.join('&');
+  };
+
+  utilities.shallowObjectEqual = function(first, other) {
+    for (key in first) {
+      if (first.hasOwnProperty(key)) {
+        if (!(key in other) || (first[key] !== other[key])) {
+          return false;
+        }
+      }
+    }
+    for (key in other) {
+      if (other.hasOwnProperty(key)) {
+        if (!(key in first) || (other[key] !== first[key])) {
+          return false;
+        }
+      }
+    }
+    return true;
+  };
+
+  utilities.scrollToPanel = function(panelId, disableScroll) {
+    disableScroll = !!disableScroll;
+    if(!disableScroll) {
+      $('body').animate({
+        scrollTop: ($('#panelBody' + panelId).offset().top)
+      });
+    }
+  };
+
+  utilities.getUrl = function (urlParts, params) {
+    var url = '/' + urlParts.join('/') + '/';
+    return utilities.urlAddParams(url, params);
+  }
+
+  utilities.setup2FA = function(flag2fa, paramPanelId, paramAddressSearchId) {
+    enable2FAFeatures = flag2fa;
+    contactDetailsPanelId = paramPanelId;
+    addressSearchId = paramAddressSearchId;
+  }
+
+  /*
+    getDisallowedCharsBaseOnRegexp()
+    ---------------------
+    Call function with the following parameters:
+    1. raw string to extract the non-ascii/non-printable characters from
+    2. the regular expression or allowed characters
+  */
+  utilities.getDisallowedCharsBaseOnRegexp = function (str, regexp) {
+    return Array.from(new Set(str.replaceAll(regexp,'').split(''))).join('')
+  }
+
+  /*
+    getTargetPanelOffset()
+    ---------------------
+    this function gets the best position to center a target
+    when scrolling to it
+
+    Call function with the following parameters:
+    1. $target - the target panel/container
+  */
+  utilities.getTargetPanelOffset = function ($target) {
+    var elOffset = $target.offset().top;
+    var elHeight = $target.height();
+    var windowHeight = $(window).height();
+    var offset = elOffset;
+    if (elHeight < windowHeight) offset = elOffset - ((windowHeight / 2) - (elHeight / 2));
+    return offset
+  }
+
+  /*
+    scrollToPanelThenHighlight()
+    ---------------------
+    similar to the scrollToPanel function but this will center
+    the target on scroll and highlight it at the end
+
+    Call function with the following parameters:
+    1. $target - the panel/container to highlight
+  */
+
+  utilities.scrollToPanelCenter = function ($target, disableScroll, highlightTarget=false, highlightSpeed=250) {
+    disableScroll = !!disableScroll;
+    if(!disableScroll) {
+      $('html, body').animate({
+        scrollTop: utilities.getTargetPanelOffset($target)
+      }, 500).promise().done(function () {
+        if (highlightTarget) {
+          $target
+            .fadeOut(highlightSpeed)
+            .fadeIn(highlightSpeed)
+            .fadeOut(highlightSpeed)
+            .fadeIn(highlightSpeed);
+        }
+      });
+    }
+  }
+
+  /*
+    isValidNinoOrPPSNo()
+    ---------------------
+    check if string matches the:
+    NINO pattern: LLNNNNNNL or
+    PPS pattern: NNNNNNNL or NNNNNNNLL
+
+    Call function with the following parameters:
+    1. ninoOrPPS - which pattern to compare with
+    2. str - the string to evaluate
+  */
+  utilities.isValidNinoOrPPSNo = function (ninoOrPPS, str) {
+    var regexp;
+    ninoOrPPS === 'NINO'
+        ? regexp = /^\s*[a-zA-Z]{2}(?:\s*\d\s*){6}[a-zA-Z]?\s*$/
+        : regexp = /^\s*(?:\s*\d\s*){7}[a-zA-Z]?[a-zA-Z]{1}\s*$/
+    return regexp.test(str);
+  }
+
+  /*
+    workaround for data slov issue with duplicate record
+    see reference MCP-106
+   */
+  utilities.selectRefreshOptions = function (panel_id, field_name) {
+    var $selected = $(`select[name^=${panel_id}__${field_name}]`);
+    $selected.each(function() {
+      if($(this).val() === '') {
+        return;
+      } else {
+        $(this).find('option:contains(' + $(this).val() + ')').each(function (i, el) {
+          if (i === 0) {
+            $(this).attr('selected', 'selected')
+          } else if (el.text === $(this).val()) {
+            $(this).remove()
+          }
+        })
+      }
+    });
+  }
+
+  /*
+    restrictToNumbers()
+    ------------------------------------------
+    Restrict input field to numbers only on keyup
+
+    Call function with the following parameter:
+      1. fieldId - id attribute of the field
+  */
+  utilities.restrictToNumbers = function (fieldId){
+    var $field = $(fieldId);
+    $field.on('keyup', function(){
+      var inputValue = $(this).val();
+      $(this).val(inputValue.replace(/[^0-9]/g, ''));
+    })
+  }
+
+  /*
+    restrictValidateButtonIfEmptyFields()
+    ------------------------------------------
+    Restrict validate button in 2fa enabled screen
+    when either country select or %phon% fields are null
+
+  */
+  utilities.restrictValidateButtonIfEmptyFields = function () {
+    function restrict(inputField) {
+      var $select = $(inputField).closest('li').prev().prev().find('select[id*="CNTY"]'),
+          $cntyCode = $(inputField).closest('li').prev().find('input[id*="CNTY"]'),
+          $validateBtn = $(inputField).closest('li').next().find('button[id^="btn-validate-no"]');
+      if ($select.val() === '' || $cntyCode.val() === '' || $(inputField).val() === '') {
+        $validateBtn.prop('disabled', true).addClass('disabled');
+      } else {
+        $validateBtn.prop('disabled', false).removeClass('disabled');
+      }
+    }
+    function delay(callback, ms) {
+      var timer = 0;
+      return function() {
+        var context = this, args = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          callback.apply(context, args);
+        }, ms || 0);
+      };
+    }
+    $('input[id*=PHON]').each(function () {
+      restrict(this);
+    });
+
+    $('input[id*=PHON]').on('keyup', delay(function () {
+      restrict(this);
+    }, 400));
+  }
+ /*
+    restrictToAlphanumeric()
+    ------------------------------------------
+    Restrict input field to alpha numeric only on keyup
+
+    Call function with the following parameter:
+      1. fieldId - id attribute of the field
+  */
+  utilities.restrictToAlphanumeric = function (fieldId){
+    var $field = $(fieldId);
+    $field.on('keyup', function(){
+      var inputValue = $(this).val();
+      $(this).val(inputValue.replace(/[^A-Za-z0-9\ \-\,\''\!\@\#\$\%\^\&*\(\)\_\+\-\=\[\]\\\{\}\|\;\:\""\,\.\/\<\>\?\`\~]/g, ''));
+    })
+    $field.blur(function(e){
+      $field.trigger('keyup');
+    })
+  }
+}( window.utilities = window.utilities || {}, jQuery ));

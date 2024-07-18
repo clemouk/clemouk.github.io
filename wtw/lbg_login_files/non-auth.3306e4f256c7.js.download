@@ -1,0 +1,21 @@
+$(function () {
+  utilities.formSubmitSpinner("#formLogin");
+  utilities.formSubmitSpinner("#formUidLookup");
+  utilities.formSubmitSpinner("#formPwLookup");
+  if (typeof google_recaptcha !== 'undefined') {
+    google_recaptcha.setUpButton("#btnLogin");
+  }
+
+  $('#btn-back-UIDLOOKUP, #btn-back-PWDLOOKUP').on('click', function(){
+    var url = $(this).data('redirect-url');
+    if (url.length>0){window.location.href = url}
+  })
+  coreTranslation.setupLanguageSelectors();
+
+  if (typeof bereavement !== 'undefined') {
+    if ($("a[id*='content_opener']").length > 0) {
+      bereavement.setupContentOpener();
+    }
+  }
+});
+

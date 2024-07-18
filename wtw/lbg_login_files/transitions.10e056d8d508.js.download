@@ -1,0 +1,68 @@
+(function (transitions, $, undefined) {
+
+  var body = $("body");
+  var $window = $(window);
+  var $loader = $("#pageLoading");
+
+  // Private methods
+
+  function hideLoader() {
+    $loader.addClass("load-complete");
+    // Important - listen for css3 transitions to finish and set element to display none.
+    $loader.on("webkitAnimationEnd oanimationend msAnimationEnd animationend", function () {
+      $(this).css("display", "none");
+    });
+  }
+
+  // Public methods
+
+  transitions.navigateAway = function(el) {
+    var href = el.getAttribute('href');
+    var bHeight = parseInt(body.height());
+    var wHeight = parseInt($window.height());
+    if (bHeight > wHeight) {
+      $loader.height(bHeight);
+      // Set spinner background offset - this provides a 'nicer' transition if the user has scrolled down the page.
+      var spinnerOffsetfromTop = parseInt(body.scrollTop() + 200);
+      $("#pageLoading").css("background-position", "50% " + spinnerOffsetfromTop + "px");
+    }
+    $loader.fadeIn();
+    $loader.removeClass("load-complete");
+    setTimeout(function () {
+      if (href === undefined) {
+        href = '/';
+      };
+      window.location.href = href;
+    }, 200);
+  }
+
+  transitions.setupPageTransitions = function () {
+
+    $("#footerContainer, #container").on("click", "a:not(a[rel='external'],a[target='_blank'],a[class*='opener'],a[class*='tooltip'],a[class*='popup'],a[href^='#'],a[href^='mailto'],a[href^='tel'])", function (e) {
+      if (Modernizr.csstransitions) {
+        e.preventDefault();
+        // If the mobile menu is open, then close it.
+        if (body.hasClass("mobile-nav-open")) {
+          $("#underlay").remove();
+          $("#mainnav").hide();
+        }
+        transitions.navigateAway(this);
+      }
+    });
+
+  };
+
+  setTimeout(function (e) {
+    hideLoader();
+  }, 300);
+
+  // This should solve back-forward caching issue in Safari mobile.
+  // It will reload the page if the page is pulled from bfcache.
+  $(window).bind("pageshow", function (event) {
+    if (event.originalEvent.persisted) {
+      window.location.reload()
+    }
+  });
+
+
+}(window.transitions = window.transitions || {}, jQuery));

@@ -1,0 +1,191 @@
+(function ( chartConfig, undefined ) {
+  if (chartConfig.dataLoadStartMessage === undefined) {
+    chartConfig.dataLoadStartMessage = "Loading initial data...";
+  };
+  if (chartConfig.chartInvestmentFund === undefined) {
+    chartConfig.chartInvestmentFund = function() {
+      return {
+        "init": {
+          "dataLoadStartMessage": chartConfig.dataLoadStartMessage,
+          "type": "doughnut2d",
+          "width": "100%",
+          "height": 180
+        },
+        "chart": {
+          "captionOnTop": "0",
+          "showLegend": "0",
+          "legendBorderThickness" : "0",
+          "legendShadow" : "0",
+          "showShadow" : "0",
+          "baseFont": "Arial",
+          "baseFontSize": "12",
+          "bgColor": "#e3e3e3",
+          "bgAlpha": "100",
+          "borderThickness": "0",
+          "canvasBgAlpha": "0",
+          "paletteColors" : "#18509D,#8A1C69,#D74E14,#00864F,#3168b4,#aa418b,#e66630,#23b177",
+          "labelDisplay": "none",
+          "valueBgAlpha": "0",
+          "canvasPadding": "0",
+          "pieRadius" : "70",
+          "enableSmartLabels" : "0",
+          "use3DLighting" : "0",
+          "radius3D" : "0",
+          "showLabels": "0",
+          "showValues": "0",
+          "caption" : ""
+        }
+      }
+    }
+  };
+  if (chartConfig.chartContInvestmentFund === undefined) {
+    chartConfig.chartContInvestmentFund = function() {
+      return {
+        "init": {
+          "type": "doughnut2d",
+          "dataLoadStartMessage": chartConfig.dataLoadStartMessage,
+          "width": "100%",
+          "height": 180
+        },
+        "chart": {
+          "captionOnTop": "0",
+          "showLegend": "0",
+          "legendBorderThickness" : "0",
+          "showShadow" : "0",
+          "legendShadow" : "0",
+          "baseFont": "Arial",
+          "baseFontSize": "12",
+          "bgColor": "#e3e3e3",
+          "bgAlpha": "100",
+          "borderThickness": "0",
+          "canvasBgAlpha": "0",
+          "paletteColors" : "#18509D,#8A1C69,#D74E14,#00864F,#3168b4,#aa418b,#e66630,#23b177",
+          "labelDisplay": "none",
+          "valueBgAlpha": "0",
+          "canvasPadding": "0",
+          "pieRadius" : "70",
+          "enableSmartLabels" : "0",
+          "use3DLighting" : "0",
+          "radius3D" : "0",
+          "showLabels": "0",
+          "showValues": "0",
+          "caption" : ""
+        }
+      }
+    }
+  };
+  if (chartConfig.chartMyTransaction === undefined) {
+    chartConfig.chartMyTransaction = function() {
+      return {
+        "init": {
+          "type": "bar2d",
+          "width": "100%",
+          "dataLoadStartMessage": chartConfig.dataLoadStartMessage,
+        },
+        "chart": {}
+      }
+    }
+  };
+  if (chartConfig.chartMyProjBen === undefined) {
+    chartConfig.chartMyProjBen = function() {
+      return {
+        "init": {
+          "type": "column2d",
+          "width": "100%",
+          "height" : 280,
+          "dataLoadStartMessage": chartConfig.dataLoadStartMessage,
+          "ChartNoDataText": "The results of the benefit projection cannot be shown at present. {br}Please click on the link below to launch the Retirement Planner to see your projection results.",
+        },
+        "chart": {
+          "formatNumberScale": "0",
+          "numberPrefix": "£",
+          "thousandSeparator": ",",
+          "decimals": "2",
+          "forceDecimals": "1",
+          "legendBorderThickness" : "0",
+          "showShadow" : "0",
+          "legendShadow" : "0",
+          "baseFont": "Arial",
+          "baseFontSize": "12",
+          "bgColor": "#e3e3e3",
+          "bgAlpha": "100",
+          "borderThickness": "0",
+          "canvasBgAlpha": "0",
+          "paletteColors" : "#18509D,#8A1C69,#D74E14,#00864F,#3168b4,#aa418b,#e66630,#23b177",
+          "canvasBorderThickness" : "0",
+          "canvasBorderColor" : "#dbdbdb",
+          "showPlotBorder" : "0",
+          "plotGradientColor" : "",
+          "divLineColor" : "#e4e4e4",
+          "divLineAlpha" : "100",
+          "showYAxisValues" : "1",
+          "yAxisMaxValue" : "",
+          "alternateHGridColor" : "#eeeeee",
+          "alternateHGridAlpha" : "100",
+          "showValues" : "0", /* For now I have turned off values; they were being displayed on top of coloured bar making them difficult to read */
+          "caption" : "" /* Remove json caption - this should be displayed in table rendering below the chart */
+        }
+      }
+    }
+  };
+  if (chartConfig.chartFundPerf === undefined) {
+    chartConfig.chartFundPerf = function() {
+      return {
+        "init": {
+          "type": "zoomline",
+          "dataLoadStartMessage": chartConfig.dataLoadStartMessage,
+          "width": "100%",
+          "height": "450"
+        },
+        "chart": {
+          "xAxisname": "Unit Price Date",
+          "yAxisname": "% change in relation to starting price",
+          "bgAlpha": "100",
+          "lineThickness":"1",
+          "paletteColors" : "#18509D,#8A1C69,#D74E14,#00864F,#3168b4,#aa418b,#e66630,#23b177",
+          "theme": "zune"
+        }
+      }
+    }
+  };
+  if (chartConfig.chartFundBalance === undefined) {
+    chartConfig.chartFundBalance = function() {
+      return {
+        "init": {
+          "type": "column2d",
+          "width": "100%",
+          "height" : 250,
+          "dataLoadStartMessage": chartConfig.dataLoadStartMessage,
+        },
+        "chart": {
+          "formatNumberScale": "0",
+          "numberPrefix": "£",
+          "thousandSeparator": ",",
+          "decimals": "2",
+          "forceDecimals": "1",
+          "legendBorderThickness" : "0",
+          "showShadow" : "0",
+          "legendShadow" : "0",
+          "baseFont": "Arial",
+          "baseFontSize": "12",
+          "bgColor": "#e3e3e3",
+          "bgAlpha": "100",
+          "borderThickness": "0",
+          "canvasBgAlpha": "0",
+          "paletteColors" : "#18509D,#8A1C69,#D74E14,#00864F,#3168b4,#aa418b,#e66630,#23b177",
+          "canvasBorderThickness" : "0",
+          "canvasBorderColor" : "#dbdbdb",
+          "showPlotBorder" : "0",
+          "plotGradientColor" : "",
+          "divLineColor" : "#e4e4e4",
+          "divLineAlpha" : "100",
+          "yAxisMaxValue" : "",
+          "alternateHGridColor" : "#eeeeee",
+          "alternateHGridAlpha" : "100",
+          "showValues" : "0", /* For now I have turned off values; they were being displayed on top of coloured bar making them difficult to read */
+          "caption" : "" /* Remove json caption - this should be displayed in table rendering below the chart */
+        }
+      }
+    }
+  };
+}( window.chartConfig = window.chartConfig || {} ));

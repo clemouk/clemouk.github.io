@@ -1,0 +1,18 @@
+(function (settings, $, undefined) {
+
+  // Public  properties
+
+  /* These values are mirrored in media-queries.scss */
+  settings.mobile = 480;
+  settings.tablet = 600;
+  settings.desktop = 769;
+  settings.desktopmedium = 980;
+  settings.desktoplarge = 1200;
+  settings.presentationscreen = 1800;
+
+  // Private methods
+
+  // Public methods
+
+
+}(window.settings = window.settings || {}, jQuery));

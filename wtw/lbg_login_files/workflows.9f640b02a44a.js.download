@@ -1,0 +1,110 @@
+(function (workflows, $, undefined) {
+  "use strict";
+  var areYouSurePageIds = ['NEWINVD02', 'NEWINVD03', 'NEWINVD04', 'NEWINVD05', 'NEWINVD06', 'NEWINVD07', 'NEWINVD08',
+    'NEWINVD10', 'NEWINVD11', 'NEWINVD12', 'NEWINVD13',
+    'CD02', 'CD03', 'CD04'];
+  var _pageId = "";
+  workflows.dirty = false;
+
+  // Private methods
+  function verifyUnload() {
+    //if (! $('form').hasClass( "dirty" )) { return; };
+    if (workflows.dirty === false) {
+      return;
+    }
+    return "If you leave now, you will lose your choices.";
+  };
+
+  // Public methods
+
+  /*
+   initialiseWorkflow
+   ----------------
+   Call function with the following parameters:
+   1. page id
+   */
+  workflows.initialiseWorkflow = function (pageId) {
+    _pageId = pageId;
+    // Prevent leaving the process on selected pages
+
+    if (jQuery.inArray(pageId, areYouSurePageIds) !== -1) {
+      // Disable transitions
+      transitions.setupPageTransitions = function () {
+      };
+      window.onbeforeunload = verifyUnload;
+      workflows.dirty = true;
+    }
+  };
+
+  // Generic function to display a page (makes GET of next_page_id)
+  /*
+   form_submit
+   ----------------
+   Call function with the following parameters:
+   1. next page id
+   */
+  workflows.form_submit = function (next_page_id) {
+    if ($("input[name='page_id']").val() === next_page_id) {
+      $("input[name='submit_page_id']").val(next_page_id);
+    } else {
+      $("input[name='next_page_id']").val(next_page_id);
+    }
+    $("input[name='sequence']").val(parseInt($("input[name='sequence']").val(), 10) + 1);
+    workflows.dirty = true;
+    document.form.submit();
+  };
+
+
+  // Generic function to submit data to submit_page_id (makes POST to submit_page_id)
+  //  and next next_page_id page (makes GET of next_page_id)
+  /*
+   call_proc
+   ----------------
+   Call function with the following parameters:
+   1. next page id (optional)
+   2. submit page id (is optional (default is current page_id))
+   */
+  workflows.call_proc = function () { //next_page_id, submit_page_id
+    // assuming that we are submitting to current page and next_page_id holds current page
+    var submit_page_id = $("input[name='page_id']").val();
+    var next_page_id = $("input[name='next_page_id']").val();
+    if (arguments[0]) {
+      next_page_id = arguments[0];
+    }
+    if (arguments[1]) {
+      submit_page_id = arguments[1];
+    }
+    $("input[name='submit_page_id']").val(submit_page_id);
+    $("input[name='next_page_id']").val(next_page_id);
+    $("input[name='sequence']").val(parseInt($("input[name='sequence']").val(), 10) + 1);
+    workflows.dirty = true;
+    document.form.submit();
+  };
+
+  // Function which configures Eval related Menus and Button to open in new window
+  // if 'useParams', declared eval window will open in chrome-less browser window
+  workflows.setupEvalIntegration = function (eval_page_id, waitForUrl, openAfterUrl, useParams) {
+    var urlFromMenu = $("#mainnavLevel2_" + eval_page_id).attr('href');
+
+    if (urlFromMenu === undefined) {
+      urlFromMenu = $("#panel_url_" + eval_page_id).attr('href');
+    }
+
+    $("#mainnavLevel2_" + eval_page_id + ", #panel_url_" + eval_page_id).click(function(e) {
+      e.preventDefault();
+      var params;
+      // parameters have to be optional
+      if (useParams !== undefined) {
+        params = 'toolbar=no,location=no,directories=no,';
+        params += ',status=no,menubar=no,scrollbars=yes,copyhistory=no';
+        params += ',resizable=yes';
+        window.open(urlFromMenu, 'Modeller', params);
+      } else {
+        window.open(urlFromMenu, 'Modeller');
+      }
+    });
+    return false;
+  };
+
+
+}(window.workflows = window.workflows || {}, jQuery));

@@ -1,0 +1,970 @@
+(function(lifUtilities, $, undefined) {
+
+  lifUtilities.setUpAgeometerPopup = function() {
+    $("#dialog-1,#dialog-2,#dialog-3").dialog({
+        autoOpen: false,
+        width: "auto"
+    });
+    $(".open-ageometer").click(function() {
+        $("#dialog-1").dialog("open");
+        return false;
+    });
+    $(".open-spending-planner").click(function() {
+        $("#dialog-2").dialog("open");
+        return false;
+    });
+    $(".open-saving-planner").click(function() {
+        $("#dialog-3").dialog("open");
+        return false;
+    });
+    $(".close-popup").click(function() {
+        $("#dialog-1,#dialog-2").dialog("close");
+    });
+  };
+
+  lifUtilities.checkLifesightAge = function() {
+
+    setTimeout(function () {
+      var $actualAge = $("#LS_AGE_ACTUAL").html();
+      var $lsBarAge = $("#LS_AGE_BAR").html();
+      if($lsBarAge != $actualAge) {
+        $("#LS_AGE_BAR").fadeOut("slow");
+        setTimeout(function () {
+          $("#LS_AGE_BAR").text($actualAge).fadeIn();
+        }, 1000);
+      };
+    }, 10000);
+
+  };
+
+  // to be reviewed
+  lifUtilities.setSection = function() {
+    var loc = window.location.href; // returns the full URL
+    var className = '';
+    if(/home/.test(loc)) {
+    className = 'menu-item1-active';
+    }
+    if(/my-lifesight-account/.test(loc)) {
+    className = 'menu-item2-active';
+    }
+    if(/my-details/.test(loc)) {
+    className = 'my-details';
+    }
+     if(/my-withdrawals/.test(loc)) {
+    className = 'menu-item4-active';
+    }
+    if(/my-investments-process/.test(loc)) {
+    className = 'menu-item6-active';
+    }
+    if(/my-future/.test(loc)) {
+    className = 'menu-item7-active';
+    }
+    if(/changing-my-investments/.test(loc)) {
+    className = 'menu-item6-active';
+    }
+    if(/my-contributions-process/.test(loc)) {
+    className = 'menu-item3-active';
+    }
+    if(/my-tools/.test(loc)) {
+    className = 'menu-item8-active';
+    }
+    if(/my-resources/.test(loc)) {
+    className = 'menu-item8-active';
+    }
+    if(/pages/.test(loc)) {
+    className = 'menu-item8-active';
+    }
+    $('body').addClass(className);
+  };
+
+  lifUtilities.setTabHighlight = function(tabNumber) {
+  $("body").addClass("menu-item"+tabNumber+"-active");
+  };
+
+  lifUtilities.showLifCyclOptions = function() {
+  	function clear_checked(){
+  		$(".lifestyle-options-table td").each(function () {
+				$(this).removeClass("checked");
+			});
+		}
+  	$(".lifestyle-options-table td a").each(function(e){
+  		$(this).hover(function (e) {
+				$(this).parent().toggleClass("hover");
+			});
+  		$(this).focus(function (e) {
+				$(this).parent().addClass("focus");
+			});
+  		$(this).blur(function (e) {
+				$(this).parent().removeClass("focus");
+			});
+  		$(this).click(function(e){
+				e.preventDefault();
+				var description = $(this).attr("href");
+				$('#fundInfo div').hide();
+				clear_checked();
+				$(this).parent().addClass("checked");
+				$(description).toggle();
+			});
+		});
+   };
+
+  lifUtilities.lauchAgeOmeter = function() {
+      $("#dialog-1").dialog("open");
+        return false;
+  };
+
+  lifUtilities.setSaving = function() {
+	  $("body").addClass("saving");
+  };
+
+/*
+  lifUtilities.buildBenStatAnim = function(startBalance, transfers, conts, returns, charges, endBalance) {
+		/!* Polyfills *!/
+		if (!String.prototype.trim) {
+			String.prototype.trim = function() {
+				return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+			};
+		}
+		String.prototype.toTitleCase = function() {
+			return this.replace(/\w\S*!/g, function(txt) {
+				return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+			});
+		};
+		Date.prototype.toFormattedString = function() {
+			var monthNames = [
+				"January", "February", "March",
+				"April", "May", "June", "July",
+				"August", "September", "October",
+				"November", "December"
+			];
+			let day = this.getDate(),
+				monthIndex = this.getMonth(),
+				year = this.getFullYear();
+			return day + ' ' + monthNames[monthIndex] + ' ' + year;
+		}
+		Number.prototype.toFixedCommas = function(num) {
+			return this.toFixed(num).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		}
+
+		//////////////////////////////////////////////
+
+		var person = {
+			"RefNo": $('.refno').text() &&  $('.refno').text().split(':').length > 1 ? $('.refno').text().split(':')[1].trim() : '',
+			"Forename": $('.intro h2').text() ? $('.intro h2').text().split(',')[0] : '',
+			"StartDate": "05/04/2017",
+			"EndDate": "05/04/2018",
+			"StartBalance": startBalance,
+			"Contributions": conts,
+			"Transfers": transfers,
+			"Return": returns,
+			"Withdrawals": 0,
+			"Charges": charges,
+			"EndBalance": endBalance
+		}
+
+		//////////////////////////////////////////
+
+		/!*********
+		 * Setup *
+		 *********!/
+		CSSPlugin.useSVGTransformAttr = true;
+		var master = new TimelineMax({
+				id: "Master",
+				paused: true
+			}),
+			//bg = $("#background"),
+			sceneH = 720, //$("#scene").height(),
+			sceneW = 1280, //$("#scene").width(),
+			centerY = sceneH / 2,
+			centerX = sceneW / 2,
+			radius = Math.round(Math.pow(centerX * centerX + centerY * centerY, 0.5)) + 20,
+			slider = $("#ctrl_slider"),
+			sliderValue = {
+				value: 0
+			},
+			_isOldIE = (document.all && !document.addEventListener),
+			scrubbing = false,
+			voiceSupport = false,
+			startDate = new Date(person["StartDate"].replace(/(\d{2})\/(\d{2})\/(\d{2,4})/, "$2/$1/$3")),
+			endDate = new Date(person["EndDate"].replace(/(\d{2})\/(\d{2})\/(\d{2,4})/, "$2/$1/$3"));
+
+		startDate.setDate(startDate.getDate() + 1);
+		startDate = startDate.toFormattedString();
+		endDate = endDate.toFormattedString();
+
+		master.delay(1);
+
+		/!*********
+		 * Build *
+		 *********!/
+
+		// Build master timeline with nested scenes, (second parametre is timing adjustments)
+		master.add(table())
+
+
+		/!***********
+		 * Helpers *
+		 ***********!/
+		//GSDevTools.create({paused:true, id:"Master Dev"})
+		function svgPath(points, relative) {
+			let M = relative ? "m" : "M",
+				L = relative ? "l" : "L",
+				H = relative ? "h" : "H",
+				V = relative ? "v" : "V";
+			points = points.map(function(p) {
+				return {
+					x: p[0],
+					y: p[1]
+				}
+			})
+			let p = points.shift(),
+				d = M + " " + p.x + "," + p.y + " ",
+				prev = p
+			while (points.length) {
+				p = points.shift()
+				if (prev.y == p.y)
+					d += H + " " + p.x + " "
+				else if (prev.x == p.x)
+					d += V + " " + p.y + " "
+				else
+					d += L + " " + p.x + "," + p.y + " "
+				prev = p
+			}
+			return d
+		}
+
+		function getWidthofText(str, cls) {
+			let tester = $("#offScreenText");
+			TweenMax.set(tester, {
+				textContent: str,
+				class: cls === undefined ? "featureText" : cls
+			});
+			return tester[0].getBBox().width
+		}
+
+		/!*********
+		 * Table *
+		 *********!/
+
+		function table() {
+			// Init vars
+			var tl = new TimelineLite({
+				id: "Table"
+			});
+			TweenMax.set("#table-header", {
+				textContent: "My LifeSight Account balance at " + startDate
+			});
+			TweenMax.set("#table-startBalance", {
+				textContent: "£" + person["StartBalance"].toFixedCommas(0)
+			});
+			TweenMax.set("#table-transfers", {
+				textContent: "£" + person["Transfers"].toFixedCommas(0)
+			});
+			TweenMax.set("#table-conts", {
+				textContent: "£" + person["Contributions"].toFixedCommas(0)
+			});
+			TweenMax.set("#table-return", {
+				textContent: (person["Return"] < 0 ? "-£" : "£") + Math.abs(person["Return"]).toFixedCommas(0)
+			});
+			TweenMax.set("#table-charges", {
+				textContent: "-£" + Math.abs(person["Charges"]).toFixedCommas(0)
+			});
+			TweenMax.set("#table-footer", {
+				textContent: "My LifeSight Account balance at " + endDate
+			});
+			TweenMax.set("#table-endBalance", {
+				textContent: "£" + person["EndBalance"].toFixedCommas(0)
+			});
+			tl.to("#charges", 2, {
+				x: -1280,
+				ease: Elastic.easeOut
+			});
+			tl.to("#orangeTop, #orangeBottom", 2, {
+				attr: {
+					x: 0
+				},
+				ease: Elastic.easeOut
+			}, "-=2");
+			tl.from("#table-header", 1.2, {
+				x: -60,
+				opacity: 0,
+				ease: Power2.easeOut
+			});
+			tl.from("#table-startBalance", 1, {
+				x: -60,
+				opacity: 0,
+				ease: Power2.easeOut
+			}, "-=0.5");
+			tl.staggerFrom(".table-grey,.table-row", 0.6, {
+				y: -30,
+				opacity: 0,
+				ease: Power2.easeOut
+			}, 0.2, "+=1");
+			tl.staggerFrom(".table-figure", 0.6, {
+				y: -30,
+				opacity: 0,
+				ease: Power2.easeOut
+			}, 0.2);
+			tl.from("#table-footer", 1.2, {
+				x: -60,
+				opacity: 0,
+				ease: Power2.easeOut
+			}, "+=1");
+			tl.from("#table-endBalance", 1, {
+				x: -60,
+				opacity: 0,
+				ease: Power2.easeOut
+			}, "-=0.5");
+			return tl
+		}
+		/!****** * UI * ******!/
+		// Slider
+		slider.slider({
+			range: false,
+			min: 0,
+			max: 100,
+			step: 0.1,
+			start: function() {
+				if ($("#play").is(":visible")) {
+					$("#play").hide()
+				}
+				master.pause()
+				scrubbing = true
+			},
+			slide: function(event, ui) {
+				master.progress(ui.value / 100);
+			},
+			stop: function() {
+				master.play()
+				scrubbing = false
+			}
+		});
+		master.eventCallback("onUpdate", function() {
+			sliderValue.value = master.progress() * 100;
+			slider.slider(sliderValue);
+		});
+		master.eventCallback("onComplete", replayReveal);
+
+		function replayReveal() {
+			var tl = new TimelineLite(),
+				$replayIcon = $("#replayIcon"),
+				$replay = $("#replay").mouseenter(function() {
+					TweenLite.to($replayIcon, 0.4, {
+						rotation: "+=360"
+					});
+					TweenLite.to($replay, 0.4, {
+						opacity: 1
+					});
+				}).mouseleave(function() {
+					TweenLite.to($replay, 0.4, {
+						opacity: 0.65
+					});
+				}).click(function() {
+					master.restart();
+					//music.seek(0)
+				});
+			tl.from($replay, 0.5, {
+				autoAlpha: 0,
+				scale: 2
+			});
+			tl.from($replayIcon, 0.5, {
+				rotation: "360_ccw"
+			});
+			return tl;
+		}
+		TweenLite.set("#scene", {
+			perspective: 700,
+			visibility: "visible"
+		});
+		$('#play').on('click', function() {
+			$(this).hide();
+			master.restart()
+		})
+  };
+*/
+
+	lifUtilities.buildBenStatAnim = function(startBalance, transfers, conts, returns, charges, endBalance) {
+
+		/* Polyfills */
+		if (!String.prototype.trim) {
+			String.prototype.trim = function() {
+				return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+			};
+		}
+		String.prototype.toTitleCase = function() {
+			return this.replace(/\w\S*/g, function(txt) {
+				return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+			});
+		};
+		var months = [
+			"January", "February", "March",
+			"April", "May", "June", "July",
+			"August", "September", "October",
+			"November", "December"
+		];
+		Number.prototype.toFixedCommas = function(num) {
+			return this.toFixed(num).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		}
+
+		//////////////////////////////////////////////
+
+		var person = {
+			"RefNo": $('.refno').text() &&  $('.refno').text().split(':').length > 1 ? $('.refno').text().split(':')[1].trim() : '',
+			"Forename": $('.intro h2').text() ? $('.intro h2').text().split(',')[0] : '',
+			"StartDate": "05/04/2017",
+			"EndDate": "05/04/2018",
+			"StartBalance": startBalance,
+			"Contributions": conts,
+			"Transfers": transfers,
+			"Return": returns,
+			"Withdrawals": 0,
+			"Charges": charges,
+			"EndBalance": endBalance
+		}
+
+		//////////////////////////////////////////
+
+		/*********
+		 * Setup *
+		 *********/
+		CSSPlugin.useSVGTransformAttr = true;
+		var master = new TimelineMax({
+				id: "Master",
+				paused: true
+			}),
+			//bg = $("#background"),
+			sceneH = 720, //$("#scene").height(),
+			sceneW = 1280, //$("#scene").width(),
+			centerY = sceneH / 2,
+			centerX = sceneW / 2,
+			radius = Math.round(Math.pow(centerX * centerX + centerY * centerY, 0.5)) + 20,
+			slider = $("#ctrl_slider"),
+			sliderValue = {
+				value: 0
+			},
+			_isOldIE = (document.all && !document.addEventListener),
+			scrubbing = false,
+			voiceSupport = false,
+			startDate = new Date(person["StartDate"].replace(/(\d{2})\/(\d{2})\/(\d{2,4})/, "$2/$1/$3")),
+			endDate = new Date(person["EndDate"].replace(/(\d{2})\/(\d{2})\/(\d{2,4})/, "$2/$1/$3"));
+
+		startDate.setDate(startDate.getDate() + 1);
+
+		//master.delay(1);
+
+		/*********
+		 * Build *
+		 *********/
+
+		// Build master timeline with nested scenes, (second parametre is timing adjustments)
+		master.add(titleScene())
+		  .add( titleToStreet() )
+		  .add( startScene() )
+		  .add( transfersScene() )
+		  .add( contsScene() )
+		  .add( investmentsScene(), "-=1" )
+		  .add( chargesScene(), "-=2" )
+		  .add( endScene() )
+
+
+		/***********
+		 * Helpers *
+		 ***********/
+		//GSDevTools.create({paused:true, id:"Master Dev"})
+		function svgPath(points, relative) {
+			let M = relative ? "m" : "M",
+				L = relative ? "l" : "L",
+				H = relative ? "h" : "H",
+				V = relative ? "v" : "V";
+			points = points.map(function(p) {
+				return {
+					x: p[0],
+					y: p[1]
+				}
+			})
+			let p = points.shift(),
+				d = M + " " + p.x + "," + p.y + " ",
+				prev = p
+			while (points.length) {
+				p = points.shift()
+				if (prev.y == p.y)
+					d += H + " " + p.x + " "
+				else if (prev.x == p.x)
+					d += V + " " + p.y + " "
+				else
+					d += L + " " + p.x + "," + p.y + " "
+				prev = p
+			}
+			return d
+		}
+
+		function getWidthofText(str, cls) {
+			let tester = $("#offScreenText");
+			TweenMax.set(tester, {
+				textContent: str,
+				class: cls === undefined ? "featureText" : cls
+			});
+			return tester[0].getBBox().width
+		}
+
+		/*********
+		 * Title *
+		 *********/
+
+		function titleScene() {
+		  // Init vars
+		  var tl = new TimelineLite({id:"Title"}),
+			  logoRects = $("#rects rect"),
+			  sight = $("#sight"),
+			  name = $("#name"),
+			  xmlns = "http://www.w3.org/2000/svg",
+			  qty = 25;
+		  TweenMax.set(name, {textContent:person["Forename"].trim().toTitleCase()})
+		  // Generate mini squares
+		  let g = $('#minisquares');
+		  let four = {
+			yellow: {
+			  center: [447.5,274.5-2280],
+			  x: [-200, 540],
+			  y: [-200-2280, 260-2280],
+			  validStart: function(x,y){
+				return (y < -60-2280 && x < 540) || (x<-60 && y<260-2280)
+			  }
+			},
+			pink: {
+			  center: [558.5,274.5-2280],
+			  x: [740, 1480],
+			  y: [-200-2280, 260-2280],
+			  validStart: function(x,y){
+				return (y < -60-2280 && x > 740) || (x>1280 && y<260-2280)
+			  }
+			},
+			blue: {
+			  center: [558.5,385.5-2280],
+			  x: [740, 1480],
+			  y: [460-2280, 920-2280],
+			  validStart: function(x,y){
+				return (y > 780-2280 && x > 740) || (x>1280 && y>460-2280)
+			  }
+			},
+			purple: {
+			  center: [447.5,385.5-2280],
+			  x: [-200, 540],
+			  y: [460-2280, 920-2280],
+			  validStart: function(x,y){
+				return (y > 780-2280 && x < 540) || (x<-60 && y>460-2280)
+			  }
+			}
+		  };
+		  Object.keys(four).forEach(function(cls,i,arr){
+			let dat = four[cls]
+			for (let j = 0; j < qty; j++) {
+			  let sqr = document.createElementNS(xmlns, "rect");
+			  sqr.setAttributeNS(null, "class", cls);
+			  let x = dat.x[0]+(Math.random()*(dat.x[1]-dat.x[0])),
+				  y = dat.y[0]+(Math.random()*(dat.y[1]-dat.y[0])),
+				  wh = 111/9+Math.pow(Math.random(), 2)*(2*111/9);
+			  while(!dat.validStart(x,y)){
+				x = dat.x[0]+(Math.random()*(dat.x[1]-dat.x[0]))
+				y = dat.y[0]+(Math.random()*(dat.y[1]-dat.y[0]))
+			  }
+			  sqr.setAttributeNS(null, "x", x);
+			  sqr.setAttributeNS(null, "y", y);
+			  sqr.setAttributeNS(null, "width", wh);
+			  sqr.setAttributeNS(null, "height",wh);
+			  g.append(sqr)
+			  TweenMax.set(sqr, {transformOrigin:"50% 50%"})
+			  tl.to(sqr, 2, {
+				x: dat.center[0]-wh/2-x,
+				y:dat.center[1]-wh/2-y,
+				rotation:720,
+				ease: Power2.easeInOut
+			  }, i+Math.random()*2)
+			}
+		  });
+		  // Scale in rects
+		  TweenMax.set(logoRects, {transformOrigin:"50% 50%"})
+		  tl.staggerFrom(logoRects, 2, {scale:0, ease:Power1.easeOut}, 1,"-=5");
+		  // Speak and Sight
+		  tl.call(function(){
+			if(master.isActive() && voiceSupport && !responsiveVoice.isPlaying())
+			  responsiveVoice.speak("Hello "+person+". This is your e-benefit statement. Let me take you through your account over the last year");
+		  },window)
+		  tl.from(sight, 3, {opacity:0, ease:Power4.easeInOut}, "-=1.2");
+		  // Then name
+		  tl.set("#minisquares", {visibility:"hidden"});
+		  return tl;
+		}
+
+		function titleToStreet() {
+		  // Init vars
+		  var tl = new TimelineLite({id:"titleToScene"});
+		  tl.to("#scene", 6, {attr:{viewBox:"0 0 1280 1280"}, ease:Power2.easeInOut});
+		  return tl
+		}
+
+		/*********
+		 * Scene *
+		 *********/
+
+		function startScene() {
+		  // Init vars
+		  var tl = new TimelineLite({id:"start"});
+		  //Change text
+		  TweenMax.set("#start-year",{
+			textContent: startDate.getFullYear()
+		  })
+		  TweenMax.set("#start-month",{
+			textContent: months[startDate.getMonth()]
+		  })
+		  TweenMax.set("#start-date",{
+			textContent: startDate.getDate()
+		  })
+		  TweenMax.set("#start-balance",{
+			textContent: "£"+person["StartBalance"].toFixedCommas(0)
+		  })
+		  //Tween
+		  tl.from("#start", 1, {y:-300, opacity:0, ease:Power4.easeOut});
+		  tl.from("#start-text", 1, {y:-300, opacity:0, ease:Power4.easeOut});
+		  tl.from("#start-balance", 1, {y:300, opacity:0, ease:Power4.easeOut});
+		  return tl
+		}
+
+		function transfersScene() {
+		  // Init vars
+		  var tl = new TimelineLite({id:"transfers"});
+		  //Change text
+		  TweenMax.set("#transfers",{
+			textContent: "£"+person["Transfers"].toFixedCommas(0)
+		  })
+		  // Tween
+		  tl.to("#scene", 2, {attr:{viewBox:"1280 0 1280 1280"}, ease:Power2.easeInOut});
+		  tl.to("#lorry",6,{x:-600, ease:Power0.easeNone},"-=2")
+		  tl.to("#cloud1",6,{x:-200, ease:Power0.easeNone},"-=6")
+		  tl.from("#transfers-text", 1, {y:-300, opacity:0, ease:Power4.easeOut},"-=4");
+		  tl.from("#transfers", 1, {y:300, opacity:0, ease:Power4.easeOut},"-=3");
+		  return tl
+		}
+
+		/*********
+		 * Scene *
+		 *********/
+
+		function contsScene() {
+		  // Init vars
+		  var tl = new TimelineLite({id:"conts"});
+		  //Change text
+		  TweenMax.set("#conts",{
+			textContent: "£"+person["Contributions"].toFixedCommas(0)
+		  })
+		  // Tween
+		  tl.to("#scene", 2, {attr:{viewBox:"2520 0 1280 1280"}, ease:Power2.easeInOut});
+		  tl.to("#truck",6,{x:1200, ease:Power0.easeNone},"-=2")
+		  tl.to("#cloud2",7,{x:-300, ease:Power0.easeNone},"-=6")
+		  tl.from("#conts-text", 1, {y:-300, opacity:0, ease:Power4.easeOut},"-=4");
+		  tl.from("#conts", 1, {y:300, opacity:0, ease:Power4.easeOut},"-=3");
+		  //tl.set("#truck",{visibility:"hidden"})
+		  return tl
+		}
+
+		/*********
+		 * Scene *
+		 *********/
+
+		function investmentsScene() {
+		  // Init vars
+		  var tl = new TimelineLite({id:"investments"});
+		  //Change text
+		  TweenMax.set("#return",{
+			textContent: (person["Return"] < 0 ? "– £":"£")+Math.abs(person["Return"]).toFixedCommas(0)
+		  })
+		  // Tween
+		  tl.to("#scene", 2, {attr:{viewBox:"3800 0 1280 1280"}, ease:Power2.easeInOut});
+		  tl.to("#truck",6,{x:2000, ease:Power0.easeNone},"-=2")
+		  tl.to("#cloud3",8,{x:-400, ease:Power0.easeNone},"-=6")
+		  tl.to("#plane",2,{x:-2400, ease:Power0.easeNone},"-=6")
+		  tl.from("#return-text", 1, {y:-300, opacity:0, ease:Power4.easeOut},"-=6");
+		  tl.from("#return", 1, {y:300, opacity:0, ease:Power4.easeOut},"-=5");
+		  return tl
+		}
+
+		/*********
+		 * Scene *
+		 *********/
+
+		function chargesScene() {
+		  // Init vars
+		  var tl = new TimelineLite({id:"charges"});
+		  //Change text
+		  TweenMax.set("#charges",{
+			textContent: "– £"+Math.abs(person["Charges"]).toFixedCommas(0)
+		  })
+		  // Tween
+		  tl.to("#scene", 2, {attr:{viewBox:"5080 0 1280 1280"}, ease:Power2.easeInOut});
+		  tl.to("#cloud4",6,{x:900, ease:Power0.easeNone},"-=2")
+		  TweenMax.set("#blades, #tail", {transformOrigin:"50% 50%"})
+		  TweenMax.to("#blades", 0.2, {scaleX:-1, ease:Linear.easeNone, repeat:-1});
+		  TweenMax.to("#tail", 0.3, {rotation:360, ease:Linear.easeNone, repeat:-1});
+		  tl.to("#helicopter", 6, {y:-200, ease:Power1.easeOut},"-=6");
+		  tl.from("#charges-text", 1, {y:-300, opacity:0, ease:Power4.easeOut},"-=4");
+		  tl.from("#charges", 1, {y:300, opacity:0, ease:Power4.easeOut},"-=3");
+		  return tl
+		}
+
+		/*********
+		 * Scene *
+		 *********/
+
+		function endScene() {
+		  // Init vars
+		  var tl = new TimelineLite({id:"end"});
+		  //Change text
+		  TweenMax.set("#end-year",{
+			textContent: endDate.getFullYear()
+		  })
+		  TweenMax.set("#end-month",{
+			textContent: months[endDate.getMonth()]
+		  })
+		  TweenMax.set("#end-date",{
+			textContent: endDate.getDate()
+		  })
+		  TweenMax.set("#end-balance",{
+			textContent: "£"+person["EndBalance"].toFixedCommas(0)
+		  })
+		  tl.to("#scene", 2, {attr:{viewBox:"6360 0 1280 1280"}, ease:Power2.easeInOut});
+		  tl.from("#end", 1, {y:-300, opacity:0, ease:Power4.easeOut});
+		  tl.from("#end-text", 1, {y:-300, opacity:0, ease:Power4.easeOut});
+		  tl.from("#end-balance", 1, {y:300, opacity:0, ease:Power4.easeOut});
+		  return tl
+		}
+
+		/****** * UI * ******/
+		// Slider
+		slider.slider({
+			range: false,
+			min: 0,
+			max: 100,
+			step: 0.1,
+			start: function() {
+				if ($("#play").is(":visible")) {
+					$("#play").hide()
+				}
+				master.pause()
+				scrubbing = true
+			},
+			slide: function(event, ui) {
+				master.progress(ui.value / 100);
+			},
+			stop: function() {
+				master.play()
+				scrubbing = false
+			}
+		});
+		master.eventCallback("onUpdate", function() {
+			sliderValue.value = master.progress() * 100;
+			slider.slider(sliderValue);
+		});
+		master.eventCallback("onComplete", replayReveal);
+
+		function replayReveal() {
+			var tl = new TimelineLite(),
+				$replayIcon = $("#replayIcon"),
+				$replay = $("#replay").mouseenter(function() {
+					TweenLite.to($replayIcon, 0.4, {
+						rotation: "+=360"
+					});
+					TweenLite.to($replay, 0.4, {
+						opacity: 1
+					});
+				}).mouseleave(function() {
+					TweenLite.to($replay, 0.4, {
+						opacity: 0.65
+					});
+				}).click(function() {
+					master.restart();
+					//music.seek(0)
+				});
+			tl.from($replay, 0.5, {
+				autoAlpha: 0,
+				scale: 2
+			});
+			tl.from($replayIcon, 0.5, {
+				rotation: "360_ccw"
+			});
+			return tl;
+		}
+		TweenLite.set("#scene", {
+			perspective: 700,
+			visibility: "visible"
+		});
+		$('#play').on('click', function() {
+			$(this).hide();
+			master.restart()
+		})
+	}
+
+	lifUtilities.getBenStatData = function(sourceDataTable) {
+		var data = [];
+		var $rows = $(sourceDataTable).find('tbody tr');
+		$rows.each(function () {
+			var dataItem = $(this).find('.col1 span').clone().children().remove().end().text();
+			var dataValue = $(this).find('.col2 span').clone().children().remove().end().text().replace('£','').replace(',','');
+			data.push({ "label": dataItem, "value": dataValue });
+		});
+		console.log(data);
+		return data;
+	}
+
+  lifUtilities.matomoTrackEvent = function(mCategory, mAction, mName, mValue ) {
+    if(typeof _paq !== "undefined")
+    {
+      _paq.push([ 'trackEvent', mCategory, mAction, mName, mValue ]);
+    }
+  };
+
+  lifUtilities.fixMyLatestPymtPanel = function(myLatestPymtElement) {
+  	const regexExp = /(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})/gi;
+
+  	if( typeof Math.log10 == "undefined" ){
+  		Object.prototype.log10 = function(n){
+  				return Math.log(n)/Math.log(10);
+  		}
+  	}
+
+		myLatestPymtLooper = $(myLatestPymtElement);
+		myLatestPymtLooper.each(function() {
+			var_is_negative = false
+			// this loop will only trigger when myLatestPymtElement
+			// element (class) actually exists
+			var_total_payment = $(this).data('raw-value');
+			var_orig_value = $(this).data('value');
+			// test if this is a date
+			// for some reason, this 'trips' sometimes and doesn't work
+			// we'll just keep it for the meantime
+			// if(regexExp.test(var_total_payment)) {
+			if(var_total_payment.indexOf('/')>-1) {
+				var var_replacement_val = var_total_payment.substr(0,6) + var_total_payment.substr(-2);
+			} else {
+				// otherwise, this is a currency/amount
+				var_currency_symbol = $(this).data('value').substr(0,1);
+				// negative values trips/errors Math.log10, so we remove it
+				if (var_total_payment < 0) var_is_negative = true;
+				var_total_payment =  (var_total_payment < 0) ? var_total_payment * -1 : var_total_payment
+				// now we check if value is in thousands and up, if so apply 'K' formatting
+				// else, leave it as-is
+				is_thousands = Math.floor(Math.log10(var_total_payment)) + 1 > 3 ? true : false;
+			  if(is_thousands) {
+			  	// convert 1000's to K
+			  	var_replacement_val = Math.round((var_total_payment/1000) * 100) / 100;
+		  		// put negative sign if originally a negative value
+				  if (var_is_negative) var_replacement_val = '-' + var_replacement_val;
+				  // we verify if we've previously got a 'currency' symbol (NaN = Not a Number)
+			  	if(isNaN(var_currency_symbol)) {
+					  // we have a currency symbol, get this
+					  var_replacement_val = var_currency_symbol + var_replacement_val + 'K';
+					} else {
+						// no currency sign?
+						var_replacement_val = var_replacement_val + 'K';
+					}
+				}
+			}
+
+			// this is the actual span value replacement
+			$(this).find('span').text(var_replacement_val);
+			// preserve original value by creating new data field
+			// we'll use this on js/mediaquery
+			$(this).data('orig-value', var_orig_value);
+
+		});
+  };
+
+  lifUtilities.restoreValues = function(myLatestPymtElement) {
+  	myLatestPymtLooper = $(myLatestPymtElement);
+		myLatestPymtLooper.each(function() {
+			var_orig_value = $(this).data('orig-value');
+			$(this).find('span').text(var_orig_value);
+		});
+  };	
+
+  lifUtilities.formatDate = function(date_str) {
+	var date_split = date_str.split('-');
+	var new_date = new Date(date_split[0], date_split[1]-1, date_split[2]);
+	return new_date
+  }
+
+  lifUtilities.getAgeAtDate = function(dob_str, calc_date_str) {
+	var dob = lifUtilities.formatDate(dob_str);
+	var calc_date = lifUtilities.formatDate(calc_date_str);
+	var years = (calc_date.getFullYear() - dob.getFullYear());
+	if (calc_date.getMonth() < dob.getMonth() ||
+		calc_date.getMonth() == dob.getMonth() && calc_date.getDate() < dob.getDate()) {
+		years--;
+	}
+	return years;
+  }
+
+  lifUtilities.setCalcDateValue = function(calcdate_input_elem, dob_str, min_ret_age) {
+	function pad(n) {
+	  return (n < 10) ? ('0' + n) : n;
+	}
+
+	var nth_dob = lifUtilities.formatDate(dob_str);
+	nth_dob.setFullYear(nth_dob.getFullYear() + min_ret_age);
+	var calc_input_init_value = lifUtilities.formatDate(calcdate_input_elem.attr('value'));
+	var calcdate_input_hidden = calcdate_input_elem.siblings('input[type=hidden]');
+
+	if (nth_dob > calc_input_init_value) {
+		var nth_dob_str = nth_dob.getFullYear() + "-" + pad(nth_dob.getMonth() + 1) + "-" + pad(nth_dob.getDate());
+		calcdate_input_elem.attr('value', nth_dob.getFullYear() + "-" + pad(nth_dob.getMonth() + 1) + "-" + pad(nth_dob.getDate()));
+		if (Modernizr.inputtypes.date) {
+			calcdate_input_hidden.attr('value', nth_dob_str.split('-').reverse().join('/'));
+		} else {
+			calcdate_input_elem.datepicker('setDate', nth_dob_str.split('-').reverse().join('/'));
+		}
+	}
+  }
+
+  lifUtilities.getOutdatedBrowserConfig = function () {
+  	return {
+  		required:{e:-6,f:-6,o:-6,s:-6,c:-6}, // Negative numbers specify how much versions behind current version.
+		insecure: true,
+		unsupported: true, // All browser versions that are not supplied with updates by the vendor any more get notified.
+		api: 2021.11, // This is the version of the browser-update api to use
+		reminder: 0, // After how many hours should the message reappear.
+		reminderClosed: 24, // If the member explicitly closes message it reappears after x hours
+		no_permanent_hide: true, // Give the user the option to permanently hide the notification.
+		text_for_i: {
+  			'msg': 'Your browser ({brow_name}) is no longer supported.',
+			'msgmore': 'You\'ll need to change to a modern browser to continue accessing this site.'
+        }
+	}
+  }
+
+  lifUtilities.showOutdatedBrowserMsg = function() {
+  	function $buo_f(){
+	  	var e = document.createElement("script");
+	  	e.src = "//browser-update.org/update.min.js";
+		document.body.appendChild(e);
+  	}
+  	try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+  	catch(e){window.attachEvent("onload", $buo_f)}
+  }
+
+  lifUtilities.triggerClickElementEvent = function ($fromElem, $triggerElem) {
+  	if ($fromElem.length && $triggerElem.length) {
+		$fromElem.click(function(e) {
+			e.preventDefault();
+			$triggerElem.trigger('click');
+		});
+	}
+  }
+  
+}( window.lifUtilities = window.lifUtilities || {}, jQuery ));
+
+if (window.navigator.standalone || window.styleMedia.type == 'standalone') {
+  //alert("This is running as standalone.");
+  document.body.setAttribute("style", "-webkit-user-select: none; -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none;");
+}
+
+
+

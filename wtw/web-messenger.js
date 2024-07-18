@@ -17,16 +17,19 @@ function wireHandlers(){
     $('#updateDatabase').click(function(e){    
         e.preventDefault();
         
+    var _debugMode=$('#debugMode').is(":checked") ? 'On' : 'Off';
+    var _smallImages=$('#smallImages').is(":checked") ? 'Yes' : 'No';
+
+
         attributes={
-            memberForename: $('#memberForename').val(),
-            bgroup: $('#broup').val(),
+            memberForename: '', // $('#memberForename').val(),
+            bgroup: 'LBG', // $('#broup').val(),
             referenceNumber: $('#referenceNumber').val(),
-            debugMode: $('#debugMode').val(),
-            smallImages: $('#smallImages').val(),
+            debugMode: _debugMode,
+            smallImages: _smallImages,
         }
         console.log('setting attributes: ',attributes);
         setDatabase();    
-
         
       });
 

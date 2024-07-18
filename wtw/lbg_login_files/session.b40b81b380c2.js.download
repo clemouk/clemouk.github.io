@@ -1,0 +1,73 @@
+(function (session, $, undefined) {
+  "use strict";
+
+  // Public methods
+  session.initialize = function () {
+    session.setTimeOutWarning($('#id-session-timeout').data());
+  };
+
+  session.setTimeOutWarning = function (data) {
+    var pageReloadCorrection = 3, idleTimeLeft = data.maxidletime * 60 - data.warningtime - pageReloadCorrection;
+
+    $("#id-session-timeout").dialog(
+      {autoOpen : false, modal : true,
+        title: data['dialog-title'],
+        show : "blind", hide : "blind",
+        buttons: {
+          OK: function () {
+            $(this).dialog("close");
+          }
+        },
+        close: function (event, ui) {
+          session.refresh();
+        }
+      }
+    );
+    $("#timeout-warning-time").html(data.warningtime);
+    if (idleTimeLeft) {
+      setTimeout(function () {
+        session.showTimeOutWarning();
+        setTimeout(function () {
+          session.countDownAndRedirectToLogout(data.warningtime);
+        }, 1000);
+      }, idleTimeLeft * 1000);
+    }
+  };
+
+
+  session.countDownAndRedirectToLogout = function (counter) {
+    if ($('#id-session-timeout').dialog('isOpen') === true) {
+      // Display 'counter' wherever you want to display it.
+      if (counter >= 0) {
+        $("#timeout-warning-time").html(counter);
+      }
+
+      if (counter === 0) {
+        // Added try catch to handle webchat session closing,
+        // Due to lack of control on webchat existence when session expiration invokes
+        try{ deleteWebchatHistory();}
+        catch (err){
+          console.log('Webchat for this member is not enabled' + err);
+        }
+        window.location.replace("/accounts/session-expired/");
+      } else {
+        setTimeout(function () {
+          session.countDownAndRedirectToLogout(counter - 1);
+        }, 1000);
+      }
+    }
+  };
+
+
+  session.showTimeOutWarning = function () {
+    $('#id-session-timeout').dialog("open");
+  };
+
+  session.refresh = function () {
+    $.get("/html/keep-alive.html", function (data) { })
+      .always(function () {
+        session.setTimeOutWarning($('#id-session-timeout').data());
+      });
+  };
+
+}(window.session = window.session || {}, jQuery));

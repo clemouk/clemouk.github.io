@@ -1,0 +1,178 @@
+
+const genesysUrl = 'https://apps.euw2.pure.cloud/genesys-bootstrap/genesys.min.js';
+const genesysConfig = {
+    environment: 'prod-euw2',
+    deploymentId: contextData.deploymentId
+}
+const cxData = {
+    referenceNumber: contextData.referenceNumber,
+    memberForename: contextData.initial,
+    bgroup: contextData.bgroup
+};
+
+
+function CXAttributes(o) {
+    if (!(typeof o === 'object' && !Array.isArray(o) && (o === Object(o)))) return
+    window.Genesys('command', 'Database.set', {messaging: {customAttributes: o}})
+};
+
+let isclosed = false;
+
+
+function initializeWebchat(g, e, n, es, ys) {
+    g['_genesysJs'] = e;
+    g[e] = g[e] || function () {
+      (g[e].q = g[e].q || []).push(arguments)
+    };
+    g[e].t = 1 * new Date();
+    g[e].c = es;
+    ys = document.createElement('script');
+    ys.async = 1;
+    ys.src = n;
+    ys.charset = 'utf-8';
+    document.head.appendChild(ys);
+    ys.onload = function () {
+        window.Genesys('subscribe', 'Messenger.ready', function () {
+            window.Genesys('subscribe', 'MessagingService.ready', function () {
+                CXAttributes(cxData);
+            })
+            window.Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
+                CXAttributes(cxData);
+            })
+            window.Genesys('subscribe', 'MessagingService.conversationCleared', function () {
+                CXAttributes(cxData);
+            })
+        })
+    }
+}
+
+
+function openChatWindow(){
+    window.Genesys("command", "Messenger.open");
+}
+
+
+function closeChatWindow(){
+    window.Genesys("command", "Messenger.close");
+}
+
+
+function isWebchatActive(){
+    const webchatSessionKey = `_${contextData.deploymentId}:gcmcsessionActive`;
+    return !!localStorage.getItem(webchatSessionKey);
+}
+
+
+function clearConversation(){
+    try {
+        window.Genesys("command", "MessagingService.clearConversation", {},
+            function () {
+                isclosed = true;
+                console.log('Successfully closed the webchat session');
+            },
+            function () {
+                isclosed = false;
+                console.log('Unable to close the webchat session');
+            }
+        );
+    }catch(err){
+        console.log('Unable to close the webchat session, ' + err.message);
+    }
+}
+
+
+function closeWebchatSession(retry=3, delay=1){
+    if (isclosed) return;
+    clearConversation();
+
+    function sleep(ms) {
+      // function to wait for specified time in millisecond
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    if (retry >= 1 && !isclosed){
+        retry -= 1;
+        sleep(delay * 1000).then(() => {
+            closeWebchatSession(retry, delay);
+        });
+        delay += 1;
+    }
+}
+
+
+function deleteWebchatHistory(){
+    let status = isWebchatActive();
+    if (typeof status !== undefined && status){
+        closeWebchatSession();
+        localStorage.removeItem('_actmu');
+        // localStorage.removeItem(webchatSessionKey);
+        Object.keys(localStorage).forEach(
+                key => key.includes(':gcmcsessionActive') && localStorage.removeItem(key)
+            );
+    }
+}
+
+
+function generateDiaglog(contextData, showDiagData){
+    var webchatSessionKey = `_${contextData.deploymentId}:gcmcsessionActive`;
+    var isWebchatSessionActive = localStorage.getItem(webchatSessionKey);
+
+    if (isWebchatSessionActive){
+        var dialogContent = $("<div>").attr("id", "popup-dialog");
+        dialogContent.append("<p>You’ve still got a chat session open. It’ll close automatically when you leave here. \ " +
+            "Click <strong>Continue</strong> to leave or <strong>Cancel</strong> to stay and carry on.</p>");
+        $("#contentPrimary").append(dialogContent);
+
+        $("#popup-dialog").dialog({
+            title: "Redirect Confirmation",
+            autoOpen: true,
+            modal: true,
+            draggable : false,
+            closeOnEscape : false,
+            dialogClass : "no-close",
+            buttons: {
+               "Continue": function() {
+                   deleteWebchatHistory();
+                   $(this).dialog('close');
+                   window.location.href = showDiagData.redirectTo;
+               },
+                "Cancel": function() {
+                   $(this).dialog('close');
+                   window.location.href = showDiagData.currentReferer;
+               }
+            },
+            open: function (event, ui){
+                $(".no-close .ui-dialog-titlebar-close").css("display", "none");
+            }
+        });
+    }else window.location.href = showDiagData.redirectTo;
+}
+
+
+$(function(){
+    if(contextData.isWebchatEnabled){
+        initializeWebchat(window, 'Genesys', genesysUrl, genesysConfig);
+        Genesys("command", "Database.set",
+        {
+        messaging: {
+            customAttributes: {
+                bgroup: contextData.bgroup,
+                referenceNumber: contextData.referenceNumber
+            }
+        }
+        });
+
+        for (const button of document.querySelectorAll('a[href="/accounts/logout/"]')) {
+            button.setAttribute('href', '#')
+            button.addEventListener('click', function (event) {
+                deleteWebchatHistory();
+                setTimeout(function () { window.location.href = '/accounts/logout/' }, 600)
+            })
+        }
+    }
+
+
+    if(typeof showDiagData !== 'undefined' && showDiagData.showDialog ){
+        generateDiaglog(contextData, showDiagData);
+    }
+})

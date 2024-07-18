@@ -1,0 +1,232 @@
+(function (menus, $, undefined) {
+
+  var body = $("body");
+  var screenWidth = body.width();
+  var originalBodyHeight = body.height();
+  var mainNav = $("#mainnav");
+  var subNav = $("#subnav");
+  var skipNav = $("#skip");
+  var isFirstRun = true;
+
+
+  // Private methods
+
+  function openMobileMenu() {
+
+    // If it's the first time the menu has been opened, clone skip nav content and populate mobile menu icon area
+    if (isFirstRun === true) {
+      // Get skipnav, clone links and add class ready for inserting into mobile navigation.
+      var iconContent = skipNav.find("ul:first").clone();
+      iconContent.addClass("icon-area");
+      var menu = iconContent.find("li.acc-menu a");
+      menu.click(function (e) {
+        e.preventDefault();
+        closeMobileMenu();
+      });
+      var alerts = iconContent.find("li.acc-alerts a");
+      var logout = iconContent.find("li.acc-logout a");
+      //alerts.addClass("icon icon-bell");
+      logout.addClass("icon icon-cancel");
+      logout.click(function (e) {
+        if (typeof closeWebchat == 'function') closeWebchat();
+        setTimeout(function () { window.location.href = '/accounts/logout/' }, 600);
+      });
+
+      // Put skip nav content into main nav
+      mainNav.prepend(iconContent);
+      isFirstRun = false;
+    }
+
+    // Clip body to remove scrolling issue
+    body.scrollTop(0).height($(window).height()).css("overflow", "hidden");
+
+    // Create underlay
+    var underlay = $("<div />").appendTo(body);
+    underlay.attr("id", "underlay").width($(window).width()).height(body.height());
+    underlay.on("touchstart click", function (e) {
+      e.preventDefault();
+      closeMobileMenu();
+    });
+
+    // Animate the menu
+    mainNav.animate({
+      right: "+=270px"
+    }, 200, function () {
+      body.addClass("mobile-nav-open");
+    });
+
+  }
+
+  function closeMobileMenu() {
+    mainNav.animate({
+      right: "-=270px"
+    }, 200, function () {
+      $("#underlay").remove();
+      body.removeClass("mobile-nav-open");
+    });
+    body.height(originalBodyHeight).css("overflow", "auto");
+  }
+
+  function addParentClasses() {
+    $(".nav li a").each(function () {
+      if ($(this).next().length > 0) {
+        $(this).addClass("parent");
+      }
+    });
+  }
+
+  function setupSubNavEvents() {
+    /* Open subnav menus for mobile view on click  */
+    if (screenWidth < settings.desktop) {
+      $("#subnav").find("ul li a.parent").click(function (e) {
+        e.preventDefault();
+        $(this).next("ul").slideToggle(200);
+      });
+    }
+  }
+
+  function checkNavWidth() {
+    var liTotal = 0;
+    mainNav.find(".nav li[class^='menu-item']").each(function(){
+      liTotal += $(this).outerWidth();
+    });
+    return liTotal;                                                         // Return the total width of the top-level li's
+  }
+
+  function popLastNavItem() {
+    var $li = mainNav.find(".nav li[class^='menu-item']:last");
+    var $overflow = getOverflowNav();                                       // Get overflow navigation
+    $overflow.append($li);                                                  // And append the last li
+  }
+
+  function getOverflowNav() {
+    var $overflowNav = mainNav.find(".overflow-nav");
+    if (!$overflowNav.length) {                                             // Create overflow navigation if it doesn't exist
+      var $burger = $("<a />").attr("id","btnOverflowMenu").attr("href","#").addClass("icon icon-burger overflow-button");
+      $burger.click(function(e){                                            // Create burger and setup click event
+        e.preventDefault();
+        $overflowNav.slideToggle(200);
+      });
+      $overflowNav = $("<ul />").addClass("overflow-nav");                  // Create overflow navigation mark-up
+      mainNav.append($burger).append($overflowNav);                         // Append burger and overflow navigation to #mainnav
+    }
+    return $overflowNav;                                                    // Return jQuery object
+  }
+
+  function setupExtendedNavigationActions($el) {
+    var $children = $el.find("ul li ul li a");
+    var $parentLinks = $el.find('li a.parent');
+    var $parentLis = $el.find('ul li').not('ul li ul li');
+    $children.on('focus', function(){
+      var $li = $(this).parent().parent().parent();  // This is a bit nasty...
+      $li.addClass('hover-state');
+    });
+    $children.on('blur', function(){
+      $parentLis.removeClass('hover-state');
+    });
+    $parentLinks.on('touchstart focus', function(e){
+      var $li = $(this).closest('li');
+      if (!$li.hasClass('hover-state')) {
+        $parentLis.removeClass('hover-state');
+        $li.addClass('hover-state');
+        if ((e.type == 'touchstart') && (screenWidth > settings.desktop)) {
+          e.preventDefault();
+        }
+      }
+    });
+    $parentLinks.on('hover blur', function(){
+      $parentLis.removeClass('hover-state');
+    })
+  }
+
+
+  // Function not called at ZZY, may be introduced at bgroup level.
+  function setupMouseOutDelay() {
+    if (screenWidth > (settings.desktop-50)) {                                // Only need to check if we're dealing with desktop
+      var hoverTime;
+      var $topLevelNavigation = mainNav.find(".nav li[class^='menu-item']");  // Find all top level menu items
+      $topLevelNavigation.each(function () {
+        $(this).bind({
+          mouseover: function () {                                            // Bind mouseover event
+            clearTimeout(hoverTime);                                          // Clear timeout
+            $topLevelNavigation.each(function () {
+              $(this).removeClass("hover-state");                             // Clear out all existing hover-state classes
+            });
+            $(this).addClass("hover-state");                                  // Add hover-state class to current mouseover element
+          },
+          mouseout: function () {
+            var $thisMenu = $(this);
+            hoverTime = setTimeout(function () {                              // Set timeout - menu should hide after 1 second - Matt, d'you think too long?
+              $thisMenu.removeClass("hover-state");
+            }, 1000);
+          }
+        })
+      });
+    }
+  }
+
+  // Public methods
+
+  /*
+   setMenu
+   -------
+  */
+  menus.setMenu = function () {
+
+    // Events
+
+    /* Open mobile side slider */
+    $("#btnMenu").click(function (e) {
+      e.preventDefault();
+      openMobileMenu();
+    });
+
+    $(".linkrecords .toggleMenu").click(function (e) {
+      e.preventDefault();
+      $(this).parent().next("ul").slideToggle(200);
+    });
+
+    // Detect window resize so we can resize/remove underlay
+    var timer;
+    $(window).resize(function () {
+      var width = $(window).width();
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        var underlay = $("#underlay");
+        if (underlay.length) {
+          if (width < settings.desktop) {
+            underlay.width(width).height($("body").height());
+          } else {
+            // If the window is resized to desktop view, then remove the underlay/icon-area and set isFirstRun to true
+            underlay.remove();
+            closeMobileMenu();
+            mainNav.find(".icon-area").remove();
+            isFirstRun = true;
+          }
+        }
+      }, 500);
+    });
+
+    // Initialise
+    addParentClasses();
+    setupSubNavEvents();
+    //setupMouseOutDelay();  Function provides a delay on menu mouseout before menu disappears.
+
+    if (screenWidth > (settings.desktop)) {                                   // Check the device is displaying desktop menu
+      setupExtendedNavigationActions(mainNav);
+      setupExtendedNavigationActions(subNav);
+    }
+
+  };
+
+  menus.setupOverflowMenu = function () {
+    if (screenWidth > (settings.desktop)) {                                   // Only need to check if we're dealing with desktop
+      var count = 0;
+      while ((checkNavWidth() > (screenWidth-80)) && (count !=5) ){           // Add 80px tolerance for browser width inconsistencies
+        popLastNavItem();                                                     // And let's add a while loop counter for safety.
+        count ++;
+      }
+    }
+  };
+
+}(window.menus = window.menus || {}, jQuery));
