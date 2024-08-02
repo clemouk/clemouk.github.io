@@ -2,14 +2,9 @@ let conversationEnd
 conversationEnd ? sessionStorage.getItem('conversationEnd') : true
 let retry = true
 var autoLaunch = false;
-var pureJsUrl;
-var deviceType;
+
 
 $(document).ready(function() { 
-  // Pure JavaScript
-  pureJsUrl = window.location.href;
-  $('input[name="launchKeyURL"]').val(pureJsUrl);
-  console.log('Current URL (Pure JavaScript): ' + pureJsUrl);
 
   // subscribe to ready event
   Genesys('subscribe', 'Messenger.ready', function () {
@@ -23,11 +18,10 @@ $(document).ready(function() {
     console.log('READY: subscribing to conversationCleared event...');
     Genesys('subscribe', 'MessagingService.conversationCleared', function(){
       console.log('MessagingService.conversationCleared event invoked');
-      $('#wizardContainer').fadeIn();
+      
     });
   
-    console.log('Opening form...')
-    $('#wizardContainer').fadeIn();
+
   });
 
 });
@@ -36,13 +30,6 @@ $(document).ready(function() {
 function launchGenesys() {
     console.log('Preparing Genesys Widget...');
 
-    (function getDeviceType() {
-      if($.browser.mobile==true) {
-        deviceType = 'Mobile Device'
-      } else {
-        deviceType = 'Desktop'
-      }
-    })();
 
     var _originUrl=$("#launchKeyURL option:selected").text();
 
