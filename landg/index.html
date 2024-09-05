@@ -11,12 +11,6 @@
     <meta name="viewport" content="width=device-width" />   
 
 	<!-- CSS Files -->
-	<audio id="myAudio">
-		<source src="assets/decidemp3-14575.mp3" type="audio/mp3">
-		Your browser does not support the audio element.
-	</audio>
-
-	<!-- CSS Files -->
 	
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="assets/css/paper-bootstrap-wizard.css" rel="stylesheet" />
@@ -28,13 +22,13 @@
     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Muli:400,300" rel="stylesheet" type="text/css">
 	<link href="assets/css/themify-icons.css" rel="stylesheet">
+
+	
 </head>
 
 <body>
 
     <script type="text/javascript" charset="utf-8">
-
-
 		(function (g, e, n, es, ys) {
 		  g['_genesysJs'] = e;
 		  g[e] = g[e] || function () {
@@ -45,14 +39,8 @@
 		  ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
 		})(window, 'Genesys', 'https://apps.euw2.pure.cloud/genesys-bootstrap/genesys.min.js', {
 		  environment: 'prod-euw2',
-		  // TTEC Demo Deployment Testing 
-		  deploymentId: '6575e960-3608-42b3-9501-000b21a51237',
-
-		  // Workplace Demo 
-		  //deploymentId: 'd408a12b-2310-4a5f-8945-a33159c5f899', 
-
-		  //My Account Un-Auth 
-		  //deploymentId: '4217cb19-752e-41ea-bd34-93b5744ade92',
+		  // UAT Page - DO NOT CHANGE 
+		  deploymentId: '26435f4a-a3c5-4461-8480-41fdc622ba96',
 		  debug: true
 		});
 
@@ -75,11 +63,6 @@
 	    <div class="container disabled">
 	        <div class="row">
 		        <div class="col-sm-10 col-sm-offset-2">
-					<div class="deepLinkContainer">
-						<h2>Deep Links - After Launch User Only</h2>
-						<a href="" class="deepLink" id="deepLink1" data-deepLinkId="contact-customer-service|article">contact-customer-service|article</a> <br>
-						<a href="" class="deepLink" id="deepLink2" data-deepLinkId="general-contact|article">general-contact|article</a>
-					</div>
 
 		            <!--      Wizard container        -->
 		            <div class="wizard-container">
@@ -110,60 +93,49 @@
 		                        <div class="tab-content">
 		                            <div class="tab-pane" id="launchSettings">
 		                                <div class="row">
-                                            <div class="col-sm-10 col-sm-offset-1">												
+                                            <div class="col-sm-10 col-sm-offset-1">
 		                                    	<div class="form-group">
                                                     <label for="launchKeyURL">Select originURL</label>
                                                     <select class="form-control" id="launchKeyURL">
 														<option>AGGREGATE_TOOL</option>
 														<option>BMI_CALCULATOR</option>
-														<option>UNDERWRITING_LIMITS</option>
+														<option>UNDERWRITING_LIMITS</option>	
 														<option>AGENT_ROUTING</option>
-														<option>LEE_TEST</option>
-														<option>MICK_TEST</option>	
-														<option>ame.sandbox.ops-portal.awsplatform.landg.com</option>	
-                                                        <option>https://myaccount.landg.com</option>
-                                                        <option>https://mya.landg.com</option>
-                                                        <option>https://invest.landg.com</option>
-                                                        <option>https://www.legalandgeneral.com/adviser/protection/</option>
-														<option>staging.legalandgeneral.com/adviser/protection/</option>		
-                                                        <option>https://life.landg.com/ProtectionPortal/</option>
-														<option>https://ma.dev.landg.com:4300/</option>
-                                                        <option>staging.legalandgeneral.com/z-test/nationwide.html/</option>
-                                                        <option>staging.legalandgeneral.com/z-test/barclays.html/</option>
-                                                        <option>staging.legalandgeneral.com/z-test/CYBG.html/</option>
-                                                        <option>https://www.legalandgeneral.com/retirement/lifetime-mortgages/</option>
-                                                        <option>staging.legalandgeneral.com/retirement/lifetime-mortgages/</option>
-														<option>https://www.legalandgeneral.com/retirement/pensions/personal-pension/</option>
-                                                        <option>staging.legalandgeneral.com/retirement/pensions/personal-pension/</option>
-                                                        <option>https://www.legalandgeneral.com/workplace/</option>
+														<option>ame.sandbox.ops-portal.awsplatform.landg.com</option>																										
+                                                        <option>www.legalandgeneral.com/adviser/mortgage-club/</option>
+                                                        <option>myaccount.landg.com</option>	
+														<option>mya.landg.com</option>
+                                                        <option>invest.landg.com</option>
+														<option>https://www.legalandgeneral.com/adviser/protection/</option>
+                                                        <option>https://life.landg.com/ProtectionPortal/</option>			
+														<option>https://life.landg.com/CNBSWeb</option>		
+														<option>https://life.landg.com/MLWeb/</option>
                                                         <option>https://partnerquote.legalandgeneral.com/goodlord</option>
                                                         <option>https://partnerquote.legalandgeneral.com/sainsburys</option>
                                                         <option>https://barclaysquote.legalandgeneral.com/ </option>
                                                         <option>https://nationwidequote.legalandgeneral.com/</option>
                                                         <option>https://partnerlife.legalandgeneral.com/ </option>
                                                         <option>https://co-oplifequote.legalandgeneral.com/</option>
-                                                        <option>https://life.landg.com/MLWeb/getQuote.htm</option>
-                                                        <option>https://over50co-op.legalandgeneral.com</option>
-                                                        <option>https://over50tsb.legalandgeneral.com/</option>
-                                                        <option>https://www.legalandgeneral.com/adviser/mortgage-club/</option>
-														<option>staging.legalandgeneral.com/adviser/mortgage-club/</option>
+														<option>https://co-oplifequote.legalandgeneral.com/</option>	
                                                         <option>https://auth.landg.com/signin</option>
                                                         <option>https://myaccount.register.landg.com/</option>
-                                                        <option>https://register.landg.com/confirm-details</option>														
-														<option>test.myaccount.platform.landg.com/</option>
+                                                        <option>https://register.landg.com/confirm-details</option>
+														<option>https://www.legalandgeneral.com/workplace/</option>			
+                                                        <option>https://www.legalandgeneral.com/retirement/lifetime-mortgages/</option>
+                                                        <option>https://www.legalandgeneral.com/retirement/pensions/personal-pension/</option>
+														<option>staging.legalandgeneral.com/retirement/lifetime-mortgages/</option>
+                                                        <option>staging.legalandgeneral.com/retirement/pensions/personal-pension/</option>
+														<option>staging.legalandgeneral.com/adviser/protection/</option>	
+														<option>staging.legalandgeneral.com/adviser/mortgage-club/</option>
+														<option>https://life.landg.com/MLWeb/</option>
+														<option>test.myaccount.platform.landg.com/</option>																						
                                                     </select>
                                                 </div>
-		                                    </div>          
-											<div class="col-sm-10 col-sm-offset-1">
-												<div class="form-group">
-													<label>Manual originUrl</label>
-													<input name="launchKeyURL-manual" type="text" class="form-control" placeholder="https://test.register.platform.landg.com/confirm-details" value="">
-												</div>
-											</div>                                 
+		                                    </div>                                           
 		                                    <div class="col-sm-5 col-sm-offset-1">
 		                                    	<div class="form-group">
-		                                            <label>Deep Link</label>
-		                                            <input name="deepLinkId" type="text" class="form-control" placeholder="Deep Link, e.g. lgr-tax-income|article" value="">
+		                                            <label>Deep Link Id</label>
+		                                            <input name="deepLinkId" type="text" class="form-control" placeholder="Deep Link Id, e.g. lgr-whatbank" value="">
 		                                        </div>
 		                                    </div>
 		                                    <div class="col-sm-5">
@@ -194,9 +166,9 @@
 		                                    <div class="col-sm-5">
 		                                        <div class="form-group">
 		                                            <label>Valuation Class</label><br>
-		                                            <input name="valueClass" type="text" class="form-control" placeholder="Pipe '|' delimited valuation classes" value="">
+		                                            <input name="valueClass" type="text" class="form-control" placeholder="Pipe '|' delimited valuation classes" value="" >
 		                                        </div>
-		                                    </div>				
+		                                    </div>	
 											<div class="col-sm-5 col-sm-offset-1">
 		                                        <div class="form-group">
 		                                            <label>Syndication Id</label>
@@ -212,26 +184,7 @@
 														<option>PERSONAL_PENSION</option>
 													</select>
 		                                        </div>
-		                                    </div>
-											<div class="col-sm-3 col-sm-offset-1">
-												<label>Agency Name</label><br>
-												<div class="form-group">													
-													<input name="agencyName" type="text" class="form-control" placeholder="Agency Name" value="">
-												</div>	
-		                                    </div>
-		                                    <div class="col-sm-3">
-		                                        <div class="form-group">
-		                                            <label>Agency Number</label><br>
-		                                            <input name="agencyNumber" type="text" class="form-control" placeholder="Agency Number" value="">
-		                                        </div>
-		                                    </div>
-											<div class="col-sm-3">
-		                                        <div class="form-group">
-		                                            <label>Source</label><br>
-		                                            <input name="source" type="text" class="form-control" placeholder="source" value="">
-		                                        </div>
-		                                    </div>	
-											
+		                                    </div>															
 		                                </div>
 		                            </div>
 		                        </div>
@@ -255,8 +208,8 @@
 
 	    <div class="footer">
 	        <div class="container text-center">
-	            Created for Legal and General by <a href="https://www.ttecdigital.com">TTEC Digital</a>. Version: v1.00.32 [Development - audio enabled]
-	        </div> 
+	            Created for Legal and General by <a href="https://www.ttecdigital.com">TTEC Digital</a>. Version: v1.00.25 [UAT Release]
+	        </div>
 	    </div>
 		
 	</div>
@@ -275,7 +228,7 @@
 	<script src="assets/js/jquery.validate.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-browser/0.1.0/jquery.browser.min.js"></script>
 
-	<script src="ttec2.js?v=12" type="text/javascript" defer></script>
+	<script src="landg/ttec.js?v=7" type="text/javascript" defer></script>
 	
 
 </html>
