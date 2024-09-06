@@ -24,6 +24,7 @@ Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
     }
   }
 })
+
 //receive connected event
 Genesys('subscribe', 'Conversations.started', function () {
   console.log('new conversation')
@@ -42,6 +43,7 @@ Genesys('subscribe', 'Toaster.ready', function (e) {
       message: 'lets do a survey',
     })
   })
+  
   Genesys('subscribe', 'Toaster.declined', function (e) {
     console.log('Toaster was declined', e)
     localStorage.setItem('surveyDone', 'true')
