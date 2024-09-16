@@ -10,20 +10,20 @@ if (surveyDone == null || surveyDone == undefined) {
   surveyDone = 'false'
 }
 
-//receive disconnected event
-Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
-  if (!loaded) {
-    loaded = true
-    conversationEnd = 'true'
-    localStorage.setItem('conversationEnd', 'true')
-    console.log('end of conversation')
-    console.log(conversationEnd)
-    console.log(surveyDone)
-    if (surveyDone == 'false') {
-      openSurveyToaster()
-    }
-  }
-})
+// //receive disconnected event
+// Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
+//   if (!loaded) {
+//     loaded = true
+//     conversationEnd = 'true'
+//     localStorage.setItem('conversationEnd', 'true')
+//     console.log('end of conversation')
+//     console.log(conversationEnd)
+//     console.log(surveyDone)
+//     if (surveyDone == 'false') {
+//       openSurveyToaster()
+//     }
+//   }
+// })
 
 //receive connected event
 Genesys('subscribe', 'Conversations.started', function () {
