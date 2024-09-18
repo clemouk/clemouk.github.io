@@ -35,6 +35,11 @@ Genesys('subscribe', 'Conversations.started', function () {
   localStorage.setItem('surveyDone', 'false')
 })
 
+Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
+  console.log('New Message received');
+  console.log(data);
+});
+
 Genesys('subscribe', 'Toaster.ready', function (e) {
   Genesys('subscribe', 'Toaster.accepted', function (e) {
     localStorage.setItem('surveyDone', 'true')
