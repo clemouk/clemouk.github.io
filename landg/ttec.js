@@ -56,16 +56,16 @@ function launchGenesys() {
     Genesys('command', 'Database.set', {
       messaging: {
           customAttributes: {
-              productTemplate: $('input[name="productTemplate"]').val(),
+              //productTemplate: $('input[name="productTemplate"]').val(),
               schemeNumber:  $('input[name="schemeId"]').val(),
-              productType: $("#productType option:selected").text(),
+              //productType: $("#productType option:selected").text(),
               policyNumber: $('input[name="policyId"]').val(),
-              valuationClass: $('input[name="valueClass"]').val(),
+              //valuationClass: $('input[name="valueClass"]').val(),
               originUrl: _originUrl,
               //deepLinkType: $("#deepLinkType option:selected").text(),
-              deepLinkId: $('input[name="deepLinkId"]').val(),
-              target:  $('input[name="target"]').val(),
-              syndicationId: $('input[name="syndicationId"]').val(),
+              //deepLinkId: $('input[name="deepLinkId"]').val(),
+              //target:  $('input[name="target"]').val(),
+              //syndicationId: $('input[name="syndicationId"]').val(),
               browserType: $.browser.platform,
               browserVersion: $.browser.version,      
               deviceType: deviceType      

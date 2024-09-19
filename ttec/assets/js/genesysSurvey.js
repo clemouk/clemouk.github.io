@@ -10,6 +10,7 @@ if (surveyDone == null || surveyDone == undefined) {
   surveyDone = 'false'
 }
 
+
 //receive disconnected event
 Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
   if (!loaded) {
