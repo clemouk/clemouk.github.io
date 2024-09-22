@@ -10,6 +10,22 @@ if (surveyDone == null || surveyDone == undefined) {
   surveyDone = 'false'
 }
 
+// subscribe to ready event
+Genesys('subscribe', 'Messenger.ready', function () {
+
+  Genesys('command', 'Database.set', {
+    messaging: {
+        customAttributes: {
+            firstName: "Joe",
+            lastName: "Bloggs",
+            TargetBrand: "AUDI"
+        },
+    }
+  })
+
+});
+
+
 // //receive disconnected event
 // Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
 //   if (!loaded) {
@@ -24,6 +40,7 @@ if (surveyDone == null || surveyDone == undefined) {
 //     }
 //   }
 // })
+
 
 //receive connected event
 Genesys('subscribe', 'Conversations.started', function () {
@@ -54,6 +71,10 @@ Genesys('subscribe', 'Toaster.ready', function (e) {
   })
 })
 
+
+
+
+
 function openSurveyToaster() {
   Genesys(
     'command',
@@ -76,3 +97,4 @@ function openSurveyToaster() {
     }
   )
 }
+
