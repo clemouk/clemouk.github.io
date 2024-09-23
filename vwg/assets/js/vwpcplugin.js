@@ -16,7 +16,7 @@ Genesys('subscribe', 'Messenger.ready', function () {
   Genesys('command', 'Database.set', {
     messaging: {
         customAttributes: {
-            TargetBrand: "AUDI"
+            TargetBrand: "VWPC"
         },
     }
   })
@@ -34,7 +34,11 @@ Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
     console.log(conversationEnd)
     console.log(surveyDone)
     if (surveyDone == 'false') {
-      openSurveyToaster()
+      localStorage.setItem('surveyDone', 'true')
+      console.log('Start Survey', e)
+      Genesys('command', 'MessagingService.sendMessage', {
+        message: 'How did we do?',
+      })
     }
   }
 })
