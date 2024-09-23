@@ -1,4 +1,4 @@
-'use strict'
+
 let conversationEnd = localStorage.getItem('conversationEnd')
 let surveyDone = localStorage.getItem('surveyDone')
 let loaded = false
@@ -20,7 +20,6 @@ Genesys('subscribe', 'Messenger.ready', function () {
         },
     }
   })
-
 });
 
 
