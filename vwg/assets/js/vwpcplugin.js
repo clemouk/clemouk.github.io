@@ -26,10 +26,6 @@ Genesys('subscribe', 'Messenger.ready', function () {
 //receive disconnected event
 Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
 
-
-  (gc_token = JSON.parse(
-    localStorage.getItem('_${gc_deploymentId}:actmu')
-  ).value),
     displayButton();
 
   if (!loaded) {
