@@ -37,7 +37,7 @@ Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
     console.log(surveyDone)
     if (surveyDone == 'false') {
       localStorage.setItem('surveyDone', 'true')
-      console.log('Start Survey', dataerrr)
+      console.log('Start Survey')
       Genesys('command', 'MessagingService.sendMessage', {
         message: 'How did we do?',
       })
