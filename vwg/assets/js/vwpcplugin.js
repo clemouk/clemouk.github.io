@@ -38,12 +38,21 @@ Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
     if (surveyDone == 'false') {
       localStorage.setItem('surveyDone', 'true')
       console.log('Start Survey')
-      Genesys('command', 'MessagingService.sendMessage', {
-        message: 'How did we do?',
-      })
+      Genesys("command", "MessagingService.startConversation",
+        {},
+        function() {
+          console.log('Start new conversation')
+            /*fulfilled callback*/
+            Genesys('command', 'MessagingService.sendMessage', {
+              message: 'How did we do?',
+            })
+        },
+        function() {
+            /*rejected callback*/
+            console.log('Conversation already active, dont do Survey')
+        }
+      );
     }
-
-
   }
 })
 
