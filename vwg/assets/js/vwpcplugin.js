@@ -13,11 +13,6 @@
 // subscribe to ready event
 Genesys('subscribe', 'Messenger.ready', function () {
 
-  (gc_token = JSON.parse(
-    localStorage.getItem(`_${gc_deploymentId}:actmu`)
-  ).value),
-    displayButton();
-
   console.log('setting db params');
 
   Genesys('command', 'Database.set', {
@@ -27,6 +22,11 @@ Genesys('subscribe', 'Messenger.ready', function () {
         },
     }
   })
+
+  (gc_token = JSON.parse(
+    localStorage.getItem(`_${gc_deploymentId}:actmu`)
+  ).value),
+    displayButton();
 });
 
 
