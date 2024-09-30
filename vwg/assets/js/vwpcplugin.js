@@ -18,6 +18,8 @@ Genesys('subscribe', 'Messenger.ready', function () {
   ).value),
     displayButton();
 
+  console.log('setting db params');
+
   Genesys('command', 'Database.set', {
     messaging: {
         customAttributes: {
@@ -51,7 +53,6 @@ Genesys('subscribe', 'Messenger.ready', function () {
 // })
 
 Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
-
   console.log(data);
 });
 
@@ -89,26 +90,26 @@ Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
 
 
 
-function openSurveyToaster() {
-  Genesys(
-    'command',
-    'Toaster.open',
-    {
-      title: 'We would love your feedback',
-      body: 'Please take some time to fill out our short survey',
-      buttons: {
-        type: 'binary', // required when 'buttons' is present. Values: "unary" for one action button, "binary" for two action buttons
-        primary: 'Accept', // optional, default value is "Accept"
-        secondary: 'Decline', // optional, default value is "Decline"
-      },
-    },
-    function () {
-      /*fulfilled callback*/
-    },
-    function (error) {
-      /*rejected callback*/
-      console.error('There was an error running the Toaster.open command:', error)
-    }
-  )
-}
+// function openSurveyToaster() {
+//   Genesys(
+//     'command',
+//     'Toaster.open',
+//     {
+//       title: 'We would love your feedback',
+//       body: 'Please take some time to fill out our short survey',
+//       buttons: {
+//         type: 'binary', // required when 'buttons' is present. Values: "unary" for one action button, "binary" for two action buttons
+//         primary: 'Accept', // optional, default value is "Accept"
+//         secondary: 'Decline', // optional, default value is "Decline"
+//       },
+//     },
+//     function () {
+//       /*fulfilled callback*/
+//     },
+//     function (error) {
+//       /*rejected callback*/
+//       console.error('There was an error running the Toaster.open command:', error)
+//     }
+//   )
+// }
 
