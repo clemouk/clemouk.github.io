@@ -47,6 +47,10 @@ Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
   }
 })
 
+Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
+  console.log(data);
+});
+
 
 //receive connected event
 Genesys('subscribe', 'Conversations.started', function () {
