@@ -13,6 +13,11 @@ if (surveyDone == null || surveyDone == undefined) {
 // subscribe to ready event
 Genesys('subscribe', 'Messenger.ready', function () {
 
+  (gc_token = JSON.parse(
+    localStorage.getItem(`_${gc_deploymentId}:actmu`)
+  ).value),
+    displayButton();
+
   Genesys('command', 'Database.set', {
     messaging: {
         customAttributes: {
@@ -25,8 +30,6 @@ Genesys('subscribe', 'Messenger.ready', function () {
 
 //receive disconnected event
 Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
-
-    displayButton();
 
   if (!loaded) {
     loaded = true
@@ -48,6 +51,7 @@ Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
 })
 
 Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
+
   console.log(data);
 });
 
