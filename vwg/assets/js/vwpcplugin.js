@@ -12,7 +12,6 @@
 
 // subscribe to ready event
 Genesys('subscribe', 'Messenger.ready', function () {
-
   console.log('setting db params');
 
   Genesys('command', 'Database.set', {
@@ -22,8 +21,6 @@ Genesys('subscribe', 'Messenger.ready', function () {
         },
     }
   })
-
-
 });
 
 
