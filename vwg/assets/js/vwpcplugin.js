@@ -23,10 +23,7 @@ Genesys('subscribe', 'Messenger.ready', function () {
     }
   })
 
-  (gc_token = JSON.parse(
-    localStorage.getItem(`_${gc_deploymentId}:actmu`)
-  ).value),
-    displayButton();
+
 });
 
 
@@ -54,6 +51,10 @@ Genesys('subscribe', 'Messenger.ready', function () {
 
 Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
   console.log(data);
+  (gc_token = JSON.parse(
+    localStorage.getItem(`_${gc_deploymentId}:actmu`)
+  ).value),
+    displayButton();
 });
 
 
