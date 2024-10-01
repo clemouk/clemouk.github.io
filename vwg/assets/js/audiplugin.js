@@ -16,7 +16,7 @@ Genesys('subscribe', 'Messenger.ready', function () {
   Genesys('command', 'Database.set', {
     messaging: {
         customAttributes: {
-            TargetBrand: "AUDI"
+            TargetBrand: "Audi"
         },
     }
   })
