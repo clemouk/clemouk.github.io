@@ -46,15 +46,6 @@ Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
   }
 })
 
-Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
-  console.log(data);
-  (gc_token = JSON.parse(
-    localStorage.getItem(`_${gc_deploymentId}:actmu`)
-  ).value),
-    displayButton();
-});
-
-
 // receive connected event
 Genesys('subscribe', 'Conversations.started', function () {
   console.log('new conversation')
