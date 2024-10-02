@@ -18,8 +18,8 @@ Genesys('subscribe', 'Messenger.ready', function () {
     messaging: {
         customAttributes: {
             TargetBrand: "VWPC"
-        }
-    }
+        },
+    },
   })
 });
 
