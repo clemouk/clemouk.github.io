@@ -1,4 +1,4 @@
-'use strict'
+
 let conversationEnd = localStorage.getItem('conversationEnd')
 let surveyDone = localStorage.getItem('surveyDone')
 let loaded = false
@@ -12,20 +12,21 @@ if (surveyDone == null || surveyDone == undefined) {
 
 // subscribe to ready event
 Genesys('subscribe', 'Messenger.ready', function () {
+  console.log('setting db params');
 
   Genesys('command', 'Database.set', {
     messaging: {
         customAttributes: {
             TargetBrand: "Audi"
-        },
+        }
     }
   })
-
 });
 
 
-//receive disconnected event
+// receive disconnected event
 Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
+
   if (!loaded) {
     loaded = true
     conversationEnd = 'true'
@@ -34,13 +35,16 @@ Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
     console.log(conversationEnd)
     console.log(surveyDone)
     if (surveyDone == 'false') {
-      openSurveyToaster()
+      localStorage.setItem('surveyDone', 'true')
+      console.log('Start Survey')
+          Genesys('command', 'MessagingService.sendMessage', {
+            message: 'How did we do?',
+          })
     }
   }
 })
 
-
-//receive connected event
+// receive connected event
 Genesys('subscribe', 'Conversations.started', function () {
   console.log('new conversation')
   conversationEnd = 'false'
@@ -49,50 +53,3 @@ Genesys('subscribe', 'Conversations.started', function () {
   localStorage.setItem('conversationEnd', 'false')
   localStorage.setItem('surveyDone', 'false')
 })
-
-Genesys('subscribe', 'Toaster.ready', function (e) {
-  Genesys('subscribe', 'Toaster.accepted', function (e) {
-    localStorage.setItem('surveyDone', 'true')
-    console.log('Toaster was accepted', e)
-    Genesys('command', 'MessagingService.sendMessage', {
-      message: 'lets do a survey',
-    })
-  })
-  
-  Genesys('subscribe', 'Toaster.declined', function (e) {
-    console.log('Toaster was declined', e)
-    localStorage.setItem('surveyDone', 'true')
-  })
-  Genesys('subscribe', 'Toaster.closed', function (e) {
-    console.log('Toaster was closed', e)
-    localStorage.setItem('surveyDone', 'true')
-  })
-})
-
-
-
-
-
-function openSurveyToaster() {
-  Genesys(
-    'command',
-    'Toaster.open',
-    {
-      title: 'We would love your feedback',
-      body: 'Please take some time to fill out our short survey',
-      buttons: {
-        type: 'binary', // required when 'buttons' is present. Values: "unary" for one action button, "binary" for two action buttons
-        primary: 'Accept', // optional, default value is "Accept"
-        secondary: 'Decline', // optional, default value is "Decline"
-      },
-    },
-    function () {
-      /*fulfilled callback*/
-    },
-    function (error) {
-      /*rejected callback*/
-      console.error('There was an error running the Toaster.open command:', error)
-    }
-  )
-}
-
