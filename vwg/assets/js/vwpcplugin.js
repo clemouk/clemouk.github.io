@@ -10,9 +10,76 @@ if (surveyDone == null || surveyDone == undefined) {
   surveyDone = 'false'
 }
 
+function wireEvents(){
+  console.log('wireEvents - begin');
+
+      // subsribe to close widget event
+      console.log('READY: subscribing to open event...');
+
+
+      console.log('READY: subscribing to conversationCleared event...');
+      Genesys('subscribe', 'MessagingService.conversationCleared', function(){
+        console.log('MessagingService.conversationCleared event invoked');
+      });
+
+      let x = document.getElementById("myAudio");
+
+      Genesys("subscribe", "Messenger.opened", function(){
+        console.log('Messenger.open event invoked');
+        messengerOpen = true;
+      });
+
+      Genesys("subscribe", "Messenger.closed", function(){
+        messengerOpen = false;
+      });
+
+      console.log('READY: subscribing to messagesReceived event...');
+      Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
+        console.log(data);
+        if(messengerOpen==false) {
+          x.play();
+          Genesys('command','Messenger.open',{},
+            function (o) {},
+            function (o) {
+              Genesys('command', 'Messenger.close');        
+            }
+          )
+        }; 
+      })
+
+      //subscribe to database updated event
+
+      console.info('Subscribing to database.updated event...');
+
+      Genesys("subscribe", "Database.updated", function(e){
+        //console.log(e);
+        console.log("Database.updated", e.data)  // Updated database object
+        Genesys(
+            'command',
+            'Messenger.open',
+            {},
+            () => {
+              /*fulfilled callback*/
+              console.log('Messenger opened');
+            },
+            (error) => {
+             /*rejected callback*/
+             
+             console.log(error);
+             
+            }
+          );
+
+        });
+
+  console.log('wireEvents - end');
+}
+
 // subscribe to ready event
 Genesys('subscribe', 'Messenger.ready', function () {
   console.log('setting db params');
+
+  wireEvents();
 
   Genesys('command', 'Database.set', {
     messaging: {
@@ -53,3 +120,14 @@ Genesys('subscribe', 'Conversations.started', function () {
   localStorage.setItem('conversationEnd', 'false')
   localStorage.setItem('surveyDone', 'false')
 })
+
+
+function toggleMessenger(){
+  Genesys("command", "Messenger.open", {},
+    function(o){},  // if resolved
+
+    function(o){    // if rejected
+      Genesys("command", "Messenger.close");
+    }
+  );
+}
