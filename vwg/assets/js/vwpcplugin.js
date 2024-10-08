@@ -47,30 +47,6 @@ function wireEvents(){
         }; 
       })
 
-      //subscribe to database updated event
-
-      console.info('Subscribing to database.updated event...');
-
-      Genesys("subscribe", "Database.updated", function(e){
-        //console.log(e);
-        console.log("Database.updated", e.data)  // Updated database object
-        Genesys(
-            'command',
-            'Messenger.open',
-            {},
-            () => {
-              /*fulfilled callback*/
-              console.log('Messenger opened');
-            },
-            (error) => {
-             /*rejected callback*/
-             
-             console.log(error);
-             
-            }
-          );
-
-        });
 
   console.log('wireEvents - end');
 }
