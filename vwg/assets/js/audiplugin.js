@@ -18,8 +18,8 @@ function wireEvents(){
 
 
       console.log('READY: subscribing to conversationCleared event...');
-      Genesys('subscribe', 'MessagingService.conversationCleared', function(){
-        console.log('MessagingService.conversationCleared event invoked');
+      Genesys('subscribe', 'MessagingService.conconversationClearedversationCleared', function(){
+        console.log('MessagingService. event invoked');
       });
 
       let x = document.getElementById("myAudio");

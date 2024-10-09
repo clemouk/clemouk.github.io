@@ -10,16 +10,59 @@ if (surveyDone == null || surveyDone == undefined) {
   surveyDone = 'false'
 }
 
+function wireEvents(){
+  console.log('wireEvents - begin');
+
+      // subsribe to close widget event
+      console.log('READY: subscribing to open event...');
+
+
+      console.log('READY: subscribing to conversationCleared event...');
+      Genesys('subscribe', 'MessagingService.conconversationClearedversationCleared', function(){
+        console.log('MessagingService. event invoked');
+      });
+
+      let x = document.getElementById("myAudio");
+
+      Genesys("subscribe", "Messenger.opened", function(){
+        console.log('Messenger.open event invoked');
+        messengerOpen = true;
+      });
+
+      Genesys("subscribe", "Messenger.closed", function(){
+        messengerOpen = false;
+      });
+
+      console.log('READY: subscribing to messagesReceived event...');
+      Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
+        console.log(data);
+        if(messengerOpen==false) {
+          x.play();
+          Genesys('command','Messenger.open',{},
+            function (o) {},
+            function (o) {
+              Genesys('command', 'Messenger.close');        
+            }
+          )
+        }; 
+      })
+
+
+  console.log('wireEvents - end');
+}
+
 // subscribe to ready event
 Genesys('subscribe', 'Messenger.ready', function () {
   console.log('setting db params');
+
+  wireEvents();
 
   Genesys('command', 'Database.set', {
     messaging: {
         customAttributes: {
             TargetBrand: "Cupra"
-        }
-    }
+        },
+    },
   })
 });
 
@@ -53,3 +96,14 @@ Genesys('subscribe', 'Conversations.started', function () {
   localStorage.setItem('conversationEnd', 'false')
   localStorage.setItem('surveyDone', 'false')
 })
+
+
+function toggleMessenger(){
+  Genesys("command", "Messenger.open", {},
+    function(o){},  // if resolved
+
+    function(o){    // if rejected
+      Genesys("command", "Messenger.close");
+    }
+  );
+}
