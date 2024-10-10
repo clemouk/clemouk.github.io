@@ -54,11 +54,6 @@ function wireEvents(){
       console.log('READY: subscribing to conversationCleared event...');
       Genesys('subscribe', 'MessagingService.conversationCleared', function(){
         console.log('MessagingService.conversationCleared event invoked');
-        conversationEnd = 'false'
-        surveyDone = 'true'
-        loaded = false
-        localStorage.setItem('conversationEnd', 'false')
-        localStorage.setItem('surveyDone', 'true')
       });
 
       let x = document.getElementById("myAudio");
