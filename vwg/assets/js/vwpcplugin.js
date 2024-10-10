@@ -20,7 +20,7 @@ Genesys('subscribe', 'Messenger.ready', function () {
 Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
 
   setWidgetParams();
-  
+
   if (!loaded) {
     loaded = true
     conversationEnd = 'true'
@@ -57,6 +57,7 @@ function wireEvents(){
       console.log('READY: subscribing to conversationCleared event...');
       Genesys('subscribe', 'MessagingService.conversationCleared', function(){
         console.log('MessagingService.conversationCleared event invoked');
+        setWidgetParams();
       });
 
       let x = document.getElementById("myAudio");
