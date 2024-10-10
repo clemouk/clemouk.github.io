@@ -57,7 +57,7 @@ function wireEvents(){
   Genesys('subscribe', 'MessagingService.conversationCleared', function(){
     console.log('MessagingService.conversationCleared event invoked');
     conversationReset = true;
-    setWidgetParams();
+    wireEvents();
   });
 
   let x = document.getElementById("myAudio");
