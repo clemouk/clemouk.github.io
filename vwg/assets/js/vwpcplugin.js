@@ -43,7 +43,6 @@ Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
 Genesys('subscribe', 'Conversations.started', function () {
   console.log('new conversation');
   setWidgetParams();
-  console.log('new conversation');
   conversationEnd = 'false';
   surveyDone = 'false';
   loaded = false;
