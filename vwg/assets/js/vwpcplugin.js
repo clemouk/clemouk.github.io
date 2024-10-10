@@ -13,18 +13,14 @@ if (surveyDone == null || surveyDone == undefined) {
 // subscribe to ready event
 Genesys('subscribe', 'Messenger.ready', function () {
   console.log('Messenger.Ready event');
-  conversationEnd = 'false'
-  surveyDone = 'false'
-  loaded = false
-  localStorage.setItem('conversationEnd', 'false')
-  localStorage.setItem('surveyDone', 'false')
-
   wireEvents();
 });
 
 // receive disconnected event
 Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
 
+  setWidgetParams();
+  
   if (!loaded) {
     loaded = true
     conversationEnd = 'true'
@@ -34,7 +30,7 @@ Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
     console.log(surveyDone)
     if (surveyDone == 'false') {
       localStorage.setItem('surveyDone', 'true')
-      console.log('Start Survey')
+      console.log('COMMAND: Start Survey')
           Genesys('command', 'MessagingService.sendMessage', {
             message: 'How did we do?',
           })
@@ -46,6 +42,12 @@ Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
 Genesys('subscribe', 'Conversations.started', function () {
   console.log('new conversation')
   setWidgetParams()
+  console.log('new conversation')
+  conversationEnd = 'false'
+  surveyDone = 'false'
+  loaded = false
+  localStorage.setItem('conversationEnd', 'false')
+  localStorage.setItem('surveyDone', 'false')
 
 })
 
@@ -86,6 +88,7 @@ function wireEvents(){
 }
 
 function setWidgetParams() {
+  console.log('COMMAND: Set customAttributes');
   Genesys('command', 'Database.set', {
     messaging: {
         customAttributes: {
