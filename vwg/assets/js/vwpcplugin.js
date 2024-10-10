@@ -2,6 +2,7 @@
 let conversationEnd = localStorage.getItem('conversationEnd')
 let surveyDone = localStorage.getItem('surveyDone')
 let loaded = false
+let conversationReset = false
 
 if (conversationEnd == null || conversationEnd == undefined) {
   conversationEnd = 'false'
@@ -40,49 +41,60 @@ Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
 
 // receive connected event
 Genesys('subscribe', 'Conversations.started', function () {
-  console.log('new conversation')
-  setWidgetParams()
-  console.log('new conversation')
-  conversationEnd = 'false'
-  surveyDone = 'false'
-  loaded = false
-  localStorage.setItem('conversationEnd', 'false')
-  localStorage.setItem('surveyDone', 'false')
-
+  console.log('new conversation');
+  setWidgetParams();
+  console.log('new conversation');
+  conversationEnd = 'false';
+  surveyDone = 'false';
+  loaded = false;
+  localStorage.setItem('conversationEnd', 'false');
+  localStorage.setItem('surveyDone', 'false');
 })
 
 function wireEvents(){
   console.log('wireEvents - begin');
 
-      console.log('READY: subscribing to conversationCleared event...');
-      Genesys('subscribe', 'MessagingService.conversationCleared', function(){
-        console.log('MessagingService.conversationCleared event invoked');
-        setWidgetParams();
-      });
+  console.log('READY: subscribing to conversationCleared event...');
+  Genesys('subscribe', 'MessagingService.conversationCleared', function(){
+    console.log('MessagingService.conversationCleared event invoked');
+    conversationReset = true;
+    setWidgetParams();
+  });
 
-      let x = document.getElementById("myAudio");
+  let x = document.getElementById("myAudio");
 
-      // subsribe to close widget event
-      console.log('READY: subscribing to open event...');
-      Genesys("subscribe", "Messenger.opened", function(){
-        console.log('Messenger.open event invoked');
-        messengerOpen = true;
-      });
+  // subsribe to close widget event
+  console.log('READY: subscribing to open event...');
+  Genesys("subscribe", "Messenger.opened", function(){
+    console.log('Messenger.open event invoked');
+    messengerOpen = true;
 
-      // subsribe to close widget event
-      console.log('READY: subscribing to closed event...');
-      Genesys("subscribe", "Messenger.closed", function(){
-        messengerOpen = false;
-      });
+    if(conversationReset==true) {
+      Genesys("command", "MessagingService.startConversation",
+        {},
+        function() {
+            /*fulfilled callback*/
+        },
+        function() {
+            /*rejected callback*/
+        });
+    }
+  });
 
-      console.log('READY: subscribing to messagesReceived event...');
-      Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
-        //console.log(data);
-        if(messengerOpen==false) {
-          x.play();
-          toggleMessenger();
-        }; 
-      })
+  // subsribe to close widget event
+  console.log('READY: subscribing to closed event...');
+  Genesys("subscribe", "Messenger.closed", function(){
+    messengerOpen = false;
+  });
+
+  console.log('READY: subscribing to messagesReceived event...');
+  Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
+    //console.log(data);
+    if(messengerOpen==false) {
+      x.play();
+      toggleMessenger();
+    }; 
+  })
 
   setWidgetParams();
   console.log('wireEvents - end');
