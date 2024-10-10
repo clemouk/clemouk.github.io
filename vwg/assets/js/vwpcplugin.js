@@ -51,22 +51,27 @@ Genesys('subscribe', 'Conversations.started', function () {
 function wireEvents(){
   console.log('wireEvents - begin');
 
-      // subsribe to close widget event
-      console.log('READY: subscribing to open event...');
-
-
       console.log('READY: subscribing to conversationCleared event...');
       Genesys('subscribe', 'MessagingService.conversationCleared', function(){
         console.log('MessagingService.conversationCleared event invoked');
+        conversationEnd = 'false'
+        surveyDone = 'false'
+        loaded = false
+        localStorage.setItem('conversationEnd', 'false')
+        localStorage.setItem('surveyDone', 'false')
       });
 
       let x = document.getElementById("myAudio");
 
+      // subsribe to close widget event
+      console.log('READY: subscribing to open event...');
       Genesys("subscribe", "Messenger.opened", function(){
         console.log('Messenger.open event invoked');
         messengerOpen = true;
       });
 
+      // subsribe to close widget event
+      console.log('READY: subscribing to closed event...');
       Genesys("subscribe", "Messenger.closed", function(){
         messengerOpen = false;
       });
@@ -85,7 +90,7 @@ function wireEvents(){
         }; 
       })
 
-
+  setWidgetParams();
   console.log('wireEvents - end');
 }
 
