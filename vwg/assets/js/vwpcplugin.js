@@ -74,6 +74,7 @@ function wireEvents(){
         {},
         function() {
             /*fulfilled callback*/
+            conversationReset=false;
         },
         function() {
             /*rejected callback*/
