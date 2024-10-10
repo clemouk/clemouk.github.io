@@ -12,7 +12,12 @@ if (surveyDone == null || surveyDone == undefined) {
 
 // subscribe to ready event
 Genesys('subscribe', 'Messenger.ready', function () {
-  console.log('setting db params');
+  console.log('Messenger.Ready event');
+  conversationEnd = 'false'
+  surveyDone = 'false'
+  loaded = false
+  localStorage.setItem('conversationEnd', 'false')
+  localStorage.setItem('surveyDone', 'false')
 
   wireEvents();
 });
@@ -41,11 +46,7 @@ Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
 Genesys('subscribe', 'Conversations.started', function () {
   console.log('new conversation')
   setWidgetParams()
-  conversationEnd = 'false'
-  surveyDone = 'false'
-  loaded = false
-  localStorage.setItem('conversationEnd', 'false')
-  localStorage.setItem('surveyDone', 'false')
+
 })
 
 function wireEvents(){
