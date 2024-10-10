@@ -74,12 +74,15 @@ function wireEvents(){
         {},
         function() {
             /*fulfilled callback*/
-            conversationReset=false;
+           
         },
         function() {
             /*rejected callback*/
+            console.log(e);
+          
         });
     }
+    conversationReset=false;
   });
 
   // subsribe to close widget event
