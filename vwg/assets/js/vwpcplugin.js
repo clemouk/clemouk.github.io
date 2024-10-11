@@ -54,7 +54,7 @@ function wireEvents(){
           if(data.messages[0].text=="How did we do?") { 
             localStorage.setItem('_ttecConversationState', 'IN_SURVEY');
           } 
-          elseif(data.messages[0].text=="Thank you for your feedback. Goodbye."); 
+          else if(data.messages[0].text=="Thank you for your feedback. Goodbye."); 
           {
             localStorage.setItem('_ttecConversationState', 'SURVEY_COMPLETED');
             Genesys('command', 'Database.set', {
