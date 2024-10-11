@@ -1,0 +1,25 @@
+{
+  "key": "${input.key}",
+  "code": "${input.code}",
+  "description": "${input.description}",
+  "date": "${input.errordate}",
+  "type": "${input.type}"
+}
+
+
+{
+    "requestUrlTemplate": "/api/v2/flows/datatables/8ebacca6-86b0-4ef3-8542-b35dd7562771/rows",
+    "requestType": "POST",
+    "headers": {},
+    "requestTemplate": "{\"key\":\"${input.key}\",\"question1\":\"${input.question1}\",\"question2\":\"${input.question2}\",\"surveyDate\":\"${input.surveyDate}\"}"
+  }
+
+
+
+  {
+    "key": "asdasd",
+    "code": "0001",
+    "description": "test error description",
+    "date": "2024-08-15T07:59:57",
+    "type": "Debug"
+  }
