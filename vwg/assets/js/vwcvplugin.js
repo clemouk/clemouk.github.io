@@ -13,72 +13,63 @@ if (surveyDone == null || surveyDone == undefined) {
 function wireEvents(){
   console.log('wireEvents - begin');
 
-      // subsribe to close widget event
-      console.log('READY: subscribing to open event...');
+  // subsribe to close widget event
+  console.log('READY: subscribing to open event...');
 
+  console.log('READY: subscribing to conversationCleared event...');
+  Genesys('subscribe', 'MessagingService.conconversationClearedversationCleared', function(){
+    console.log('MessagingService. event invoked');
+  });
 
-      console.log('READY: subscribing to conversationCleared event...');
-      Genesys('subscribe', 'MessagingService.conconversationClearedversationCleared', function(){
-        console.log('MessagingService. event invoked');
-      });
+  let x = document.getElementById("myAudio");
 
-      let x = document.getElementById("myAudio");
+  Genesys("subscribe", "Messenger.opened", function(){
+    console.log('Messenger.open event invoked');
+    messengerOpen = true;
 
-      Genesys("subscribe", "Messenger.opened", function(){
-        console.log('Messenger.open event invoked');
-        messengerOpen = true;
-
-        if(localStorage.getItem('_ttecConversationState')=='SURVEY_COMPLETED') {
-          console.log('Resetting widgets params - TargetBrand: VWPC');
-          Genesys('command', 'Database.set', {
-            messaging: {
-                customAttributes: {
-                    TargetBrand: "VWPC"
-                },
+    if(localStorage.getItem('_ttecConversationState')=='SURVEY_COMPLETED') {
+      console.log('Resetting widgets params - TargetBrand: VWPC');
+      Genesys('command', 'Database.set', {
+        messaging: {
+            customAttributes: {
+                TargetBrand: "VWPC"
             },
-          })
-        };
-  
-      });
-
-      Genesys("subscribe", "Messenger.closed", function(){
-        messengerOpen = false;
-      });
-
-      console.log('READY: subscribing to messagesReceived event...');
-      Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
-        // console.log(data);
-
-        if(data.messages[0].originatingEntity=="Bot" && data.messages[0].type=="Text")
-        {
-          if(data.messages[0].text=="How did we do?") { 
-            localStorage.setItem('_ttecConversationState', 'IN_SURVEY');
-          } 
-          else if(data.messages[0].text=="Thank you for your feedback. Goodbye.") 
-          {
-            localStorage.setItem('_ttecConversationState', 'SURVEY_COMPLETED');
-            Genesys('command', 'Database.set', {
-              messaging: {
-                  customAttributes: {
-                      TargetBrand: "VWPC"
-                  },
-              },
-            })
-          }
-        };
-
-
-        if(messengerOpen==false) {
-          x.play();
-          Genesys('command','Messenger.open',{},
-            function (o) {},
-            function (o) {
-              Genesys('command', 'Messenger.close');        
-            }
-          )
-        }; 
+        },
       })
+    };
 
+  });
+
+  Genesys("subscribe", "Messenger.closed", function(){
+    messengerOpen = false;
+  });
+
+  console.log('READY: subscribing to messagesReceived event...');
+  Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
+    if(data.messages[0].originatingEntity=="Bot" && data.messages[0].type=="Text")
+    {
+      if(data.messages[0].text=="How did we do?") { 
+        localStorage.setItem('_ttecConversationState', 'IN_SURVEY');
+      } 
+      else if(data.messages[0].text=="Thank you for your feedback. Goodbye.") 
+      {
+        localStorage.setItem('_ttecConversationState', 'SURVEY_COMPLETED');
+        Genesys('command', 'Database.set', {
+          messaging: {
+              customAttributes: {
+                  TargetBrand: "VWCV"
+              },
+          },
+        })
+      }
+
+      // console.log(data);
+      if(messengerOpen==false) {
+        x.play();
+        toggleMessenger();
+      };
+    };
+  })
 
   console.log('wireEvents - end');
 }
@@ -92,12 +83,11 @@ Genesys('subscribe', 'Messenger.ready', function () {
   Genesys('command', 'Database.set', {
     messaging: {
         customAttributes: {
-            TargetBrand: "VWPC"
+            TargetBrand: "VWCV"
         },
     },
   })
 });
-
 
 // receive disconnected event
 Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
@@ -132,7 +122,6 @@ Genesys('subscribe', 'Conversations.started', function () {
   localStorage.setItem('conversationEnd', 'false')
   localStorage.setItem('surveyDone', 'false')
 })
-
 
 function toggleMessenger(){
   Genesys("command", "Messenger.open", {},
