@@ -22,7 +22,10 @@
 	<link href="https://fonts.googleapis.com/css?family=Muli:400,300" rel="stylesheet" type="text/css">
 	<link href="assets/css/themify-icons.css" rel="stylesheet">
 
-	
+	<audio id="myAudio"></audio>
+		<source src="assets/decidemp3-14575.mp3" type="audio/mp3" />
+	</audio>
+
 </head>
 
 <body>
@@ -40,8 +43,19 @@
 		  environment: 'prod-euw2',
 		  deploymentId: '7082b91f-5ffd-4508-8ff6-b58ff931b058'
 		});
+	</script>
+	
+	<script>
+		const gc_deploymentId = 'df4cb5a9-5845-47b8-bff8-a7a919cb23e6'
+		const gc_region = 'euw2.pure.cloud'
+		const gc_hexColor = '#00B0F0'
+		const gc_iconColor = 'black'
 	  </script>
 		
+	<script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+	<script src="https://unpkg.com/@pdf-lib/fontkit/dist/fontkit.umd.js"></script>
+	<script src="assets/js/genesysTranscript.min.js"></script>
+
 	<div class="image-container set-full-height" style="background-image: url('assets/img/ttec-digital-2.png')">
 
 	    <a href="https://www.ttecdigital.com/">
