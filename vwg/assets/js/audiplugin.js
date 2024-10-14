@@ -13,40 +13,63 @@ if (surveyDone == null || surveyDone == undefined) {
 function wireEvents(){
   console.log('wireEvents - begin');
 
-      // subsribe to close widget event
-      console.log('READY: subscribing to open event...');
+  // subsribe to close widget event
+  console.log('READY: subscribing to open event...');
 
+  console.log('READY: subscribing to conversationCleared event...');
+  Genesys('subscribe', 'MessagingService.conconversationClearedversationCleared', function(){
+    console.log('MessagingService. event invoked');
+  });
 
-      console.log('READY: subscribing to conversationCleared event...');
-      Genesys('subscribe', 'MessagingService.conconversationClearedversationCleared', function(){
-        console.log('MessagingService. event invoked');
-      });
+  let x = document.getElementById("myAudio");
 
-      let x = document.getElementById("myAudio");
+  Genesys("subscribe", "Messenger.opened", function(){
+    console.log('Messenger.open event invoked');
+    messengerOpen = true;
 
-      Genesys("subscribe", "Messenger.opened", function(){
-        console.log('Messenger.open event invoked');
-        messengerOpen = true;
-      });
-
-      Genesys("subscribe", "Messenger.closed", function(){
-        messengerOpen = false;
-      });
-
-      console.log('READY: subscribing to messagesReceived event...');
-      Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
-        console.log(data);
-        if(messengerOpen==false) {
-          x.play();
-          Genesys('command','Messenger.open',{},
-            function (o) {},
-            function (o) {
-              Genesys('command', 'Messenger.close');        
-            }
-          )
-        }; 
+    if(localStorage.getItem('_ttecConversationState')=='SURVEY_COMPLETED') {
+      console.log('Resetting widgets params - TargetBrand: Audi');
+      Genesys('command', 'Database.set', {
+        messaging: {
+            customAttributes: {
+                TargetBrand: "Audi"
+            },
+        },
       })
+    };
 
+  });
+
+  Genesys("subscribe", "Messenger.closed", function(){
+    messengerOpen = false;
+  });
+
+  console.log('READY: subscribing to messagesReceived event...');
+  Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
+    if(data.messages[0].originatingEntity=="Bot" && data.messages[0].type=="Text")
+    {
+      if(data.messages[0].text=="How did we do?") { 
+        localStorage.setItem('_ttecConversationState', 'IN_SURVEY');
+      } 
+      else if(data.messages[0].text=="Thank you for your feedback. Goodbye.") 
+      {
+        localStorage.setItem('_ttecConversationState', 'SURVEY_COMPLETED');
+        Genesys('command', 'Database.set', {
+          messaging: {
+              customAttributes: {
+                  TargetBrand: "Audi"
+              },
+          },
+        })
+      }
+
+      // console.log(data);
+      if(messengerOpen==false) {
+        x.play();
+        toggleMessenger();
+      };
+    };
+  })
 
   console.log('wireEvents - end');
 }
@@ -55,6 +78,8 @@ function wireEvents(){
 Genesys('subscribe', 'Messenger.ready', function () {
   console.log('setting db params');
 
+  localStorage.setItem('_ttecConversationState', 'NEW');
+  
   wireEvents();
 
   Genesys('command', 'Database.set', {
@@ -66,9 +91,12 @@ Genesys('subscribe', 'Messenger.ready', function () {
   })
 });
 
-
 // receive disconnected event
 Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
+
+  console.log('disconnected event');
+
+//add localstorage flags to indicate how many times and also time
 
   if (!loaded) {
     loaded = true
@@ -96,7 +124,6 @@ Genesys('subscribe', 'Conversations.started', function () {
   localStorage.setItem('conversationEnd', 'false')
   localStorage.setItem('surveyDone', 'false')
 })
-
 
 function toggleMessenger(){
   Genesys("command", "Messenger.open", {},

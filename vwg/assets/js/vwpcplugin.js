@@ -78,6 +78,8 @@ function wireEvents(){
 Genesys('subscribe', 'Messenger.ready', function () {
   console.log('setting db params');
 
+  localStorage.setItem('_ttecConversationState', 'NEW');
+  
   wireEvents();
 
   Genesys('command', 'Database.set', {

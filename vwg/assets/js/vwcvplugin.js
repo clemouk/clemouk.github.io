@@ -28,11 +28,11 @@ function wireEvents(){
     messengerOpen = true;
 
     if(localStorage.getItem('_ttecConversationState')=='SURVEY_COMPLETED') {
-      console.log('Resetting widgets params - TargetBrand: VWPC');
+      console.log('Resetting widgets params - TargetBrand: VWCV');
       Genesys('command', 'Database.set', {
         messaging: {
             customAttributes: {
-                TargetBrand: "VWPC"
+                TargetBrand: "VWCV"
             },
         },
       })
@@ -78,6 +78,8 @@ function wireEvents(){
 Genesys('subscribe', 'Messenger.ready', function () {
   console.log('setting db params');
 
+  localStorage.setItem('_ttecConversationState', 'NEW');
+  
   wireEvents();
 
   Genesys('command', 'Database.set', {
