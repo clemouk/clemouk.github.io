@@ -46,7 +46,7 @@ function wireEvents(){
   });
 
   Genesys("subscribe", "Messenger.closed", function(){
-    Console.log('Messenger.closed event invoked');
+    console.log('Messenger.closed event invoked');
     messengerOpen = false;
   });
 
@@ -61,12 +61,12 @@ function wireEvents(){
 
       if(messageContent.indexOf("*Question ")>-1) { 
         localStorage.setItem('_ttecConversationState', 'IN_SURVEY');
-        Console.log('_ttecConversationState = IN_SURVEY')
+        console.log('_ttecConversationState = IN_SURVEY')
       } 
       else if(messageContent=="Thank you for your feedback. Goodbye.") 
       {
         localStorage.setItem('_ttecConversationState', 'SURVEY_COMPLETED');
-        Console.log('_ttecConversationState = SURVEY_COMPLETED')
+        console.log('_ttecConversationState = SURVEY_COMPLETED')
         Genesys('command', 'Database.set', {
           messaging: {
               customAttributes: {
@@ -76,7 +76,7 @@ function wireEvents(){
         })
       } else {
         localStorage.setItem('_ttecConversationState', 'IN_PROGRESS');
-        Console.log('_ttecConversationState = SURVEY_COMPLETED');
+        console.log('_ttecConversationState = SURVEY_COMPLETED');
       }
     };
 
