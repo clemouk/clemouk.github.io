@@ -17,8 +17,15 @@ function wireEvents(){
   console.log('READY: subscribing to open event...');
 
   console.log('READY: subscribing to conversationCleared event...');
-  Genesys('subscribe', 'MessagingService.conconversationClearedversationCleared', function(){
+  Genesys('subscribe', 'MessagingService.conversationCleared', function(){
     console.log('MessagingService. event invoked');
+    Genesys('command', 'Database.set', {
+      messaging: {
+          customAttributes: {
+              TargetBrand: "Audi"
+          },
+      },
+    })
   });
 
   let x = document.getElementById("myAudio");
@@ -41,6 +48,7 @@ function wireEvents(){
   });
 
   Genesys("subscribe", "Messenger.closed", function(){
+    Console.log('Messenger.closed event invoked');
     messengerOpen = false;
   });
 
