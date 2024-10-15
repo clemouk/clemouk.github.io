@@ -63,7 +63,7 @@ function wireEvents(){
         localStorage.setItem('_ttecConversationState', 'IN_SURVEY');
         console.log('_ttecConversationState = IN_SURVEY')
       } 
-      else if(messageContent=="Thank you for your feedback. Goodbye.") 
+      else if(messageContent=="Thanks for submitting your feedback.") 
       {
         localStorage.setItem('_ttecConversationState', 'SURVEY_COMPLETED');
         console.log('_ttecConversationState = SURVEY_COMPLETED')
