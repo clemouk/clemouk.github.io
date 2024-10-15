@@ -14,8 +14,6 @@ function wireEvents(){
   console.log('wireEvents - begin');
 
   // subsribe to close widget event
-  console.log('READY: subscribing to open event...');
-
   console.log('READY: subscribing to conversationCleared event...');
   Genesys('subscribe', 'MessagingService.conversationCleared', function(){
     console.log('MessagingService. event invoked');
