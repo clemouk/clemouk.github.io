@@ -66,11 +66,8 @@ function wireEvents(){
               },
           },
         })
-      }
-          
+      } else {localStorage.setItem('_ttecConversationState', 'IN_PROGRESS');}
     };
-
-    localStorage.setItem('_ttecConversationState', 'IN_PROGRESS');
 
     // console.log(data);
     if(messengerOpen==false) {
