@@ -62,14 +62,16 @@ function wireEvents(){
           },
         })
       }
-
-      // console.log(data);
-      if(messengerOpen==false) {
-        x.play();
-        toggleMessenger();
-      };
     };
-  })
+
+    localStorage.setItem('_ttecConversationState', 'IN_PROGRESS');
+
+    // console.log(data);
+    if(messengerOpen==false) {
+      x.play();
+      toggleMessenger();
+    };
+})
 
   console.log('wireEvents - end');
 }
@@ -78,8 +80,6 @@ function wireEvents(){
 Genesys('subscribe', 'Messenger.ready', function () {
   console.log('setting db params');
 
-  localStorage.setItem('_ttecConversationState', 'NEW');
-  
   wireEvents();
 
   Genesys('command', 'Database.set', {
@@ -89,6 +89,8 @@ Genesys('subscribe', 'Messenger.ready', function () {
         },
     },
   })
+
+  localStorage.setItem('_ttecConversationState', 'NEW');
 });
 
 // receive disconnected event
