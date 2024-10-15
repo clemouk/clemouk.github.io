@@ -76,7 +76,7 @@ function wireEvents(){
         })
       } else {
         localStorage.setItem('_ttecConversationState', 'IN_PROGRESS');
-        console.log('_ttecConversationState = SURVEY_COMPLETED');
+        console.log('_ttecConversationState = IN_PROGRESS');
       }
     };
 
