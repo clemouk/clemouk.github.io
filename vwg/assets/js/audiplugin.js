@@ -48,7 +48,7 @@ function wireEvents(){
   Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
 
     // ensure that we're looking at a text message, rather than any other notification message
-    if(data.messages[0].type=="Text") {
+    if(data.messages[0].type=="Text" || data.messages[0].type=="Structured") {
 
       // check to see if this is the start of the Survey bot
       let messageContent = data.messages[0].text;
