@@ -51,26 +51,24 @@ function wireEvents(){
     if(data.messages[0].type=="Text") {
 
       // check to see if this is the start of the Survey bot
-      if(data.messages[0].originatingEntity=="Bot")
-        {
-          let messageContent = data.messages[0].text;
+      let messageContent = data.messages[0].text;
 
-          if(messageContent.indexOf("*Question ")>0) { 
-            localStorage.setItem('_ttecConversationState', 'IN_SURVEY');
-          } 
-          else if(messageContent=="Thank you for your feedback. Goodbye.") 
-          {
-            localStorage.setItem('_ttecConversationState', 'SURVEY_COMPLETED');
-            Genesys('command', 'Database.set', {
-              messaging: {
-                  customAttributes: {
-                      TargetBrand: "Audi"
-                  },
+      if(messageContent.indexOf("*Question ")>0) { 
+        localStorage.setItem('_ttecConversationState', 'IN_SURVEY');
+      } 
+      else if(messageContent=="Thank you for your feedback. Goodbye.") 
+      {
+        localStorage.setItem('_ttecConversationState', 'SURVEY_COMPLETED');
+        Genesys('command', 'Database.set', {
+          messaging: {
+              customAttributes: {
+                  TargetBrand: "Audi"
               },
-            })
-          }
-        };
-    }
+          },
+        })
+      }
+          
+    };
 
     localStorage.setItem('_ttecConversationState', 'IN_PROGRESS');
 
