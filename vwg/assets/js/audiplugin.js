@@ -48,12 +48,12 @@ function wireEvents(){
   Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
 
     // ensure that we're looking at a text message, rather than any other notification message
-    if(data.messages[0].type=="Text" || data.messages[0].type=="Structured") {
+    if((data.messages[0].type=="Text" || data.messages[0].type=="Structured") && data.messages[0].direction=="Outbound") {
 
       // check to see if this is the start of the Survey bot
       let messageContent = data.messages[0].text;
 
-      if(messageContent.indexOf("*Question ")>0) { 
+      if(messageContent.indexOf("*Question ")>-1) { 
         localStorage.setItem('_ttecConversationState', 'IN_SURVEY');
       } 
       else if(messageContent=="Thank you for your feedback. Goodbye.") 
