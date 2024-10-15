@@ -95,8 +95,7 @@ Genesys('subscribe', 'Messenger.ready', function () {
 Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
 
   console.log('disconnected event');
-
-//add localstorage flags to indicate how many times and also time
+  //add localstorage flags to indicate how many times and also time
 
   if (!loaded) {
     loaded = true
