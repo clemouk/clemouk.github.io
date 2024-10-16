@@ -11,24 +11,29 @@ if (surveyDone == null || surveyDone == undefined) {
 }
 
 function wireEvents(){
-  console.log('wireEvents - begin');
+  // console.log('wireEvents - begin');
 
   // subsribe to close widget event
-  console.log('READY: subscribing to open event...');
-
-  console.log('READY: subscribing to conversationCleared event...');
-  Genesys('subscribe', 'MessagingService.conconversationClearedversationCleared', function(){
-    console.log('MessagingService. event invoked');
+  // console.log('READY: subscribing to conversationCleared event...');
+  Genesys('subscribe', 'MessagingService.conversationCleared', function(){
+    // console.log('MessagingService. event invoked');
+    Genesys('command', 'Database.set', {
+      messaging: {
+          customAttributes: {
+              TargetBrand: "SEAT"
+          },
+      },
+    })
   });
 
   let x = document.getElementById("myAudio");
 
   Genesys("subscribe", "Messenger.opened", function(){
-    console.log('Messenger.open event invoked');
+    // console.log('Messenger.open event invoked');
     messengerOpen = true;
 
     if(localStorage.getItem('_ttecConversationState')=='SURVEY_COMPLETED') {
-      console.log('Resetting widgets params - TargetBrand: SEAT');
+      // console.log('Resetting widgets params - TargetBrand: SEAT');
       Genesys('command', 'Database.set', {
         messaging: {
             customAttributes: {
@@ -41,19 +46,27 @@ function wireEvents(){
   });
 
   Genesys("subscribe", "Messenger.closed", function(){
+    // console.log('Messenger.closed event invoked');
     messengerOpen = false;
   });
 
-  console.log('READY: subscribing to messagesReceived event...');
+  // console.log('READY: subscribing to messagesReceived event...');
   Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
-    if(data.messages[0].originatingEntity=="Bot" && data.messages[0].type=="Text")
-    {
-      if(data.messages[0].text=="How did we do?") { 
+
+    // ensure that we're looking at a text message, rather than any other notification message
+    if((data.messages[0].type=="Text" || data.messages[0].type=="Structured") && data.messages[0].direction=="Outbound") {
+
+      // check to see if this is the start of the Survey bot
+      let messageContent = data.messages[0].text;
+
+      if(messageContent.indexOf("*Question ")>-1) { 
         localStorage.setItem('_ttecConversationState', 'IN_SURVEY');
+        // console.log('_ttecConversationState = IN_SURVEY')
       } 
-      else if(data.messages[0].text=="Thank you for your feedback. Goodbye.") 
+      else if(messageContent=="Thanks for submitting your feedback.") 
       {
         localStorage.setItem('_ttecConversationState', 'SURVEY_COMPLETED');
+        // console.log('_ttecConversationState = SURVEY_COMPLETED')
         Genesys('command', 'Database.set', {
           messaging: {
               customAttributes: {
@@ -61,25 +74,26 @@ function wireEvents(){
               },
           },
         })
+      } else {
+        localStorage.setItem('_ttecConversationState', 'IN_PROGRESS');
+        // console.log('_ttecConversationState = IN_PROGRESS');
       }
+    };
 
-      // console.log(data);
-      if(messengerOpen==false) {
-        x.play();
-        toggleMessenger();
-      };
+    // console.log(data);
+    if(messengerOpen==false) {
+      x.play();
+      toggleMessenger();
     };
   })
 
-  console.log('wireEvents - end');
+  // console.log('wireEvents - end');
 }
 
 // subscribe to ready event
 Genesys('subscribe', 'Messenger.ready', function () {
-  console.log('setting db params');
+  // console.log('setting db params');
 
-  localStorage.setItem('_ttecConversationState', 'NEW');
-  
   wireEvents();
 
   Genesys('command', 'Database.set', {
@@ -89,25 +103,26 @@ Genesys('subscribe', 'Messenger.ready', function () {
         },
     },
   })
+
+  localStorage.setItem('_ttecConversationState', 'NEW');
 });
 
 // receive disconnected event
 Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
 
-  console.log('disconnected event');
-
-//add localstorage flags to indicate how many times and also time
+  // console.log('disconnected event');
+  //add localstorage flags to indicate how many times and also time
 
   if (!loaded) {
     loaded = true
     conversationEnd = 'true'
     localStorage.setItem('conversationEnd', 'true')
-    console.log('end of conversation')
-    console.log(conversationEnd)
-    console.log(surveyDone)
+    // console.log('end of conversation')
+    // console.log(conversationEnd)
+    // console.log(surveyDone)
     if (surveyDone == 'false') {
       localStorage.setItem('surveyDone', 'true')
-      console.log('Start Survey')
+      // console.log('Start Survey')
           Genesys('command', 'MessagingService.sendMessage', {
             message: 'How did we do?',
           })
@@ -117,7 +132,7 @@ Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
 
 // receive connected event
 Genesys('subscribe', 'Conversations.started', function () {
-  console.log('new conversation')
+  // console.log('new conversation')
   conversationEnd = 'false'
   surveyDone = 'false'
   loaded = false
