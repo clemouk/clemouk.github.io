@@ -123,9 +123,9 @@ Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
     if (surveyDone == 'false') {
       localStorage.setItem('surveyDone', 'true')
       // console.log('Start Survey')
-          Genesys('command', 'MessagingService.sendMessage', {
-            message: 'How did we do?',
-          })
+      Genesys('command', 'MessagingService.sendMessage', {
+        message: 'How did we do?',
+      })
     }
   }
 })

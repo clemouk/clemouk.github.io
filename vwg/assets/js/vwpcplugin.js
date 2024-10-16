@@ -33,7 +33,7 @@ function wireEvents(){
     messengerOpen = true;
 
     if(localStorage.getItem('_ttecConversationState')=='SURVEY_COMPLETED') {
-      // console.log('Resetting widgets params - TargetBrand: VWPC');
+      // console.log('Resetting widgets params - TargetBrand: Audi');
       Genesys('command', 'Database.set', {
         messaging: {
             customAttributes: {
@@ -123,12 +123,12 @@ Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
     if (surveyDone == 'false') {
       localStorage.setItem('surveyDone', 'true')
       // console.log('Start Survey')
-          Genesys('command', 'MessagingService.sendMessage', {
-            message: 'How did we do?',
-          })
+      Genesys('command', 'MessagingService.sendMessage', {
+        message: 'How did we do?',
+      })
     }
   }
-})
+});
 
 // receive connected event
 Genesys('subscribe', 'Conversations.started', function () {

@@ -21,8 +21,8 @@ function wireEvents(){
       messaging: {
           customAttributes: {
               TargetBrand: "Skoda"
-          }
-      }
+          },
+      },
     })
   });
 
@@ -38,8 +38,8 @@ function wireEvents(){
         messaging: {
             customAttributes: {
                 TargetBrand: "Skoda"
-            }
-        }
+            },
+        },
       })
     };
 
@@ -78,8 +78,8 @@ function wireEvents(){
           messaging: {
               customAttributes: {
                   TargetBrand: "Skoda"
-              }
-          }
+              },
+          },
         })
       } else {
         localStorage.setItem('_ttecConversationState', 'IN_PROGRESS');
@@ -131,9 +131,10 @@ Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
       localStorage.setItem('surveyDone', 'true')
       // console.log('Start Survey')
           Genesys('command', 'MessagingService.sendMessage', {
-            message: 'How did we do?',
-          })
-    }
+            message: 'How did we do?'
+          },
+        )
+    };
   }
 })
 

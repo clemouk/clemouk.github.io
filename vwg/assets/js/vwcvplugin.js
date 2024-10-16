@@ -21,8 +21,8 @@ function wireEvents(){
       messaging: {
           customAttributes: {
               TargetBrand: "VWCV"
-          },
-      },
+          }
+      }
     })
   });
 
@@ -38,8 +38,8 @@ function wireEvents(){
         messaging: {
             customAttributes: {
                 TargetBrand: "VWCV"
-            },
-        },
+            }
+        }
       })
     };
 
@@ -71,8 +71,8 @@ function wireEvents(){
           messaging: {
               customAttributes: {
                   TargetBrand: "VWCV"
-              },
-          },
+              }
+          }
         })
       } else {
         localStorage.setItem('_ttecConversationState', 'IN_PROGRESS');
