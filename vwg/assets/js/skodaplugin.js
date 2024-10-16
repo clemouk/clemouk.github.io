@@ -61,7 +61,9 @@ function wireEvents(){
 
       // check to see if the lines are closed, if so we can stop processing. 
       if(messageContent.indexOf("Unfortunately our offices are closed")==0) {
-        // pretend to complete the survey. 
+        // force closure of survey, so that customers contacting Skoda outside of hours, 
+        // don't get prompted for a customer survey
+        localStorage.setItem('surveyDone', 'true');
         localStorage.setItem('_ttecConversationState', 'SURVEY_COMPLETED');
       }
       else if(messageContent.indexOf("*Question ")>-1) { 
