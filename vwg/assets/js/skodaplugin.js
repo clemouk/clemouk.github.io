@@ -21,8 +21,8 @@ function wireEvents(){
       messaging: {
           customAttributes: {
               TargetBrand: "Skoda"
-          },
-      },
+          }
+      }
     })
   });
 
@@ -38,8 +38,8 @@ function wireEvents(){
         messaging: {
             customAttributes: {
                 TargetBrand: "Skoda"
-            },
-        },
+            }
+        }
       })
     };
 
@@ -59,7 +59,12 @@ function wireEvents(){
       // check to see if this is the start of the Survey bot
       let messageContent = data.messages[0].text;
 
-      if(messageContent.indexOf("*Question ")>-1) { 
+      // check to see if the lines are closed, if so we can stop processing. 
+      if(messageContent.indexOf("Unfortunately our offices are closed")==0) {
+        // pretend to complete the survey. 
+        localStorage.setItem('_ttecConversationState', 'SURVEY_COMPLETED');
+      }
+      else if(messageContent.indexOf("*Question ")>-1) { 
         localStorage.setItem('_ttecConversationState', 'IN_SURVEY');
         // console.log('_ttecConversationState = IN_SURVEY')
       } 
@@ -71,20 +76,20 @@ function wireEvents(){
           messaging: {
               customAttributes: {
                   TargetBrand: "Skoda"
-              },
-          },
+              }
+          }
         })
       } else {
         localStorage.setItem('_ttecConversationState', 'IN_PROGRESS');
-        // console.log('_ttecConversationState = IN_PROGRESS');
+
+            // console.log(data);
+        if(messengerOpen==false) {
+          x.play();
+          toggleMessenger();
+        };
       }
     };
 
-    // console.log(data);
-    if(messengerOpen==false) {
-      x.play();
-      toggleMessenger();
-    };
   })
 
   // console.log('wireEvents - end');
