@@ -55,6 +55,11 @@ function wireEvents(){
   console.log('READY: subscribing to messagesReceived event...');
   Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
 
+    if((data.messages[0].type=="Text" || data.messages[0].type=="Structured") && (data.messages[0].direction=="Outbound" && data.messages[0].originatingEntity=="Bot"))
+    {
+      console.log('bot')
+    } else { console.log('human'); }
+
     // ensure that we're looking at a text message, rather than any other notification message
     if((data.messages[0].type=="Text" || data.messages[0].type=="Structured") && data.messages[0].direction=="Outbound") {
 
