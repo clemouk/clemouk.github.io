@@ -65,6 +65,16 @@ function wireEvents(){
         localStorage.setItem('_ttecConversationState', 'IN_SURVEY');
         console.log('_ttecConversationState = IN_SURVEY')
       } 
+      else if(messageContent=="Hello. I'm your Volkswagen Digital Assistant.") 
+        {
+          localStorage.setItem('_ttecConversationState', 'NEW');
+          console.log('new conversation')
+          conversationEnd = 'false'
+          surveyDone = 'false'
+          loaded = false
+          localStorage.setItem('conversationEnd', 'false')
+          localStorage.setItem('surveyDone', 'false')
+        }
       else if(messageContent=="Thanks for submitting your feedback.") 
       {
         localStorage.setItem('_ttecConversationState', 'SURVEY_COMPLETED');
