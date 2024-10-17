@@ -16,7 +16,9 @@ function wireEvents(){
   // subsribe to close widget event
   // console.log('READY: subscribing to conversationCleared event...');
   Genesys('subscribe', 'MessagingService.conversationCleared', function(){
-    // console.log('MessagingService. event invoked');
+    // Need to reset the conversationState so that a survey can be done if a new conversation starts
+    localStorage.setItem('_ttecConversationState', 'NEW');
+    // Re-initialise the widget params
     Genesys('command', 'Database.set', {
       messaging: {
           customAttributes: {
