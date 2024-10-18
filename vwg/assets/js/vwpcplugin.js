@@ -88,16 +88,7 @@ function wireEvents(){
           }
           //gc_token = JSON.parse(localStorage.getItem(`_${gc_deploymentId}:actmu`)).value;
 
-          Genesys(
-            "command",
-            "Toaster.open",
-            {
-              title: "Volkswagen",
-              body: "To download your chat conversation, please click the download button at the bottom of the screen at the end of your conversation.",
-              buttons: { type: "unary" },
-              primary: "OK" // optional, default value is "Accept"
-            },
-          );
+          
 
         }
       else if(messageContent=="Thanks for submitting your feedback.") 
@@ -153,6 +144,19 @@ Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
   //add localstorage flags to indicate how many times and also time
 
   if (!loaded) {
+
+    Genesys(
+      "command",
+      "Toaster.open",
+      {
+        title: "Volkswagen",
+        body: "To download your chat conversation, please click the download button at the bottom of the screen at the end of your conversation.",
+        buttons: { type: "unary" },
+        primary: "OK" // optional, default value is "Accept"
+      },
+    );
+
+    
     loaded = true
     conversationEnd = 'true'
     localStorage.setItem('conversationEnd', 'true')
