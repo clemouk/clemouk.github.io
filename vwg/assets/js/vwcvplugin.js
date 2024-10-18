@@ -45,11 +45,9 @@ function wireEvents(){
   });
 
   Genesys("subscribe", "Messenger.closed", function(){
-    console.log('Messenger.closed event invoked');
     messengerOpen = false;
   });
 
-  console.log('READY: subscribing to messagesReceived event...');
   Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
 
     // ensure that we're looking at a text message, rather than any other notification message
