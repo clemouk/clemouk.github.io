@@ -95,6 +95,7 @@ function wireEvents(){
               title: "Volkswagen",
               body: "To download your chat conversation, please click the download button at the bottom of the screen at the end of your conversation.",
               buttons: { type: "unary" },
+              primary: "OK" // optional, default value is "Accept"
             },
           );
 
