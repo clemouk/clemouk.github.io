@@ -1,14 +1,16 @@
 
-let conversationEnd = localStorage.getItem('conversationEnd')
-let surveyDone = localStorage.getItem('surveyDone')
-let loaded = false
+let conversationEnd = localStorage.getItem('conversationEnd');
+let surveyDone = localStorage.getItem('surveyDone');
+let loaded = false;
+let transcriptButtonLoaded = false;
 
 if (conversationEnd == null || conversationEnd == undefined) {
-  conversationEnd = 'false'
+  conversationEnd = 'false';
 }
+
 if (surveyDone == null || surveyDone == undefined) {
-  surveyDone = 'false'
-}
+  surveyDone = 'false';
+};
 
 function wireEvents(){
   console.log('wireEvents - begin');
@@ -79,6 +81,13 @@ function wireEvents(){
           loaded = false
           localStorage.setItem('conversationEnd', 'false')
           localStorage.setItem('surveyDone', 'false')
+
+          if(!transcriptButtonLoaded) {
+            transcriptButtonLoaded = true;
+            displayButton();
+          }
+          //gc_token = JSON.parse(localStorage.getItem(`_${gc_deploymentId}:actmu`)).value;
+
         }
       else if(messageContent=="Thanks for submitting your feedback.") 
       {
@@ -103,6 +112,8 @@ function wireEvents(){
       toggleMessenger();
     };
   })
+
+
 
   console.log('wireEvents - end');
 }
@@ -163,3 +174,27 @@ function toggleMessenger(){
     }
   );
 }
+
+Genesys("subscribe", "Toaster.ready", () => {
+  Genesys(
+    "command",
+    "Toaster.open",
+    {
+      title: "Welcome to Genesys Cloud",
+      body: "Encountering issues? Our support team is ready to troubleshoot and assist you.",
+      buttons: {
+        type: "binary", // required when 'buttons' is present. Values: "unary" for one action button, "binary" for two action buttons
+        primary: "Get Support", // optional, default value is "Accept"
+        secondary: "Maybe Later", // optional, default value is "Decline"
+      },
+    },
+    function () {
+      /*fulfilled callback*/
+      console.log("Toaster is opened");
+    },
+    function (error) {
+      /*rejected callback*/
+      console.log("There was an error running the Toaster.open command:", error);
+    }
+  );
+});
