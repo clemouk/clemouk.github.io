@@ -37,7 +37,7 @@ function wireEvents(){
     messengerOpen = true;
 
     if(localStorage.getItem('_ttecConversationState')=='SURVEY_COMPLETED') {
-      console.log('Resetting widgets params - TargetBrand: Audi');
+      console.log('Resetting widgets params - TargetBrand: VWPC');
       Genesys('command', 'Database.set', {
         messaging: {
             customAttributes: {
@@ -145,18 +145,18 @@ Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
 
   if (!loaded) {
 
-    Genesys(
-      "command",
-      "Toaster.open",
-      {
-        title: "Volkswagen",
-        body: "To download your chat conversation, please click the download button at the bottom of the screen at the end of your conversation.",
-        buttons: { type: "unary" },
-        primary: "OK" // optional, default value is "Accept"
-      },
-    );
+    // Genesys(
+    //   "command",
+    //   "Toaster.open",
+    //   {
+    //     title: "Volkswagen",
+    //     body: "To download your chat conversation, please click the download button at the bottom of the screen at the end of your conversation.",
+    //     buttons: { type: "unary" },
+    //     primary: "OK" // optional, default value is "Accept"
+    //   },
+    // );
 
-    
+
     loaded = true
     conversationEnd = 'true'
     localStorage.setItem('conversationEnd', 'true')

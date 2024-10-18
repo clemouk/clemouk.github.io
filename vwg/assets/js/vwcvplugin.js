@@ -24,7 +24,7 @@ function wireEvents(){
     Genesys('command', 'Database.set', {
       messaging: {
           customAttributes: {
-              TargetBrand: "VWPC"
+              TargetBrand: "VWCV"
           },
       },
     })
@@ -37,11 +37,11 @@ function wireEvents(){
     messengerOpen = true;
 
     if(localStorage.getItem('_ttecConversationState')=='SURVEY_COMPLETED') {
-      console.log('Resetting widgets params - TargetBrand: Audi');
+      console.log('Resetting widgets params - TargetBrand: VWCV');
       Genesys('command', 'Database.set', {
         messaging: {
             customAttributes: {
-                TargetBrand: "VWPC"
+                TargetBrand: "VWCV"
             },
         },
       })
@@ -72,7 +72,7 @@ function wireEvents(){
         localStorage.setItem('_ttecConversationState', 'IN_SURVEY');
         console.log('_ttecConversationState = IN_SURVEY')
       } 
-      else if(messageContent=="Hello. I'm your Volkswagen Commercial Vehicle Digital Assistant.") 
+      else if(messageContent=="Hello. I'm your Volkswagen Commercial Vehicle Digital Assistant.") /* Unique greeting per brand */
         {
           localStorage.setItem('_ttecConversationState', 'NEW');
           console.log('new conversation')
@@ -98,7 +98,7 @@ function wireEvents(){
         Genesys('command', 'Database.set', {
           messaging: {
               customAttributes: {
-                  TargetBrand: "VWPC"
+                  TargetBrand: "VWCV"
               },
           },
         })
@@ -129,7 +129,7 @@ Genesys('subscribe', 'Messenger.ready', function () {
   Genesys('command', 'Database.set', {
     messaging: {
         customAttributes: {
-            TargetBrand: "VWPC"
+            TargetBrand: "VWCV"
         },
     },
   })
@@ -145,16 +145,16 @@ Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
 
   if (!loaded) {
 
-    Genesys(
-      "command",
-      "Toaster.open",
-      {
-        title: "Volkswagen",
-        body: "To download your chat conversation, please click the download button at the bottom of the screen at the end of your conversation.",
-        buttons: { type: "unary" },
-        primary: "OK" // optional, default value is "Accept"
-      },
-    );
+    // Genesys(
+    //   "command",
+    //   "Toaster.open",
+    //   {
+    //     title: "Volkswagen",
+    //     body: "To download your chat conversation, please click the download button at the bottom of the screen at the end of your conversation.",
+    //     buttons: { type: "unary" },
+    //     primary: "OK" // optional, default value is "Accept"
+    //   },
+    // );
 
     
     loaded = true
@@ -190,6 +190,6 @@ function toggleMessenger(){
   );
 }
 
-Genesys("subscribe", "Toaster.ready", () => {
-  console.log('pop-up ready')
-});
+// Genesys("subscribe", "Toaster.ready", () => {
+//   console.log('pop-up ready')
+// });
