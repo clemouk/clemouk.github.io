@@ -62,7 +62,6 @@ function wireEvents(){
 
       if(messageContent.indexOf("*Question ")>-1) { 
         localStorage.setItem('_ttecConversationState', 'IN_SURVEY');
-        console.log('_ttecConversationState = IN_SURVEY')
       } 
       else if(messageContent=="Hello. I'm your Volkswagen Digital Assistant.") 
         {
