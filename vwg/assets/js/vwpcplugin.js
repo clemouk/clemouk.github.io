@@ -180,12 +180,10 @@ Genesys("subscribe", "Toaster.ready", () => {
     "command",
     "Toaster.open",
     {
-      title: "Welcome to Genesys Cloud",
-      body: "Encountering issues? Our support team is ready to troubleshoot and assist you.",
+      title: "Volkswagen",
+      body: "To download your chat conversation, please click the download button at the bottom of the screen at the end of your conversation.",
       buttons: {
-        type: "binary", // required when 'buttons' is present. Values: "unary" for one action button, "binary" for two action buttons
-        primary: "Get Support", // optional, default value is "Accept"
-        secondary: "Maybe Later", // optional, default value is "Decline"
+        type: "unary" 
       },
     },
     function () {
