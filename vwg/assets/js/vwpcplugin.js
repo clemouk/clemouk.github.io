@@ -56,7 +56,8 @@ function wireEvents(){
 
       // check to see if this is the start of the Survey bot
       let messageContent = data.messages[0].text;
-
+      if(messageContent===undefined) { messageContent = ""}
+      
       if(messageContent.indexOf("*Question ")>-1) { 
         localStorage.setItem('_ttecConversationState', 'IN_SURVEY');
       } 
