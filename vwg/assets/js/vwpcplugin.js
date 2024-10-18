@@ -88,6 +88,16 @@ function wireEvents(){
           }
           //gc_token = JSON.parse(localStorage.getItem(`_${gc_deploymentId}:actmu`)).value;
 
+          Genesys(
+            "command",
+            "Toaster.open",
+            {
+              title: "Volkswagen",
+              body: "To download your chat conversation, please click the download button at the bottom of the screen at the end of your conversation.",
+              buttons: { type: "unary" },
+            },
+          );
+
         }
       else if(messageContent=="Thanks for submitting your feedback.") 
       {
@@ -176,23 +186,5 @@ function toggleMessenger(){
 }
 
 Genesys("subscribe", "Toaster.ready", () => {
-  Genesys(
-    "command",
-    "Toaster.open",
-    {
-      title: "Volkswagen",
-      body: "To download your chat conversation, please click the download button at the bottom of the screen at the end of your conversation.",
-      buttons: {
-        type: "unary" 
-      },
-    },
-    function () {
-      /*fulfilled callback*/
-      console.log("Toaster is opened");
-    },
-    function (error) {
-      /*rejected callback*/
-      console.log("There was an error running the Toaster.open command:", error);
-    }
-  );
+  console.log('pop-up ready')
 });
