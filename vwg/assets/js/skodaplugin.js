@@ -91,7 +91,6 @@ function wireEvents(){
       else if(messageContent=="Thanks for submitting your feedback.") 
       {
         localStorage.setItem('_ttecConversationState', 'SURVEY_COMPLETED');
-        console.log('_ttecConversationState = SURVEY_COMPLETED')
         Genesys('command', 'Database.set', {
           messaging: {
               customAttributes: {
@@ -101,7 +100,6 @@ function wireEvents(){
         })
       } else {
         localStorage.setItem('_ttecConversationState', 'IN_PROGRESS');
-        console.log('_ttecConversationState = IN_PROGRESS');
       }
     };
 
@@ -111,10 +109,6 @@ function wireEvents(){
       toggleMessenger();
     };
   })
-
-
-
-  console.log('wireEvents - end');
 }
 
 // subscribe to ready event

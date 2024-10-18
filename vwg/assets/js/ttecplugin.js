@@ -49,21 +49,19 @@ function wireEvents(){
 
   Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
 
-    // if((data.messages[0].type=="Text" || data.messages[0].type=="Structured") && (data.messages[0].direction=="Outbound" && data.messages[0].originatingEntity=="Bot"))
-    // {
-    //   console.log('bot')
-    // } else { console.log('human'); }
-
     // ensure that we're looking at a text message, rather than any other notification message
     if((data.messages[0].type=="Text" || data.messages[0].type=="Structured") && data.messages[0].direction=="Outbound") {
 
       // check to see if this is the start of the Survey bot
       let messageContent = data.messages[0].text;
 
+      // To Mick: I know this is not the most elegant solution, but it is working. 
+      if(messageContent===undefined) { messageContent = ""}
+
       if(messageContent.indexOf("*Question ")>-1) { 
         localStorage.setItem('_ttecConversationState', 'IN_SURVEY');
       } 
-      else if(messageContent=="Hello. I'm your Volkswagen Digital Assistant.") 
+      else if(messageContent=="Hello. I'm your Volkswagen Digital Assistant.")  /* Unique per brand */
         {
           localStorage.setItem('_ttecConversationState', 'NEW');
           conversationEnd = 'false'
