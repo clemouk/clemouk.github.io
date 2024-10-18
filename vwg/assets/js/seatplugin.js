@@ -86,9 +86,6 @@ function wireEvents(){
             transcriptButtonLoaded = true;
             displayButton();
           }
-          //gc_token = JSON.parse(localStorage.getItem(`_${gc_deploymentId}:actmu`)).value;
-
-          
 
         }
       else if(messageContent=="Thanks for submitting your feedback.") 

@@ -119,8 +119,6 @@ function wireEvents(){
 
 // subscribe to ready event
 Genesys('subscribe', 'Messenger.ready', function () {
-  console.log('setting db params');
-
   wireEvents();
 
   Genesys('command', 'Database.set', {
@@ -137,23 +135,8 @@ Genesys('subscribe', 'Messenger.ready', function () {
 // receive disconnected event
 Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
 
-  console.log('disconnected event');
-  //add localstorage flags to indicate how many times and also time
-
   if (!loaded) {
 
-    // Genesys(
-    //   "command",
-    //   "Toaster.open",
-    //   {
-    //     title: "Volkswagen",
-    //     body: "To download your chat conversation, please click the download button at the bottom of the screen at the end of your conversation.",
-    //     buttons: { type: "unary" },
-    //     primary: "OK" // optional, default value is "Accept"
-    //   },
-    // );
-
-    
     loaded = true
     conversationEnd = 'true'
     localStorage.setItem('conversationEnd', 'true')
