@@ -127,7 +127,7 @@ async function createPdf(e) {
   // _a.target = '_blank';
   // _a.click();
 
-  loadingOff();
+  //loadingOff();
 
 }
 function customerText(e, t, n, i, o, a, c, g) {
