@@ -124,7 +124,7 @@ async function createPdf(e) {
   _a.style = 'display: none';
   _a.href = url;
   _a.download = 'transcript.pdf';
-  _a.target = '_blank';
+  // _a.target = '_blank';
   _a.click();
 
   loadingOff();
