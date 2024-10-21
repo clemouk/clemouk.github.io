@@ -93,9 +93,32 @@ async function createPdf(e) {
   n.setCreationDate(new Date()),
     n.setAuthor("https://github.com/mcphee11"),
     n.setSubject("Messaging Transcript");
-  const d = await n.saveAsBase64({ dataUri: !0 }),
-    s = document.createElement("a");
-  (s.href = d), (s.download = "transcript.pdf"), s.click(), loadingOff();
+
+  // 21st OCtober 2024 - Mick Hynes
+  // this original code didn't work in Safari or Firefox in iOS
+  // const d = await n.saveAsBase64({ dataUri: !0 }),
+  //   s = document.createElement("a");
+  // (s.href = d), (s.download = "transcript.pdf"), s.click(), loadingOff();
+
+  // new code:
+  const d = await n.saveAsBase64({ dataUri: false });
+  const base64URL = d;//res.data;
+  //console.log(base64URL);
+  //const binary = atob(base64URL.replace(/\s/g, ''));
+  const binary = atob(base64URL);
+  const len = binary.length;
+  const buffer = new ArrayBuffer(len);
+  const view = new Uint8Array(buffer);
+
+  for (let i = 0; i < len; i += 1) {
+    view[i] = binary.charCodeAt(i);
+  }
+  // create the blob object with content-type "application/pdf"
+  const blob = new Blob([view], { type: 'application/pdf' });
+  const url = URL.createObjectURL(blob);
+  const s = document.createElement("a");
+  (s.href = url), (s.download = "transcript.pdf"), s.click(), loadingOff();
+
 }
 function customerText(e, t, n, i, o, a, c, g) {
   let r = i + 2,
