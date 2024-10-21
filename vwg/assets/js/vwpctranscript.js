@@ -116,16 +116,16 @@ async function createPdf(e) {
   // create the blob object with content-type "application/pdf"
   const blob = new Blob([view], { type: 'application/pdf' });
   const url = URL.createObjectURL(blob);
-  // const s = document.createElement("a");
-  // (s.href = url), (s.download = "transcript.pdf"), s.click(), loadingOff();
+  const s = document.createElement("a");
+  (s.href = url), (s.download = "transcript.pdf"), s.click(), loadingOff();
 
-  const _a = document.createElement('a');
-  document.body.appendChild(a);
-  _a.style = 'display: none';
-  _a.href = url;
-  _a.download = 'transcript.pdf';
+  // const _a = document.createElement('a');
+  // document.body.appendChild(a);
+  // _a.style = 'display: none';
+  // _a.href = url;
+  // _a.download = 'transcript.pdf';
   // _a.target = '_blank';
-  _a.click();
+  // _a.click();
 
   loadingOff();
 
