@@ -94,7 +94,7 @@ async function createPdf(e) {
     n.setAuthor("https://github.com/mcphee11"),
     n.setSubject("Messaging Transcript");
 
-  // 21st OCtober 2024 - Mick Hynes
+  // 21st October 2024 - Mick Hynes
   // this original code didn't work in Safari or Firefox in iOS
   // const d = await n.saveAsBase64({ dataUri: !0 }),
   //   s = document.createElement("a");
@@ -116,8 +116,18 @@ async function createPdf(e) {
   // create the blob object with content-type "application/pdf"
   const blob = new Blob([view], { type: 'application/pdf' });
   const url = URL.createObjectURL(blob);
-  const s = document.createElement("a");
-  (s.href = url), (s.download = "transcript.pdf"), s.click(), loadingOff();
+  // const s = document.createElement("a");
+  // (s.href = url), (s.download = "transcript.pdf"), s.click(), loadingOff();
+
+  const _a = document.createElement('a');
+  document.body.appendChild(a);
+  _a.style = 'display: none';
+  _a.href = url;
+  _a.download = 'transcript.pdf';
+  _a.target = '_blank';
+  _a.click();
+
+  loadingOff();
 
 }
 function customerText(e, t, n, i, o, a, c, g) {
