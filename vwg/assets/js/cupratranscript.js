@@ -32,7 +32,7 @@ function setupWSS() {
 }
 
 async function getHistory(e) {
-  let t = await fetch(`https://api.${gc_region}/api/v2/webmessaging/messages?pagesize=500`, {
+  let t = await fetch(`https://api.${gc_region}/api/v2/webmessaging/messages?pageSize=500`, {
       headers: { Authorization: `Bearer ${e}` },
     }),
     n = await t.json();
