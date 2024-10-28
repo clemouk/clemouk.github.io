@@ -94,7 +94,6 @@ function wireEvents(){
       }
     };
 
-    //console.log(data);
     if(messengerOpen==false) {
       x.play();
       toggleMessenger();

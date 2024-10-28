@@ -13,10 +13,8 @@ if (surveyDone == null || surveyDone == undefined) {
 };
 
 function wireEvents(){
-  console.log('wireEvents - begin');
 
   // subsribe to close widget event
-  console.log('READY: subscribing to conversationCleared event...');
   Genesys('subscribe', 'MessagingService.conversationCleared', function(){
     // Need to reset the conversationState so that a survey can be done if a new conversation starts
     localStorage.setItem('_ttecConversationState', 'NEW');
@@ -33,11 +31,9 @@ function wireEvents(){
   let x = document.getElementById("myAudio");
 
   Genesys("subscribe", "Messenger.opened", function(){
-    console.log('Messenger.open event invoked');
     messengerOpen = true;
 
     if(localStorage.getItem('_ttecConversationState')=='SURVEY_COMPLETED') {
-      console.log('Resetting widgets params - TargetBrand: Audi');
       Genesys('command', 'Database.set', {
         messaging: {
             customAttributes: {
@@ -50,11 +46,9 @@ function wireEvents(){
   });
 
   Genesys("subscribe", "Messenger.closed", function(){
-    console.log('Messenger.closed event invoked');
     messengerOpen = false;
   });
 
-  console.log('READY: subscribing to messagesReceived event...');
   Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
 
     // ensure that we're looking at a text message, rather than any other notification message
@@ -68,12 +62,10 @@ function wireEvents(){
 
       if(messageContent.indexOf("*Question ")>-1) { 
         localStorage.setItem('_ttecConversationState', 'IN_SURVEY');
-        console.log('_ttecConversationState = IN_SURVEY')
       } 
       else if(messageContent=="Hello, my name is Ava, your Audi Virtual Assistant.") /* Unique greeting per brand */
         {
           localStorage.setItem('_ttecConversationState', 'NEW');
-          console.log('new conversation')
           conversationEnd = 'false'
           surveyDone = 'false'
           loaded = false
@@ -90,7 +82,6 @@ function wireEvents(){
       else if(messageContent=="Thanks for submitting your feedback.") 
       {
         localStorage.setItem('_ttecConversationState', 'SURVEY_COMPLETED');
-        console.log('_ttecConversationState = SURVEY_COMPLETED')
         Genesys('command', 'Database.set', {
           messaging: {
               customAttributes: {
@@ -100,11 +91,9 @@ function wireEvents(){
         })
       } else {
         localStorage.setItem('_ttecConversationState', 'IN_PROGRESS');
-        console.log('_ttecConversationState = IN_PROGRESS');
       }
     };
 
-    //console.log(data);
     if(messengerOpen==false) {
       x.play();
       toggleMessenger();
@@ -113,12 +102,10 @@ function wireEvents(){
 
 
 
-  console.log('wireEvents - end');
 }
 
 // subscribe to ready event
 Genesys('subscribe', 'Messenger.ready', function () {
-  console.log('setting db params');
 
   wireEvents();
 
@@ -136,7 +123,6 @@ Genesys('subscribe', 'Messenger.ready', function () {
 // receive disconnected event
 Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
 
-  console.log('disconnected event');
   //add localstorage flags to indicate how many times and also time
 
   if (!loaded) {
@@ -158,7 +144,6 @@ Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
     localStorage.setItem('conversationEnd', 'true')
     if (surveyDone == 'false') {
       localStorage.setItem('surveyDone', 'true')
-      console.log('Start Survey')
       Genesys('command', 'MessagingService.sendMessage', {
         message: 'How did we do?',
       })
@@ -168,7 +153,6 @@ Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
 
 // receive connected event
 Genesys('subscribe', 'Conversations.started', function () {
-  console.log('new conversation')
   conversationEnd = 'false'
   surveyDone = 'false'
   loaded = false
@@ -186,6 +170,3 @@ function toggleMessenger(){
   );
 }
 
-// Genesys("subscribe", "Toaster.ready", () => {
-//   console.log('pop-up ready')
-// });

@@ -36,7 +36,7 @@ async function getHistory(e) {
       headers: { Authorization: `Bearer ${e}` },
     }),
     n = await t.json();
-  console.log(n), createPdf(n);
+  createPdf(n);
 }
 async function createPdf(e) {
   const t = await fetch(
@@ -103,7 +103,6 @@ async function createPdf(e) {
   // new code:
   const d = await n.saveAsBase64({ dataUri: false });
   const base64URL = d;//res.data;
-  //console.log(base64URL);
   //const binary = atob(base64URL.replace(/\s/g, ''));
   const binary = atob(base64URL);
   const len = binary.length;
