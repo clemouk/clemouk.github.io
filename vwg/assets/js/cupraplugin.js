@@ -85,7 +85,19 @@ function wireEvents(){
               },
           },
         })
-      } else {
+      } 
+      else if(messageContent.indexOf("detected inappropriate language")>-1) {
+        localStorage.setItem('_ttecConversationState', 'SURVEY_COMPLETED');
+        surveyDone=true;
+        Genesys('command', 'Database.set', {
+          messaging: {
+              customAttributes: {
+                  TargetBrand: "Cupra"
+              },
+          },
+        })
+      }
+      else {
         localStorage.setItem('_ttecConversationState', 'IN_PROGRESS');
       }
     };
