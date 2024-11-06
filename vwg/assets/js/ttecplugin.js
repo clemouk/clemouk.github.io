@@ -13,7 +13,6 @@ if (surveyDone == null || surveyDone == undefined) {
 };
 
 function wireEvents(){
-  // subsribe to close widget event
   Genesys('subscribe', 'MessagingService.conversationCleared', function(){
     // Need to reset the conversationState so that a survey can be done if a new conversation starts
     localStorage.setItem('_ttecConversationState', 'NEW');
@@ -21,7 +20,7 @@ function wireEvents(){
     Genesys('command', 'Database.set', {
       messaging: {
           customAttributes: {
-              TargetBrand: "VWPC"
+              TargetBrand: "Cupra"
           },
       },
     })
@@ -35,7 +34,7 @@ function wireEvents(){
       Genesys('command', 'Database.set', {
         messaging: {
             customAttributes: {
-                TargetBrand: "VWPC"
+                TargetBrand: "Cupra"
             },
         },
       })
@@ -54,14 +53,14 @@ function wireEvents(){
 
       // check to see if this is the start of the Survey bot
       let messageContent = data.messages[0].text;
-
+      
       // To Mick: I know this is not the most elegant solution, but it is working. 
       if(messageContent===undefined) { messageContent = ""}
 
       if(messageContent.indexOf("*Question ")>-1) { 
         localStorage.setItem('_ttecConversationState', 'IN_SURVEY');
       } 
-      else if(messageContent=="Hello. I'm your Volkswagen Digital Assistant.")  /* Unique per brand */
+      else if(messageContent=="Hello, I'm your CUPRA Digital Assistant.") /* Unique greeting for each brand */
         {
           localStorage.setItem('_ttecConversationState', 'NEW');
           conversationEnd = 'false'
@@ -74,6 +73,7 @@ function wireEvents(){
             transcriptButtonLoaded = true;
             displayButton();
           }
+
         }
       else if(messageContent=="Thanks for submitting your feedback.") 
       {
@@ -81,39 +81,53 @@ function wireEvents(){
         Genesys('command', 'Database.set', {
           messaging: {
               customAttributes: {
-                  TargetBrand: "VWPC"
+                  TargetBrand: "Cupra"
               },
           },
         })
-      } else {
+      } 
+      else if(messageContent.indexOf("detected inappropriate language")>-1) {
+        localStorage.setItem('_ttecConversationState', 'SURVEY_COMPLETED');
+        surveyDone=true;
+        Genesys('command', 'Database.set', {
+          messaging: {
+              customAttributes: {
+                  TargetBrand: "Cupra"
+              },
+          },
+        })
+      }
+      else {
         localStorage.setItem('_ttecConversationState', 'IN_PROGRESS');
       }
     };
 
-    //console.log(data);
     if(messengerOpen==false) {
-      x.play();
       toggleMessenger();
     };
   })
+
 }
 
 // subscribe to ready event
 Genesys('subscribe', 'Messenger.ready', function () {
+
   wireEvents();
 
   Genesys('command', 'Database.set', {
     messaging: {
         customAttributes: {
-            TargetBrand: "VWPC"
+            TargetBrand: "Cupra"
         },
     },
   })
+
   localStorage.setItem('_ttecConversationState', 'NEW');
 });
 
 // receive disconnected event
 Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
+
   if (!loaded) {
 
     loaded = true
