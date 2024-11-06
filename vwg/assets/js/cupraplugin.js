@@ -103,7 +103,6 @@ function wireEvents(){
     };
 
     if(messengerOpen==false) {
-      x.play();
       toggleMessenger();
     };
   })

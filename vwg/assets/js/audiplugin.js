@@ -13,7 +13,6 @@ if (surveyDone == null || surveyDone == undefined) {
 };
 
 function wireEvents(){
-
   // subsribe to close widget event
   Genesys('subscribe', 'MessagingService.conversationCleared', function(){
     // Need to reset the conversationState so that a survey can be done if a new conversation starts
@@ -42,7 +41,6 @@ function wireEvents(){
         },
       })
     };
-
   });
 
   Genesys("subscribe", "Messenger.closed", function(){
@@ -57,7 +55,6 @@ function wireEvents(){
       // check to see if this is the start of the Survey bot
       let messageContent = data.messages[0].text;
 
-       // To Mick: I know this is not the most elegant solution, but it is working. 
        if(messageContent===undefined) { messageContent = ""}     
 
       if(messageContent.indexOf("*Question ")>-1) { 
@@ -76,8 +73,6 @@ function wireEvents(){
             transcriptButtonLoaded = true;
             displayButton();
           }
-          //gc_token = JSON.parse(localStorage.getItem(`_${gc_deploymentId}:actmu`)).value;
-
         }
       else if(messageContent=="Thanks for submitting your feedback.") 
       {
@@ -89,19 +84,27 @@ function wireEvents(){
               },
           },
         })
-      } else {
+      } 
+      else if(messageContent.indexOf("detected inappropriate language")>-1) {
+        localStorage.setItem('_ttecConversationState', 'SURVEY_COMPLETED');
+        surveyDone=true;
+        Genesys('command', 'Database.set', {
+          messaging: {
+              customAttributes: {
+                  TargetBrand: "Audi"
+              },
+          },
+        })
+      }
+      else {
         localStorage.setItem('_ttecConversationState', 'IN_PROGRESS');
       }
     };
 
     if(messengerOpen==false) {
-      x.play();
       toggleMessenger();
     };
   })
-
-
-
 }
 
 // subscribe to ready event
@@ -123,22 +126,7 @@ Genesys('subscribe', 'Messenger.ready', function () {
 // receive disconnected event
 Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
 
-  //add localstorage flags to indicate how many times and also time
-
   if (!loaded) {
-
-    // Genesys(
-    //   "command",
-    //   "Toaster.open",
-    //   {
-    //     title: "Volkswagen",
-    //     body: "To download your chat conversation, please click the download button at the bottom of the screen at the end of your conversation.",
-    //     buttons: { type: "unary" },
-    //     primary: "OK" // optional, default value is "Accept"
-    //   },
-    // );
-
-    
     loaded = true
     conversationEnd = 'true'
     localStorage.setItem('conversationEnd', 'true')
@@ -163,7 +151,6 @@ Genesys('subscribe', 'Conversations.started', function () {
 function toggleMessenger(){
   Genesys("command", "Messenger.open", {},
     function(o){},  // if resolved
-
     function(o){    // if rejected
       Genesys("command", "Messenger.close");
     }

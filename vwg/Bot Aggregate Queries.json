@@ -1,0 +1,217 @@
+{
+    "results": [
+        {
+            "group": {
+                "mediaType": "MESSAGING"
+            },
+            "data": [
+                {
+                    "interval": "2024-10-29T00:00:00.000Z/2024-10-30T00:00:00.000Z",
+                    "metrics": [
+                        {
+                            "metric": "nBotSessions",
+                            "stats": {
+                                "count": 345
+                            }
+                        },
+                        {
+                            "metric": "oBotIntent",
+                            "stats": {
+                                "max": 1,
+                                "min": 1,
+                                "count": 170,
+                                "sum": 170
+                            }
+                        }
+                    ]
+                },
+                {
+                    "interval": "2024-10-30T00:00:00.000Z/2024-10-31T00:00:00.000Z",
+                    "metrics": [
+                        {
+                            "metric": "nBotSessions",
+                            "stats": {
+                                "count": 195
+                            }
+                        },
+                        {
+                            "metric": "oBotIntent",
+                            "stats": {
+                                "max": 1,
+                                "min": 1,
+                                "count": 92,
+                                "sum": 92
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "group": {
+                "botIntent": "Complaint",
+                "mediaType": "MESSAGING"
+            },
+            "data": [
+                {
+                    "interval": "2024-10-29T00:00:00.000Z/2024-10-30T00:00:00.000Z",
+                    "metrics": [
+                        {
+                            "metric": "oBotIntent",
+                            "stats": {
+                                "max": 1,
+                                "min": 1,
+                                "count": 2,
+                                "sum": 2
+                            }
+                        }
+                    ]
+                },
+                {
+                    "interval": "2024-10-30T00:00:00.000Z/2024-10-31T00:00:00.000Z",
+                    "metrics": [
+                        {
+                            "metric": "oBotIntent",
+                            "stats": {
+                                "max": 1,
+                                "min": 1,
+                                "count": 5,
+                                "sum": 5
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "group": {
+                "botIntent": "Knowledge",
+                "mediaType": "MESSAGING"
+            },
+            "data": [
+                {
+                    "interval": "2024-10-29T00:00:00.000Z/2024-10-30T00:00:00.000Z",
+                    "metrics": [
+                        {
+                            "metric": "oBotIntent",
+                            "stats": {
+                                "max": 1,
+                                "min": 1,
+                                "count": 2,
+                                "sum": 2
+                            }
+                        }
+                    ]
+                },
+                {
+                    "interval": "2024-10-30T00:00:00.000Z/2024-10-31T00:00:00.000Z",
+                    "metrics": [
+                        {
+                            "metric": "oBotIntent",
+                            "stats": {
+                                "max": 1,
+                                "min": 1,
+                                "count": 1,
+                                "sum": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "group": {
+                "botIntent": "agent_escalation",
+                "mediaType": "MESSAGING"
+            },
+            "data": [
+                {
+                    "interval": "2024-10-29T00:00:00.000Z/2024-10-30T00:00:00.000Z",
+                    "metrics": [
+                        {
+                            "metric": "oBotIntent",
+                            "stats": {
+                                "max": 1,
+                                "min": 1,
+                                "count": 106,
+                                "sum": 106
+                            }
+                        }
+                    ]
+                },
+                {
+                    "interval": "2024-10-30T00:00:00.000Z/2024-10-31T00:00:00.000Z",
+                    "metrics": [
+                        {
+                            "metric": "oBotIntent",
+                            "stats": {
+                                "max": 1,
+                                "min": 1,
+                                "count": 45,
+                                "sum": 45
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "group": {
+                "botIntent": "goodbye",
+                "mediaType": "MESSAGING"
+            },
+            "data": [
+                {
+                    "interval": "2024-10-29T00:00:00.000Z/2024-10-30T00:00:00.000Z",
+                    "metrics": [
+                        {
+                            "metric": "oBotIntent",
+                            "stats": {
+                                "max": 1,
+                                "min": 1,
+                                "count": 1,
+                                "sum": 1
+                            }
+                        }
+                    ]
+                },
+                {
+                    "interval": "2024-10-30T00:00:00.000Z/2024-10-31T00:00:00.000Z",
+                    "metrics": [
+                        {
+                            "metric": "oBotIntent",
+                            "stats": {
+                                "max": 1,
+                                "min": 1,
+                                "count": 1,
+                                "sum": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "group": {
+                "botIntent": "Profanity",
+                "mediaType": "MESSAGING"
+            },
+            "data": [
+                {
+                    "interval": "2024-10-30T00:00:00.000Z/2024-10-31T00:00:00.000Z",
+                    "metrics": [
+                        {
+                            "metric": "oBotIntent",
+                            "stats": {
+                                "max": 1,
+                                "min": 1,
+                                "count": 11,
+                                "sum": 11
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
