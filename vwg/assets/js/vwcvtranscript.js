@@ -1,10 +1,11 @@
-"use strict";
-let gc_socket, gc_token, gc_icon;
+
+let gc_socket, gc_token;
+
 function setupWSS() {
   if(localStorage.getItem('_ttecConversationState')!='NEW') {  
     try {
       (gc_socket = new WebSocket(
-        `wss://webmessaging.${gc_region}/v1?deploymentId=${gc_deploymentId}`
+        "wss://webmessaging.euw2.pure.cloud/v1?deploymentId=7082b91f-5ffd-4508-8ff6-b58ff931b058"
       )),
         (gc_socket.onmessage = async function (e) {
           let t = JSON.parse(e.data);
@@ -15,12 +16,12 @@ function setupWSS() {
           "JwtResponse" === t.class && getHistory(t.body.jwt);
         }),
         console.log(
-          `Waiting for events on wss://webmessaging.${gc_region}/v1?deploymentId=${gc_deploymentId}`
+          "Waiting for events on wss://webmessaging.euw2.pure.cloud/v1?deploymentId=7082b91f-5ffd-4508-8ff6-b58ff931b058"
         ),
         (gc_socket.onopen = function () {
           let e = {
             action: "configureSession",
-            deploymentId: `${gc_deploymentId}`,
+            deploymentId: "7082b91f-5ffd-4508-8ff6-b58ff931b058",
             token: gc_token,
           };
           gc_socket.send(JSON.stringify(e));
@@ -32,8 +33,8 @@ function setupWSS() {
 }
 
 async function getHistory(e) {
-  let t = await fetch(`https://api.${gc_region}/api/v2/webmessaging/messages?pageSize=500`, {
-      headers: { Authorization: `Bearer ${e}` },
+  let t = await fetch("https://api.euw2.pure.cloud/api/v2/webmessaging/messages?pageSize=500", {
+      headers: { Authorization: "Bearer " + e.value },
     }),
     n = await t.json();
   createPdf(n);
@@ -214,7 +215,7 @@ function drawMultilineText(e, t, n) {
 }
 Genesys("subscribe", "Launcher.ready", function () {
   (gc_token = JSON.parse(
-    localStorage.getItem(`_${gc_deploymentId}:actmu`)
+    localStorage.getItem("_7082b91f-5ffd-4508-8ff6-b58ff931b058:actmu")
   ).value)
 });
 const testPrintIcon = 
@@ -234,20 +235,20 @@ function displayButton() {
   }),
     (e.id = "gc_downloadButton"),
     (e.title = "Download Transcript"),
-    (e.style = `cursor: pointer;\n      box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px -2px, rgba(0, 0, 0, 0.14) 0px 1px 4px 2px, rgba(0, 0, 0, 0.12) 0px 1px 4px 1px;\n      position: fixed !important;\n      bottom: 24px !important;\n      width: 56px;\n      height: 56px;\n      right: 96px !important;\n      border-radius: 50%;\n      background-color: ${gc_hexColor};\n      z-index: 9999;\n      border: 0px;`),
+    (e.style = "cursor: pointer;\n      box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px -2px, rgba(0, 0, 0, 0.14) 0px 1px 4px 2px, rgba(0, 0, 0, 0.12) 0px 1px 4px 1px;\n      position: fixed !important;\n      bottom: 24px !important;\n      width: 56px;\n      height: 56px;\n      right: 96px !important;\n      border-radius: 50%;\n      background-color: #00B0F0;\n      z-index: 9999;\n      border: 0px;"),
     "white" == gc_iconColor
       ? (e.innerHTML = downLoadSvgWhite)
       : (e.innerHTML = downLoadSvgBlack),
     document.body.appendChild(e);
 }
 function loadingOn() {
-  if(localStorage.getItem('_ttecConversationState')!='NEW') {
+  if(localStorage.getItem("_ttecConversationState")!="NEW") {
     let e = document.getElementById("gc_downloadButton");
     "white" == gc_iconColor
       ? (e.innerHTML = waitingLoadSvgWhite)
       : (e.innerHTML = waitingLoadSvgBlack);
   } else {
-    alert('Please start a new conversation before attempting to download the transcript');
+    alert("Please start a new conversation before attempting to download the transcript.");
   };
 }
 function loadingOff() {
