@@ -1,10 +1,11 @@
-"use strict";
-let gc_socket, gc_token, gc_icon;
+
+let gc_socket, gc_token;
+
 function setupWSS() {
   if(localStorage.getItem('_ttecConversationState')!='NEW') {  
     try {
       (gc_socket = new WebSocket(
-        `wss://webmessaging.${gc_region}/v1?deploymentId=${gc_deploymentId}`
+        "wss://webmessaging.euw2.pure.cloud/v1?deploymentId=df4cb5a9-5845-47b8-bff8-a7a919cb23e6"
       )),
         (gc_socket.onmessage = async function (e) {
           let t = JSON.parse(e.data);
@@ -15,12 +16,12 @@ function setupWSS() {
           "JwtResponse" === t.class && getHistory(t.body.jwt);
         }),
         console.log(
-          `Waiting for events on wss://webmessaging.${gc_region}/v1?deploymentId=${gc_deploymentId}`
+          "Waiting for events on wss://webmessaging.euw2.pure.cloud/v1?deploymentId=df4cb5a9-5845-47b8-bff8-a7a919cb23e6"
         ),
         (gc_socket.onopen = function () {
           let e = {
             action: "configureSession",
-            deploymentId: `${gc_deploymentId}`,
+            deploymentId: "df4cb5a9-5845-47b8-bff8-a7a919cb23e6",
             token: gc_token,
           };
           gc_socket.send(JSON.stringify(e));
@@ -32,11 +33,11 @@ function setupWSS() {
 }
 
 async function getHistory(e) {
-  let t = await fetch(`https://api.${gc_region}/api/v2/webmessaging/messages?pageSize=500`, {
-      headers: { Authorization: `Bearer ${e}` },
+  let t = await fetch("https://api.euw2.pure.cloud/api/v2/webmessaging/messages?pageSize=500", {
+      headers: { Authorization: "Bearer " + e.value },
     }),
     n = await t.json();
-  console.log(n), createPdf(n);
+  createPdf(n);
 }
 async function createPdf(e) {
   const t = await fetch(
@@ -103,7 +104,6 @@ async function createPdf(e) {
   // new code:
   const d = await n.saveAsBase64({ dataUri: false });
   const base64URL = d;//res.data;
-  //console.log(base64URL);
   //const binary = atob(base64URL.replace(/\s/g, ''));
   const binary = atob(base64URL);
   const len = binary.length;
@@ -118,18 +118,8 @@ async function createPdf(e) {
   const url = URL.createObjectURL(blob);
   const s = document.createElement("a");
   (s.href = url), (s.download = "transcript.pdf"), s.click(), loadingOff();
-
-  // const _a = document.createElement('a');
-  // document.body.appendChild(a);
-  // _a.style = 'display: none';
-  // _a.href = url;
-  // _a.download = 'transcript.pdf';
-  // _a.target = '_blank';
-  // _a.click();
-
-  //loadingOff();
-
 }
+
 function customerText(e, t, n, i, o, a, c, g) {
   let r = i + 2,
     d = r + 1,
@@ -171,7 +161,7 @@ function agentText(e, t, n, i, o, a, c, g) {
   let r = i + 2,
     d = r + 1,
     s = newPageNeeded_rec_txt(e, t, n, i, o, a, c);
-  e.drawText("Volkswagen", { x: o - 70, y: a - i * c, size: c, font: t });
+  e.drawText("Volkswagen Commercial Vehicles", { x: o - 70, y: a - i * c, size: c, font: t });
   let h = {
     x: o - s.rec.width - 20,
     y: a - r * c,
@@ -225,7 +215,7 @@ function drawMultilineText(e, t, n) {
 }
 Genesys("subscribe", "Launcher.ready", function () {
   (gc_token = JSON.parse(
-    localStorage.getItem(`_${gc_deploymentId}:actmu`)
+    localStorage.getItem("_df4cb5a9-5845-47b8-bff8-a7a919cb23e6:actmu")
   ).value)
 });
 const testPrintIcon = 
@@ -245,20 +235,20 @@ function displayButton() {
   }),
     (e.id = "gc_downloadButton"),
     (e.title = "Download Transcript"),
-    (e.style = `cursor: pointer;\n      box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px -2px, rgba(0, 0, 0, 0.14) 0px 1px 4px 2px, rgba(0, 0, 0, 0.12) 0px 1px 4px 1px;\n      position: fixed !important;\n      bottom: 24px !important;\n      width: 56px;\n      height: 56px;\n      right: 96px !important;\n      border-radius: 50%;\n      background-color: ${gc_hexColor};\n      z-index: 9999;\n      border: 0px;`),
+    (e.style = "cursor: pointer;\n      box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px -2px, rgba(0, 0, 0, 0.14) 0px 1px 4px 2px, rgba(0, 0, 0, 0.12) 0px 1px 4px 1px;\n      position: fixed !important;\n      bottom: 24px !important;\n      width: 56px;\n      height: 56px;\n      right: 96px !important;\n      border-radius: 50%;\n      background-color: #00B0F0;\n      z-index: 9999;\n      border: 0px;"),
     "white" == gc_iconColor
       ? (e.innerHTML = downLoadSvgWhite)
       : (e.innerHTML = downLoadSvgBlack),
     document.body.appendChild(e);
 }
 function loadingOn() {
-  if(localStorage.getItem('_ttecConversationState')!='NEW') {
+  if(localStorage.getItem("_ttecConversationState")!="NEW") {
     let e = document.getElementById("gc_downloadButton");
     "white" == gc_iconColor
       ? (e.innerHTML = waitingLoadSvgWhite)
       : (e.innerHTML = waitingLoadSvgBlack);
   } else {
-    alert('Please start a new conversation before attempting to download the transcript');
+    alert("Please start a new conversation before attempting to download the transcript.");
   };
 }
 function loadingOff() {
