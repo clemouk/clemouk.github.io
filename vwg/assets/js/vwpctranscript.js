@@ -46,7 +46,7 @@ async function createPdf(e) {
     n = await PDFLib.PDFDocument.create();
   n.registerFontkit(fontkit);
   const i = await n.embedFont(t);
-  let o = n.addPage();
+  let o = i.addPage();
   const { width: a, height: c } = o.getSize();
   let g = 150,
     r = 3;
