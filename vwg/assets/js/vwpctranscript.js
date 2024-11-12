@@ -92,7 +92,7 @@ async function createPdf(e) {
     }
   }
   n.setCreationDate(new Date()),
-    n.setAuthor("https://github.com/mcphee11"),
+    n.setAuthor("https://www.volkswagen.co.uk"),
     n.setSubject("Messaging Transcript");
 
   // 21st October 2024 - Mick Hynes
