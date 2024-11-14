@@ -1,11 +1,10 @@
-
-let gc_socket, gc_token;
-
+"use strict";
+let gc_socket, gc_token, gc_icon;
 function setupWSS() {
   if(localStorage.getItem('_ttecConversationState')!='NEW') {  
     try {
       (gc_socket = new WebSocket(
-        "wss://webmessaging.euw2.pure.cloud/v1?deploymentId=7082b91f-5ffd-4508-8ff6-b58ff931b058"
+        `wss://webmessaging.${gc_region}/v1?deploymentId=${gc_deploymentId}`
       )),
         (gc_socket.onmessage = async function (e) {
           let t = JSON.parse(e.data);
@@ -16,12 +15,12 @@ function setupWSS() {
           "JwtResponse" === t.class && getHistory(t.body.jwt);
         }),
         console.log(
-          "Waiting for events on wss://webmessaging.euw2.pure.cloud/v1?deploymentId=7082b91f-5ffd-4508-8ff6-b58ff931b058"
+          `Waiting for events on wss://webmessaging.${gc_region}/v1?deploymentId=${gc_deploymentId}`
         ),
         (gc_socket.onopen = function () {
           let e = {
             action: "configureSession",
-            deploymentId: "7082b91f-5ffd-4508-8ff6-b58ff931b058",
+            deploymentId: `${gc_deploymentId}`,
             token: gc_token,
           };
           gc_socket.send(JSON.stringify(e));
@@ -33,11 +32,11 @@ function setupWSS() {
 }
 
 async function getHistory(e) {
-  let t = await fetch("https://api.euw2.pure.cloud/api/v2/webmessaging/messages?pageSize=500", {
-      headers: { Authorization: "Bearer " + e.value },
+  let t = await fetch(`https://api.${gc_region}/api/v2/webmessaging/messages?pagesize=500`, {
+      headers: { Authorization: `Bearer ${e}` },
     }),
     n = await t.json();
-  createPdf(n);
+  console.log(n), createPdf(n);
 }
 async function createPdf(e) {
   const t = await fetch(
@@ -94,7 +93,7 @@ async function createPdf(e) {
   n.setCreationDate(new Date()),
     n.setAuthor("https://github.com/mcphee11"),
     n.setSubject("Messaging Transcript");
-
+    
   // 21st October 2024 - Mick Hynes
   // this original code didn't work in Safari or Firefox in iOS
   // const d = await n.saveAsBase64({ dataUri: !0 }),
@@ -104,6 +103,7 @@ async function createPdf(e) {
   // new code:
   const d = await n.saveAsBase64({ dataUri: false });
   const base64URL = d;//res.data;
+  //console.log(base64URL);
   //const binary = atob(base64URL.replace(/\s/g, ''));
   const binary = atob(base64URL);
   const len = binary.length;
@@ -119,7 +119,6 @@ async function createPdf(e) {
   const s = document.createElement("a");
   (s.href = url), (s.download = "transcript.pdf"), s.click(), loadingOff();
 }
-
 function customerText(e, t, n, i, o, a, c, g) {
   let r = i + 2,
     d = r + 1,
@@ -161,7 +160,7 @@ function agentText(e, t, n, i, o, a, c, g) {
   let r = i + 2,
     d = r + 1,
     s = newPageNeeded_rec_txt(e, t, n, i, o, a, c);
-  e.drawText("Volkswagen Commercial Vehicles", { x: o - 70, y: a - i * c, size: c, font: t });
+  e.drawText("Volkswagen", { x: o - 70, y: a - i * c, size: c, font: t });
   let h = {
     x: o - s.rec.width - 20,
     y: a - r * c,
@@ -215,8 +214,9 @@ function drawMultilineText(e, t, n) {
 }
 Genesys("subscribe", "Launcher.ready", function () {
   (gc_token = JSON.parse(
-    localStorage.getItem("_7082b91f-5ffd-4508-8ff6-b58ff931b058:actmu")
-  ).value)
+    localStorage.getItem(`_${gc_deploymentId}:actmu`)
+  ).value),
+    displayButton();
 });
 const testPrintIcon = 
     '<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><g><rect x="133.875" y="401.625" width="286.875" height="19.125"/><rect x="133.875" y="459" width="286.875" height="19.125"/><path d="M497.25,191.25H459V57.375c0-21.038-17.213-38.25-38.25-38.25H133.875c-21.038,0-38.25,17.212-38.25,38.25V191.25h-38.25C24.862,191.25,0,216.112,0,248.625V420.75c0,32.513,24.862,57.375,57.375,57.375h38.25v19.125c0,21.037,17.212,38.25,38.25,38.25H420.75c21.037,0,38.25-17.213,38.25-38.25v-19.125h38.25c32.513,0,57.375-24.862,57.375-57.375V248.625C554.625,216.112,529.763,191.25,497.25,191.25z M114.75,57.375c0-9.562,7.65-19.125,19.125-19.125H420.75c9.562,0,19.125,7.65,19.125,19.125V191.25H114.75V57.375z M439.875,497.25c0,9.562-7.65,19.125-19.125,19.125H133.875c-9.562,0-19.125-7.65-19.125-19.125V363.375h325.125V497.25z M535.5,420.75c0,21.037-17.213,38.25-38.25,38.25H459V344.25H95.625V459h-38.25c-21.038,0-38.25-17.213-38.25-38.25V248.625c0-21.038,17.212-38.25,38.25-38.25H497.25c21.037,0,38.25,17.212,38.25,38.25V420.75z"/><circle cx="439.875" cy="267.75" r="19.125"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>';
@@ -235,20 +235,20 @@ function displayButton() {
   }),
     (e.id = "gc_downloadButton"),
     (e.title = "Download Transcript"),
-    (e.style = "cursor: pointer;\n      box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px -2px, rgba(0, 0, 0, 0.14) 0px 1px 4px 2px, rgba(0, 0, 0, 0.12) 0px 1px 4px 1px;\n      position: fixed !important;\n      bottom: 24px !important;\n      width: 56px;\n      height: 56px;\n      right: 96px !important;\n      border-radius: 50%;\n      background-color: #00B0F0;\n      z-index: 9999;\n      border: 0px;"),
+    (e.style = `cursor: pointer;\n      box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px -2px, rgba(0, 0, 0, 0.14) 0px 1px 4px 2px, rgba(0, 0, 0, 0.12) 0px 1px 4px 1px;\n      position: fixed !important;\n      bottom: 24px !important;\n      width: 56px;\n      height: 56px;\n      right: 96px !important;\n      border-radius: 50%;\n      background-color: ${gc_hexColor};\n      z-index: 9999;\n      border: 0px;`),
     "white" == gc_iconColor
       ? (e.innerHTML = downLoadSvgWhite)
       : (e.innerHTML = downLoadSvgBlack),
     document.body.appendChild(e);
 }
 function loadingOn() {
-  if(localStorage.getItem("_ttecConversationState")!="NEW") {
+  if(localStorage.getItem('_ttecConversationState')!='NEW') {
     let e = document.getElementById("gc_downloadButton");
     "white" == gc_iconColor
       ? (e.innerHTML = waitingLoadSvgWhite)
       : (e.innerHTML = waitingLoadSvgBlack);
   } else {
-    alert("Please start a new conversation before attempting to download the transcript.");
+    alert('Please start a new conversation before attempting to download the transcript');
   };
 }
 function loadingOff() {

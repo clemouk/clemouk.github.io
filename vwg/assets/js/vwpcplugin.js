@@ -123,7 +123,6 @@ Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
   //add localstorage flags to indicate how many times and also time
 
   if (!loaded) {
-
     loaded = true
     conversationEnd = 'true'
     localStorage.setItem('conversationEnd', 'true')
