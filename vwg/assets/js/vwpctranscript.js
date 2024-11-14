@@ -33,10 +33,10 @@ function setupWSS() {
 
 async function getHistory(e) {
   let t = await fetch("https://api.euw2.pure.cloud/api/v2/webmessaging/messages?pageSize=500", {
-      headers: { Authorization: "Bearer " + e.value },
+      headers: { Authorization: `Bearer ${e}` },
     }),
     n = await t.json();
-  createPdf(n);
+  console.log(n), createPdf(n);
 }
 
 async function createPdf(e) {
