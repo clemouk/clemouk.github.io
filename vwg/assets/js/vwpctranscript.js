@@ -57,7 +57,7 @@ async function createPdf(e) {
   for (const t of e.entities.reverse()) {
     let e,
       d = 1;
-    if (t.content && "Attachment" == t.content[0].contentType) {
+    if (t?.content && "Attachment" == t.content[0].contentType) {
       if (
         "Image" == t.content[0].attachment.mediaType &&
         t.content[0].attachment.mime.includes("jpeg")
@@ -95,6 +95,7 @@ async function createPdf(e) {
       r = customerImage(o, i, e, d, r, a, c, 12, t.channel.time);
     }
   }
+
   n.setCreationDate(new Date()),
     n.setAuthor("https://www.volkswagen.co.uk"),
     n.setSubject("Messaging Transcript");
@@ -165,7 +166,7 @@ function agentText(e, t, n, i, o, a, c, g) {
   let r = i + 2,
     d = r + 1,
     s = newPageNeeded_rec_txt(e, t, n, i, o, a, c);
-  e.drawText("Volkswagen Commercial Vehicles", { x: o - 70, y: a - i * c, size: c, font: t });
+  e.drawText("Volkswagen", { x: o - 70, y: a - i * c, size: c, font: t });
   let h = {
     x: o - s.rec.width - 20,
     y: a - r * c,
