@@ -53,7 +53,7 @@ async function createPdf(e) {
   for (const t of e.entities.reverse()) {
     let e,
       d = 1;
-    if (t?.content && "Attachment" == t.content[0].contentType) {
+    if (t.content && "Attachment" == t.content[0].contentType) {
       if (
         "Image" == t.content[0].attachment.mediaType &&
         t.content[0].attachment.mime.includes("jpeg")
