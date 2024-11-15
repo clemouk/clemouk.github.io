@@ -4,7 +4,7 @@ let gc_socket, gc_token;
 function setupWSS() {
   if(localStorage.getItem('_ttecConversationState')!='NEW') {  
     try {
-      gc_socket = new WebSocket("wss://webmessaging.euw2.pure.cloud/v1?deploymentId=df4cb5a9-5845-47b8-bff8-a7a919cb23e6");
+      gc_socket = new WebSocket("wss://webmessaging.euw2.pure.cloud/v1?deploymentId=7082b91f-5ffd-4508-8ff6-b58ff931b058");
       
       gc_socket.onmessage = async function (e) {
           let t = JSON.parse(e.data);
@@ -15,12 +15,12 @@ function setupWSS() {
           "JwtResponse" === t.class && getHistory(t.body.jwt);
       }
 
-      console.log("Waiting for events on wss://webmessaging.euw2.pure.cloud/v1?deploymentId=df4cb5a9-5845-47b8-bff8-a7a919cb23e6");
+      console.log("Waiting for events on wss://webmessaging.euw2.pure.cloud/v1?deploymentId=7082b91f-5ffd-4508-8ff6-b58ff931b058");
 
       gc_socket.onopen = function () {
           let e = {
             action: "configureSession",
-            deploymentId: "df4cb5a9-5845-47b8-bff8-a7a919cb23e6",
+            deploymentId: "7082b91f-5ffd-4508-8ff6-b58ff931b058",
             token: gc_token,
           };
           gc_socket.send(JSON.stringify(e));
@@ -57,7 +57,7 @@ async function createPdf(e) {
   for (const t of e.entities.reverse()) {
     let e,
       d = 1;
-    if (t?.content && "Attachment" == t.content[0].contentType) {
+    if (t.content && "Attachment" == t.content[0].contentType) {
       if (
         "Image" == t.content[0].attachment.mediaType &&
         t.content[0].attachment.mime.includes("jpeg")
@@ -220,7 +220,7 @@ function drawMultilineText(e, t, n) {
 }
 Genesys("subscribe", "Launcher.ready", function () {
   (gc_token = JSON.parse(
-    localStorage.getItem("_df4cb5a9-5845-47b8-bff8-a7a919cb23e6:actmu")
+    localStorage.getItem("_7082b91f-5ffd-4508-8ff6-b58ff931b058:actmu")
   ).value)
 });
 const testPrintIcon = 

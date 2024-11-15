@@ -57,7 +57,6 @@ function wireEvents(){
       // check to see if this is the start of the Survey bot
       let messageContent = data.messages[0].text;
 
-      // To Mick: I know this is not the most elegant solution, but it is working. 
       if(messageContent===undefined) { messageContent = ""}
       
       if(messageContent.indexOf("*Question ")>-1) { 
