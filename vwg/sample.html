@@ -230,85 +230,88 @@
 		}
 
 		async function createPdf(e) {
-		const t = await fetch(
-			"https://pdf-lib.js.org/assets/ubuntu/Ubuntu-R.ttf"
-			).then((e) => e.arrayBuffer()),
-			n = await PDFLib.PDFDocument.create();
-		n.registerFontkit(fontkit);
-		const i = await n.embedFont(t);
-		let o = n.addPage();
-		const { width: a, height: c } = o.getSize();
-		let g = 150,
+			const t = await fetch("https://pdf-lib.js.org/assets/ubuntu/Ubuntu-R.ttf").then((e) => e.arrayBuffer()),
+				objPDF = await PDFLib.PDFDocument.create();
+
+			objPDF.registerFontkit(fontkit);
+			const i = await objPDF.embedFont(t);
+			let o = objPDF.addPage();
+			const { width: a, height: c } = o.getSize();
+			let g = 150,
 			r = 3;
-		for (const t of e.entities.reverse()) {
-			let e,
-			d = 1;
-			if (t?.content && "Attachment" == t.content[0].contentType) {
-			if (
-				"Image" == t.content[0].attachment.mediaType &&
-				t.content[0].attachment.mime.includes("jpeg")
-			) {
-				const i = await fetch(t.content[0].attachment.url).then((e) =>
-				e.arrayBuffer()
-				);
-				(e = await n.embedJpg(i)), e.height > g && (d = g / e.height);
+			
+			for (const t of e.entities.reverse()) {
+				let e,
+				d = 1;
+				if (t?.content && "Attachment" == t.content[0].contentType) {
+					if (
+						"Image" == t.content[0].attachment.mediaType &&
+						t.content[0].attachment.mime.includes("jpeg")
+					) {
+						const i = await fetch(t.content[0].attachment.url).then((e) =>
+						e.arrayBuffer()
+						);
+						(e = await n.embedJpg(i)), e.height > g && (d = g / e.height);
+					}
+					if (
+						"Image" == t.content[0].attachment.mediaType &&
+						t.content[0].attachment.mime.includes("png")
+					) {
+						const i = await fetch(t.content[0].attachment.url).then((e) =>
+						e.arrayBuffer()
+						);
+						(e = await n.embedPng(i)), e.height > g && (d = g / e.height);
+					}
+				}
+				
+				if (t.text) {
+						if (
+							(newPageNeeded_rec_txt(o, i, t.text, r, a, c, 12).value &&
+							((o = n.addPage()), (r = 3)),
+							"Outbound" == t.direction)
+						) {
+							r = agentText(o, i, t.text, r, a, c, 12, t.channel.time);
+						}
+						if ("Inbound" == t.direction) {
+							r = customerText(o, i, t.text, r, a, c, 12, t.channel.time);
+						}
+				}
+				
+				if (e) {
+					newPageNeeded_rec_img(o, r, c, e.scale(d).height, 12) &&
+						((o = n.addPage()), (r = 3));
+					r = customerImage(o, i, e, d, r, a, c, 12, t.channel.time);
+				}
 			}
-			if (
-				"Image" == t.content[0].attachment.mediaType &&
-				t.content[0].attachment.mime.includes("png")
-			) {
-				const i = await fetch(t.content[0].attachment.url).then((e) =>
-				e.arrayBuffer()
-				);
-				(e = await n.embedPng(i)), e.height > g && (d = g / e.height);
-			}
-			}
-			if (t.text) {
-			if (
-				(newPageNeeded_rec_txt(o, i, t.text, r, a, c, 12).value &&
-				((o = n.addPage()), (r = 3)),
-				"Outbound" == t.direction)
-			) {
-				r = agentText(o, i, t.text, r, a, c, 12, t.channel.time);
-			}
-			if ("Inbound" == t.direction) {
-				r = customerText(o, i, t.text, r, a, c, 12, t.channel.time);
-			}
-			}
-			if (e) {
-			newPageNeeded_rec_img(o, r, c, e.scale(d).height, 12) &&
-				((o = n.addPage()), (r = 3));
-			r = customerImage(o, i, e, d, r, a, c, 12, t.channel.time);
-			}
-		}
 
-		n.setCreationDate(new Date()),
-			n.setAuthor("https://www.volkswagen.co.uk"),
-			n.setSubject("Messaging Transcript");
+			objPDFn.setCreationDate(new Date()),
+				objPDF.setAuthor("https://www.volkswagen.co.uk"),
+				objPDF.setSubject("Messaging Transcript");
 
-		// 21st October 2024 - Mick Hynes
-		// this original code didn't work in Safari or Firefox in iOS
-		// const d = await n.saveAsBase64({ dataUri: !0 }),
-		//   s = document.createElement("a");
-		// (s.href = d), (s.download = "transcript.pdf"), s.click(), loadingOff();
+			// 21st October 2024 - Mick Hynes
+			// this original code didn't work in Safari or Firefox in iOS
+			// const d = await n.saveAsBase64({ dataUri: !0 }),
+			//   s = document.createElement("a");
+			// (s.href = d), (s.download = "transcript.pdf"), s.click(), loadingOff();
 
-		// new code:
-		const d = await n.saveAsBase64({ dataUri: false });
-		const base64URL = d;//res.data;
-		//const binary = atob(base64URL.replace(/\s/g, ''));
-		const binary = atob(base64URL);
-		const len = binary.length;
-		const buffer = new ArrayBuffer(len);
-		const view = new Uint8Array(buffer);
+			// new code:
+			const d = await n.saveAsBase64({ dataUri: false });
+			const base64URL = d;//res.data;
+			//const binary = atob(base64URL.replace(/\s/g, ''));
+			const binary = atob(base64URL);
+			const len = binary.length;
+			const buffer = new ArrayBuffer(len);
+			const view = new Uint8Array(buffer);
 
-		for (let i = 0; i < len; i += 1) {
-			view[i] = binary.charCodeAt(i);
-		}
-		// create the blob object with content-type "application/pdf"
-		const blob = new Blob([view], { type: 'application/pdf' });
-		const url = URL.createObjectURL(blob);
-		const s = document.createElement("a");
-		(s.href = url), (s.download = "transcript.pdf"), s.click(), loadingOff();
+			for (let i = 0; i < len; i += 1) {
+				view[i] = binary.charCodeAt(i);
+			}
+
+			// create the blob object with content-type "application/pdf"
+			const blob = new Blob([view], { type: 'application/pdf' });
+			const url = URL.createObjectURL(blob);
+			const s = document.createElement("a");
+			(s.href = url), (s.download = "transcript.pdf"), s.click(), loadingOff();
 		}
 
 		function customerText(e, t, n, i, o, a, c, g) {
