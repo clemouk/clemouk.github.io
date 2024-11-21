@@ -1,3 +1,4 @@
+import { PDFDocument, StandardFonts, rgb } from 'pdf-lib'
 
 let gc_socket, gc_token;
 
@@ -47,7 +48,7 @@ async function createPdf(e) {
   const t = await fetch(
       "https://pdf-lib.js.org/assets/ubuntu/Ubuntu-R.ttf"
     ).then((e) => e.arrayBuffer()),
-    n = await PDFLib.PDFDocument.create();
+    n = await PDFDocument.create();
   n.registerFontkit(fontkit);
   const i = await n.embedFont(t);
   let o = n.addPage();
