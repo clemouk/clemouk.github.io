@@ -2,7 +2,6 @@
 let conversationEnd = localStorage.getItem('conversationEnd');
 let surveyDone = localStorage.getItem('surveyDone');
 let loaded = false;
-let transcriptButtonLoaded = false;
 
 if (conversationEnd == null || conversationEnd == undefined) {
   conversationEnd = 'false';
@@ -69,10 +68,6 @@ function wireEvents(){
           localStorage.setItem('conversationEnd', 'false')
           localStorage.setItem('surveyDone', 'false')
 
-          if(!transcriptButtonLoaded) {
-            transcriptButtonLoaded = true;
-            displayButton();
-          }
         }
       else if(messageContent=="Thanks for submitting your feedback.") 
       {
@@ -84,19 +79,7 @@ function wireEvents(){
               },
           },
         })
-      } 
-      else if(messageContent.indexOf("detected inappropriate language")>-1) {
-        localStorage.setItem('_ttecConversationState', 'SURVEY_COMPLETED');
-        surveyDone=true;
-        Genesys('command', 'Database.set', {
-          messaging: {
-              customAttributes: {
-                  TargetBrand: "Audi"
-              },
-          },
-        })
-      }
-      else {
+      } else {
         localStorage.setItem('_ttecConversationState', 'IN_PROGRESS');
       }
     };
