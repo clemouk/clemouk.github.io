@@ -8,6 +8,10 @@
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="viewport" content="width=device-width" />   
 
+	<audio id="myAudio"></audio>
+		<source src="assets/decidemp3-14575.mp3" type="audio/mp3" />
+	</audio>
+
 	<script type="text/javascript" charset="utf-8">
 		(function (g, e, n, es, ys) {
 		  g['_genesysJs'] = e;
@@ -27,6 +31,7 @@
 		let conversationEnd = localStorage.getItem('conversationEnd');
 		let surveyDone = localStorage.getItem('surveyDone');
 		let loaded = false;
+		let x = document.getElementById("myAudio");
 
 		if (conversationEnd == null || conversationEnd == undefined) {
 		conversationEnd = 'false';
@@ -37,36 +42,36 @@
 		};
 
 		function wireEvents(){
-		Genesys('subscribe', 'MessagingService.conversationCleared', function(){
-			localStorage.setItem('_ttecConversationState', 'NEW');
-			Genesys('command', 'Database.set', {
-			messaging: {
-				customAttributes: {
-					TargetBrand: "Audi"
-				},
-			},
-			})
-		});
-
-		Genesys("subscribe", "Messenger.opened", function(){
-			messengerOpen = true;
-
-			if(localStorage.getItem('_ttecConversationState')=='SURVEY_COMPLETED') {
-			Genesys('command', 'Database.set', {
-				messaging: {
-					customAttributes: {
-						TargetBrand: "Audi"
+			Genesys('subscribe', 'MessagingService.conversationCleared', function(){
+				localStorage.setItem('_ttecConversationState', 'NEW');
+				Genesys('command', 'Database.set', {
+					messaging: {
+						customAttributes: {
+							TargetBrand: "Audi"
+						},
 					},
-				},
-			})
-			};
-		});
+				})
+			});
 
-		Genesys("subscribe", "Messenger.closed", function(){
-			messengerOpen = false;
-		});
+			Genesys("subscribe", "Messenger.opened", function(){
+				messengerOpen = true;
 
-		Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
+				if(localStorage.getItem('_ttecConversationState')=='SURVEY_COMPLETED') {
+					Genesys('command', 'Database.set', {
+						messaging: {
+							customAttributes: {
+								TargetBrand: "Audi"
+							},
+						},
+					})
+				};
+			});
+
+			Genesys("subscribe", "Messenger.closed", function(){
+				messengerOpen = false;
+			});
+
+			Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
 			if((data.messages[0].type=="Text" || data.messages[0].type=="Structured") && data.messages[0].direction=="Outbound") {
 			let messageContent = data.messages[0].text;
 
@@ -76,23 +81,23 @@
 				localStorage.setItem('_ttecConversationState', 'IN_SURVEY');
 			} 
 			else if(messageContent=="Hello, my name is AVA, your Audi Virtual Assistant.") 
-				{
+			{
 				localStorage.setItem('_ttecConversationState', 'NEW');
 				conversationEnd = 'false'
 				surveyDone = 'false'
 				loaded = false
 				localStorage.setItem('conversationEnd', 'false')
 				localStorage.setItem('surveyDone', 'false')
-				}
+			}
 			else if(messageContent=="Thanks for submitting your feedback.") 
 			{
 				localStorage.setItem('_ttecConversationState', 'SURVEY_COMPLETED');
-				Genesys('command', 'Database.set', {
-				messaging: {
-					customAttributes: {
-						TargetBrand: "Audi"
+					Genesys('command', 'Database.set', {
+					messaging: {
+						customAttributes: {
+							TargetBrand: "Audi"
+						},
 					},
-				},
 				})
 			} else {
 				localStorage.setItem('_ttecConversationState', 'IN_PROGRESS');
@@ -100,7 +105,8 @@
 			};
 
 			if(messengerOpen==false) {
-			toggleMessenger();
+				x.play();
+				toggleMessenger();
 			};
 		})
 		}
