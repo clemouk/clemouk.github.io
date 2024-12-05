@@ -1,0 +1,1809 @@
+{
+    "items": [
+        {
+            "id": "01HPGA6MSTK7X1SYHVNC2GCNCS-01HPGACX2BVPCFZYR752KC8067-9867d7269c05cd354204c70563a79722",
+            "accountId": "4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "internalId": "01HPGA6MSTK7X1SYHVNC2GCNCS",
+            "externalId": "1cdcba0a-c6f9-4631-8f03-2ae0fef88f9a",
+            "title": "How do I change my bank details?",
+            "createdAt": "2024-02-13T04:04:34.746Z",
+            "updatedAt": "2024-04-19T14:24:32.513Z",
+            "connectorId": "default-shelf-4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "syncFlowId": "01HJ97Z1GG70S1N51DG51G8NR0",
+            "externalURL": "https://legalandgeneral.shelf-eu.com/read/1cdcba0a-c6f9-4631-8f03-2ae0fef88f9a",
+            "jobId": "01HVSTEKXM72Q2DQZ1ETCFY5F1",
+            "lang": "en",
+            "description": "",
+            "lastViewedAt": "2024-04-19T14:24:24.362Z",
+            "originalCreatedAt": "2024-02-13T04:04:34.289Z",
+            "originalUpdatedAt": "2024-04-19T14:17:15.724Z",
+            "tags": [
+                "ma-lgr top 10",
+                "pip",
+                "corp",
+                "ftrp",
+                "pa",
+                "hidden from search"
+            ],
+            "collectionIds": [
+                "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+            ],
+            "internalCollectionIds": [
+                "01HP2VSQCZR1SK70X88ZCGMG5N"
+            ],
+            "locations": [
+                {
+                    "grandParentIds": [
+                        "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+                    ],
+                    "depth": 2,
+                    "collectionId": "1aaa84b5-40c5-4f4e-bded-0ec8879b947c",
+                    "parentId": "9b076489-ada7-4349-af22-cc07bccd6006"
+                }
+            ],
+            "entityType": "Content",
+            "fields": [
+                {
+                    "key": "viewCount",
+                    "value": 10,
+                    "type": "number",
+                    "label": "10"
+                },
+                {
+                    "key": "averageRating",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "ratingsCount",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "contentTypeId",
+                    "value": "01HJ97YT92WMMGC3PVKSWK4XPS",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "type",
+                    "value": "Note",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "source",
+                    "value": "api",
+                    "type": "string",
+                    "label": "Api"
+                },
+                {
+                    "key": "ownerId",
+                    "value": "unassigned",
+                    "type": "string",
+                    "label": "Unassigned"
+                },
+                {
+                    "key": "contentUpdatedByUserId",
+                    "value": "service-24d35636-6bcf-47f4-aee1-ecdd89b877a3",
+                    "type": "string",
+                    "label": "Service User Shelf Content Migration Token"
+                },
+                {
+                    "key": "shelf_customField_original_id",
+                    "value": "1672591732",
+                    "type": "string",
+                    "label": "1672591732"
+                }
+            ],
+            "semanticSectionHash": "ea0d85d75525ab9b3c9eabc3d32be428",
+            "_highlight": {
+                "title": "<em>How</em> <em>do</em> <em>I</em> <em>change</em> <em>my</em> bank details?",
+                "description": "",
+                "tags": []
+            },
+            "iconURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/content-types/01HJ97YT92WMMGC3PVKSWK4XPS/icons/type_icon",
+            "previewImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/1cdcba0a-c6f9-4631-8f03-2ae0fef88f9a/thumbs/57e8f9ac-edb7-4dc4-bb90-83c294b3c0e3-640x480.jpg",
+            "previewSnippetImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/1cdcba0a-c6f9-4631-8f03-2ae0fef88f9a/thumbs/c6f40670-af3f-4b7f-9e47-7f1a336f5998-130x130.jpg"
+        },
+        {
+            "id": "01HPGA6CB3W6J0FMV71BCKQES3-01HPGACPH14JNMP1K0AY3JXTGW-3b8549668c11bc3fc53569a1d11d68e7",
+            "accountId": "4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "internalId": "01HPGA6CB3W6J0FMV71BCKQES3",
+            "externalId": "63f9eecd-6c41-4918-9033-07c309066693",
+            "title": "How do I make a complaint?",
+            "createdAt": "2024-02-13T04:04:26.083Z",
+            "updatedAt": "2024-07-29T14:26:45.613Z",
+            "connectorId": "default-shelf-4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "syncFlowId": "01HJ97Z1GG70S1N51DG51G8NR0",
+            "externalURL": "https://legalandgeneral.shelf-eu.com/read/63f9eecd-6c41-4918-9033-07c309066693",
+            "jobId": "01J3XWK7E3PNZE08QAWTJK6H0T",
+            "lang": "en",
+            "description": "",
+            "lastViewedAt": "2024-07-29T14:26:42.260Z",
+            "originalCreatedAt": "2024-02-13T04:04:25.693Z",
+            "originalUpdatedAt": "2024-05-20T08:18:55.041Z",
+            "tags": [
+                "nbcorp",
+                "nbftrp",
+                "nbpa",
+                "hidden from search"
+            ],
+            "collectionIds": [
+                "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+            ],
+            "internalCollectionIds": [
+                "01HP2VSQCZR1SK70X88ZCGMG5N"
+            ],
+            "locations": [
+                {
+                    "grandParentIds": [
+                        "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+                    ],
+                    "depth": 2,
+                    "collectionId": "1aaa84b5-40c5-4f4e-bded-0ec8879b947c",
+                    "parentId": "9b076489-ada7-4349-af22-cc07bccd6006"
+                }
+            ],
+            "entityType": "Content",
+            "fields": [
+                {
+                    "key": "viewCount",
+                    "value": 11,
+                    "type": "number",
+                    "label": "11"
+                },
+                {
+                    "key": "averageRating",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "ratingsCount",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "contentTypeId",
+                    "value": "01HJ97YT92WMMGC3PVKSWK4XPS",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "type",
+                    "value": "Note",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "source",
+                    "value": "api",
+                    "type": "string",
+                    "label": "Api"
+                },
+                {
+                    "key": "ownerId",
+                    "value": "unassigned",
+                    "type": "string",
+                    "label": "Unassigned"
+                },
+                {
+                    "key": "contentUpdatedByUserId",
+                    "value": "service-24d35636-6bcf-47f4-aee1-ecdd89b877a3",
+                    "type": "string",
+                    "label": "Service User Shelf Content Migration Token"
+                },
+                {
+                    "key": "shelf_customField_original_id",
+                    "value": "1873835342",
+                    "type": "string",
+                    "label": "1873835342"
+                }
+            ],
+            "semanticSectionHash": "9409ad759dc78aef0d249b7ad92c5d52",
+            "_highlight": {
+                "title": "<em>How</em> <em>do</em> <em>I</em> make a complaint?",
+                "description": "",
+                "tags": []
+            },
+            "iconURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/content-types/01HJ97YT92WMMGC3PVKSWK4XPS/icons/type_icon",
+            "previewImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/63f9eecd-6c41-4918-9033-07c309066693/thumbs/27a02985-3998-4424-9d70-d4651f465572-640x480.jpg",
+            "previewSnippetImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/63f9eecd-6c41-4918-9033-07c309066693/thumbs/79f3b134-affb-4a01-8012-aa3135196ad6-130x130.jpg"
+        },
+        {
+            "id": "01HPGA6BETS6M0CZFVGMH6XE3B-01HPGACBNTY0KTV7SFH0XZBMMC-bd81e7b16c132abfe70af6e33c959fd9",
+            "accountId": "4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "internalId": "01HPGA6BETS6M0CZFVGMH6XE3B",
+            "externalId": "e6e761fd-0402-4b9a-bf22-566f2f435326",
+            "title": "How do I make a complaint?",
+            "createdAt": "2024-02-13T04:04:25.178Z",
+            "updatedAt": "2024-07-29T14:27:07.031Z",
+            "connectorId": "default-shelf-4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "syncFlowId": "01HJ97Z1GG70S1N51DG51G8NR0",
+            "externalURL": "https://legalandgeneral.shelf-eu.com/read/e6e761fd-0402-4b9a-bf22-566f2f435326",
+            "jobId": "01J3XWK7E3PNZE08QAWTJK6H0T",
+            "lang": "en",
+            "description": "",
+            "lastViewedAt": "2024-07-29T14:27:05.288Z",
+            "originalCreatedAt": "2024-02-13T04:04:24.779Z",
+            "originalUpdatedAt": "2024-05-20T08:18:55.040Z",
+            "tags": [
+                "pip",
+                "corp",
+                "ftrp",
+                "pa",
+                "ann",
+                "hidden from search"
+            ],
+            "collectionIds": [
+                "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+            ],
+            "internalCollectionIds": [
+                "01HP2VSQCZR1SK70X88ZCGMG5N"
+            ],
+            "locations": [
+                {
+                    "grandParentIds": [
+                        "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+                    ],
+                    "depth": 2,
+                    "collectionId": "1aaa84b5-40c5-4f4e-bded-0ec8879b947c",
+                    "parentId": "9b076489-ada7-4349-af22-cc07bccd6006"
+                }
+            ],
+            "entityType": "Content",
+            "fields": [
+                {
+                    "key": "viewCount",
+                    "value": 8,
+                    "type": "number",
+                    "label": "8"
+                },
+                {
+                    "key": "averageRating",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "ratingsCount",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "contentTypeId",
+                    "value": "01HJ97YT92WMMGC3PVKSWK4XPS",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "type",
+                    "value": "Note",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "source",
+                    "value": "api",
+                    "type": "string",
+                    "label": "Api"
+                },
+                {
+                    "key": "ownerId",
+                    "value": "unassigned",
+                    "type": "string",
+                    "label": "Unassigned"
+                },
+                {
+                    "key": "contentUpdatedByUserId",
+                    "value": "service-24d35636-6bcf-47f4-aee1-ecdd89b877a3",
+                    "type": "string",
+                    "label": "Service User Shelf Content Migration Token"
+                },
+                {
+                    "key": "shelf_customField_original_id",
+                    "value": "1873830422",
+                    "type": "string",
+                    "label": "1873830422"
+                }
+            ],
+            "semanticSectionHash": "9409ad759dc78aef0d249b7ad92c5d52",
+            "_highlight": {
+                "title": "<em>How</em> <em>do</em> <em>I</em> make a complaint?",
+                "description": "",
+                "tags": []
+            },
+            "iconURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/content-types/01HJ97YT92WMMGC3PVKSWK4XPS/icons/type_icon",
+            "previewImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/e6e761fd-0402-4b9a-bf22-566f2f435326/thumbs/81482dd5-f940-4d7b-a98e-adf3225791af-640x480.jpg",
+            "previewSnippetImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/e6e761fd-0402-4b9a-bf22-566f2f435326/thumbs/07a57dd9-4b53-4172-975d-110efde85c2e-130x130.jpg"
+        },
+        {
+            "id": "01HPGA6KTM4KK8WJNEPNP50VXE-01HPGACX6PVHE0MYDZFEDA3QAC-dcb21ddb8285aa6081ae10b70b8ad09e",
+            "accountId": "4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "internalId": "01HPGA6KTM4KK8WJNEPNP50VXE",
+            "externalId": "2e6420b2-4d84-4cc8-bc86-c3719a426908",
+            "title": "Can I make changes to my quote?",
+            "createdAt": "2024-02-13T04:04:33.748Z",
+            "updatedAt": "2024-07-03T10:45:33.429Z",
+            "connectorId": "default-shelf-4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "syncFlowId": "01HJ97Z1GG70S1N51DG51G8NR0",
+            "externalURL": "https://legalandgeneral.shelf-eu.com/read/2e6420b2-4d84-4cc8-bc86-c3719a426908",
+            "jobId": "01J1TY8H8ARZ9XM3DFTCNVGB7R",
+            "lang": "en",
+            "description": "",
+            "lastViewedAt": "2024-07-03T10:45:30.318Z",
+            "originalCreatedAt": "2024-02-13T04:04:33.378Z",
+            "originalUpdatedAt": "2024-05-20T08:18:55.043Z",
+            "tags": [
+                "nbcorp",
+                "nbftrp",
+                "nbpa",
+                "hidden from search"
+            ],
+            "collectionIds": [
+                "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+            ],
+            "internalCollectionIds": [
+                "01HP2VSQCZR1SK70X88ZCGMG5N"
+            ],
+            "locations": [
+                {
+                    "grandParentIds": [
+                        "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+                    ],
+                    "depth": 2,
+                    "collectionId": "1aaa84b5-40c5-4f4e-bded-0ec8879b947c",
+                    "parentId": "9b076489-ada7-4349-af22-cc07bccd6006"
+                }
+            ],
+            "entityType": "Content",
+            "fields": [
+                {
+                    "key": "viewCount",
+                    "value": 3,
+                    "type": "number",
+                    "label": "3"
+                },
+                {
+                    "key": "averageRating",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "ratingsCount",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "contentTypeId",
+                    "value": "01HJ97YT92WMMGC3PVKSWK4XPS",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "type",
+                    "value": "Note",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "source",
+                    "value": "api",
+                    "type": "string",
+                    "label": "Api"
+                },
+                {
+                    "key": "ownerId",
+                    "value": "unassigned",
+                    "type": "string",
+                    "label": "Unassigned"
+                },
+                {
+                    "key": "contentUpdatedByUserId",
+                    "value": "service-24d35636-6bcf-47f4-aee1-ecdd89b877a3",
+                    "type": "string",
+                    "label": "Service User Shelf Content Migration Token"
+                },
+                {
+                    "key": "shelf_customField_original_id",
+                    "value": "1680783762",
+                    "type": "string",
+                    "label": "1680783762"
+                }
+            ],
+            "semanticSectionHash": "bbf671da11df7c6093cd26cd5ce89518",
+            "_highlight": {
+                "title": "Can <em>I</em> make changes to <em>my</em> quote?",
+                "description": "",
+                "tags": []
+            },
+            "iconURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/content-types/01HJ97YT92WMMGC3PVKSWK4XPS/icons/type_icon",
+            "previewImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/2e6420b2-4d84-4cc8-bc86-c3719a426908/thumbs/eec7810c-452d-41a4-8621-dd2105956497-640x480.jpg",
+            "previewSnippetImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/2e6420b2-4d84-4cc8-bc86-c3719a426908/thumbs/1264a965-9d5f-4c18-a306-9c50efa89b5c-130x130.jpg"
+        },
+        {
+            "id": "01HPGA6270XCEH2VEMCB3Q9T3R-01HPGAC9F5E9C7Z3GP2ZT7VRNS-9438f14593e97e466f42cb1d97679ad0",
+            "accountId": "4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "internalId": "01HPGA6270XCEH2VEMCB3Q9T3R",
+            "externalId": "6033972a-0b85-4531-b823-c4fd89895ce6",
+            "title": "Where is my missing document?",
+            "createdAt": "2024-02-13T04:04:15.712Z",
+            "updatedAt": "2024-07-05T16:50:34.069Z",
+            "connectorId": "default-shelf-4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "syncFlowId": "01HJ97Z1GG70S1N51DG51G8NR0",
+            "externalURL": "https://legalandgeneral.shelf-eu.com/read/6033972a-0b85-4531-b823-c4fd89895ce6",
+            "jobId": "01J2031Y8AVDG48ZNZVP13G24S",
+            "lang": "en",
+            "description": "",
+            "lastViewedAt": "2024-07-05T16:50:32.749Z",
+            "originalCreatedAt": "2024-02-13T04:04:15.295Z",
+            "originalUpdatedAt": "2024-05-20T08:18:55.037Z",
+            "tags": [
+                "pip",
+                "corp",
+                "ftrp",
+                "pa",
+                "hidden from search"
+            ],
+            "collectionIds": [
+                "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+            ],
+            "internalCollectionIds": [
+                "01HP2VSQCZR1SK70X88ZCGMG5N"
+            ],
+            "locations": [
+                {
+                    "grandParentIds": [
+                        "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+                    ],
+                    "depth": 2,
+                    "collectionId": "1aaa84b5-40c5-4f4e-bded-0ec8879b947c",
+                    "parentId": "9b076489-ada7-4349-af22-cc07bccd6006"
+                }
+            ],
+            "entityType": "Content",
+            "fields": [
+                {
+                    "key": "viewCount",
+                    "value": 4,
+                    "type": "number",
+                    "label": "4"
+                },
+                {
+                    "key": "averageRating",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "ratingsCount",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "contentTypeId",
+                    "value": "01HJ97YT92WMMGC3PVKSWK4XPS",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "type",
+                    "value": "Note",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "source",
+                    "value": "api",
+                    "type": "string",
+                    "label": "Api"
+                },
+                {
+                    "key": "ownerId",
+                    "value": "unassigned",
+                    "type": "string",
+                    "label": "Unassigned"
+                },
+                {
+                    "key": "contentUpdatedByUserId",
+                    "value": "service-24d35636-6bcf-47f4-aee1-ecdd89b877a3",
+                    "type": "string",
+                    "label": "Service User Shelf Content Migration Token"
+                },
+                {
+                    "key": "shelf_customField_original_id",
+                    "value": "1840278382",
+                    "type": "string",
+                    "label": "1840278382"
+                }
+            ],
+            "semanticSectionHash": "86dd46481098086c47d28a9288f89aca",
+            "_highlight": {
+                "title": "Where is <em>my</em> missing document?",
+                "description": "",
+                "tags": []
+            },
+            "iconURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/content-types/01HJ97YT92WMMGC3PVKSWK4XPS/icons/type_icon",
+            "previewImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/6033972a-0b85-4531-b823-c4fd89895ce6/thumbs/ec6c9284-1369-4182-be4b-e85dc3ef00a8-640x480.jpg",
+            "previewSnippetImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/6033972a-0b85-4531-b823-c4fd89895ce6/thumbs/d496ec8f-a035-4d9c-ad97-6c2330bc92a6-130x130.jpg"
+        },
+        {
+            "id": "01HPGA4CZVGVPP9T2T8CGW4433-01HPGAARVFB9JRTHDE5V098BJ2-b40249ae34454550f9dd0abde62bec46",
+            "accountId": "4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "internalId": "01HPGA4CZVGVPP9T2T8CGW4433",
+            "externalId": "81da0678-13ca-4955-a80c-34afbbeff89c",
+            "title": "Why haven't I received my payment?",
+            "createdAt": "2024-02-13T04:03:21.211Z",
+            "updatedAt": "2024-07-05T12:53:54.040Z",
+            "connectorId": "default-shelf-4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "syncFlowId": "01HJ97Z1GG70S1N51DG51G8NR0",
+            "externalURL": "https://legalandgeneral.shelf-eu.com/read/81da0678-13ca-4955-a80c-34afbbeff89c",
+            "jobId": "01J2031Y8AVDG48ZNZVP13G24S",
+            "lang": "en",
+            "description": "",
+            "lastViewedAt": "2024-07-05T12:53:43.541Z",
+            "originalCreatedAt": "2024-02-13T04:03:20.799Z",
+            "originalUpdatedAt": "2024-05-20T08:18:55.023Z",
+            "tags": [
+                "pip",
+                "corp",
+                "ftrp",
+                "pa",
+                "ann",
+                "hidden from search"
+            ],
+            "collectionIds": [
+                "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+            ],
+            "internalCollectionIds": [
+                "01HP2VSQCZR1SK70X88ZCGMG5N"
+            ],
+            "locations": [
+                {
+                    "grandParentIds": [
+                        "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+                    ],
+                    "depth": 2,
+                    "collectionId": "1aaa84b5-40c5-4f4e-bded-0ec8879b947c",
+                    "parentId": "9b076489-ada7-4349-af22-cc07bccd6006"
+                }
+            ],
+            "entityType": "Content",
+            "fields": [
+                {
+                    "key": "viewCount",
+                    "value": 4,
+                    "type": "number",
+                    "label": "4"
+                },
+                {
+                    "key": "averageRating",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "ratingsCount",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "contentTypeId",
+                    "value": "01HJ97YT92WMMGC3PVKSWK4XPS",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "type",
+                    "value": "Note",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "source",
+                    "value": "api",
+                    "type": "string",
+                    "label": "Api"
+                },
+                {
+                    "key": "ownerId",
+                    "value": "unassigned",
+                    "type": "string",
+                    "label": "Unassigned"
+                },
+                {
+                    "key": "contentUpdatedByUserId",
+                    "value": "service-24d35636-6bcf-47f4-aee1-ecdd89b877a3",
+                    "type": "string",
+                    "label": "Service User Shelf Content Migration Token"
+                },
+                {
+                    "key": "shelf_customField_original_id",
+                    "value": "1707945162",
+                    "type": "string",
+                    "label": "1707945162"
+                }
+            ],
+            "semanticSectionHash": "caebf115781b2eff0dd07f7a8bad9e0e",
+            "_highlight": {
+                "title": "Why haven't <em>I</em> received <em>my</em> payment?",
+                "description": "",
+                "tags": []
+            },
+            "iconURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/content-types/01HJ97YT92WMMGC3PVKSWK4XPS/icons/type_icon",
+            "previewImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/81da0678-13ca-4955-a80c-34afbbeff89c/thumbs/2ddba001-7432-4e4d-b3dc-d0a436dcb3cc-640x480.jpg",
+            "previewSnippetImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/81da0678-13ca-4955-a80c-34afbbeff89c/thumbs/95dcbb7e-1df0-4511-a6c0-d13dc4263d96-130x130.jpg"
+        },
+        {
+            "id": "01HPGA7EMFK3CJ9AT3CKQA3KFK-01HPGA7NMY9CJ2BYMTAX0F7KZ7-a20370f7a52d453aaf6342888c2f0a2c",
+            "accountId": "4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "internalId": "01HPGA7EMFK3CJ9AT3CKQA3KFK",
+            "externalId": "2bf5eb6b-3571-4112-96f1-90703f4953f1",
+            "title": "Why are my product details 'Temporarily unavailable'?",
+            "createdAt": "2024-02-13T04:05:01.199Z",
+            "updatedAt": "2024-04-19T08:58:39.356Z",
+            "connectorId": "default-shelf-4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "syncFlowId": "01HJ97Z1GG70S1N51DG51G8NR0",
+            "externalURL": "https://legalandgeneral.shelf-eu.com/read/2bf5eb6b-3571-4112-96f1-90703f4953f1",
+            "jobId": "01HVSTEKXM72Q2DQZ1ETCFY5F1",
+            "lang": "en",
+            "description": "",
+            "lastViewedAt": "2024-04-19T08:53:45.942Z",
+            "originalCreatedAt": "2024-02-13T04:05:00.814Z",
+            "originalUpdatedAt": "2024-04-19T08:58:39.069Z",
+            "tags": [
+                "ma-lgr service message",
+                "dp",
+                "corp",
+                "ftrp",
+                "pa",
+                "pip",
+                "nbcorp",
+                "nbftrp",
+                "nbpa",
+                "hidden from search"
+            ],
+            "collectionIds": [
+                "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+            ],
+            "internalCollectionIds": [
+                "01HP2VSQCZR1SK70X88ZCGMG5N"
+            ],
+            "locations": [
+                {
+                    "grandParentIds": [
+                        "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+                    ],
+                    "depth": 2,
+                    "collectionId": "1aaa84b5-40c5-4f4e-bded-0ec8879b947c",
+                    "parentId": "9b076489-ada7-4349-af22-cc07bccd6006"
+                }
+            ],
+            "entityType": "Content",
+            "fields": [
+                {
+                    "key": "contentTypeId",
+                    "value": "01HJ97YT92WMMGC3PVKSWK4XPS",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "averageRating",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "ratingsCount",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "type",
+                    "value": "Note",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "source",
+                    "value": "api",
+                    "type": "string",
+                    "label": "Api"
+                },
+                {
+                    "key": "ownerId",
+                    "value": "unassigned",
+                    "type": "string",
+                    "label": "Unassigned"
+                },
+                {
+                    "key": "contentUpdatedByUserId",
+                    "value": "46528cf7-f9e0-402e-94ff-544e62a5d794",
+                    "type": "string",
+                    "label": "Mick Hynes"
+                },
+                {
+                    "key": "viewCount",
+                    "value": 10,
+                    "type": "number",
+                    "label": "10"
+                },
+                {
+                    "key": "shelf_customField_original_id",
+                    "value": "1840649302",
+                    "type": "string",
+                    "label": "1840649302"
+                }
+            ],
+            "semanticSectionHash": "172e929380c4e8091b74bcca01685459",
+            "_highlight": {
+                "title": "Why are <em>my</em> product details 'Temporarily unavailable'?",
+                "description": "",
+                "tags": []
+            },
+            "iconURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/content-types/01HJ97YT92WMMGC3PVKSWK4XPS/icons/type_icon",
+            "previewImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/2bf5eb6b-3571-4112-96f1-90703f4953f1/thumbs/8a9f2ebc-2c60-4cc6-bf6a-d56f3e775efa-640x480.jpg",
+            "previewSnippetImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/2bf5eb6b-3571-4112-96f1-90703f4953f1/thumbs/73741791-f4e1-469c-8797-e6a71635c43b-130x130.jpg"
+        },
+        {
+            "id": "01HPGA7CVKAQ3R18R544Y4M19Q-01HPGADKS91026ST4Q8Y6Q1B53-e558afaf40c255b9da2fd645cbbdd081",
+            "accountId": "4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "internalId": "01HPGA7CVKAQ3R18R544Y4M19Q",
+            "externalId": "eaac726e-4f5c-4e9c-9a8f-2ac6f74f82ed",
+            "title": "Can I retire early?",
+            "createdAt": "2024-02-13T04:04:59.379Z",
+            "updatedAt": "2024-08-21T10:51:40.150Z",
+            "connectorId": "default-shelf-4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "syncFlowId": "01HJ97Z1GG70S1N51DG51G8NR0",
+            "externalURL": "https://legalandgeneral.shelf-eu.com/read/eaac726e-4f5c-4e9c-9a8f-2ac6f74f82ed",
+            "jobId": "01J5S3QR4CH122P9QAXHYSG6CS",
+            "lang": "en",
+            "description": "",
+            "lastViewedAt": "2024-08-21T10:51:35.153Z",
+            "originalCreatedAt": "2024-02-13T04:04:58.864Z",
+            "originalUpdatedAt": "2024-05-20T08:18:55.052Z",
+            "tags": [
+                "ma-lgr retirement",
+                "dp",
+                "hidden from search"
+            ],
+            "collectionIds": [
+                "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+            ],
+            "internalCollectionIds": [
+                "01HP2VSQCZR1SK70X88ZCGMG5N"
+            ],
+            "locations": [
+                {
+                    "grandParentIds": [
+                        "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+                    ],
+                    "depth": 2,
+                    "collectionId": "1aaa84b5-40c5-4f4e-bded-0ec8879b947c",
+                    "parentId": "9b076489-ada7-4349-af22-cc07bccd6006"
+                }
+            ],
+            "entityType": "Content",
+            "fields": [
+                {
+                    "key": "viewCount",
+                    "value": 9,
+                    "type": "number",
+                    "label": "9"
+                },
+                {
+                    "key": "averageRating",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "ratingsCount",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "contentTypeId",
+                    "value": "01HJ97YT92WMMGC3PVKSWK4XPS",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "type",
+                    "value": "Note",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "source",
+                    "value": "api",
+                    "type": "string",
+                    "label": "Api"
+                },
+                {
+                    "key": "ownerId",
+                    "value": "unassigned",
+                    "type": "string",
+                    "label": "Unassigned"
+                },
+                {
+                    "key": "contentUpdatedByUserId",
+                    "value": "service-24d35636-6bcf-47f4-aee1-ecdd89b877a3",
+                    "type": "string",
+                    "label": "Service User Shelf Content Migration Token"
+                },
+                {
+                    "key": "shelf_customField_original_id",
+                    "value": "1745430012",
+                    "type": "string",
+                    "label": "1745430012"
+                }
+            ],
+            "semanticSectionHash": "8d181226c1375a129664bb6b9f2b9b6b",
+            "_highlight": {
+                "title": "Can <em>I</em> retire early?",
+                "description": "",
+                "tags": []
+            },
+            "iconURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/content-types/01HJ97YT92WMMGC3PVKSWK4XPS/icons/type_icon",
+            "previewImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/eaac726e-4f5c-4e9c-9a8f-2ac6f74f82ed/thumbs/3132c0ac-c59f-4d23-a2bb-e9a91e1d65c1-640x480.jpg",
+            "previewSnippetImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/eaac726e-4f5c-4e9c-9a8f-2ac6f74f82ed/thumbs/34d320cf-dcac-4db6-a12d-1065aea3bfba-130x130.jpg"
+        },
+        {
+            "id": "01HPGA6G3WRSHC6QWN5B5TW06D-01HPGACNF8ZZZMRBKPSS4GVZ51-dcb21ddb8285aa6081ae10b70b8ad09e",
+            "accountId": "4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "internalId": "01HPGA6G3WRSHC6QWN5B5TW06D",
+            "externalId": "4d96a03b-5233-459f-977e-f40e97671dbc",
+            "title": "Can I make any changes to my application?",
+            "createdAt": "2024-02-13T04:04:29.948Z",
+            "updatedAt": "2024-12-03T11:18:02.970Z",
+            "connectorId": "default-shelf-4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "syncFlowId": "01HJ97Z1GG70S1N51DG51G8NR0",
+            "externalURL": "https://legalandgeneral.shelf-eu.com/read/4d96a03b-5233-459f-977e-f40e97671dbc",
+            "jobId": "01JE4X2FXPQZ1A39F4CTG09EXT",
+            "lang": "en",
+            "description": "",
+            "lastViewedAt": "2024-12-03T11:17:53.075Z",
+            "originalCreatedAt": "2024-02-13T04:04:29.464Z",
+            "originalUpdatedAt": "2024-05-20T08:18:55.042Z",
+            "tags": [
+                "ma-lgr applications",
+                "nbcorp",
+                "nbftrp",
+                "nbpa",
+                "hidden from search"
+            ],
+            "collectionIds": [
+                "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+            ],
+            "internalCollectionIds": [
+                "01HP2VSQCZR1SK70X88ZCGMG5N"
+            ],
+            "locations": [
+                {
+                    "grandParentIds": [
+                        "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+                    ],
+                    "depth": 2,
+                    "collectionId": "1aaa84b5-40c5-4f4e-bded-0ec8879b947c",
+                    "parentId": "9b076489-ada7-4349-af22-cc07bccd6006"
+                }
+            ],
+            "entityType": "Content",
+            "fields": [
+                {
+                    "key": "viewCount",
+                    "value": 272,
+                    "type": "number",
+                    "label": "272"
+                },
+                {
+                    "key": "averageRating",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "ratingsCount",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "contentTypeId",
+                    "value": "01HJ97YT92WMMGC3PVKSWK4XPS",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "type",
+                    "value": "Note",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "source",
+                    "value": "api",
+                    "type": "string",
+                    "label": "Api"
+                },
+                {
+                    "key": "ownerId",
+                    "value": "unassigned",
+                    "type": "string",
+                    "label": "Unassigned"
+                },
+                {
+                    "key": "contentUpdatedByUserId",
+                    "value": "service-24d35636-6bcf-47f4-aee1-ecdd89b877a3",
+                    "type": "string",
+                    "label": "Service User Shelf Content Migration Token"
+                },
+                {
+                    "key": "shelf_customField_original_id",
+                    "value": "1680781982",
+                    "type": "string",
+                    "label": "1680781982"
+                }
+            ],
+            "semanticSectionHash": "bbf671da11df7c6093cd26cd5ce89518",
+            "_highlight": {
+                "title": "Can <em>I</em> make any changes to <em>my</em> application?",
+                "description": "",
+                "tags": []
+            },
+            "iconURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/content-types/01HJ97YT92WMMGC3PVKSWK4XPS/icons/type_icon",
+            "previewImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/4d96a03b-5233-459f-977e-f40e97671dbc/thumbs/1a4e3fb6-97e3-4a8a-83c9-300a12d3dec3-640x480.jpg",
+            "previewSnippetImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/4d96a03b-5233-459f-977e-f40e97671dbc/thumbs/63eb6cf3-e085-4830-8016-000a084644ed-130x130.jpg"
+        },
+        {
+            "id": "01HPGA6GYT9JZF67YG1F8G378Y-01HPGACPFJ8DYQMWY4MEKJPWN3-dcb21ddb8285aa6081ae10b70b8ad09e",
+            "accountId": "4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "internalId": "01HPGA6GYT9JZF67YG1F8G378Y",
+            "externalId": "e1ed8406-ce27-4776-b9b5-2f1147781695",
+            "title": "What if I move address during my application?",
+            "createdAt": "2024-02-13T04:04:30.810Z",
+            "updatedAt": "2024-07-24T13:38:25.147Z",
+            "connectorId": "default-shelf-4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "syncFlowId": "01HJ97Z1GG70S1N51DG51G8NR0",
+            "externalURL": "https://legalandgeneral.shelf-eu.com/read/e1ed8406-ce27-4776-b9b5-2f1147781695",
+            "jobId": "01J3H0KJFA14K2F12RNS79QNVY",
+            "lang": "en",
+            "description": "",
+            "lastViewedAt": "2024-07-24T13:38:23.909Z",
+            "originalCreatedAt": "2024-02-13T04:04:30.411Z",
+            "originalUpdatedAt": "2024-05-20T08:18:55.042Z",
+            "tags": [
+                "nbcorp",
+                "nbftrp",
+                "nbpa",
+                "hidden from search"
+            ],
+            "collectionIds": [
+                "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+            ],
+            "internalCollectionIds": [
+                "01HP2VSQCZR1SK70X88ZCGMG5N"
+            ],
+            "locations": [
+                {
+                    "grandParentIds": [
+                        "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+                    ],
+                    "depth": 2,
+                    "collectionId": "1aaa84b5-40c5-4f4e-bded-0ec8879b947c",
+                    "parentId": "9b076489-ada7-4349-af22-cc07bccd6006"
+                }
+            ],
+            "entityType": "Content",
+            "fields": [
+                {
+                    "key": "viewCount",
+                    "value": 3,
+                    "type": "number",
+                    "label": "3"
+                },
+                {
+                    "key": "averageRating",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "ratingsCount",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "contentTypeId",
+                    "value": "01HJ97YT92WMMGC3PVKSWK4XPS",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "type",
+                    "value": "Note",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "source",
+                    "value": "api",
+                    "type": "string",
+                    "label": "Api"
+                },
+                {
+                    "key": "ownerId",
+                    "value": "unassigned",
+                    "type": "string",
+                    "label": "Unassigned"
+                },
+                {
+                    "key": "contentUpdatedByUserId",
+                    "value": "service-24d35636-6bcf-47f4-aee1-ecdd89b877a3",
+                    "type": "string",
+                    "label": "Service User Shelf Content Migration Token"
+                },
+                {
+                    "key": "shelf_customField_original_id",
+                    "value": "1680783312",
+                    "type": "string",
+                    "label": "1680783312"
+                }
+            ],
+            "semanticSectionHash": "bbf671da11df7c6093cd26cd5ce89518",
+            "_highlight": {
+                "title": "What if <em>I</em> move address during <em>my</em> application?",
+                "description": "",
+                "tags": []
+            },
+            "iconURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/content-types/01HJ97YT92WMMGC3PVKSWK4XPS/icons/type_icon",
+            "previewImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/e1ed8406-ce27-4776-b9b5-2f1147781695/thumbs/43b66774-1f14-46df-979c-8966165e9971-640x480.jpg",
+            "previewSnippetImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/e1ed8406-ce27-4776-b9b5-2f1147781695/thumbs/9f3f18ab-ca8d-4d2b-822d-8afc76821002-130x130.jpg"
+        },
+        {
+            "id": "01HPGA6J0B7Q1W1Q2QD8F2N5BV-01HPGACXY8MVG54C66Q9WBNQ43-dcb21ddb8285aa6081ae10b70b8ad09e",
+            "accountId": "4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "internalId": "01HPGA6J0B7Q1W1Q2QD8F2N5BV",
+            "externalId": "ee2938b0-7efe-4d1d-bd04-a45313f624f9",
+            "title": "What if my bank details change during my application?",
+            "createdAt": "2024-02-13T04:04:31.883Z",
+            "updatedAt": "2024-10-16T16:31:33.421Z",
+            "connectorId": "default-shelf-4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "syncFlowId": "01HJ97Z1GG70S1N51DG51G8NR0",
+            "externalURL": "https://legalandgeneral.shelf-eu.com/read/ee2938b0-7efe-4d1d-bd04-a45313f624f9",
+            "jobId": "01JA99ZZ148YTSSGDPD40E91CR",
+            "lang": "en",
+            "description": "",
+            "lastViewedAt": "2024-10-16T16:31:32.337Z",
+            "originalCreatedAt": "2024-02-13T04:04:31.476Z",
+            "originalUpdatedAt": "2024-05-20T08:18:55.042Z",
+            "tags": [
+                "nbcorp",
+                "nbftrp",
+                "nbpa",
+                "hidden from search"
+            ],
+            "collectionIds": [
+                "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+            ],
+            "internalCollectionIds": [
+                "01HP2VSQCZR1SK70X88ZCGMG5N"
+            ],
+            "locations": [
+                {
+                    "grandParentIds": [
+                        "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+                    ],
+                    "depth": 2,
+                    "collectionId": "1aaa84b5-40c5-4f4e-bded-0ec8879b947c",
+                    "parentId": "9b076489-ada7-4349-af22-cc07bccd6006"
+                }
+            ],
+            "entityType": "Content",
+            "fields": [
+                {
+                    "key": "viewCount",
+                    "value": 3,
+                    "type": "number",
+                    "label": "3"
+                },
+                {
+                    "key": "averageRating",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "ratingsCount",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "contentTypeId",
+                    "value": "01HJ97YT92WMMGC3PVKSWK4XPS",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "type",
+                    "value": "Note",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "source",
+                    "value": "api",
+                    "type": "string",
+                    "label": "Api"
+                },
+                {
+                    "key": "ownerId",
+                    "value": "unassigned",
+                    "type": "string",
+                    "label": "Unassigned"
+                },
+                {
+                    "key": "contentUpdatedByUserId",
+                    "value": "service-24d35636-6bcf-47f4-aee1-ecdd89b877a3",
+                    "type": "string",
+                    "label": "Service User Shelf Content Migration Token"
+                },
+                {
+                    "key": "shelf_customField_original_id",
+                    "value": "1680783402",
+                    "type": "string",
+                    "label": "1680783402"
+                }
+            ],
+            "semanticSectionHash": "bbf671da11df7c6093cd26cd5ce89518",
+            "_highlight": {
+                "title": "What if <em>my</em> bank details <em>change</em> during <em>my</em> application?",
+                "description": "",
+                "tags": []
+            },
+            "iconURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/content-types/01HJ97YT92WMMGC3PVKSWK4XPS/icons/type_icon",
+            "previewImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/ee2938b0-7efe-4d1d-bd04-a45313f624f9/thumbs/b9cbfa62-406f-44b2-aedb-ea73f15eeaa5-640x480.jpg",
+            "previewSnippetImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/ee2938b0-7efe-4d1d-bd04-a45313f624f9/thumbs/1586dfef-c9a2-4168-bffc-0c789d186279-130x130.jpg"
+        },
+        {
+            "id": "01HPGA5W9D2XW5Y4R9RK25VDZV-01HPGA5X9RR3QSVEB7YHW1209Q-77e0f7e94b71b3d393cd1657fc92534d",
+            "accountId": "4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "internalId": "01HPGA5W9D2XW5Y4R9RK25VDZV",
+            "externalId": "a9a9dd10-1917-4016-b3dc-3e0ae4afbccf",
+            "title": "What if I die?",
+            "createdAt": "2024-02-13T04:04:09.645Z",
+            "updatedAt": "2024-08-03T12:18:02.017Z",
+            "connectorId": "default-shelf-4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "syncFlowId": "01HJ97Z1GG70S1N51DG51G8NR0",
+            "externalURL": "https://legalandgeneral.shelf-eu.com/read/a9a9dd10-1917-4016-b3dc-3e0ae4afbccf",
+            "jobId": "01J4ARJS91FMQCC8PJW2V75MS1",
+            "lang": "en",
+            "description": "",
+            "lastViewedAt": "2024-08-03T12:17:52.280Z",
+            "originalCreatedAt": "2024-02-13T04:04:09.225Z",
+            "originalUpdatedAt": "2024-05-20T08:18:55.036Z",
+            "tags": [
+                "ma-lgr top 10",
+                "dp",
+                "hidden from search"
+            ],
+            "collectionIds": [
+                "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+            ],
+            "internalCollectionIds": [
+                "01HP2VSQCZR1SK70X88ZCGMG5N"
+            ],
+            "locations": [
+                {
+                    "grandParentIds": [
+                        "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+                    ],
+                    "depth": 2,
+                    "collectionId": "1aaa84b5-40c5-4f4e-bded-0ec8879b947c",
+                    "parentId": "9b076489-ada7-4349-af22-cc07bccd6006"
+                }
+            ],
+            "entityType": "Content",
+            "fields": [
+                {
+                    "key": "viewCount",
+                    "value": 4,
+                    "type": "number",
+                    "label": "4"
+                },
+                {
+                    "key": "averageRating",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "ratingsCount",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "contentTypeId",
+                    "value": "01HJ97YT92WMMGC3PVKSWK4XPS",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "type",
+                    "value": "Note",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "source",
+                    "value": "api",
+                    "type": "string",
+                    "label": "Api"
+                },
+                {
+                    "key": "ownerId",
+                    "value": "unassigned",
+                    "type": "string",
+                    "label": "Unassigned"
+                },
+                {
+                    "key": "shelf_customField_original_id",
+                    "value": "1749382752",
+                    "type": "string",
+                    "label": "1749382752"
+                }
+            ],
+            "semanticSectionHash": "c06796a0ae90e61bbf589055fd634ea4",
+            "_highlight": {
+                "title": "What if <em>I</em> die?",
+                "description": "",
+                "tags": []
+            },
+            "iconURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/content-types/01HJ97YT92WMMGC3PVKSWK4XPS/icons/type_icon",
+            "previewImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/a9a9dd10-1917-4016-b3dc-3e0ae4afbccf/thumbs/f23f2523-6f13-48fd-8889-7b1e89273f86-640x480.jpg",
+            "previewSnippetImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/a9a9dd10-1917-4016-b3dc-3e0ae4afbccf/thumbs/b1e0701b-9a47-4922-bc74-d8508c47f957-130x130.jpg"
+        },
+        {
+            "id": "01HPGA6E7MSKAP7TP0V4TEFCNK-01HPGACRMNYS27Y56DCVGNQ0H8-2335471c4f2f4b8efda6c47d44ab6a2f",
+            "accountId": "4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "internalId": "01HPGA6E7MSKAP7TP0V4TEFCNK",
+            "externalId": "45d5291e-f817-4be3-8e19-1f6e9ae387df",
+            "title": "Can I cancel my application before my policy starts?",
+            "createdAt": "2024-02-13T04:04:28.020Z",
+            "updatedAt": "2024-09-23T12:10:30.137Z",
+            "connectorId": "default-shelf-4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "syncFlowId": "01HJ97Z1GG70S1N51DG51G8NR0",
+            "externalURL": "https://legalandgeneral.shelf-eu.com/read/45d5291e-f817-4be3-8e19-1f6e9ae387df",
+            "jobId": "01J8E2VEWMPDGEM9TZ5MB0RJRC",
+            "lang": "en",
+            "description": "",
+            "lastViewedAt": "2024-09-23T12:10:27.259Z",
+            "originalCreatedAt": "2024-02-13T04:04:27.612Z",
+            "originalUpdatedAt": "2024-05-20T08:18:55.041Z",
+            "tags": [
+                "nbcorp",
+                "nbftrp",
+                "nbpa",
+                "hidden from search"
+            ],
+            "collectionIds": [
+                "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+            ],
+            "internalCollectionIds": [
+                "01HP2VSQCZR1SK70X88ZCGMG5N"
+            ],
+            "locations": [
+                {
+                    "grandParentIds": [
+                        "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+                    ],
+                    "depth": 2,
+                    "collectionId": "1aaa84b5-40c5-4f4e-bded-0ec8879b947c",
+                    "parentId": "9b076489-ada7-4349-af22-cc07bccd6006"
+                }
+            ],
+            "entityType": "Content",
+            "fields": [
+                {
+                    "key": "viewCount",
+                    "value": 3,
+                    "type": "number",
+                    "label": "3"
+                },
+                {
+                    "key": "averageRating",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "ratingsCount",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "contentTypeId",
+                    "value": "01HJ97YT92WMMGC3PVKSWK4XPS",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "type",
+                    "value": "Note",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "source",
+                    "value": "api",
+                    "type": "string",
+                    "label": "Api"
+                },
+                {
+                    "key": "ownerId",
+                    "value": "unassigned",
+                    "type": "string",
+                    "label": "Unassigned"
+                },
+                {
+                    "key": "contentUpdatedByUserId",
+                    "value": "service-24d35636-6bcf-47f4-aee1-ecdd89b877a3",
+                    "type": "string",
+                    "label": "Service User Shelf Content Migration Token"
+                },
+                {
+                    "key": "shelf_customField_original_id",
+                    "value": "1680353562",
+                    "type": "string",
+                    "label": "1680353562"
+                }
+            ],
+            "semanticSectionHash": "bbf671da11df7c6093cd26cd5ce89518",
+            "_highlight": {
+                "title": "Can <em>I</em> cancel <em>my</em> application before <em>my</em> policy starts?",
+                "description": "",
+                "tags": []
+            },
+            "iconURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/content-types/01HJ97YT92WMMGC3PVKSWK4XPS/icons/type_icon",
+            "previewImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/45d5291e-f817-4be3-8e19-1f6e9ae387df/thumbs/4cae9387-3aec-459e-9d64-bc734f263978-640x480.jpg",
+            "previewSnippetImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/45d5291e-f817-4be3-8e19-1f6e9ae387df/thumbs/66d7c0cf-b5ef-4785-a052-a2e8be232b90-130x130.jpg"
+        },
+        {
+            "id": "01HPGA6F55V9R7KVN62TJ9024K-01HTHG8T395N199X4N4CXWGAJ1-bb99edb663fdb1c1ac6c52fea362f96b",
+            "accountId": "4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "internalId": "01HPGA6F55V9R7KVN62TJ9024K",
+            "externalId": "2452873e-5abe-4c07-9347-1af176039e66",
+            "title": "Why doesn’t my P60 tell me the percentage of Lifetime Allowance I have used?",
+            "createdAt": "2024-02-13T04:04:28.965Z",
+            "updatedAt": "2024-08-06T14:42:47.005Z",
+            "connectorId": "default-shelf-4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "syncFlowId": "01HJ97Z1GG70S1N51DG51G8NR0",
+            "externalURL": "https://legalandgeneral.shelf-eu.com/read/2452873e-5abe-4c07-9347-1af176039e66",
+            "jobId": "01J4JFRZ80NWG9CKZH938VPMN4",
+            "lang": "en",
+            "description": "",
+            "lastViewedAt": "2024-08-06T14:42:38.218Z",
+            "originalCreatedAt": "2024-02-13T04:04:28.570Z",
+            "originalUpdatedAt": "2024-05-20T08:18:55.042Z",
+            "tags": [
+                "pip",
+                "hidden from search"
+            ],
+            "collectionIds": [
+                "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+            ],
+            "internalCollectionIds": [
+                "01HP2VSQCZR1SK70X88ZCGMG5N"
+            ],
+            "locations": [
+                {
+                    "grandParentIds": [
+                        "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+                    ],
+                    "depth": 2,
+                    "collectionId": "1aaa84b5-40c5-4f4e-bded-0ec8879b947c",
+                    "parentId": "9b076489-ada7-4349-af22-cc07bccd6006"
+                }
+            ],
+            "entityType": "Content",
+            "fields": [
+                {
+                    "key": "viewCount",
+                    "value": 4,
+                    "type": "number",
+                    "label": "4"
+                },
+                {
+                    "key": "averageRating",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "ratingsCount",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "contentTypeId",
+                    "value": "01HJ97YT92WMMGC3PVKSWK4XPS",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "type",
+                    "value": "Note",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "source",
+                    "value": "api",
+                    "type": "string",
+                    "label": "Api"
+                },
+                {
+                    "key": "ownerId",
+                    "value": "unassigned",
+                    "type": "string",
+                    "label": "Unassigned"
+                },
+                {
+                    "key": "contentUpdatedByUserId",
+                    "value": "46528cf7-f9e0-402e-94ff-544e62a5d794",
+                    "type": "string",
+                    "label": "Mick Hynes"
+                },
+                {
+                    "key": "shelf_customField_original_id",
+                    "value": "1671349482",
+                    "type": "string",
+                    "label": "1671349482"
+                }
+            ],
+            "semanticSectionHash": "b8e9e917407fb860ef2af24747015c7e",
+            "_highlight": {
+                "title": "Why doesn’t <em>my</em> P60 tell me the percentage of Lifetime Allowance <em>I</em> have used?",
+                "description": "",
+                "tags": []
+            },
+            "iconURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/content-types/01HJ97YT92WMMGC3PVKSWK4XPS/icons/type_icon",
+            "previewImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/2452873e-5abe-4c07-9347-1af176039e66/thumbs/ed2c45be-1db2-45c3-bae3-8028a40d8529-640x480.jpg",
+            "previewSnippetImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/2452873e-5abe-4c07-9347-1af176039e66/thumbs/b3e760e6-2fe4-4e3a-8886-9ff760bd250a-130x130.jpg"
+        },
+        {
+            "id": "01HPGA54F5GN9K2YF0NZVS9VBF-01HPGABEEC8S72H9XYAZEAKD8N-01ff246385303562381fe00ae6fbdce4",
+            "accountId": "4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "internalId": "01HPGA54F5GN9K2YF0NZVS9VBF",
+            "externalId": "8a1a4c58-be5d-458b-ae2b-e7277d364155",
+            "title": "What does 'contracting out requirements' mean?",
+            "createdAt": "2024-02-13T04:03:45.253Z",
+            "updatedAt": "2024-04-19T13:09:52.373Z",
+            "connectorId": "default-shelf-4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "syncFlowId": "01HJ97Z1GG70S1N51DG51G8NR0",
+            "externalURL": "https://legalandgeneral.shelf-eu.com/read/8a1a4c58-be5d-458b-ae2b-e7277d364155",
+            "jobId": "01HVSTEKXM72Q2DQZ1ETCFY5F1",
+            "lang": "en",
+            "description": "",
+            "lastViewedAt": "2024-04-19T13:09:43.145Z",
+            "originalCreatedAt": "2024-02-13T04:03:44.874Z",
+            "originalUpdatedAt": "2024-04-19T13:09:50.757Z",
+            "tags": [
+                "dp",
+                "hidden from search"
+            ],
+            "collectionIds": [
+                "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+            ],
+            "internalCollectionIds": [
+                "01HP2VSQCZR1SK70X88ZCGMG5N"
+            ],
+            "locations": [
+                {
+                    "grandParentIds": [
+                        "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+                    ],
+                    "depth": 2,
+                    "collectionId": "1aaa84b5-40c5-4f4e-bded-0ec8879b947c",
+                    "parentId": "9b076489-ada7-4349-af22-cc07bccd6006"
+                }
+            ],
+            "entityType": "Content",
+            "fields": [
+                {
+                    "key": "viewCount",
+                    "value": 4,
+                    "type": "number",
+                    "label": "4"
+                },
+                {
+                    "key": "averageRating",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "ratingsCount",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "contentTypeId",
+                    "value": "01HJ97YT92WMMGC3PVKSWK4XPS",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "type",
+                    "value": "Note",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "source",
+                    "value": "api",
+                    "type": "string",
+                    "label": "Api"
+                },
+                {
+                    "key": "ownerId",
+                    "value": "unassigned",
+                    "type": "string",
+                    "label": "Unassigned"
+                },
+                {
+                    "key": "contentUpdatedByUserId",
+                    "value": "service-24d35636-6bcf-47f4-aee1-ecdd89b877a3",
+                    "type": "string",
+                    "label": "Service User Shelf Content Migration Token"
+                },
+                {
+                    "key": "shelf_customField_original_id",
+                    "value": "1746071312",
+                    "type": "string",
+                    "label": "1746071312"
+                }
+            ],
+            "semanticSectionHash": "b683c51d26ea2d6d5d22b3c1ada3c273",
+            "_highlight": {
+                "title": "What <em>does</em> 'contracting out requirements' mean?",
+                "description": "",
+                "tags": []
+            },
+            "iconURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/content-types/01HJ97YT92WMMGC3PVKSWK4XPS/icons/type_icon",
+            "previewImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/8a1a4c58-be5d-458b-ae2b-e7277d364155/thumbs/02d90026-c5f8-483b-b807-f1ca0c55131d-640x480.jpg",
+            "previewSnippetImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/8a1a4c58-be5d-458b-ae2b-e7277d364155/thumbs/46f6a39b-bc1e-4679-824c-025f491dea56-130x130.jpg"
+        },
+        {
+            "id": "01HPGA5JS03KVG9JVJRXG1TXVY-01HPGABPY5DVRAFWGKHF000NQ8-be0a19e1561e9a321619c83cf65de2b3",
+            "accountId": "4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "internalId": "01HPGA5JS03KVG9JVJRXG1TXVY",
+            "externalId": "38c8871e-5412-43d2-be7f-8dd5e4cd7929",
+            "title": "What does Normal Retirement Date (NRD) mean?",
+            "createdAt": "2024-02-13T04:03:59.904Z",
+            "updatedAt": "2024-05-02T14:31:37.906Z",
+            "connectorId": "default-shelf-4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "syncFlowId": "01HJ97Z1GG70S1N51DG51G8NR0",
+            "externalURL": "https://legalandgeneral.shelf-eu.com/read/38c8871e-5412-43d2-be7f-8dd5e4cd7929",
+            "jobId": "01HWV9M03SBV16PG129WJC7R7M",
+            "lang": "en",
+            "description": "",
+            "lastViewedAt": "2024-05-02T14:31:37.164Z",
+            "originalCreatedAt": "2024-02-13T04:03:59.508Z",
+            "originalUpdatedAt": "2024-04-19T13:49:29.298Z",
+            "tags": [
+                "dp",
+                "hidden from search"
+            ],
+            "collectionIds": [
+                "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+            ],
+            "internalCollectionIds": [
+                "01HP2VSQCZR1SK70X88ZCGMG5N"
+            ],
+            "locations": [
+                {
+                    "grandParentIds": [
+                        "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+                    ],
+                    "depth": 2,
+                    "collectionId": "1aaa84b5-40c5-4f4e-bded-0ec8879b947c",
+                    "parentId": "9b076489-ada7-4349-af22-cc07bccd6006"
+                }
+            ],
+            "entityType": "Content",
+            "fields": [
+                {
+                    "key": "viewCount",
+                    "value": 5,
+                    "type": "number",
+                    "label": "5"
+                },
+                {
+                    "key": "averageRating",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "ratingsCount",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "contentTypeId",
+                    "value": "01HJ97YT92WMMGC3PVKSWK4XPS",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "type",
+                    "value": "Note",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "source",
+                    "value": "api",
+                    "type": "string",
+                    "label": "Api"
+                },
+                {
+                    "key": "ownerId",
+                    "value": "unassigned",
+                    "type": "string",
+                    "label": "Unassigned"
+                },
+                {
+                    "key": "contentUpdatedByUserId",
+                    "value": "service-24d35636-6bcf-47f4-aee1-ecdd89b877a3",
+                    "type": "string",
+                    "label": "Service User Shelf Content Migration Token"
+                },
+                {
+                    "key": "shelf_customField_original_id",
+                    "value": "1746837452",
+                    "type": "string",
+                    "label": "1746837452"
+                }
+            ],
+            "semanticSectionHash": "688f7a37d88b0f103bf4dba02afd79b8",
+            "_highlight": {
+                "title": "What <em>does</em> Normal Retirement Date (NRD) mean?",
+                "description": "",
+                "tags": []
+            },
+            "iconURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/content-types/01HJ97YT92WMMGC3PVKSWK4XPS/icons/type_icon",
+            "previewImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/38c8871e-5412-43d2-be7f-8dd5e4cd7929/thumbs/40fb2528-fc99-41dd-83ea-7e0a3ded94c2-640x480.jpg",
+            "previewSnippetImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/38c8871e-5412-43d2-be7f-8dd5e4cd7929/thumbs/2b77a9f2-bc5d-43ad-b22f-b32545aa2f37-130x130.jpg"
+        },
+        {
+            "id": "01HPGA5Y3CEA9P6QM8VH6BAAE0-01HPGAC8A5QX3C1PTJXX1H0TGN-161bf911c85a768defed04cd88ba8140",
+            "accountId": "4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "internalId": "01HPGA5Y3CEA9P6QM8VH6BAAE0",
+            "externalId": "4c5c3f21-dfbd-45ca-bbad-3e6cca9dfb3c",
+            "title": "What is a Young Dependant Reduction?",
+            "createdAt": "2024-02-13T04:04:11.500Z",
+            "updatedAt": "2024-07-09T12:49:00.500Z",
+            "connectorId": "default-shelf-4959f315-6aac-482f-9f04-9cc5db11adf6",
+            "syncFlowId": "01HJ97Z1GG70S1N51DG51G8NR0",
+            "externalURL": "https://legalandgeneral.shelf-eu.com/read/4c5c3f21-dfbd-45ca-bbad-3e6cca9dfb3c",
+            "jobId": "01J2ACMVCZ1T1KBPX8PK9GCSMJ",
+            "lang": "en",
+            "description": "",
+            "lastViewedAt": "2024-07-09T12:48:54.005Z",
+            "originalCreatedAt": "2024-02-13T04:04:11.073Z",
+            "originalUpdatedAt": "2024-05-20T08:18:55.036Z",
+            "tags": [
+                "pip",
+                "hidden from search"
+            ],
+            "collectionIds": [
+                "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+            ],
+            "internalCollectionIds": [
+                "01HP2VSQCZR1SK70X88ZCGMG5N"
+            ],
+            "locations": [
+                {
+                    "grandParentIds": [
+                        "1aaa84b5-40c5-4f4e-bded-0ec8879b947c"
+                    ],
+                    "depth": 2,
+                    "collectionId": "1aaa84b5-40c5-4f4e-bded-0ec8879b947c",
+                    "parentId": "9b076489-ada7-4349-af22-cc07bccd6006"
+                }
+            ],
+            "entityType": "Content",
+            "fields": [
+                {
+                    "key": "viewCount",
+                    "value": 5,
+                    "type": "number",
+                    "label": "5"
+                },
+                {
+                    "key": "averageRating",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "ratingsCount",
+                    "value": 0,
+                    "type": "number",
+                    "label": "0"
+                },
+                {
+                    "key": "contentTypeId",
+                    "value": "01HJ97YT92WMMGC3PVKSWK4XPS",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "type",
+                    "value": "Note",
+                    "type": "string",
+                    "label": "Wiki Page"
+                },
+                {
+                    "key": "source",
+                    "value": "api",
+                    "type": "string",
+                    "label": "Api"
+                },
+                {
+                    "key": "ownerId",
+                    "value": "unassigned",
+                    "type": "string",
+                    "label": "Unassigned"
+                },
+                {
+                    "key": "contentUpdatedByUserId",
+                    "value": "service-24d35636-6bcf-47f4-aee1-ecdd89b877a3",
+                    "type": "string",
+                    "label": "Service User Shelf Content Migration Token"
+                },
+                {
+                    "key": "shelf_customField_original_id",
+                    "value": "1654665082",
+                    "type": "string",
+                    "label": "1654665082"
+                }
+            ],
+            "semanticSectionHash": "47f5ad2f5591666408824fd749f812b1",
+            "iconURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/content-types/01HJ97YT92WMMGC3PVKSWK4XPS/icons/type_icon",
+            "previewImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/4c5c3f21-dfbd-45ca-bbad-3e6cca9dfb3c/thumbs/f94609b0-353b-4df1-9736-6e85d95c3343-640x480.jpg",
+            "previewSnippetImageURL": "https://thumbnails.shelf-eu.com/4959f315-6aac-482f-9f04-9cc5db11adf6/gems/4c5c3f21-dfbd-45ca-bbad-3e6cca9dfb3c/thumbs/ad3fed61-f458-4acd-816a-1d17b6d2f790-130x130.jpg"
+        }
+    ],
+    "pageInfo": {
+        "totalResultsCount": 17,
+        "totalPages": 1,
+        "currentPage": 1,
+        "pageSize": 30,
+        "hasNextPage": false,
+        "hasPreviousPage": false
+    },
+    "searchEventId": "01JEAZYEZGQSYENZ0X1R4TXR91",
+    "searchResultsURL": "https://legalandgeneral.shelf-eu.com?cp=1&sb=RELEVANCE&so=DESC&term=How%20do%20I%20change%20my%20contributions&tg=hidden%20from%20search&tgo=or"
+}
