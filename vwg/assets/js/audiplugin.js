@@ -12,11 +12,8 @@ if (surveyDone == null || surveyDone == undefined) {
 };
 
 function wireEvents(){
-  // subsribe to close widget event
   Genesys('subscribe', 'MessagingService.conversationCleared', function(){
-    // Need to reset the conversationState so that a survey can be done if a new conversation starts
     localStorage.setItem('_ttecConversationState', 'NEW');
-    // Re-initialise the widget params
     Genesys('command', 'Database.set', {
       messaging: {
           customAttributes: {
@@ -25,8 +22,6 @@ function wireEvents(){
       },
     })
   });
-
-  let x = document.getElementById("myAudio");
 
   Genesys("subscribe", "Messenger.opened", function(){
     messengerOpen = true;
@@ -47,19 +42,15 @@ function wireEvents(){
   });
 
   Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
-
-    // ensure that we're looking at a text message, rather than any other notification message
     if((data.messages[0].type=="Text" || data.messages[0].type=="Structured") && data.messages[0].direction=="Outbound") {
-
-      // check to see if this is the start of the Survey bot
       let messageContent = data.messages[0].text;
 
-       if(messageContent===undefined) { messageContent = ""}     
+      if(messageContent===undefined) { messageContent = ""}     
 
       if(messageContent.indexOf("*Question ")>-1) { 
         localStorage.setItem('_ttecConversationState', 'IN_SURVEY');
       } 
-      else if(messageContent=="Hello, my name is Ava, your Audi Virtual Assistant.") /* Unique greeting per brand */
+      else if(messageContent=="Hello, my name is AVA, your Audi Virtual Assistant.") 
         {
           localStorage.setItem('_ttecConversationState', 'NEW');
           conversationEnd = 'false'
@@ -67,7 +58,6 @@ function wireEvents(){
           loaded = false
           localStorage.setItem('conversationEnd', 'false')
           localStorage.setItem('surveyDone', 'false')
-
         }
       else if(messageContent=="Thanks for submitting your feedback.") 
       {
@@ -92,9 +82,7 @@ function wireEvents(){
 
 // subscribe to ready event
 Genesys('subscribe', 'Messenger.ready', function () {
-
   wireEvents();
-
   Genesys('command', 'Database.set', {
     messaging: {
         customAttributes: {
@@ -102,13 +90,11 @@ Genesys('subscribe', 'Messenger.ready', function () {
         },
     },
   })
-
   localStorage.setItem('_ttecConversationState', 'NEW');
 });
 
 // receive disconnected event
 Genesys('subscribe', 'MessagingService.conversationDisconnected', function () {
-
   if (!loaded) {
     loaded = true
     conversationEnd = 'true'
