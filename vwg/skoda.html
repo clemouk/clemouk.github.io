@@ -137,9 +137,9 @@
 			loaded = true
 			conversationEnd = 'true'
 			localStorage.setItem('conversationEnd', 'true')
-			if (surveyDone == 'false') {
-			localStorage.setItem('surveyDone', 'true')
-			Genesys('command', 'MessagingService.sendMessage', {
+			if (localStorage.getItem('surveyDone') == 'false') {
+				localStorage.setItem('surveyDone', 'true')
+				Genesys('command', 'MessagingService.sendMessage', {
 				message: 'How did we do?',
 			})
 			}
