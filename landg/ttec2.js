@@ -31,9 +31,6 @@ $(document).ready(function() {
 
   
 
-
-
-
 function wireEvents(){
   console.log('wireEvents - begin');
 
@@ -89,20 +86,7 @@ function wireEvents(){
             () => {
             /*fulfilled callback*/
             console.log('Messenger opened');
-            //  if(eventArray[0] === "opened" && eventArray[1]=="closed"){
-            //     console.log("Need to send message. Sending now.");
-            //     Genesys("command", "MessagingService.sendMessage", {
-            //         message: 'Searching'
-            //       },
-            //           function() {
-            //               /*fulfilled callback*/
-            //               console.log('sent searching message');
-            //           },
-            //           function() {
-            //               /*rejected callback*/
-            //           }
-            //       );
-            //  }
+
             },
             (error) => {
              /*rejected callback*/
@@ -114,17 +98,18 @@ function wireEvents(){
                 },
                     function() {
                         /*fulfilled callback*/
-                        console.log('sent searching message');
+                        console.log('Sent searching message');
                     },
                     function() {
                         /*rejected callback*/
+                        console.log('Sent searching message failed');
                     }
                 );
-             }
+              }
             }
-          );
+        );
 
-        });
+      });
 
   $('.deepLink').click(function(e){
     
@@ -138,8 +123,9 @@ function wireEvents(){
       function(data){ 
         console.log('Database update called - ',data);        
       }, 
-      function(){ 
-        /* rejected */ 
+      function(){
+        /* rejected */  
+        console.log('Database update failed - ',data);      
       }
     );
 
