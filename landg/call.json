@@ -1,0 +1,1082 @@
+{
+    "conversationEnd": "2025-06-02T08:38:59.427Z",
+    "conversationId": "bb74eb03-8b0f-4b8d-8d3b-cbdf04c4e80e",
+    "conversationStart": "2025-06-02T08:26:38.945Z",
+    "divisionIds": [
+        "7d2004dc-60ed-403f-a5c8-6257489b2349",
+        "bb4d0ece-db05-4115-9aad-02b21ea489b8"
+    ],
+    "externalTag": "LGIM_DC_DrawDownXfr_CC",
+    "mediaStatsMinConversationMos": 4.407666305809003,
+    "mediaStatsMinConversationRFactor": 91.32684326171875,
+    "originatingDirection": "inbound",
+    "resolutions": [
+        {
+            "eventTime": "2025-06-12T13:21:08.536Z",
+            "queueId": "44d597fe-29cc-4b46-ba66-603d55a557b0",
+            "userId": "0cecba12-c6e0-4c54-bf6d-021028926c2a",
+            "nNextContactAvoided": 1
+        }
+    ],
+    "participants": [
+        {
+            "externalContactId": "f3420612-c12d-4fc2-a368-f9084d972937",
+            "participantId": "fa9fe533-6f47-46a6-878a-a781340eeed7",
+            "participantName": "Mobile Number, United Kingdom",
+            "purpose": "customer",
+            "sessions": [
+                {
+                    "activeSkillIds": [
+                        "48ff2d95-609f-4c17-8996-3e5798370f34"
+                    ],
+                    "ani": "tel:+447852761070",
+                    "direction": "inbound",
+                    "dnis": "tel:+442046021714",
+                    "edgeId": "db18cb62-d40e-4a05-87a2-745ab1e4471a",
+                    "eligibleAgentCounts": [
+                        5
+                    ],
+                    "mediaType": "voice",
+                    "protocolCallId": "489299925_100529544~~@172.50.10.30~2o",
+                    "provider": "Edge",
+                    "recording": true,
+                    "remoteNameDisplayable": "Mobile Number, United Kingdom",
+                    "requestedRoutings": [
+                        "Standard"
+                    ],
+                    "selectedAgentId": "f9fbe1db-80f7-4e50-b147-15b3b3bab244",
+                    "sessionDnis": "tel:+442046021714",
+                    "sessionId": "f69c6b6a-853c-32d7-8220-8a81b0176934",
+                    "usedRouting": "Standard",
+                    "mediaEndpointStats": [
+                        {
+                            "codecs": [
+                                "audio/opus"
+                            ],
+                            "eventTime": "2025-06-02T08:26:39.964Z",
+                            "maxLatencyMs": 30,
+                            "minMos": 4.88302953587052,
+                            "minRFactor": 92.47071838378906,
+                            "receivedPackets": 48
+                        },
+                        {
+                            "codecs": [
+                                "audio/opus"
+                            ],
+                            "eventTime": "2025-06-02T08:27:01.583Z",
+                            "maxLatencyMs": 30,
+                            "minMos": 4.898799173100516,
+                            "minRFactor": 93.18107604980469,
+                            "receivedPackets": 1080
+                        },
+                        {
+                            "codecs": [
+                                "audio/opus"
+                            ],
+                            "eventTime": "2025-06-02T08:28:09.520Z",
+                            "maxLatencyMs": 31,
+                            "minMos": 4.898649981876805,
+                            "minRFactor": 93.17415618896484,
+                            "receivedPackets": 3393
+                        },
+                        {
+                            "codecs": [
+                                "audio/opus"
+                            ],
+                            "eventTime": "2025-06-02T08:28:09.858Z",
+                            "maxLatencyMs": 30,
+                            "minMos": 4.886954303031914,
+                            "minRFactor": 92.64366149902344,
+                            "receivedPackets": 11
+                        },
+                        {
+                            "codecs": [
+                                "audio/opus",
+                                "audio/opus",
+                                "audio/opus"
+                            ],
+                            "discardedPackets": 2,
+                            "eventTime": "2025-06-02T08:32:46.820Z",
+                            "maxLatencyMs": 39,
+                            "minMos": 4.893260488997012,
+                            "minRFactor": 92.92676544189453,
+                            "receivedPackets": 13843
+                        },
+                        {
+                            "codecs": [
+                                "audio/opus"
+                            ],
+                            "discardedPackets": 28,
+                            "eventTime": "2025-06-02T08:35:19.168Z",
+                            "maxLatencyMs": 49,
+                            "minMos": 4.876250708599495,
+                            "minRFactor": 92.17750549316406,
+                            "receivedPackets": 7625
+                        },
+                        {
+                            "codecs": [
+                                "audio/PCMU"
+                            ],
+                            "eventTime": "2025-06-02T08:35:19.216Z",
+                            "maxLatencyMs": 31,
+                            "minMos": 4.407666305809003,
+                            "minRFactor": 93.11663818359375,
+                            "receivedPackets": 26018
+                        }
+                    ],
+                    "metrics": [
+                        {
+                            "emitDate": "2025-06-02T08:26:38.988Z",
+                            "name": "nConnected",
+                            "value": 1
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:35:19.132Z",
+                            "name": "tConnected",
+                            "value": 520144
+                        }
+                    ],
+                    "segments": [
+                        {
+                            "conference": false,
+                            "segmentEnd": "2025-06-02T08:26:38.988Z",
+                            "segmentStart": "2025-06-02T08:26:38.945Z",
+                            "segmentType": "system"
+                        },
+                        {
+                            "conference": false,
+                            "disconnectType": "peer",
+                            "queueId": "e4859ec5-d2e0-4f32-8f94-2edf298b5fe0",
+                            "requestedRoutingSkillIds": [
+                                "48ff2d95-609f-4c17-8996-3e5798370f34"
+                            ],
+                            "segmentEnd": "2025-06-02T08:35:19.132Z",
+                            "segmentStart": "2025-06-02T08:26:38.988Z",
+                            "segmentType": "interact"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "participantId": "e8f69607-427f-4f84-b820-c60ba2f5eef2",
+            "participantName": "DDI Translation with ANI",
+            "purpose": "ivr",
+            "sessions": [
+                {
+                    "ani": "tel:+447852761070",
+                    "direction": "inbound",
+                    "dnis": "tel:+442046021714",
+                    "edgeId": "229faf1a-c820-404d-81b8-a6a5f1af203e",
+                    "mediaType": "voice",
+                    "peerId": "f69c6b6a-853c-32d7-8220-8a81b0176934",
+                    "protocolCallId": "8c9daf0a-513b-4d7b-85b3-2cf13bb01e57",
+                    "provider": "Edge",
+                    "remote": "Mobile Number, United Kingdom",
+                    "remoteNameDisplayable": "London, United Kingdom",
+                    "sessionDnis": "tel:+442046021714",
+                    "sessionId": "7a3becae-08be-36c6-be12-4c92f3c49a58",
+                    "mediaEndpointStats": [
+                        {
+                            "codecs": [
+                                "audio/opus"
+                            ],
+                            "eventTime": "2025-06-02T08:26:39.999Z",
+                            "maxLatencyMs": 30,
+                            "minMos": 4.887888504946419,
+                            "minRFactor": 92.68518829345703,
+                            "receivedPackets": 48
+                        }
+                    ],
+                    "flow": {
+                        "endingLanguage": "en-gb",
+                        "entryReason": "tel:+442046021714",
+                        "entryType": "dnis",
+                        "exitReason": "TRANSFER",
+                        "flowId": "0c1197a1-9da0-431a-8518-2d711d053f49",
+                        "flowName": "DDI Translation with ANI",
+                        "flowType": "INBOUNDCALL",
+                        "flowVersion": "2.0",
+                        "startingLanguage": "en-gb",
+                        "transferTargetAddress": "+444486021714",
+                        "transferType": "NUMBER"
+                    },
+                    "metrics": [
+                        {
+                            "emitDate": "2025-06-02T08:26:39.157Z",
+                            "name": "nFlow",
+                            "value": 1
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:26:39.932Z",
+                            "name": "tIvr",
+                            "value": 962
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:26:39.934Z",
+                            "name": "tFlow",
+                            "value": 777
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:26:39.934Z",
+                            "name": "tFlowExit",
+                            "value": 777
+                        }
+                    ],
+                    "segments": [
+                        {
+                            "conference": false,
+                            "segmentEnd": "2025-06-02T08:26:38.970Z",
+                            "segmentStart": "2025-06-02T08:26:38.960Z",
+                            "segmentType": "system"
+                        },
+                        {
+                            "conference": false,
+                            "disconnectType": "transfer",
+                            "segmentEnd": "2025-06-02T08:26:39.932Z",
+                            "segmentStart": "2025-06-02T08:26:38.970Z",
+                            "segmentType": "ivr",
+                            "sipResponseCodes": [
+                                410
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "participantId": "a25f5979-7dc1-4b00-bb38-aa77c8667596",
+            "participantName": "Switchboard",
+            "purpose": "ivr",
+            "sessions": [
+                {
+                    "ani": "tel:+447852761070",
+                    "direction": "inbound",
+                    "dnis": "tel:+442046021714",
+                    "edgeId": "30147395-ee83-4d78-854e-548e680c5857",
+                    "mediaType": "voice",
+                    "peerId": "f69c6b6a-853c-32d7-8220-8a81b0176934",
+                    "protocolCallId": "4d45c588-4209-4ded-82a9-435a09b046f6",
+                    "provider": "Edge",
+                    "remote": "Mobile Number, United Kingdom",
+                    "remoteNameDisplayable": "National",
+                    "sessionDnis": "tel:+442046021714",
+                    "sessionId": "68b05116-703c-3fce-8476-23a7559d3fa9",
+                    "mediaEndpointStats": [
+                        {
+                            "codecs": [
+                                "audio/opus"
+                            ],
+                            "eventTime": "2025-06-02T08:27:01.590Z",
+                            "maxLatencyMs": 30,
+                            "minMos": 4.898649498733634,
+                            "minRFactor": 93.17413330078125,
+                            "receivedPackets": 1086
+                        }
+                    ],
+                    "flow": {
+                        "endingLanguage": "en-gb",
+                        "entryReason": "0c1197a1-9da0-431a-8518-2d711d053f49",
+                        "entryType": "flow",
+                        "exitReason": "TRANSFER",
+                        "flowId": "6866bfde-f789-42ed-aec4-433092e21084",
+                        "flowName": "Switchboard",
+                        "flowType": "INBOUNDCALL",
+                        "flowVersion": "14.0",
+                        "startingLanguage": "en-gb",
+                        "transferTargetAddress": "+444486021301",
+                        "transferType": "NUMBER"
+                    },
+                    "metrics": [
+                        {
+                            "emitDate": "2025-06-02T08:26:40.115Z",
+                            "name": "nFlow",
+                            "value": 1
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:27:01.531Z",
+                            "name": "tIvr",
+                            "value": 21603
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:27:01.538Z",
+                            "name": "tFlow",
+                            "value": 21423
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:27:01.538Z",
+                            "name": "tFlowExit",
+                            "value": 21423
+                        }
+                    ],
+                    "segments": [
+                        {
+                            "conference": false,
+                            "segmentEnd": "2025-06-02T08:26:39.928Z",
+                            "segmentStart": "2025-06-02T08:26:39.917Z",
+                            "segmentType": "system"
+                        },
+                        {
+                            "conference": false,
+                            "disconnectType": "transfer",
+                            "segmentEnd": "2025-06-02T08:27:01.531Z",
+                            "segmentStart": "2025-06-02T08:26:39.928Z",
+                            "segmentType": "ivr",
+                            "sipResponseCodes": [
+                                410
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "participantId": "ed434c2b-4ad9-45a1-8640-8cb1befe4d54",
+            "participantName": "LG_WPS_Base",
+            "purpose": "ivr",
+            "sessions": [
+                {
+                    "ani": "tel:+447852761070",
+                    "direction": "inbound",
+                    "dnis": "tel:+442046021714",
+                    "edgeId": "c193f36a-ead3-4c28-afcd-cf251594c652",
+                    "mediaType": "voice",
+                    "peerId": "f69c6b6a-853c-32d7-8220-8a81b0176934",
+                    "protocolCallId": "9dca176b-9cec-42f8-bcb9-7cd6b3f1c1d5",
+                    "provider": "Edge",
+                    "remote": "Mobile Number, United Kingdom",
+                    "remoteNameDisplayable": "National",
+                    "sessionDnis": "tel:+442046021714",
+                    "sessionId": "fb0ee65a-43ff-3614-9afb-f316c1b62675",
+                    "mediaEndpointStats": [
+                        {
+                            "codecs": [
+                                "audio/opus"
+                            ],
+                            "eventTime": "2025-06-02T08:28:09.516Z",
+                            "maxLatencyMs": 30,
+                            "minMos": 4.898758617342413,
+                            "minRFactor": 93.17919921875,
+                            "receivedPackets": 3400
+                        }
+                    ],
+                    "flow": {
+                        "endingLanguage": "en-gb",
+                        "entryReason": "6866bfde-f789-42ed-aec4-433092e21084",
+                        "entryType": "flow",
+                        "exitReason": "TRANSFER",
+                        "flowId": "f18fc9c3-1683-4c44-803f-ead4575ffa91",
+                        "flowName": "LG_WPS_Base",
+                        "flowType": "INBOUNDCALL",
+                        "flowVersion": "26.0",
+                        "startingLanguage": "en-gb",
+                        "transferTargetAddress": "e4859ec5-d2e0-4f32-8f94-2edf298b5fe0",
+                        "transferTargetName": "LG_WPS_HL_Request Update",
+                        "transferType": "ACD",
+                        "outcomes": [
+                            {
+                                "flowOutcome": "98f5eeb7-7ae3-423e-90b4-222416287096:SUCCESS",
+                                "flowOutcomeEndTimestamp": "2025-06-02T08:28:09.098Z",
+                                "flowOutcomeId": "98f5eeb7-7ae3-423e-90b4-222416287096",
+                                "flowOutcomeStartTimestamp": "2025-06-02T08:27:02.067Z",
+                                "flowOutcomeValue": "SUCCESS"
+                            }
+                        ]
+                    },
+                    "metrics": [
+                        {
+                            "emitDate": "2025-06-02T08:27:01.861Z",
+                            "name": "nFlow",
+                            "value": 1
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:28:08.658Z",
+                            "name": "nFlowMilestone",
+                            "value": 1
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:28:08.658Z",
+                            "name": "oFlowMilestone",
+                            "value": 1
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:28:09.098Z",
+                            "name": "nFlowOutcome",
+                            "value": 1
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:28:09.098Z",
+                            "name": "tFlowOutcome",
+                            "value": 67031
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:28:09.414Z",
+                            "name": "tFlow",
+                            "value": 67553
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:28:09.414Z",
+                            "name": "tFlowExit",
+                            "value": 67553
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:28:09.414Z",
+                            "name": "tIvr",
+                            "value": 67888
+                        }
+                    ],
+                    "segments": [
+                        {
+                            "conference": false,
+                            "segmentEnd": "2025-06-02T08:27:01.526Z",
+                            "segmentStart": "2025-06-02T08:27:01.481Z",
+                            "segmentType": "system"
+                        },
+                        {
+                            "conference": false,
+                            "disconnectType": "transfer",
+                            "segmentEnd": "2025-06-02T08:28:09.414Z",
+                            "segmentStart": "2025-06-02T08:27:01.526Z",
+                            "segmentType": "ivr"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "participantId": "1e9691bd-d6ac-49f3-a414-8d6ff47613a0",
+            "participantName": "LG_WPS_HL_Request Update",
+            "purpose": "acd",
+            "sessions": [
+                {
+                    "activeSkillIds": [
+                        "48ff2d95-609f-4c17-8996-3e5798370f34"
+                    ],
+                    "ani": "tel:+447852761070",
+                    "destinationAddresses": [
+                        "sip:sharon.phloray%40landg.com@localhost"
+                    ],
+                    "direction": "inbound",
+                    "dnis": "tel:+442046021714",
+                    "edgeId": "229faf1a-c820-404d-81b8-a6a5f1af203e",
+                    "eligibleAgentCounts": [
+                        5
+                    ],
+                    "flowInType": "ivr",
+                    "mediaType": "voice",
+                    "peerId": "f69c6b6a-853c-32d7-8220-8a81b0176934",
+                    "protocolCallId": "c369e1f3-461f-4093-8913-4f9cec7981db",
+                    "provider": "Edge",
+                    "remote": "Mobile Number, United Kingdom",
+                    "remoteNameDisplayable": "LG_WPS_HL_Request Update",
+                    "requestedRoutings": [
+                        "Standard"
+                    ],
+                    "selectedAgentId": "f9fbe1db-80f7-4e50-b147-15b3b3bab244",
+                    "sessionDnis": "tel:+442046021714",
+                    "sessionId": "576cc21e-dd07-3dc2-a003-5aa56d15583b",
+                    "usedRouting": "Standard",
+                    "mediaEndpointStats": [
+                        {
+                            "codecs": [
+                                "audio/opus"
+                            ],
+                            "eventTime": "2025-06-02T08:28:09.905Z",
+                            "maxLatencyMs": 30,
+                            "minMos": 4.885498730686694,
+                            "minRFactor": 92.57923889160156,
+                            "receivedPackets": 12
+                        }
+                    ],
+                    "metrics": [
+                        {
+                            "emitDate": "2025-06-02T08:28:09.479Z",
+                            "name": "nOffered",
+                            "value": 1
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:28:09.713Z",
+                            "name": "tAcd",
+                            "value": 234
+                        }
+                    ],
+                    "segments": [
+                        {
+                            "conference": false,
+                            "queueId": "e4859ec5-d2e0-4f32-8f94-2edf298b5fe0",
+                            "requestedRoutingSkillIds": [
+                                "48ff2d95-609f-4c17-8996-3e5798370f34"
+                            ],
+                            "segmentEnd": "2025-06-02T08:28:09.479Z",
+                            "segmentStart": "2025-06-02T08:28:09.429Z",
+                            "segmentType": "delay"
+                        },
+                        {
+                            "conference": false,
+                            "disconnectType": "transfer",
+                            "queueId": "e4859ec5-d2e0-4f32-8f94-2edf298b5fe0",
+                            "requestedRoutingSkillIds": [
+                                "48ff2d95-609f-4c17-8996-3e5798370f34"
+                            ],
+                            "segmentEnd": "2025-06-02T08:28:09.713Z",
+                            "segmentStart": "2025-06-02T08:28:09.479Z",
+                            "segmentType": "interact",
+                            "sipResponseCodes": [
+                                410
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "participantId": "50652023-5a05-4528-af57-cedf04c7ae8e",
+            "purpose": "agent",
+            "userId": "f9fbe1db-80f7-4e50-b147-15b3b3bab244",
+            "sessions": [
+                {
+                    "activeSkillIds": [
+                        "48ff2d95-609f-4c17-8996-3e5798370f34"
+                    ],
+                    "ani": "tel:+447852761070",
+                    "destinationAddresses": [
+                        "8070040"
+                    ],
+                    "direction": "inbound",
+                    "dnis": "tel:+442046021714",
+                    "edgeId": "db18cb62-d40e-4a05-87a2-745ab1e4471a",
+                    "eligibleAgentCounts": [
+                        5
+                    ],
+                    "mediaType": "voice",
+                    "peerId": "f69c6b6a-853c-32d7-8220-8a81b0176934",
+                    "protocolCallId": "b4e1186e-9a87-4b85-bc54-3cf4e71c718f",
+                    "provider": "Edge",
+                    "recording": true,
+                    "remote": "Mobile Number, United Kingdom",
+                    "requestedRoutings": [
+                        "Standard"
+                    ],
+                    "selectedAgentId": "f9fbe1db-80f7-4e50-b147-15b3b3bab244",
+                    "sessionDnis": "sip:6657098daddaf31bcc2a4e4d+legalandgeneral.orgspan.com@localhost",
+                    "sessionId": "c5f53ba8-a080-37f4-beef-4d935e6a7177",
+                    "usedRouting": "Standard",
+                    "mediaEndpointStats": [
+                        {
+                            "codecs": [
+                                "audio/opus"
+                            ],
+                            "eventTime": "2025-06-02T08:31:07.622Z",
+                            "maxLatencyMs": 30,
+                            "minMos": 4.882714278782713,
+                            "minRFactor": 92.4569320678711,
+                            "receivedPackets": 175
+                        },
+                        {
+                            "codecs": [
+                                "audio/opus"
+                            ],
+                            "eventTime": "2025-06-02T08:31:09.637Z",
+                            "maxLatencyMs": 30,
+                            "minMos": 4.882719456591384,
+                            "minRFactor": 92.4571533203125,
+                            "receivedPackets": 98
+                        },
+                        {
+                            "codecs": [
+                                "audio/opus",
+                                "audio/opus"
+                            ],
+                            "discardedPackets": 24,
+                            "eventTime": "2025-06-02T08:32:46.617Z",
+                            "maxLatencyMs": 55,
+                            "minMos": 4.879424041740132,
+                            "minRFactor": 92.31392669677734,
+                            "receivedPackets": 9580
+                        },
+                        {
+                            "codecs": [
+                                "audio/opus",
+                                "audio/opus"
+                            ],
+                            "eventTime": "2025-06-02T08:32:46.647Z",
+                            "maxLatencyMs": 30,
+                            "minMos": 4.898667463216312,
+                            "minRFactor": 93.17496490478516,
+                            "receivedPackets": 4956
+                        },
+                        {
+                            "codecs": [
+                                "audio/opus",
+                                "audio/opus"
+                            ],
+                            "discardedPackets": 11,
+                            "eventTime": "2025-06-02T08:32:46.647Z",
+                            "maxLatencyMs": 46,
+                            "minMos": 4.85956085351309,
+                            "minRFactor": 91.48243713378906,
+                            "receivedPackets": 4348
+                        }
+                    ],
+                    "metrics": [
+                        {
+                            "emitDate": "2025-06-02T08:28:09.708Z",
+                            "name": "tAlert",
+                            "value": 18
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:28:09.708Z",
+                            "name": "tAnswered",
+                            "value": 234
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:29:38.752Z",
+                            "name": "tTalk",
+                            "value": 89044
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:31:04.022Z",
+                            "name": "tHeld",
+                            "value": 85270
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:31:04.036Z",
+                            "name": "nConsult",
+                            "value": 1
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:32:46.610Z",
+                            "name": "nConsultTransferred",
+                            "value": 1
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:32:46.610Z",
+                            "name": "nTransferred",
+                            "value": 1
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:32:46.610Z",
+                            "name": "tHeldComplete",
+                            "value": 85270
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:32:46.610Z",
+                            "name": "tTalk",
+                            "value": 102588
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:32:46.610Z",
+                            "name": "tTalkComplete",
+                            "value": 191632
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:38:59.427Z",
+                            "name": "tAcw",
+                            "value": 372817
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:38:59.427Z",
+                            "name": "tHandle",
+                            "value": 649719
+                        }
+                    ],
+                    "segments": [
+                        {
+                            "conference": false,
+                            "queueId": "e4859ec5-d2e0-4f32-8f94-2edf298b5fe0",
+                            "requestedRoutingSkillIds": [
+                                "48ff2d95-609f-4c17-8996-3e5798370f34"
+                            ],
+                            "segmentEnd": "2025-06-02T08:28:09.708Z",
+                            "segmentStart": "2025-06-02T08:28:09.690Z",
+                            "segmentType": "alert"
+                        },
+                        {
+                            "conference": false,
+                            "queueId": "e4859ec5-d2e0-4f32-8f94-2edf298b5fe0",
+                            "requestedRoutingSkillIds": [
+                                "48ff2d95-609f-4c17-8996-3e5798370f34"
+                            ],
+                            "segmentEnd": "2025-06-02T08:29:38.752Z",
+                            "segmentStart": "2025-06-02T08:28:09.708Z",
+                            "segmentType": "interact"
+                        },
+                        {
+                            "conference": false,
+                            "queueId": "e4859ec5-d2e0-4f32-8f94-2edf298b5fe0",
+                            "requestedRoutingSkillIds": [
+                                "48ff2d95-609f-4c17-8996-3e5798370f34"
+                            ],
+                            "segmentEnd": "2025-06-02T08:31:04.022Z",
+                            "segmentStart": "2025-06-02T08:29:38.752Z",
+                            "segmentType": "hold"
+                        },
+                        {
+                            "conference": false,
+                            "disconnectType": "transfer",
+                            "queueId": "e4859ec5-d2e0-4f32-8f94-2edf298b5fe0",
+                            "requestedRoutingSkillIds": [
+                                "48ff2d95-609f-4c17-8996-3e5798370f34"
+                            ],
+                            "segmentEnd": "2025-06-02T08:32:46.610Z",
+                            "segmentStart": "2025-06-02T08:31:04.022Z",
+                            "segmentType": "interact"
+                        },
+                        {
+                            "conference": false,
+                            "disconnectType": "transfer",
+                            "queueId": "e4859ec5-d2e0-4f32-8f94-2edf298b5fe0",
+                            "requestedRoutingSkillIds": [
+                                "48ff2d95-609f-4c17-8996-3e5798370f34"
+                            ],
+                            "segmentEnd": "2025-06-02T08:38:59.427Z",
+                            "segmentStart": "2025-06-02T08:32:46.610Z",
+                            "segmentType": "wrapup",
+                            "wrapUpCode": "7fb334b0-0e9e-11e4-9191-0800200c9a66"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "participantId": "1cb821d3-71f9-4419-8d34-b725058f2b75",
+            "participantName": "LG_WPS_Base",
+            "purpose": "ivr",
+            "sessions": [
+                {
+                    "ani": "tel:+447852761070",
+                    "direction": "inbound",
+                    "dnis": "tel:+442046021714",
+                    "edgeId": "c193f36a-ead3-4c28-afcd-cf251594c652",
+                    "mediaType": "voice",
+                    "peerId": "f69c6b6a-853c-32d7-8220-8a81b0176934",
+                    "protocolCallId": "6bdca832-25e9-47b4-9069-1d77f256736e",
+                    "provider": "Edge",
+                    "remote": "Mobile Number, United Kingdom",
+                    "remoteNameDisplayable": "internal",
+                    "sessionDnis": "tel:+442046021714",
+                    "sessionId": "878e3d65-554f-33bb-b45b-015ede9b35e8",
+                    "mediaEndpointStats": [
+                        {
+                            "codecs": [
+                                "audio/opus"
+                            ],
+                            "eventTime": "2025-06-02T08:31:07.692Z",
+                            "maxLatencyMs": 31,
+                            "minMos": 4.881087517487105,
+                            "minRFactor": 92.38602447509766,
+                            "receivedPackets": 176
+                        }
+                    ],
+                    "flow": {
+                        "endingLanguage": "en-gb",
+                        "entryReason": "tel:+442046021714",
+                        "entryType": "dnis",
+                        "exitReason": "TRANSFER",
+                        "flowId": "f18fc9c3-1683-4c44-803f-ead4575ffa91",
+                        "flowName": "LG_WPS_Base",
+                        "flowType": "INBOUNDCALL",
+                        "flowVersion": "26.0",
+                        "startingLanguage": "en-gb",
+                        "transferTargetAddress": "44d597fe-29cc-4b46-ba66-603d55a557b0",
+                        "transferTargetName": "LG_WPS_HL_Drawdown",
+                        "transferType": "ACD",
+                        "outcomes": [
+                            {
+                                "flowOutcome": "98f5eeb7-7ae3-423e-90b4-222416287096:SUCCESS",
+                                "flowOutcomeEndTimestamp": "2025-06-02T08:31:07.230Z",
+                                "flowOutcomeId": "98f5eeb7-7ae3-423e-90b4-222416287096",
+                                "flowOutcomeStartTimestamp": "2025-06-02T08:31:04.567Z",
+                                "flowOutcomeValue": "SUCCESS"
+                            }
+                        ]
+                    },
+                    "metrics": [
+                        {
+                            "emitDate": "2025-06-02T08:31:04.363Z",
+                            "name": "nFlow",
+                            "value": 1
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:31:06.868Z",
+                            "name": "nFlowMilestone",
+                            "value": 1
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:31:06.868Z",
+                            "name": "oFlowMilestone",
+                            "value": 1
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:31:07.230Z",
+                            "name": "nFlowOutcome",
+                            "value": 1
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:31:07.230Z",
+                            "name": "tFlowOutcome",
+                            "value": 2663
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:31:07.567Z",
+                            "name": "tIvr",
+                            "value": 3520
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:31:07.581Z",
+                            "name": "tFlow",
+                            "value": 3218
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:31:07.581Z",
+                            "name": "tFlowExit",
+                            "value": 3218
+                        }
+                    ],
+                    "segments": [
+                        {
+                            "conference": false,
+                            "segmentEnd": "2025-06-02T08:31:04.047Z",
+                            "segmentStart": "2025-06-02T08:31:04.036Z",
+                            "segmentType": "system"
+                        },
+                        {
+                            "conference": false,
+                            "disconnectType": "transfer",
+                            "segmentEnd": "2025-06-02T08:31:07.567Z",
+                            "segmentStart": "2025-06-02T08:31:04.047Z",
+                            "segmentType": "ivr"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "participantId": "4f212161-0b89-4dbc-b525-f5f5abdeaf47",
+            "participantName": "LG_WPS_HL_Drawdown",
+            "purpose": "acd",
+            "sessions": [
+                {
+                    "activeSkillIds": [
+                        "9cdf8be9-f683-4a6a-bccd-1b090c2323f8"
+                    ],
+                    "ani": "tel:+447852761070",
+                    "destinationAddresses": [
+                        "sip:abbie.cleall-harding%40landg.com@localhost"
+                    ],
+                    "direction": "inbound",
+                    "dnis": "tel:+442046021714",
+                    "edgeId": "c193f36a-ead3-4c28-afcd-cf251594c652",
+                    "eligibleAgentCounts": [
+                        1
+                    ],
+                    "flowInType": "ivr",
+                    "mediaType": "voice",
+                    "peerId": "f69c6b6a-853c-32d7-8220-8a81b0176934",
+                    "protocolCallId": "c434d20e-2e88-4878-9b3d-70770c7d58e2",
+                    "provider": "Edge",
+                    "remote": "Mobile Number, United Kingdom",
+                    "remoteNameDisplayable": "LG_WPS_HL_Drawdown",
+                    "requestedRoutings": [
+                        "Standard"
+                    ],
+                    "selectedAgentId": "0cecba12-c6e0-4c54-bf6d-021028926c2a",
+                    "sessionDnis": "tel:+442046021714",
+                    "sessionId": "1bba9741-71da-305f-bc9c-f0026f1d4696",
+                    "usedRouting": "Standard",
+                    "mediaEndpointStats": [
+                        {
+                            "codecs": [
+                                "audio/opus"
+                            ],
+                            "eventTime": "2025-06-02T08:31:09.659Z",
+                            "maxLatencyMs": 30,
+                            "minMos": 4.882746210242678,
+                            "minRFactor": 92.45832824707031,
+                            "receivedPackets": 98
+                        }
+                    ],
+                    "flow": {
+                        "flowId": "b575d343-cc7c-4931-a093-e98a327de3f6",
+                        "flowName": "LG_WPS_Base",
+                        "flowType": "INQUEUECALL",
+                        "flowVersion": "5.0",
+                        "startingLanguage": "en-gb"
+                    },
+                    "metrics": [
+                        {
+                            "emitDate": "2025-06-02T08:31:07.656Z",
+                            "name": "nOffered",
+                            "value": 1
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:31:09.621Z",
+                            "name": "tAcd",
+                            "value": 1965
+                        }
+                    ],
+                    "segments": [
+                        {
+                            "conference": false,
+                            "queueId": "44d597fe-29cc-4b46-ba66-603d55a557b0",
+                            "requestedRoutingSkillIds": [
+                                "9cdf8be9-f683-4a6a-bccd-1b090c2323f8"
+                            ],
+                            "segmentEnd": "2025-06-02T08:31:07.656Z",
+                            "segmentStart": "2025-06-02T08:31:07.610Z",
+                            "segmentType": "delay"
+                        },
+                        {
+                            "conference": false,
+                            "disconnectType": "transfer",
+                            "queueId": "44d597fe-29cc-4b46-ba66-603d55a557b0",
+                            "requestedRoutingSkillIds": [
+                                "9cdf8be9-f683-4a6a-bccd-1b090c2323f8"
+                            ],
+                            "segmentEnd": "2025-06-02T08:31:09.621Z",
+                            "segmentStart": "2025-06-02T08:31:07.656Z",
+                            "segmentType": "interact",
+                            "sipResponseCodes": [
+                                410
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "participantId": "c645d9cb-8764-4b25-a68b-f09f9a1b558a",
+            "purpose": "agent",
+            "userId": "0cecba12-c6e0-4c54-bf6d-021028926c2a",
+            "sessions": [
+                {
+                    "activeSkillIds": [
+                        "9cdf8be9-f683-4a6a-bccd-1b090c2323f8"
+                    ],
+                    "ani": "tel:+447852761070",
+                    "direction": "inbound",
+                    "dnis": "tel:+442046021714",
+                    "edgeId": "db18cb62-d40e-4a05-87a2-745ab1e4471a",
+                    "eligibleAgentCounts": [
+                        1
+                    ],
+                    "mediaType": "voice",
+                    "peerId": "f69c6b6a-853c-32d7-8220-8a81b0176934",
+                    "protocolCallId": "da8ff515-c16c-494e-964e-d889f6f33dc3",
+                    "provider": "Edge",
+                    "remote": "Mobile Number, United Kingdom",
+                    "requestedRoutings": [
+                        "Standard"
+                    ],
+                    "selectedAgentId": "0cecba12-c6e0-4c54-bf6d-021028926c2a",
+                    "sessionDnis": "sip:665709c39b77f9443c9aacb3+legalandgeneral.orgspan.com;tgrp=78e22953-cba5-4ead-835c-21fb93d9e695;trunk-context=legalandgeneral@localhost",
+                    "sessionId": "eab2c7d5-a307-3e0d-8c8a-223fb33cf4d3",
+                    "usedRouting": "Standard",
+                    "mediaEndpointStats": [
+                        {
+                            "codecs": [
+                                "audio/opus",
+                                "audio/opus",
+                                "audio/opus"
+                            ],
+                            "discardedPackets": 11,
+                            "eventTime": "2025-06-02T08:32:46.820Z",
+                            "maxLatencyMs": 58,
+                            "minMos": 4.882107901293488,
+                            "minRFactor": 92.43045043945312,
+                            "receivedPackets": 4852
+                        },
+                        {
+                            "codecs": [
+                                "audio/opus"
+                            ],
+                            "discardedPackets": 32,
+                            "eventTime": "2025-06-02T08:35:19.168Z",
+                            "maxLatencyMs": 50,
+                            "minMos": 4.855706292471861,
+                            "minRFactor": 91.32684326171875,
+                            "receivedPackets": 12477
+                        },
+                        {
+                            "codecs": [
+                                "audio/opus"
+                            ],
+                            "eventTime": "2025-06-02T08:35:19.197Z",
+                            "maxLatencyMs": 31,
+                            "minMos": 4.898636984465281,
+                            "minRFactor": 93.17355346679688,
+                            "receivedPackets": 7625
+                        }
+                    ],
+                    "metrics": [
+                        {
+                            "emitDate": "2025-06-02T08:31:09.619Z",
+                            "name": "tAlert",
+                            "value": 1669
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:31:09.619Z",
+                            "name": "tAnswered",
+                            "value": 1965
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:35:19.130Z",
+                            "name": "tTalk",
+                            "value": 249511
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:35:19.130Z",
+                            "name": "tTalkComplete",
+                            "value": 249511
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:38:03.352Z",
+                            "name": "tAcw",
+                            "value": 164222
+                        },
+                        {
+                            "emitDate": "2025-06-02T08:38:03.352Z",
+                            "name": "tHandle",
+                            "value": 413733
+                        }
+                    ],
+                    "segments": [
+                        {
+                            "conference": false,
+                            "queueId": "44d597fe-29cc-4b46-ba66-603d55a557b0",
+                            "requestedRoutingSkillIds": [
+                                "9cdf8be9-f683-4a6a-bccd-1b090c2323f8"
+                            ],
+                            "segmentEnd": "2025-06-02T08:31:09.619Z",
+                            "segmentStart": "2025-06-02T08:31:07.950Z",
+                            "segmentType": "alert"
+                        },
+                        {
+                            "conference": false,
+                            "disconnectType": "client",
+                            "queueId": "44d597fe-29cc-4b46-ba66-603d55a557b0",
+                            "requestedRoutingSkillIds": [
+                                "9cdf8be9-f683-4a6a-bccd-1b090c2323f8"
+                            ],
+                            "segmentEnd": "2025-06-02T08:35:19.130Z",
+                            "segmentStart": "2025-06-02T08:31:09.619Z",
+                            "segmentType": "interact"
+                        },
+                        {
+                            "conference": false,
+                            "disconnectType": "client",
+                            "queueId": "44d597fe-29cc-4b46-ba66-603d55a557b0",
+                            "requestedRoutingSkillIds": [
+                                "9cdf8be9-f683-4a6a-bcc`d-1b090c2323f8"
+                            ],
+                            "segmentEnd": "2025-06-02T08:38:03.352Z",
+                            "segmentStart": "2025-06-02T08:35:19.130Z",
+                            "segmentType": "wrapup",
+                            "wrapUpCode": "7fb334b0-0e9e-11e4-9191-0800200c9a66"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

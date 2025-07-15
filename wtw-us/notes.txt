@@ -1,0 +1,1 @@
+Purple Logo Color = #8036B3

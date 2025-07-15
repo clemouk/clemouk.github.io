@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shelf.io Migration & Style Override Tool</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet" >
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon.ico">
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      
+      <div class="logo">
+        <img src="ttec-digital-logo.png" />
+        TTEC Digital - Shelf.io Migration & Style Override Tool
+      </div>
+    </div>
+  </header>
+
+  <div class="main-container">
+
+    <div class="container">
+      <!-- Introductory Section -->
+      <div class="intro">
+        
+        <!--<p>
+          <strong>Description:</strong><br>
+          1. This script migrates articles (both Notes, Documents and Decision Trees) from a source library to a destination library.<br>
+          2. It updates article titles by replacing "Copy of [Existing Library Name]" with the new Client Name.<br>
+          3. It discovers and overrides styles in articles based on the existing styles.<br>
+          4. It updates links in articles to point to the new gem IDs after copying the articles.<br>
+          5. It requires a Content Block ID input for the Article Headers to be updated.<br>
+          6. Creates a new CSR and Supervisor/Manager user group and automatically grants permissions to the new Library.
+        </p>
+        <p>
+          <strong>Enhancements:</strong><br>
+          1. Display sections that require unique client information in a checklist format.<br>
+          2. Automatically add the Library to relevant admin and user groups.<br>
+          3. Create CSR, Supervisor/Manager, and Organizational Unit for the New Client Library.<br>
+          4. Email the Genesys Team with Library ID and associated Configuration ID details. <br>
+          5. Auto Generate RCB and insert into Pension Payment Article <br>
+        </p>
+        <p>
+          <strong>Enhancements -> Other Modules:</strong><br>
+          1. <em>Health Plan Year Automater</em>: Automates creation of a new Health Plan Year Library and copies content as a starting point.<br>
+          2. <em>Link Finder</em>: Finds all links within a KB to identify broken links.<br>
+          3. <em>Content Block Inserter</em>: Finds text in a library and replaces it with a content block containing that text.
+        </p> -->
+      </div>
+
+      <!-- INITIAL FORM -->
+      <form id="appForm">
+        <label>
+          
+          <input type="hidden" id="authToken" value="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAxSlE1NEtWQldSTTBFRDdZN1RaRFRRNEdWIiwidXNlciI6eyJpZCI6InNlcnZpY2UtMzQ4NWY4ZTQtZDU4NC00Zjc1LWI0YjktZDg0N2UxMTgzNGVlIiwiYWNjb3VudElkIjoiMjIwY2U3ZjktOWFkNC00NDVmLWI2YjUtYmQxMWQ4NmExYmI3Iiwic3ViZG9tYWluIjoid3R3b3VzIn0sImlhdCI6MTc0Mjg1NTU5NywiZXhwIjo0ODk4NjE1NTk3fQ.gFUOuD8XhizZI7bD9N52_GtGtcL9RhHrwanG0TeuAbA">
+        </label>
+        <label>
+          Source Library ID:
+          <input type="text" id="sourceLibraryId" placeholder="5658b200-e23b-447a-86a5-1eb1eae52393">
+        </label>
+        <label>
+          Existing Library Name:
+          <input type="text" id="existingLibraryName" placeholder="KBTemplate-Pensioneepoint">
+        </label>
+
+      
+        <div style="display:none">
+          <p>Select destination library option:</p>
+          <label>
+            <input type="radio" name="destOption" value="new" id="newLibraryOption" checked>
+            Create New Library
+          </label>
+          <label>
+            <input type="radio" name="destOption" value="existing" id="existingLibraryOption">
+            Use Existing Destination Library
+          </label>
+        </div>
+        <div id="newLibraryDiv">
+          <label>
+            New Library Name:
+            <input type="text" id="newLibraryName" placeholder="NEW_LIBRARY_NAME_DEFAULT">
+          </label>
+        </div>
+        <div id="existingLibraryDiv" style="display:none;">
+          <label>
+            Destination Library ID:
+            <input type="text" id="destinationLibraryId" placeholder="2ee5141b-484c-41e2-9b53-d535dd95687f">
+          </label>
+        </div>
+        <label>
+          Content Block ID:
+          <input type="text" id="contentBlockId" placeholder="Enter new content block ID" placeholder="01HZFQ85E2EH97XNW5MVAQ36MN">
+        </label>
+        <button type="submit">Start Process</button>
+      </form>
+
+      <!-- Container for dynamic style override form -->
+      <div id="styleOverrideContainer"></div>
+
+      <div id="progressBar" style="display: none;">
+        <h2>Progress</h2>
+        <div id="articleProgressContainer" style="width: 100%; background: #eee; border-radius: 8px; height: 20px; margin-bottom: 6px;">
+          <div id="articleProgressBar" style="height: 100%; width: 0%; background: #2196f3; border-radius: 8px; transition: width 0.3s ease;"></div>
+        </div>
+        <div id="articleProgressLabel" ...>Waiting to copy articles...</div>
+      </div>
+      <h2>Log</h2>
+      <div id="log"></div>
+
+    
+      <h2>Gem Color Update Report</h2>
+      <div id="gemReport"></div>
+      <button id="downloadReportBtn">Download Report CSV</button>
+    </div>
+    
+  </div>
+
+  <script src="functions.js">
+  
+  </script>
+</body>
+</html>

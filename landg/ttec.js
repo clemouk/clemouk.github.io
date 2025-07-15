@@ -56,7 +56,7 @@ function launchGenesys() {
     Genesys('command', 'Database.set', {
       messaging: {
           customAttributes: {
-              //productTemplate: $('input[name="productTemplate"]').val(),
+              productTemplate: $('input[name="productTemplate"]').val(),
               schemeNumber:  $('input[name="schemeId"]').val(),
               //productType: $("#productType option:selected").text(),
               policyNumber: $('input[name="policyId"]').val(),
