@@ -5,9 +5,10 @@ Genesys('subscribe', 'Messenger.ready', function () {
     Genesys('command', 'Database.set', {
         messaging: {
             customAttributes: {
-                souce_country: "UK"
-            },
-        },
+                souce_country: "UK",
+                souce_webpage: "BOOK_OFFICE_SPACE"
+            }
+        }
     })
     console.log("Messenger Ready Event Received")
     
