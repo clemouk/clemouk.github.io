@@ -63,6 +63,10 @@
 
 <!-- TTEC Digital Custom Javascript code -->
 <script type="text/javascript">
+
+	const url = window.location.url;
+	const params = new URLSearchParams(new URL(url).search);
+
 	// subscribe to ready event
 	Genesys('subscribe', 'Messenger.ready', function () {
 		
@@ -70,14 +74,19 @@
 		Genesys('command', 'Database.set', {
 			messaging: {
 				customAttributes: {
-					souce_country: "UK",
-					souce_webpage: "BOOK_OFFICE_SPACE"
+					souce_country: params.get('country'),
+					source_language: params.get('lang'),
+					souce_webpage: params.get('intent')
 				}
 			}
 		})
-		console.log("Messenger Ready Event Received")
+		console.log("Messenger Ready Event Received");
 		
 	});	
+
+	console.log("country:" + params.get('country'));
+	console.log("lang:" + params.get('lang'));
+	console.log("intent:" + params.get('intent'));
 </script>
 
 </html>
