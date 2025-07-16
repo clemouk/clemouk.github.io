@@ -74,9 +74,10 @@
 		Genesys('command', 'Database.set', {
 			messaging: {
 				customAttributes: {
-					souce_country: params.get('country'),
+					source_country: params.get('country'),
 					source_language: params.get('lang'),
-					souce_webpage: params.get('intent')
+					source_webpage: params.get('intent'),
+					telephone_number: "+34 917 93 67 40"
 				}
 			}
 		})
