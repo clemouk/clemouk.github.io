@@ -63,7 +63,7 @@ function launchGenesys() {
               //productType: $("#productType option:selected").text(),
               policyNumber: $('input[name="policyId"]').val(),
               //valuationClass: $('input[name="valueClass"]').val(),
-              originUrl: 'https://life.landg.com/CNBSWeb/myLifeApplyDialogue/',
+              originUrl: 'life.landg.com+CNBSWeb+myLifeApplyDialogue+',
               //deepLinkType: $("#deepLinkType option:selected").text(),
               //deepLinkId: $('input[name="deepLinkId"]').val(),
               //target:  $('input[name="target"]').val(),
@@ -71,9 +71,9 @@ function launchGenesys() {
               browserType: $.browser.platform,
               browserVersion: $.browser.version,      
               deviceType: deviceType      
-          },
-      },
-  })
+          }
+      }
+    })
 
     $('#wizardContainer').fadeOut();
     // for the  demo, just open the messenger
