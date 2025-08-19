@@ -52,6 +52,8 @@ function launchGenesys() {
       //_originUrl += $('input[name="schemeId"]').val();
     } 
 
+    // override originUrl value
+    _originUrl = "https://life.landg.com/CNBSWeb/myLifeApplyDialogue|BBBX";
 
     Genesys('command', 'Database.set', {
       messaging: {
