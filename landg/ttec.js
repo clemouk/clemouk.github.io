@@ -63,7 +63,7 @@ function launchGenesys() {
               //productType: $("#productType option:selected").text(),
               policyNumber: $('input[name="policyId"]').val(),
               //valuationClass: $('input[name="valueClass"]').val(),
-              originUrl: _originUrl,
+              originUrl: 'https://life.landg.com/CNBSWeb/myLifeApplyDialogue/',
               //deepLinkType: $("#deepLinkType option:selected").text(),
               //deepLinkId: $('input[name="deepLinkId"]').val(),
               //target:  $('input[name="target"]').val(),
