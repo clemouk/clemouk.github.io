@@ -23,28 +23,20 @@
 	<link href="https://fonts.googleapis.com/css?family=Muli:400,300" rel="stylesheet" type="text/css">
 	<link href="assets/css/themify-icons.css" rel="stylesheet">
 
-	
-</head>
-
-<body>
-
-    <script type="text/javascript" charset="utf-8">
-		(function (g, e, n, es, ys) {
-		  g['_genesysJs'] = e;
-		  g[e] = g[e] || function () {
-			(g[e].q = g[e].q || []).push(arguments)
-		  };
-		  g[e].t = 1 * new Date();
-		  g[e].c = es;
-		  ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
-		})(window, 'Genesys', 'https://apps.euw2.pure.cloud/genesys-bootstrap/genesys.min.js', {
-		  environment: 'prod-euw2',
-		  // UAT Page - DO NOT CHANGE 
-		  //deploymentId: 'd8f7d167-dfed-4bd0-b511-dd40653efff4',
-		  deploymentId: '6ae064a8-cea6-4e2e-b6fc-7e02c89c60ef'
-		});
-
-	</script>	
+	<script type="text/javascript" charset="utf-8">
+	(function (g, e, n, es, ys) {
+		g['_genesysJs'] = e;
+		g[e] = g[e] || function () {
+		(g[e].q = g[e].q || []).push(arguments)
+		};
+		g[e].t = 1 * new Date();
+		g[e].c = es;
+		ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
+	})(window, 'Genesys', 'https://apps.usw2.pure.cloud/genesys-bootstrap/genesys.min.js', {
+		environment: 'prod-usw2',
+		deploymentId: '21ac74ce-17ad-48cc-9413-c5b08ba856e7'
+	});
+	</script>
 
 	<!-- TTEC Digital Custom Javascript code -->
 	<script type="text/javascript">
@@ -68,12 +60,11 @@
 			
 		});	
 
-		// DEBUG: Output params to the console window for debugging
-		console.log("country:" + source_country);
-		console.log("lang:" + source_language);
-
 	</script>
-		
+</head>
+
+
+<body>
 	<div class="image-container set-full-height" style="background-image: url('assets/img/ttec-digital-2.png')">
 	    <a href="https://www.legalandgeneral.com/">
 	         <div class="logo-container">
