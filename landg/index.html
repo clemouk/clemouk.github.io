@@ -47,34 +47,34 @@
 	</script>	
 
 	<!-- TTEC Digital Custom Javascript code -->
-<script type="text/javascript">
-	
-	const params = new URLSearchParams(window.location.search);
-
-	// subscribe to ready event
-	Genesys('subscribe', 'Messenger.ready', function () {
+	<script type="text/javascript">
 		
-		// set the country as a parameter for the web messenger widget
-		Genesys('command', 'Database.set', {
-			messaging: {
-				customAttributes: {
-					source_country: params.get('country'),
-					source_language: params.get('lang'),
-					source_webpage: params.get('intent')
+		const params = new URLSearchParams(window.location.search);
+
+		// subscribe to ready event
+		Genesys('subscribe', 'Messenger.ready', function () {
+			
+			// set the country as a parameter for the web messenger widget
+			Genesys('command', 'Database.set', {
+				messaging: {
+					customAttributes: {
+						source_country: 'UK',
+						source_language: 'en-gb',
+
+					}
 				}
-			}
-		})
-		console.log("Messenger Ready Event Received");
-		
-	});	
+			})
+			console.log("Messenger Ready Event Received");
+			
+		});	
 
-	console.log("country:" + params.get('country'));
-	console.log("lang:" + params.get('lang'));
-	console.log("intent:" + params.get('intent'));
-</script>
+		// DEBUG: Output params to the console window for debugging
+		console.log("country:" + source_country);
+		console.log("lang:" + source_language);
+
+	</script>
 		
 	<div class="image-container set-full-height" style="background-image: url('assets/img/ttec-digital-2.png')">
-
 	    <a href="https://www.legalandgeneral.com/">
 	         <div class="logo-container">
 	            <div class="logo">
@@ -97,7 +97,7 @@
 
 	    <div class="footer">
 	        <div class="container text-center">
-	            Created for Legal and General by <a href="https://www.ttecdigital.com">TTEC Digital</a>. Version: v1.00.29 [Debugging D2C]
+	            Created for Legal and General by <a href="https://www.ttecdigital.com">TTEC Digital</a>. Version: v2.00.01
 	        </div>
 	    </div>
 		
@@ -105,8 +105,8 @@
 
 </body>
 
-	<!--   Core JS Files   -->
+	<!--   Core JS Files   
 	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="assets/js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
-
+-->
 </html>
