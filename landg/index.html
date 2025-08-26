@@ -45,6 +45,33 @@
 		});
 
 	</script>	
+
+	<!-- TTEC Digital Custom Javascript code -->
+<script type="text/javascript">
+	
+	const params = new URLSearchParams(window.location.search);
+
+	// subscribe to ready event
+	Genesys('subscribe', 'Messenger.ready', function () {
+		
+		// set the country as a parameter for the web messenger widget
+		Genesys('command', 'Database.set', {
+			messaging: {
+				customAttributes: {
+					source_country: params.get('country'),
+					source_language: params.get('lang'),
+					source_webpage: params.get('intent')
+				}
+			}
+		})
+		console.log("Messenger Ready Event Received");
+		
+	});	
+
+	console.log("country:" + params.get('country'));
+	console.log("lang:" + params.get('lang'));
+	console.log("intent:" + params.get('intent'));
+</script>
 		
 	<div class="image-container set-full-height" style="background-image: url('assets/img/ttec-digital-2.png')">
 
@@ -64,143 +91,6 @@
 	        <div class="row">
 		        <div class="col-sm-10 col-sm-offset-2">
 
-		            <!--      Wizard container        -->
-		            <div class="wizard-container">
-
-		                <div id="wizardContainer" class="card wizard-card" data-color="blue" id="wizardProfile" style="display: none;">
-		                    <form action="" method="">
-		                <!--        You can switch " data-color="orange" "  with one of the next bright colors: "blue", "green", "orange", "red", "azure"          -->
-
-		                    	<div class="wizard-header text-center">
-		                        	<h3 class="wizard-title">Genesys Cloud Web Messenger</h3>
-									<p class="category">Set your Global Custom Attributes below</p>
-		                    	</div>
-
-								<div class="wizard-navigation">
-									<div class="progress-with-circle">
-									     <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="3" style="width: 21%;"></div>
-									</div>
-									<ul>
-			                            <li>
-											<a href="#launchSettings" data-toggle="tab">
-												<div class="icon-circle">
-													<i class="ti-settings"></i>
-												</div>
-											</a>
-										</li>
-			                        </ul>
-								</div>
-		                        <div class="tab-content">
-		                            <div class="tab-pane" id="launchSettings">
-		                                <div class="row">
-                                            <div class="col-sm-10 col-sm-offset-1">
-		                                    	<div class="form-group">
-                                                    <label for="launchKeyURL">Select originURL</label>
-                                                    <select class="form-control" id="launchKeyURL" ">
-														<option selected>https://life.landg.com/CNBSWeb/myLifeApplyDialogue/</option>		
-														<!-- <option>ame.sandbox.ops-portal.awsplatform.landg.com</option>																										
-                                                        <option>www.legalandgeneral.com/adviser/mortgage-club/</option>
-                                                        <option>myaccount.landg.com</option>	
-														<option>mya.landg.com</option>
-                                                        <option>invest.landg.com</option>
-														<option>https://www.legalandgeneral.com/adviser/protection/</option>
-                                                        <option>https://life.landg.com/ProtectionPortal/</option>			
-														<option>https://life.landg.com/CNBSWeb</option>		
-														<option>https://life.landg.com/MLWeb/</option>
-                                                        <option>https://partnerquote.legalandgeneral.com/goodlord</option>
-                                                        <option>https://partnerquote.legalandgeneral.com/sainsburys</option>
-                                                        <option>https://barclaysquote.legalandgeneral.com/ </option>
-                                                        <option>https://nationwidequote.legalandgeneral.com/</option>
-                                                        <option>https://partnerlife.legalandgeneral.com/ </option>
-                                                        <option>https://co-oplifequote.legalandgeneral.com/</option>
-														<option>https://co-oplifequote.legalandgeneral.com/</option>	
-                                                        <option>https://auth.landg.com/signin</option>
-                                                        <option>https://myaccount.register.landg.com/</option>
-                                                        <option>https://register.landg.com/confirm-details</option>
-														<option>https://www.legalandgeneral.com/workplace/</option>			
-                                                        <option>https://www.legalandgeneral.com/retirement/lifetime-mortgages/</option>
-                                                        <option>https://www.legalandgeneral.com/retirement/pensions/personal-pension/</option>
-														<option>staging.legalandgeneral.com/retirement/lifetime-mortgages/</option>
-                                                        <option>staging.legalandgeneral.com/retirement/pensions/personal-pension/</option>
-														<option>staging.legalandgeneral.com/adviser/protection/</option>	
-														<option>staging.legalandgeneral.com/adviser/mortgage-club/</option>
-														<option>https://life.landg.com/MLWeb/</option>
-														<option>test.myaccount.platform.landg.com/</option>																						 -->
-                                                    </select>
-                                                </div>
-		                                    </div>                                           
-		                                    <!-- <div class="col-sm-5 col-sm-offset-1">
-		                                    	<div class="form-group">
-		                                            <label>Deep Link Id</label>
-		                                            <input name="deepLinkId" type="text" class="form-control" placeholder="Deep Link Id, e.g. lgr-whatbank" value="">
-		                                        </div>
-		                                    </div>
-		                                    <div class="col-sm-5">
-		                                        <div class="form-group">
-		                                            <label>Target <small>(My Account and AME only)</small></label>
-													<input name="target" type="text" class="form-control" placeholder="Customer is on Annuities or RP products page" value="">
-												</div>
-		                                    </div> -->
-		                                    <div class="col-sm-5 col-sm-offset-1">
-		                                        <div class="form-group">
-		                                            <label>Product Template</label>
-													<input name="productTemplate" type="text" class="form-control" placeholder="Pipe '|' delimited products, e.g corporatePension|annuity" value="" disabled>
-		                                        </div>
-		                                    </div>
-		                                    <div class="col-sm-5">
-		                                        <div class="form-group" >
-													<label>Scheme <small>(leave blank for default)</small> or Microsite Name</label>
-													<input name="schemeId" type="text" class="form-control" placeholder="Pipe '|' delimited schemes, e.g gf29075001|gf10606001" value="" disabled>
-												</div>												
-		                                    </div>
-											<div class="col-sm-5 col-sm-offset-1">
-												<label>Policy Numbers</label><br>
-												<div class="form-group">
-													<!-- input name="gemId" type="text" class="form-control " placeholder="Inserting a GemId will override the launch" value="381a7767-dda9-4466-b662-e8d10c93b3ba" -->
-													<input name="policyId" type="text" class="form-control" placeholder="Pipe '|' delimited list of policies" value="" disabled>
-												</div>	
-		                                    </div>
-		                                    <!-- <div class="col-sm-5">
-		                                        <div class="form-group">
-		                                            <label>Valuation Class</label><br>
-		                                            <input name="valueClass" type="text" class="form-control" placeholder="Pipe '|' delimited valuation classes" value="" >
-		                                        </div>
-		                                    </div>	
-										-->
-											<div class="col-sm-5 col-sm-offset-1">
-		                                        <div class="form-group">
-		                                            <label>Syndication Id</label>
-		                                            <input name="syndicationId" type="text" class="form-control" placeholder="Syndication value, e.g BBDE" value="BBBX">
-		                                        </div>
-		                                    </div>
-											<!--
-		                                    <div class="col-sm-5">
-		                                        <div class="form-group">
-		                                            <label>OSS Product Type <small>(used with Syndication Id)</small></label><br>
-													<select class="form-control" id="productType">
-														<option></option>
-                                                        <option>ISA</option>
-														<option>PERSONAL_PENSION</option>
-													</select>
-		                                        </div>
-		                                    </div>															 -->
-		                                </div>
-		                            </div>
-		                        </div>
-		                        <div class="wizard-footer">
-		                            <div class="pull-right">
-		                                <input type='button' class='btn btn-next btn-fill btn-info btn-wd' name='next' value='Next' />
-		                                <input onclick="launchGenesys();" type='button' class='btn btn-finish btn-fill btn-info btn-wd' name='finish' value='Launch Messenger' />
-		                            </div>
-
-		                            <div class="pull-left">
-		                                <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
-		                            </div>
-		                            <div class="clearfix"></div>
-		                        </div>
-		                    </form>
-		                </div>
-		            </div> <!-- wizard container -->
 		        </div>
 	    	</div><!-- end row -->
 		</div> <!--  big container -->
@@ -216,18 +106,7 @@
 </body>
 
 	<!--   Core JS Files   -->
-	<script src="assets/js/jquery-2.2.4.min.js" type="text/javascript"></script>
 	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="assets/js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
-
-	<!--  Plugin for the Wizard -->
-	<script src="assets/js/paper-bootstrap-wizard.js" type="text/javascript"></script>
-
-	<!--  More information about jquery.validate here: https://jqueryvalidation.org/	 -->
-	<script src="assets/js/jquery.validate.min.js" type="text/javascript"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-browser/0.1.0/jquery.browser.min.js"></script>
-
-	<script src="ttec.js?v=7" type="text/javascript" defer></script>
-	
 
 </html>
