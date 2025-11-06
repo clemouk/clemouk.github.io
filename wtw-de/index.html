@@ -58,14 +58,17 @@
 			console.log("There was an error running the Toaster.open command:", error);
 			}
 		);
+		
 	});
 
 	Genesys(
-		"command",
-		"Toaster.accept",
-		{},
-		function () {
-			/*fulfilled callback*/
+		"subscribe",
+		"Toaster.accepted",
+		function (e) {
+			
+			 console.log("Toaster was accepted", e);
+			
+			 
 			Genesys("command", "Messenger.open",
 				{},
 					function() {
@@ -74,11 +77,7 @@
 					function() {
 						/*rejected callback*/
 					}
-				);
-			},
-		function (error) {
-			/*rejected callback*/
-			console.log("There was an error running the Toaster.accept command:", error);
+			);
 		}
 	);
 	</script>
