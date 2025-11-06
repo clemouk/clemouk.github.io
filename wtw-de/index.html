@@ -35,6 +35,52 @@
 		environment: 'prod-usw2',
 		deploymentId: '7e563b76-2aa8-4f50-9402-4449fa13d9e6'
 	});
+
+	Genesys("subscribe", "Toaster.ready", () => {
+		Genesys(
+			"command",
+			"Toaster.open",
+			{
+			title: "Willkommen bei Genesys Cloud",
+			body: "Haben Sie Probleme? Unser Support-Team steht Ihnen gerne zur Verfügung, um Fehler zu beheben und Ihnen zu helfen.",
+			buttons: {
+				type: "binary", // required when 'buttons' is present. Values: "unary" for one action button, "binary" for two action buttons
+				primary: "Support anfordern", // optional, default value is "Accept"
+				secondary: "Vielleicht später", // optional, default value is "Decline"
+			},
+			},
+			function () {
+			/*fulfilled callback*/
+			console.log("Toaster is opened");
+			},
+			function (error) {
+			/*rejected callback*/
+			console.log("There was an error running the Toaster.open command:", error);
+			}
+		);
+	});
+
+	Genesys(
+		"command",
+		"Toaster.accept",
+		{},
+		function () {
+			/*fulfilled callback*/
+			Genesys("command", "Messenger.open",
+				{},
+					function() {
+						/*fulfilled callback*/
+					},
+					function() {
+						/*rejected callback*/
+					}
+				);
+			},
+		function (error) {
+			/*rejected callback*/
+			console.log("There was an error running the Toaster.accept command:", error);
+		}
+	);
 	</script>
 </head>
 
@@ -43,7 +89,10 @@
 	<div class="image-container set-full-height" style="background-image: url('assets/img/ttec-digital-2.png')">
 	
 	Version: 1.01.00
-	
+	<div class="container">
+
+	</div>
+
 	</div>
 
 </body>
