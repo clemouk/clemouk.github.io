@@ -1,0 +1,518 @@
+{
+  "conversationEnd": "2025-11-13T07:39:19.963Z",
+  "conversationId": "cd62e3df-65a8-4e22-a12f-4479704262ac",
+  "conversationStart": "2025-11-13T07:37:21.297Z",
+  "divisionIds": [
+    "a1c97ec4-870f-4732-b4f3-05658a6eba6d"
+  ],
+  "mediaStatsMinConversationMos": 4.394229367492331,
+  "mediaStatsMinConversationRFactor": 92.44656372070312,
+  "originatingDirection": "inbound",
+  "surveys": [
+    {
+      "eventTime": "2025-11-13T07:39:29.732Z",
+      "surveyCompletedDate": "2025-11-13T07:39:17.512Z",
+      "surveyFormContextId": "9a814aa0-901b-435e-9a00-c81042ee6d6a",
+      "surveyFormId": "8a50edc8-2089-4c78-8c7b-8e76734d79e4",
+      "surveyFormName": "VWG VoiceBot Survey",
+      "surveyId": "a17bde6a-46eb-4b85-bad1-f47cd6fab748",
+      "surveyStatus": "Finished",
+      "surveyType": "Voice",
+      "oSurveyTotalScore": 82
+    }
+  ],
+  "participants": [
+    {
+      "externalContactId": "92acdd1c-a994-40f7-be83-2ef72c46c40e",
+      "participantId": "a03608cb-ba01-493e-9820-e10c01b9b2be",
+      "participantName": "Mobile Number, United Kingdom",
+      "purpose": "external",
+      "sessions": [
+        {
+          "ani": "tel:+447704116569",
+          "direction": "inbound",
+          "dnis": "tel:+441135263590",
+          "edgeId": "e367d0a2-00ad-499e-a783-eac56246401d",
+          "mediaType": "voice",
+          "protocolCallId": "440981708_40812263@217.110.236.203",
+          "provider": "Edge",
+          "recording": true,
+          "remoteNameDisplayable": "Mobile Number, United Kingdom",
+          "sessionDnis": "tel:+441135263590",
+          "sessionId": "ac5c972a-c14c-3bcf-8009-24f92b06c894",
+          "mediaEndpointStats": [
+            {
+              "codecs": [
+                "audio/opus"
+              ],
+              "eventTime": "2025-11-13T07:38:28.776Z",
+              "maxLatencyMs": 30,
+              "minMos": 4.898674707239686,
+              "minRFactor": 93.17530059814453,
+              "receivedPackets": 3371
+            },
+            {
+              "codecs": [
+                "audio/opus"
+              ],
+              "eventTime": "2025-11-13T07:39:19.991Z",
+              "maxLatencyMs": 30,
+              "minMos": 4.898708576716535,
+              "minRFactor": 93.17687225341797,
+              "receivedPackets": 2557
+            },
+            {
+              "codecs": [
+                "audio/PCMA"
+              ],
+              "eventTime": "2025-11-13T07:39:19.991Z",
+              "maxLatencyMs": 30,
+              "minMos": 4.394229367492331,
+              "minRFactor": 92.44656372070312,
+              "receivedPackets": 5929
+            }
+          ],
+          "metrics": [
+            {
+              "emitDate": "2025-11-13T07:37:21.342Z",
+              "name": "nConnected",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:39:19.963Z",
+              "name": "nBotInteractions",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:39:19.963Z",
+              "name": "tConnected",
+              "value": 118621
+            }
+          ],
+          "segments": [
+            {
+              "conference": false,
+              "segmentEnd": "2025-11-13T07:37:21.342Z",
+              "segmentStart": "2025-11-13T07:37:21.286Z",
+              "segmentType": "system"
+            },
+            {
+              "conference": false,
+              "disconnectType": "peer",
+              "segmentEnd": "2025-11-13T07:39:19.963Z",
+              "segmentStart": "2025-11-13T07:37:21.342Z",
+              "segmentType": "interact",
+              "sipResponseCodes": [
+                487
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "participantId": "6589bc35-498b-4dfa-b4e7-78638732a9ed",
+      "participantName": "VWG_INB_VoiceBot_PROD",
+      "purpose": "ivr",
+      "sessions": [
+        {
+          "ani": "tel:+447704116569",
+          "direction": "inbound",
+          "dnis": "tel:+441135263590",
+          "edgeId": "2abb5c36-8ebd-4ae5-b59b-ad7840463d77",
+          "mediaType": "voice",
+          "peerId": "ac5c972a-c14c-3bcf-8009-24f92b06c894",
+          "protocolCallId": "e8cc9cd2-676b-435a-88e4-e1bf108b9d14",
+          "provider": "Edge",
+          "remote": "Mobile Number, United Kingdom",
+          "remoteNameDisplayable": "Leeds, United Kingdom",
+          "sessionDnis": "tel:+441135263590",
+          "sessionId": "cd7cb7e7-21e7-36ad-9d58-5ea7cf324929",
+          "mediaEndpointStats": [
+            {
+              "codecs": [
+                "audio/opus"
+              ],
+              "eventTime": "2025-11-13T07:38:28.845Z",
+              "maxLatencyMs": 30,
+              "minMos": 4.898650825652643,
+              "minRFactor": 93.1741943359375,
+              "receivedPackets": 3371
+            }
+          ],
+          "flow": {
+            "endingLanguage": "en-gb",
+            "entryReason": "tel:+441135263590",
+            "entryType": "dnis",
+            "exitReason": "FLOW_DISCONNECT",
+            "flowId": "b8900c86-1f06-4ba2-b6e6-41391b41f9c2",
+            "flowName": "VWG_INB_VoiceBot_PROD",
+            "flowType": "INBOUNDCALL",
+            "flowVersion": "100.0",
+            "startingLanguage": "en-gb",
+            "outcomes": [
+              {
+                "flowOutcome": "33052ea6-7b1e-42a8-879b-2d5f1cfdec9a:SUCCESS",
+                "flowOutcomeEndTimestamp": "2025-11-13T07:38:23.213Z",
+                "flowOutcomeId": "33052ea6-7b1e-42a8-879b-2d5f1cfdec9a",
+                "flowOutcomeStartTimestamp": "2025-11-13T07:37:21.728Z",
+                "flowOutcomeValue": "SUCCESS"
+              }
+            ]
+          },
+          "metrics": [
+            {
+              "emitDate": "2025-11-13T07:37:21.512Z",
+              "name": "nFlow",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:37:21.778Z",
+              "name": "nFlowMilestone",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:37:21.778Z",
+              "name": "oFlowMilestone",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:38:23.213Z",
+              "name": "nFlowMilestone",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:38:23.213Z",
+              "name": "nFlowOutcome",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:38:23.213Z",
+              "name": "oFlowMilestone",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:38:23.213Z",
+              "name": "tFlowOutcome",
+              "value": 61485
+            },
+            {
+              "emitDate": "2025-11-13T07:38:28.739Z",
+              "name": "tIvr",
+              "value": 67425
+            },
+            {
+              "emitDate": "2025-11-13T07:38:28.743Z",
+              "name": "tFlow",
+              "value": 67231
+            },
+            {
+              "emitDate": "2025-11-13T07:38:28.743Z",
+              "name": "tFlowDisconnect",
+              "value": 67231
+            }
+          ],
+          "segments": [
+            {
+              "conference": false,
+              "segmentEnd": "2025-11-13T07:37:21.314Z",
+              "segmentStart": "2025-11-13T07:37:21.297Z",
+              "segmentType": "system"
+            },
+            {
+              "conference": false,
+              "disconnectType": "system",
+              "segmentEnd": "2025-11-13T07:38:28.739Z",
+              "segmentStart": "2025-11-13T07:37:21.314Z",
+              "segmentType": "ivr"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "participantId": "9532efe1-ea84-40ff-84ff-29197cd24c41",
+      "purpose": "botflow",
+      "sessions": [
+        {
+          "direction": "inbound",
+          "mediaType": "voice",
+          "peerId": "ac5c972a-c14c-3bcf-8009-24f92b06c894",
+          "provider": "PureCloud BotFlow",
+          "remote": "Mobile Number, United Kingdom",
+          "sessionId": "9a991572-38c3-41c6-a509-0e9f8814e0dc",
+          "flow": {
+            "endingLanguage": "en-gb",
+            "entryReason": "b8900c86-1f06-4ba2-b6e6-41391b41f9c2",
+            "entryType": "flow",
+            "exitReason": "FLOW_EXIT",
+            "flowId": "362785be-16fc-4fbb-bc6a-1b09705df77f",
+            "flowName": "Audi_VOICEBOT_Knowledge_Search_PROD",
+            "flowType": "BOT",
+            "flowVersion": "217.0",
+            "startingLanguage": "en-gb",
+            "outcomes": [
+              {
+                "flowOutcome": "33052ea6-7b1e-42a8-879b-2d5f1cfdec9a:SUCCESS",
+                "flowOutcomeEndTimestamp": "2025-11-13T07:38:17.401Z",
+                "flowOutcomeId": "33052ea6-7b1e-42a8-879b-2d5f1cfdec9a",
+                "flowOutcomeStartTimestamp": "2025-11-13T07:37:22.157Z",
+                "flowOutcomeValue": "SUCCESS"
+              }
+            ]
+          },
+          "metrics": [
+            {
+              "emitDate": "2025-11-13T07:37:22.073Z",
+              "name": "nFlow",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:37:22.410Z",
+              "name": "nFlowMilestone",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:37:22.410Z",
+              "name": "oFlowMilestone",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:37:43.255Z",
+              "name": "nFlowMilestone",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:37:43.255Z",
+              "name": "oFlowMilestone",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:38:17.401Z",
+              "name": "nFlowOutcome",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:38:17.401Z",
+              "name": "tFlowOutcome",
+              "value": 55244
+            },
+            {
+              "emitDate": "2025-11-13T07:38:23.187Z",
+              "name": "tFlow",
+              "value": 61114
+            },
+            {
+              "emitDate": "2025-11-13T07:38:23.187Z",
+              "name": "tFlowDisconnect",
+              "value": 61114
+            }
+          ],
+          "segments": [
+            {
+              "conference": false,
+              "segmentEnd": "2025-11-13T07:38:23.187Z",
+              "segmentStart": "2025-11-13T07:37:22.073Z",
+              "segmentType": "interact"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "participantId": "251016e6-e40b-4eca-879d-eacf250de4b2",
+      "participantName": "d8072279-3fd6-4cd8-92b5-30444055fabf",
+      "purpose": "ivr",
+      "sessions": [
+        {
+          "ani": "tel:+447704116569",
+          "direction": "inbound",
+          "dnis": "tel:+441135263590",
+          "edgeId": "c085c245-bd8d-41fb-bdd5-4841ce174420",
+          "mediaType": "voice",
+          "peerId": "ac5c972a-c14c-3bcf-8009-24f92b06c894",
+          "protocolCallId": "547446c4-8cec-4b2b-aa28-901403a76f17",
+          "provider": "Edge",
+          "remote": "Mobile Number, United Kingdom",
+          "remoteNameDisplayable": "d8072279-3fd6-4cd8-92b5-30444055fabf",
+          "sessionDnis": "tel:+441135263590",
+          "sessionId": "00848606-b08f-3650-8705-8270623da4c3",
+          "mediaEndpointStats": [
+            {
+              "codecs": [
+                "audio/opus"
+              ],
+              "eventTime": "2025-11-13T07:39:20.023Z",
+              "maxLatencyMs": 30,
+              "minMos": 4.89872346138395,
+              "minRFactor": 93.17756652832031,
+              "receivedPackets": 2558
+            }
+          ],
+          "metrics": [
+            {
+              "emitDate": "2025-11-13T07:39:19.961Z",
+              "name": "tIvr",
+              "value": 51139
+            }
+          ],
+          "segments": [
+            {
+              "conference": false,
+              "segmentEnd": "2025-11-13T07:38:28.822Z",
+              "segmentStart": "2025-11-13T07:38:28.809Z",
+              "segmentType": "system"
+            },
+            {
+              "conference": false,
+              "disconnectType": "system",
+              "segmentEnd": "2025-11-13T07:39:19.961Z",
+              "segmentStart": "2025-11-13T07:38:28.822Z",
+              "segmentType": "ivr"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "participantId": "55b45ef3-33a9-4026-85e4-880ce5b5cb00",
+      "participantName": "VoiceBot Customer Survey",
+      "purpose": "voicesurveyflow",
+      "sessions": [
+        {
+          "direction": "inbound",
+          "mediaType": "voice",
+          "peerId": "ac5c972a-c14c-3bcf-8009-24f92b06c894",
+          "provider": "PureCloud BotFlow",
+          "remote": "Mobile Number, United Kingdom",
+          "sessionId": "93c8d3db-ee35-41c7-809f-ff9e6de54cc8",
+          "flow": {
+            "endingLanguage": "en-gb",
+            "entryReason": "d8072279-3fd6-4cd8-92b5-30444055fabf",
+            "entryType": "flow",
+            "exitReason": "FLOW_DISCONNECT",
+            "flowId": "d8072279-3fd6-4cd8-92b5-30444055fabf",
+            "flowName": "VoiceBot Customer Survey",
+            "flowType": "VOICESURVEY",
+            "flowVersion": "7.0",
+            "startingLanguage": "en-gb",
+            "outcomes": [
+              {
+                "flowOutcome": "517b451f-46b2-4803-a686-41efb12345b6:SUCCESS",
+                "flowOutcomeEndTimestamp": "2025-11-13T07:39:17.071Z",
+                "flowOutcomeId": "517b451f-46b2-4803-a686-41efb12345b6",
+                "flowOutcomeStartTimestamp": "2025-11-13T07:38:28.876Z",
+                "flowOutcomeValue": "SUCCESS"
+              }
+            ]
+          },
+          "metrics": [
+            {
+              "emitDate": "2025-11-13T07:38:28.859Z",
+              "name": "nFlow",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:38:41.284Z",
+              "name": "nFlowMilestone",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:38:41.284Z",
+              "name": "oFlowMilestone",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:38:46.550Z",
+              "name": "nFlowMilestone",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:38:46.550Z",
+              "name": "oFlowMilestone",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:38:50.957Z",
+              "name": "nFlowMilestone",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:38:50.957Z",
+              "name": "oFlowMilestone",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:38:56.175Z",
+              "name": "nFlowMilestone",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:38:56.175Z",
+              "name": "oFlowMilestone",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:39:01.566Z",
+              "name": "nFlowMilestone",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:39:01.566Z",
+              "name": "oFlowMilestone",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:39:07.220Z",
+              "name": "nFlowMilestone",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:39:07.220Z",
+              "name": "oFlowMilestone",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:39:16.657Z",
+              "name": "nFlowMilestone",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:39:16.657Z",
+              "name": "oFlowMilestone",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:39:17.071Z",
+              "name": "nFlowOutcome",
+              "value": 1
+            },
+            {
+              "emitDate": "2025-11-13T07:39:17.071Z",
+              "name": "tFlowOutcome",
+              "value": 48195
+            },
+            {
+              "emitDate": "2025-11-13T07:39:17.359Z",
+              "name": "tFlow",
+              "value": 48500
+            },
+            {
+              "emitDate": "2025-11-13T07:39:17.359Z",
+              "name": "tFlowDisconnect",
+              "value": 48500
+            }
+          ],
+          "segments": [
+            {
+              "conference": false,
+              "segmentEnd": "2025-11-13T07:39:17.359Z",
+              "segmentStart": "2025-11-13T07:38:28.859Z",
+              "segmentType": "interact"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

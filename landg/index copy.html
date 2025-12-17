@@ -24,19 +24,19 @@
 	<link href="assets/css/themify-icons.css" rel="stylesheet">
 
 	<script type="text/javascript" charset="utf-8">
-  (function (g, e, n, es, ys) {
-    g['_genesysJs'] = e;
-    g[e] = g[e] || function () {
-      (g[e].q = g[e].q || []).push(arguments)
-    };
-    g[e].t = 1 * new Date();
-    g[e].c = es;
-    ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
-  })(window, 'Genesys', 'https://apps.euw2.pure.cloud/genesys-bootstrap/genesys.min.js', {
-    environment: 'prod-euw2',
-    deploymentId: '5b89a2b4-89ae-4858-8b75-f7be763e423a'
-  });
-</script>
+	(function (g, e, n, es, ys) {
+		g['_genesysJs'] = e;
+		g[e] = g[e] || function () {
+		(g[e].q = g[e].q || []).push(arguments)
+		};
+		g[e].t = 1 * new Date();
+		g[e].c = es;
+		ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
+	})(window, 'Genesys', 'https://apps.usw2.pure.cloud/genesys-bootstrap/genesys.min.js', {
+		environment: 'prod-usw2',
+		deploymentId: '21ac74ce-17ad-48cc-9413-c5b08ba856e7'
+	});
+	</script>
 
 	<!-- TTEC Digital Custom Javascript code -->
 	<script type="text/javascript">
@@ -45,6 +45,17 @@
 
 		// subscribe to ready event
 		Genesys('subscribe', 'Messenger.ready', function () {
+			
+			// set the country as a parameter for the web messenger widget
+			Genesys('command', 'Database.set', {
+				messaging: {
+					customAttributes: {
+						source_country: 'UK',
+						source_language: 'en-gb',
+
+					}
+				}
+			})
 			console.log("Messenger Ready Event Received");
 			
 		});	
