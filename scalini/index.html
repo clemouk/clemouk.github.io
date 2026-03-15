@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       META & SEO
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <!-- Primary SEO -->
+  <title>Scalinis | Fine Italian Dining</title>
+  <meta name="description" content="Scalinis — an elegant Italian restaurant offering contemporary takes on timeless classics. Book your table and experience the true art of Italian hospitality." />
+  <meta name="keywords" content="Scalinis, Italian restaurant, fine dining, Italian food, pasta, risotto, authentic Italian cuisine" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://scalinis.com/" />
+
+  <!-- Open Graph (Social Sharing) -->
+  <meta property="og:type"        content="restaurant" />
+  <meta property="og:title"       content="Scalinis | Fine Italian Dining" />
+  <meta property="og:description" content="Where the soul of Italy meets the art of the table." />
+  <meta property="og:url"         content="https://scalinis.com/" />
+  <meta property="og:image"       content="images/dish6.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Scalinis | Fine Italian Dining" />
+  <meta name="twitter:description" content="Where the soul of Italy meets the art of the table." />
+  <meta name="twitter:image"       content="images/dish6.jpg" />
+
+  <!-- Schema.org Structured Data (SEO / Rich Results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Scalinis",
+    "description": "Fine Italian dining where the soul of Italy meets the art of the table.",
+    "servesCuisine": "Italian",
+    "priceRange": "€€€",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Via Bella",
+      "addressLocality": "Your City",
+      "postalCode": "00000",
+      "addressCountry": "ES"
+    },
+    "telephone": "+34 000 000 000",
+    "email": "hello@scalinis.com",
+    "url": "https://scalinis.com",
+    "openingHours": ["Tu-Su 12:00-15:00", "Tu-Su 19:00-23:00"]
+  }
+  </script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+
+<body>
+
+  <!-- ── Skip Navigation (Accessibility) ── -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ================================================================
+       NAVIGATION
+       ================================================================ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+
+      <!-- Logo -->
+      <a class="nav-logo" href="index.html" aria-label="Scalinis — Home">
+        <img src="images/logo.jpg" alt="Scalinis logo" width="48" height="48" />
+        <span class="nav-logo-text">Scalinis</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="nav-links" role="list">
+        <li><a href="#hero"      data-i18n="nav_home">Home</a></li>
+        <li><a href="#menu-teaser" data-i18n="nav_menu">Menu</a></li>
+        <li><a href="#about"    data-i18n="nav_about">About</a></li>
+        <li><a href="#gallery"  data-i18n="nav_gallery">Gallery</a></li>
+        <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+      </ul>
+
+      <!-- Right: Language + Reserve + Hamburger -->
+      <div class="nav-right">
+        <!-- Language Toggle -->
+        <div class="lang-toggle" role="group" aria-label="Language selection">
+          <button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+          <button class="lang-btn"        data-lang="es" aria-pressed="false">ES</button>
+        </div>
+
+        <!-- Reserve CTA (desktop) -->
+        <a href="#reserve" class="hero-cta" data-i18n="nav_reserve"
+           style="display:none"
+           aria-label="Make a reservation">Reserve</a>
+
+        <!-- Hamburger -->
+        <button id="nav-hamburger" class="nav-hamburger"
+                aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Full-Screen Menu -->
+  <div id="nav-mobile-menu" class="nav-mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <a href="#hero"       data-i18n="nav_home">Home</a>
+    <a href="#menu-teaser" data-i18n="nav_menu">Menu</a>
+    <a href="#about"      data-i18n="nav_about">About</a>
+    <a href="#gallery"    data-i18n="nav_gallery">Gallery</a>
+    <a href="contact.html" data-i18n="nav_contact">Contact</a>
+    <a href="#reserve"    data-i18n="nav_reserve">Reserve</a>
+  </div>
+
+  <!-- ================================================================
+       MAIN CONTENT
+       ================================================================ -->
+  <main id="main-content">
+
+    <!-- ── HERO ── -->
+    <section id="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg">
+        <!-- Hero uses the Tornados Rossini image — dark, dramatic, luxurious -->
+        <img src="images/dish6.jpg"
+             alt="Tornados Rossini — our signature dish"
+             loading="eager"
+             fetchpriority="high" />
+      </div>
+
+      <div class="hero-content">
+        <span class="hero-eyebrow" data-i18n="hero_eyebrow">Est. Milano · Fine Italian Dining</span>
+        <h1 class="hero-title" id="hero-heading" data-i18n="hero_title">Scalinis</h1>
+        <p class="hero-sub" data-i18n="hero_sub">Where the soul of Italy meets the art of the table</p>
+        <a href="#signature" class="hero-cta" data-i18n="hero_cta">Explore the Menu</a>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="hero-scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ── Gold Ornament Divider ── -->
+    <div class="gold-ornament" aria-hidden="true"><span class="ornament-gem"></span></div>
+
+    <!-- ── SIGNATURE DISHES ── -->
+    <section id="signature" class="section-pad" aria-labelledby="sig-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label" data-i18n="sig_label">Signature Selection</span>
+          <h2 class="section-title" id="sig-heading" data-i18n="sig_title">From Our Kitchen</h2>
+          <div class="divider" aria-hidden="true"></div>
+          <p class="section-body" data-i18n="sig_body">
+            A curated tasting of dishes that define our culinary identity — crafted with seasonal produce and time-honoured Italian technique.
+          </p>
+        </header>
+      </div>
+
+      <!-- 3-up dish grid — full bleed -->
+      <div class="dishes-grid" role="list">
+
+        <!-- Dish 1 -->
+        <article class="dish-card reveal" role="listitem">
+          <img src="images/dish6.jpg"
+               alt="Tornados Rossini — fillet of beef with foie gras and black truffle"
+               loading="lazy" />
+          <div class="dish-overlay">
+            <span class="dish-number">01</span>
+            <h3 class="dish-name" data-i18n="dish1_name">Tornados Rossini</h3>
+            <p class="dish-desc" data-i18n="dish1_desc">Fillet of beef, seared foie gras, black truffle jus &amp; roasted garlic.</p>
+          </div>
+        </article>
+
+        <!-- Dish 2 -->
+        <article class="dish-card reveal reveal-delay-1" role="listitem">
+          <img src="images/dish2.jpg"
+               alt="Rigatoni all'Amatriciana pasta dish"
+               loading="lazy" />
+          <div class="dish-overlay">
+            <span class="dish-number">02</span>
+            <h3 class="dish-name" data-i18n="dish2_name">Rigatoni all'Amatriciana</h3>
+            <p class="dish-desc" data-i18n="dish2_desc">Slow-cooked guanciale, San Marzano tomato, Pecorino Romano, fresh basil.</p>
+          </div>
+        </article>
+
+        <!-- Dish 3 -->
+        <article class="dish-card reveal reveal-delay-2" role="listitem">
+          <img src="images/dish5.jpg"
+               alt="Grilled sea bass with tiger prawns"
+               loading="lazy" />
+          <div class="dish-overlay">
+            <span class="dish-number">03</span>
+            <h3 class="dish-name" data-i18n="dish3_name">Grilled Sea Bass</h3>
+            <p class="dish-desc" data-i18n="dish3_desc">Crispy skin fillet, tiger prawns, herb oil, pickled red onion.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ── Gold Ornament Divider ── -->
+    <div class="gold-ornament" aria-hidden="true"><span class="ornament-gem"></span></div>
+
+    <!-- ── ABOUT / PHILOSOPHY ── -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-grid">
+
+          <!-- Text Column -->
+          <div class="about-text reveal">
+            <span class="section-label" data-i18n="about_label">Our Philosophy</span>
+            <h2 class="section-title" id="about-heading" data-i18n="about_title">La Dolce Vita</h2>
+            <div class="divider" style="margin-left:0" aria-hidden="true"></div>
+            <p class="about-body" data-i18n="about_p1">
+              At Scalinis, we believe that dining is not merely sustenance — it is ceremony. Every dish is a love letter to the Italian regions that inspire us, prepared with ingredients sourced from farmers and producers who share our passion.
+            </p>
+            <p class="about-body" data-i18n="about_p2">
+              We invite you to slow down, share a glass of something beautiful, and let our kitchen tell its story. This is Italian hospitality as it was always meant to be.
+            </p>
+          </div>
+
+          <!-- Image Column -->
+          <div class="about-image-wrap reveal reveal-delay-1">
+            <div>
+              <img src="images/dish3.jpg"
+                   alt="A beautifully plated main course — slow-braised short rib"
+                   loading="lazy" />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Gold Ornament Divider ── -->
+    <div class="gold-ornament" aria-hidden="true"><span class="ornament-gem"></span></div>
+
+    <!-- ── GALLERY CAROUSEL ── -->
+    <section id="gallery" class="section-pad" aria-labelledby="gallery-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label" data-i18n="gal_label">Gallery</span>
+          <h2 class="section-title" id="gallery-heading" data-i18n="gal_title">Moments at the Table</h2>
+          <div class="divider" aria-hidden="true"></div>
+          <p class="section-body" data-i18n="gal_body">
+            A visual journey through our kitchen's craft — each plate a canvas, each ingredient a brushstroke.
+          </p>
+        </header>
+      </div>
+
+      <!-- Carousel -->
+      <div class="container">
+        <div class="carousel-wrap" role="region" aria-label="Dish gallery" aria-roledescription="carousel">
+          <div class="carousel-track" id="carousel-track">
+            <div class="carousel-slide" role="group" aria-label="Slide 1 of 6" aria-roledescription="slide"
+                 data-src="images/dish1.jpg" data-caption="Chateaubriand — onion rings, roasted cherry tomatoes, Dijon">
+              <img src="images/dish1.jpg" alt="Chateaubriand with onion rings and roasted cherry tomatoes" loading="lazy" />
+            </div>
+            <div class="carousel-slide" role="group" aria-label="Slide 2 of 6" aria-roledescription="slide"
+                 data-src="images/dish2.jpg" data-caption="Rigatoni all'Amatriciana — guanciale, San Marzano, Pecorino Romano">
+              <img src="images/dish2.jpg" alt="Rigatoni all'Amatriciana with fresh basil" loading="lazy" />
+            </div>
+            <div class="carousel-slide" role="group" aria-label="Slide 3 of 6" aria-roledescription="slide"
+                 data-src="images/dish3.jpg" data-caption="Slow-braised Short Rib — bone marrow sauce, potato purée, pancetta">
+              <img src="images/dish3.jpg" alt="Slow-braised short rib with bone marrow sauce" loading="lazy" />
+            </div>
+            <div class="carousel-slide" role="group" aria-label="Slide 4 of 6" aria-roledescription="slide"
+                 data-src="images/dish4.jpg" data-caption="Polpette al Sugo — hand-rolled meatballs, tomato, Parmesan, crostini">
+              <img src="images/dish4.jpg" alt="Meatballs in rich tomato sauce with Parmesan and crostini" loading="lazy" />
+            </div>
+            <div class="carousel-slide" role="group" aria-label="Slide 5 of 6" aria-roledescription="slide"
+                 data-src="images/dish5.jpg" data-caption="Grilled Sea Bass — tiger prawns, herb oil, pickled red onion">
+              <img src="images/dish5.jpg" alt="Grilled sea bass with tiger prawns and herb oil" loading="lazy" />
+            </div>
+            <div class="carousel-slide" role="group" aria-label="Slide 6 of 6" aria-roledescription="slide"
+                 data-src="images/dish6.jpg" data-caption="Tornados Rossini — fillet of beef, seared foie gras, black truffle jus">
+              <img src="images/dish6.jpg" alt="Tornados Rossini — signature beef dish" loading="lazy" />
+            </div>
+          </div>
+
+          <div class="carousel-controls" role="group" aria-label="Carousel controls">
+            <button class="carousel-btn" id="carousel-prev" aria-label="Previous slide">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <polyline points="15 18 9 12 15 6"/>
+              </svg>
+            </button>
+
+            <div class="carousel-dots" role="tablist" aria-label="Carousel slides">
+              <button class="carousel-dot active" role="tab" aria-selected="true"  aria-label="Go to slide 1"></button>
+              <button class="carousel-dot"        role="tab" aria-selected="false" aria-label="Go to slide 2"></button>
+              <button class="carousel-dot"        role="tab" aria-selected="false" aria-label="Go to slide 3"></button>
+              <button class="carousel-dot"        role="tab" aria-selected="false" aria-label="Go to slide 4"></button>
+            </div>
+
+            <button class="carousel-btn" id="carousel-next" aria-label="Next slide">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Gold Ornament Divider ── -->
+    <div class="gold-ornament" aria-hidden="true"><span class="ornament-gem"></span></div>
+
+    <!-- ── EXPERIENCE — 3 PILLAR SECTIONS ── -->
+    <section id="experience" class="section-pad" aria-labelledby="exp-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label" data-i18n="exp_label">The Scalinis Experience</span>
+          <h2 class="section-title" id="exp-heading" data-i18n="exp_title">Three Pillars</h2>
+          <div class="divider" aria-hidden="true"></div>
+        </header>
+
+        <div class="experience-grid">
+
+          <!-- Pillar 1: Craft -->
+          <article class="exp-card reveal">
+            <div class="exp-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                <path d="M8 12h8M12 8v8"/>
+              </svg>
+            </div>
+            <h3 class="exp-title" data-i18n="exp1_title">Craft</h3>
+            <p class="exp-text" data-i18n="exp1_text">
+              Every recipe begins with the finest seasonal ingredients, sourced from trusted Italian producers and local artisan farmers who share our uncompromising commitment to quality.
+            </p>
+          </article>
+
+          <!-- Pillar 2: Ambiance -->
+          <article class="exp-card reveal reveal-delay-1">
+            <div class="exp-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
+            <h3 class="exp-title" data-i18n="exp2_title">Ambiance</h3>
+            <p class="exp-text" data-i18n="exp2_text">
+              Our dining room is a sanctuary of calm — softly lit, unhurried, designed to invite conversation and the pleasure of company in an atmosphere of understated elegance.
+            </p>
+          </article>
+
+          <!-- Pillar 3: Hospitality -->
+          <article class="exp-card reveal reveal-delay-2">
+            <div class="exp-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <h3 class="exp-title" data-i18n="exp3_title">Hospitality</h3>
+            <p class="exp-text" data-i18n="exp3_text">
+              Service at Scalinis is warm, knowledgeable and discreet. Our team is here not to perform, but to care — ensuring every visit feels personal, memorable and entirely effortless.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Gold Ornament Divider ── -->
+    <div class="gold-ornament" aria-hidden="true"><span class="ornament-gem"></span></div>
+
+    <!-- ── MENU TEASER ── -->
+    <section id="menu-teaser" class="section-pad" aria-labelledby="menu-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-label" data-i18n="menu_label">A Taste of the Menu</span>
+          <h2 class="section-title" id="menu-heading" data-i18n="menu_title">Selected Dishes</h2>
+          <div class="divider" aria-hidden="true"></div>
+          <p class="section-body" data-i18n="menu_body">
+            A glimpse of what awaits — our full menu evolves with the seasons, guided always by what is finest and freshest.
+          </p>
+        </header>
+
+        <div class="menu-grid reveal" role="list">
+          <div class="menu-item" role="listitem">
+            <div class="menu-item-info">
+              <p class="menu-item-name">Tornados Rossini</p>
+              <p class="menu-item-desc">Fillet, foie gras, truffle jus, garlic</p>
+            </div>
+            <span class="menu-item-price">€34</span>
+          </div>
+          <div class="menu-item" role="listitem">
+            <div class="menu-item-info">
+              <p class="menu-item-name">Rigatoni all'Amatriciana</p>
+              <p class="menu-item-desc">Guanciale, San Marzano, Pecorino</p>
+            </div>
+            <span class="menu-item-price">€18</span>
+          </div>
+          <div class="menu-item" role="listitem">
+            <div class="menu-item-info">
+              <p class="menu-item-name">Grilled Sea Bass</p>
+              <p class="menu-item-desc">Tiger prawns, herb oil, pickled onion</p>
+            </div>
+            <span class="menu-item-price">€26</span>
+          </div>
+          <div class="menu-item" role="listitem">
+            <div class="menu-item-info">
+              <p class="menu-item-name">Slow-Braised Short Rib</p>
+              <p class="menu-item-desc">Bone marrow sauce, potato purée, pancetta</p>
+            </div>
+            <span class="menu-item-price">€29</span>
+          </div>
+          <div class="menu-item" role="listitem">
+            <div class="menu-item-info">
+              <p class="menu-item-name">Polpette al Sugo</p>
+              <p class="menu-item-desc">Hand-rolled meatballs, tomato, Parmesan, crostini</p>
+            </div>
+            <span class="menu-item-price">€16</span>
+          </div>
+          <div class="menu-item" role="listitem">
+            <div class="menu-item-info">
+              <p class="menu-item-name">Chateaubriand</p>
+              <p class="menu-item-desc">Onion rings, cherry tomato vine, Dijon</p>
+            </div>
+            <span class="menu-item-price">€42</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── RESERVATION CTA ── -->
+    <section id="reserve" class="section-pad" aria-labelledby="reserve-heading">
+      <div class="reserve-ornament" aria-hidden="true">Scalinis</div>
+      <div class="reserve-content container">
+        <header class="section-header reveal">
+          <span class="section-label" data-i18n="res_label">Reservations</span>
+          <h2 class="section-title" id="reserve-heading" data-i18n="res_title">Join Us at the Table</h2>
+          <div class="divider" aria-hidden="true"></div>
+          <p class="section-body" data-i18n="res_body">
+            Whether a quiet dinner for two or a celebration with friends, we welcome you to experience the warmth of Scalinis.
+          </p>
+          <a href="contact.html" class="btn-gold" data-i18n="res_cta">Reserve a Table</a>
+        </header>
+      </div>
+    </section>
+
+  </main><!-- /#main-content -->
+
+  <!-- ================================================================
+       FOOTER
+       ================================================================ -->
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <img src="images/logo.jpg" alt="Scalinis logo" width="40" height="40" />
+            <span class="nav-logo-text">Scalinis</span>
+          </div>
+          <p data-i18n="footer_tagline">Fine Italian dining — where every meal is a memory in the making.</p>
+          <div class="footer-social">
+            <!-- Facebook -->
+            <a class="social-btn"
+               href="https://www.facebook.com/scalinis.restaurant"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Scalinis on Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </a>
+            <!-- Instagram -->
+            <a class="social-btn"
+               href="https://www.instagram.com/scalinis.restaurant"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Scalinis on Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Address -->
+        <div class="footer-col">
+          <h4 data-i18n="footer_address">Address</h4>
+          <address>
+            123 Via Bella<br />
+            Your City, 00000<br />
+            <a href="tel:+34000000000">+34 000 000 000</a><br />
+            <a href="mailto:hello@scalinis.com">hello@scalinis.com</a>
+          </address>
+        </div>
+
+        <!-- Navigation -->
+        <div class="footer-col">
+          <h4 data-i18n="footer_nav">Navigation</h4>
+          <ul role="list">
+            <li><a href="index.html"    data-i18n="nav_home">Home</a></li>
+            <li><a href="#menu-teaser"  data-i18n="nav_menu">Menu</a></li>
+            <li><a href="#about"        data-i18n="nav_about">About</a></li>
+            <li><a href="#gallery"      data-i18n="nav_gallery">Gallery</a></li>
+            <li><a href="contact.html"  data-i18n="nav_contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Hours -->
+        <div class="footer-col">
+          <h4 data-i18n="footer_hours">Hours</h4>
+          <address>
+            Tuesday – Sunday<br />
+            Lunch: 12:00 – 15:00<br />
+            Dinner: 19:00 – 23:00<br />
+            <br />
+            Monday: Closed
+          </address>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom">
+        <p data-i18n="footer_copy">© 2025 Scalinis Restaurant. All rights reserved.</p>
+        <p><a href="#" data-i18n="footer_privacy" style="color:var(--white-faint);transition:color 0.3s">Privacy Policy</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================================================================
+       LIGHTBOX OVERLAY
+       ================================================================ -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">&#x2715;</button>
+
+    <button class="lightbox-nav" id="lightbox-prev" aria-label="Previous image">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+
+    <div class="lightbox-img-wrap">
+      <img id="lightbox-img" src="" alt="" />
+    </div>
+
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+
+    <div class="lightbox-thumbs" id="lightbox-thumbs" role="list" aria-label="Image thumbnails"></div>
+
+    <button class="lightbox-nav" id="lightbox-next" aria-label="Next image">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+
+    <div class="lightbox-counter" id="lightbox-counter" aria-live="polite"></div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>

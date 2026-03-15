@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       META & SEO — Contact Page
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <title>Contact Us | Scalinis Fine Italian Dining</title>
+  <meta name="description" content="Get in touch with Scalinis restaurant — make a reservation, ask about our menu, or plan a private event. We respond via Facebook Messenger." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://scalinis.com/contact.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Contact Us | Scalinis" />
+  <meta property="og:description" content="Reach out to Scalinis — reservations, events, and general enquiries." />
+  <meta property="og:url"         content="https://scalinis.com/contact.html" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+
+<body>
+
+  <!-- Skip Link -->
+  <a class="skip-link" href="#contact-main">Skip to main content</a>
+
+  <!-- ================================================================
+       NAVIGATION (identical to index.html)
+       ================================================================ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+
+      <a class="nav-logo" href="index.html" aria-label="Scalinis — Home">
+        <img src="images/logo.jpg" alt="Scalinis logo" width="48" height="48" />
+        <span class="nav-logo-text">Scalinis</span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="index.html"            data-i18n="nav_home">Home</a></li>
+        <li><a href="index.html#menu-teaser" data-i18n="nav_menu">Menu</a></li>
+        <li><a href="index.html#about"       data-i18n="nav_about">About</a></li>
+        <li><a href="index.html#gallery"     data-i18n="nav_gallery">Gallery</a></li>
+        <li><a href="contact.html"           data-i18n="nav_contact" aria-current="page">Contact</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <div class="lang-toggle" role="group" aria-label="Language selection">
+          <button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+          <button class="lang-btn"        data-lang="es" aria-pressed="false">ES</button>
+        </div>
+
+        <button id="nav-hamburger" class="nav-hamburger"
+                aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="nav-mobile-menu" class="nav-mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <a href="index.html"            data-i18n="nav_home">Home</a>
+    <a href="index.html#menu-teaser" data-i18n="nav_menu">Menu</a>
+    <a href="index.html#about"      data-i18n="nav_about">About</a>
+    <a href="index.html#gallery"    data-i18n="nav_gallery">Gallery</a>
+    <a href="contact.html"          data-i18n="nav_contact">Contact</a>
+  </div>
+
+  <!-- ================================================================
+       MAIN CONTENT
+       ================================================================ -->
+  <main id="contact-main">
+
+    <!-- ── Contact Hero Banner ── -->
+    <header class="contact-hero" role="banner">
+      <div class="container">
+        <span class="section-label" style="text-align:left;display:block;margin-bottom:1rem"
+              data-i18n="res_label">Reservations</span>
+        <h1>
+          <span data-i18n="ct_hero_title">Get in</span>
+          <span class="gold" data-i18n="ct_hero_span"> Touch</span>
+        </h1>
+      </div>
+    </header>
+
+    <!-- ── Contact Body ── -->
+    <section class="contact-body" aria-labelledby="ct-form-heading">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Left: Info Column -->
+          <aside class="contact-info reveal" aria-label="Restaurant contact information">
+            <h2 data-i18n="ct_info_title">We'd love to hear from you</h2>
+            <div class="contact-divider" aria-hidden="true"></div>
+            <p data-i18n="ct_info_body">
+              Have a question about our menu, wish to make a reservation, or plan a private event? Send us a message and our team will be in touch shortly.
+            </p>
+
+            <div class="contact-divider" aria-hidden="true"></div>
+
+            <address>
+              <strong style="color:var(--gold);font-style:normal;font-family:var(--font-sans);font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase">
+                Address
+              </strong><br /><br />
+              123 Via Bella<br />
+              Your City, 00000<br /><br />
+              <a href="tel:+34000000000">+34 000 000 000</a><br />
+              <a href="mailto:hello@scalinis.com">hello@scalinis.com</a>
+            </address>
+
+            <div class="contact-divider" aria-hidden="true"></div>
+
+            <address>
+              <strong style="color:var(--gold);font-style:normal;font-family:var(--font-sans);font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase"
+                      data-i18n="footer_hours">Hours</strong><br /><br />
+              Tuesday – Sunday<br />
+              Lunch: 12:00 – 15:00<br />
+              Dinner: 19:00 – 23:00<br /><br />
+              Monday: Closed
+            </address>
+
+            <div class="contact-divider" aria-hidden="true"></div>
+
+            <!-- Social Links -->
+            <div class="footer-social">
+              <a class="social-btn"
+                 href="https://www.facebook.com/scalinis.restaurant"
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="Scalinis on Facebook">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                </svg>
+              </a>
+              <a class="social-btn"
+                 href="https://www.instagram.com/scalinis.restaurant"
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="Scalinis on Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+              </a>
+            </div>
+          </aside>
+
+          <!-- Right: Contact Form -->
+          <div class="reveal reveal-delay-1">
+            <h2 id="ct-form-heading" class="sr-only">Send us a message</h2>
+
+            <!-- Success / Error Message -->
+            <div id="form-message" class="form-message" role="alert" aria-live="polite"></div>
+
+            <form id="contact-form" class="contact-form" novalidate
+                  aria-label="Contact form — sends message via Facebook Messenger">
+
+              <!-- Name + Email Row -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="ct-name" data-i18n="ct_form_name">Full Name</label>
+                  <input type="text"
+                         id="ct-name"
+                         name="name"
+                         autocomplete="name"
+                         data-i18n-ph="ct_form_name"
+                         placeholder="Full Name"
+                         required
+                         aria-required="true" />
+                </div>
+                <div class="form-group">
+                  <label for="ct-email" data-i18n="ct_form_email">Email Address</label>
+                  <input type="email"
+                         id="ct-email"
+                         name="email"
+                         autocomplete="email"
+                         data-i18n-ph="ct_form_email"
+                         placeholder="Email Address"
+                         required
+                         aria-required="true" />
+                </div>
+              </div>
+
+              <!-- Phone + Subject Row -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="ct-phone" data-i18n="ct_form_phone">Phone Number</label>
+                  <input type="tel"
+                         id="ct-phone"
+                         name="phone"
+                         autocomplete="tel"
+                         data-i18n-ph="ct_form_phone"
+                         placeholder="Phone Number"
+                         aria-required="false" />
+                </div>
+                <div class="form-group">
+                  <label for="ct-subject" data-i18n="ct_form_subject">Subject</label>
+                  <select id="ct-subject" name="subject" aria-required="false">
+                    <option value="Reservation Enquiry" data-i18n-opt="ct_sub_res">Reservation Enquiry</option>
+                    <option value="Menu Question"        data-i18n-opt="ct_sub_menu">Menu Question</option>
+                    <option value="Private Event"        data-i18n-opt="ct_sub_event">Private Event</option>
+                    <option value="Other"                data-i18n-opt="ct_sub_other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Message -->
+              <div class="form-group">
+                <label for="ct-message" data-i18n="ct_form_msg">Your Message</label>
+                <textarea id="ct-message"
+                          name="message"
+                          rows="6"
+                          data-i18n-ph="ct_form_msg"
+                          placeholder="Your Message"
+                          required
+                          aria-required="true"></textarea>
+              </div>
+
+              <!-- Submit -->
+              <button type="submit" class="form-submit" data-i18n="ct_form_send">
+                Send via Messenger
+              </button>
+
+              <!-- Messenger Note -->
+              <p class="messenger-note">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10C22 6.48 17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                </svg>
+                <span data-i18n="ct_messenger">
+                  Messages are sent directly to our Facebook Messenger inbox for a faster response.
+                </span>
+              </p>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================================================
+       FOOTER
+       ================================================================ -->
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <img src="images/logo.jpg" alt="Scalinis logo" width="40" height="40" />
+            <span class="nav-logo-text">Scalinis</span>
+          </div>
+          <p data-i18n="footer_tagline">Fine Italian dining — where every meal is a memory in the making.</p>
+          <div class="footer-social">
+            <a class="social-btn" href="https://www.facebook.com/scalinis.restaurant"
+               target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </a>
+            <a class="social-btn" href="https://www.instagram.com/scalinis.restaurant"
+               target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_address">Address</h4>
+          <address>
+            123 Via Bella<br />
+            Your City, 00000<br />
+            <a href="tel:+34000000000">+34 000 000 000</a><br />
+            <a href="mailto:hello@scalinis.com">hello@scalinis.com</a>
+          </address>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_nav">Navigation</h4>
+          <ul role="list">
+            <li><a href="index.html"            data-i18n="nav_home">Home</a></li>
+            <li><a href="index.html#menu-teaser" data-i18n="nav_menu">Menu</a></li>
+            <li><a href="index.html#about"       data-i18n="nav_about">About</a></li>
+            <li><a href="index.html#gallery"     data-i18n="nav_gallery">Gallery</a></li>
+            <li><a href="contact.html"           data-i18n="nav_contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_hours">Hours</h4>
+          <address>
+            Tuesday – Sunday<br />
+            Lunch: 12:00 – 15:00<br />
+            Dinner: 19:00 – 23:00<br /><br />
+            Monday: Closed
+          </address>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p data-i18n="footer_copy">© 2025 Scalinis Restaurant. All rights reserved.</p>
+        <p><a href="#" data-i18n="footer_privacy" style="color:var(--white-faint);transition:color 0.3s">Privacy Policy</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>
