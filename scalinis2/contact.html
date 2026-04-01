@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Scalinis — Reserve your table or enquire about private events at our Italian fine dining restaurant in Rojales, Alicante." />
+  <meta name="keywords" content="Scalinis contact, Italian restaurant reservation, Rojales, Alicante, private dining" />
+  <meta property="og:title" content="Contact — Scalinis Italian Fine Dining" />
+  <meta property="og:description" content="Reserve your table at Scalinis, authentic Italian fine dining in Rojales, Alicante." />
+  <meta name="theme-color" content="#000000" />
+  <title>Contact — Scalinis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+
+  <style>
+    /* Contact-page extra styles */
+    .map-embed {
+      width: 100%;
+      height: 260px;
+      margin-top: 2.5rem;
+      border: 1px solid var(--gold-border);
+      overflow: hidden;
+      filter: grayscale(1) invert(0.88) contrast(0.9);
+    }
+    .map-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Skip Navigation -->
+  <a class="skip-nav" href="#contact-main">Skip to main content</a>
+
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════════════ -->
+  <header role="banner">
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+
+        <a href="index.html" class="nav-logo" aria-label="Scalinis — Home">
+          <img src="images/logo.jpg" alt="Scalinis Restaurant" />
+        </a>
+
+        <ul class="nav-links" role="list">
+          <li><a href="index.html#dishes"  data-i18n="nav.menu">Menu</a></li>
+          <li><a href="index.html#about"   data-i18n="nav.story">Our Story</a></li>
+          <li><a href="index.html#gallery" data-i18n="nav.gallery">Gallery</a></li>
+          <li><a href="contact.html" aria-current="page" data-i18n="nav.contact" style="color:var(--gold)">Contact</a></li>
+          <li>
+            <a href="#contact-form-section" class="btn" style="padding:10px 22px; font-size:0.62rem;">
+              <span data-i18n="nav.reserve">Reserve a Table</span>
+            </a>
+          </li>
+        </ul>
+
+        <button class="nav-lang lang-toggle" aria-label="Toggle language">
+          <span class="lang-en lang-active">EN</span>
+          &nbsp;|&nbsp;
+          <span class="lang-es">ES</span>
+        </button>
+
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+      <a href="index.html#dishes"  data-i18n="nav.menu">Menu</a>
+      <a href="index.html#about"   data-i18n="nav.story">Our Story</a>
+      <a href="index.html#gallery" data-i18n="nav.gallery">Gallery</a>
+      <a href="contact.html"       data-i18n="nav.contact">Contact</a>
+      <a href="#contact-form-section" data-i18n="nav.reserve">Reserve a Table</a>
+      <button class="mobile-lang lang-toggle nav-lang" aria-label="Toggle language">
+        <span class="lang-en lang-active">EN</span> | <span class="lang-es">ES</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+       MAIN CONTENT
+  ══════════════════════════════════════════════ -->
+  <main id="contact-main">
+
+    <!-- Hero -->
+    <section id="contact-hero" aria-labelledby="contact-page-title">
+      <div class="container">
+        <span class="section-eyebrow" data-i18n="contact.hero.eyebrow">We'd Love to Hear from You</span>
+        <h1 id="contact-page-title" data-i18n="contact.hero.title">Contact Us</h1>
+        <div class="gold-line" aria-hidden="true"></div>
+        <p data-i18n="contact.hero.p">Whether it's a reservation query, a private event, or simply a word of praise — we are always delighted to hear from our guests.</p>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact-form-section" aria-labelledby="contact-form-heading">
+      <div class="container">
+        <div class="contact-layout">
+
+          <!-- Info Column -->
+          <div class="contact-info reveal">
+            <h2 id="contact-form-heading" data-i18n="contact.info.title">Get in Touch</h2>
+            <div class="gold-line gold-line-left" aria-hidden="true"></div>
+            <br/>
+            <p data-i18n="contact.info.p">Our team is available six days a week to assist with reservations, event planning, and any enquiries you may have.</p>
+
+            <div class="contact-detail">
+              <div class="contact-icon" aria-hidden="true">
+                <i class="fa fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-detail-text">
+                <span>Address</span>
+                <p data-i18n="footer.address">Calle Mayor 14, 03170 Rojales, Alicante, España</p>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-icon" aria-hidden="true">
+                <i class="fa fa-phone"></i>
+              </div>
+              <div class="contact-detail-text">
+                <span>Phone</span>
+                <p><a href="tel:+34966000000" data-i18n="footer.phone">+34 966 000 000</a></p>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-icon" aria-hidden="true">
+                <i class="fa fa-envelope"></i>
+              </div>
+              <div class="contact-detail-text">
+                <span>Email</span>
+                <p><a href="mailto:info@scalinis.es" data-i18n="footer.email">info@scalinis.es</a></p>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-icon" aria-hidden="true">
+                <i class="fa fa-clock"></i>
+              </div>
+              <div class="contact-detail-text">
+                <span data-i18n="footer.hours.title">Opening Hours</span>
+                <p>
+                  <span data-i18n="footer.hours.1">Tue – Fri: 13:00 – 23:00</span><br/>
+                  <span data-i18n="footer.hours.2">Sat – Sun: 12:00 – 24:00</span><br/>
+                  <span data-i18n="footer.hours.3">Monday: Closed</span>
+                </p>
+              </div>
+            </div>
+
+            <!-- Map embed (placeholder — replace lat/lng with actual location) -->
+            <div class="map-embed" aria-label="Map showing Scalinis restaurant location in Rojales">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.5!2d-0.6830!3d38.0860!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDA1JzA5LjYiTiAwwrA0MCc1OC44Ilc!5e0!3m2!1sen!2ses!4v1700000000000!5m2!1sen!2ses"
+                title="Scalinis location map — Rojales, Alicante"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+
+            <!-- Social -->
+            <div class="footer-socials" style="margin-top:2rem;">
+              <a href="https://facebook.com/scalinisrestaurant" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+              </a>
+              <a href="https://instagram.com/scalinisrestaurant" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="https://m.me/scalinisrestaurant" class="social-btn" aria-label="Facebook Messenger" target="_blank" rel="noopener">
+                <i class="fab fa-facebook-messenger" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Form Column -->
+          <div class="form-card reveal reveal-delay-2">
+            <form id="contact-form" novalidate aria-label="Reservation and contact form">
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name" data-i18n="contact.label.name">Full Name</label>
+                  <input type="text" id="name" name="name" autocomplete="name"
+                         placeholder="Mario Rossi" required
+                         aria-required="true" />
+                </div>
+                <div class="form-group">
+                  <label for="email" data-i18n="contact.label.email">Email Address</label>
+                  <input type="email" id="email" name="email" autocomplete="email"
+                         placeholder="mario@example.com" required
+                         aria-required="true" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="phone" data-i18n="contact.label.phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" autocomplete="tel"
+                         placeholder="+34 600 000 000" />
+                </div>
+                <div class="form-group">
+                  <label for="date" data-i18n="contact.label.date">Preferred Date</label>
+                  <input type="date" id="date" name="date" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="guests" data-i18n="contact.label.guests">Number of Guests</label>
+                  <select id="guests" name="guests" aria-label="Number of guests">
+                    <option value="" data-i18n="contact.guests.1">1 guest</option>
+                    <option value="2" data-i18n="contact.guests.2">2 guests</option>
+                    <option value="3-4" data-i18n="contact.guests.3">3–4 guests</option>
+                    <option value="5-6" data-i18n="contact.guests.4">5–6 guests</option>
+                    <option value="7+" data-i18n="contact.guests.5">7+ guests</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="occasion" data-i18n="contact.label.occasion">Occasion</label>
+                  <select id="occasion" name="occasion" aria-label="Occasion">
+                    <option value="" data-i18n="contact.occ.select">Select occasion</option>
+                    <option value="dinner" data-i18n="contact.occ.dinner">Dinner</option>
+                    <option value="birthday" data-i18n="contact.occ.bday">Birthday</option>
+                    <option value="anniversary" data-i18n="contact.occ.anniversary">Anniversary</option>
+                    <option value="private" data-i18n="contact.occ.event">Private Event</option>
+                    <option value="other" data-i18n="contact.occ.other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message" data-i18n="contact.label.message">Message</label>
+                <textarea id="message" name="message"
+                          placeholder="Tell us about any dietary requirements or special requests…"
+                          rows="5"
+                          aria-label="Additional message or special requests"></textarea>
+              </div>
+
+              <div class="form-submit">
+                <button type="submit" class="btn btn-solid" aria-label="Send via Facebook Messenger">
+                  <span data-i18n="contact.submit">Send via Messenger</span>
+                  &nbsp;<i class="fab fa-facebook-messenger" aria-hidden="true"></i>
+                </button>
+              </div>
+
+              <p class="form-note" data-i18n="contact.note">
+                Clicking send will open Facebook Messenger to continue your enquiry.
+              </p>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════ -->
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <img src="images/logo.jpg" alt="Scalinis Restaurant logo" />
+          <p data-i18n="footer.tagline">Authentic Italian fine dining. Crafted with passion, served with grace.</p>
+          <div class="footer-socials">
+            <a href="https://facebook.com/scalinisrestaurant" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener">
+              <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a href="https://instagram.com/scalinisrestaurant" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <nav class="footer-col" aria-label="Footer navigation">
+          <h4 data-i18n="footer.nav.title">Navigation</h4>
+          <ul>
+            <li><a href="index.html#dishes"  data-i18n="nav.menu">Menu</a></li>
+            <li><a href="index.html#about"   data-i18n="nav.story">Our Story</a></li>
+            <li><a href="index.html#gallery" data-i18n="nav.gallery">Gallery</a></li>
+            <li><a href="contact.html"       data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer.contact.title">Contact</h4>
+          <address>
+            <p data-i18n="footer.address">Calle Mayor 14, 03170 Rojales, Alicante, España</p>
+            <br/>
+            <a href="tel:+34966000000" data-i18n="footer.phone">+34 966 000 000</a>
+            <br/>
+            <a href="mailto:info@scalinis.es" data-i18n="footer.email">info@scalinis.es</a>
+          </address>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer.hours.title">Opening Hours</h4>
+          <ul>
+            <li><span data-i18n="footer.hours.1">Tue – Fri: 13:00 – 23:00</span></li>
+            <li><span data-i18n="footer.hours.2">Sat – Sun: 12:00 – 24:00</span></li>
+            <li><span data-i18n="footer.hours.3">Monday: Closed</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p data-i18n="footer.copy">© 2025 Scalinis Restaurant. All rights reserved.</p>
+        <button class="nav-lang lang-toggle" aria-label="Toggle language" style="border-color: rgba(255,255,255,0.15);">
+          <span class="lang-en lang-active">EN</span> | <span class="lang-es">ES</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

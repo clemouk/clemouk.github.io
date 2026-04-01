@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Scalinis — Authentic Italian fine dining in Rojales, Alicante. Experience the art of Italian cuisine crafted with passion and served with grace." />
+  <meta name="keywords" content="Scalinis, Italian restaurant, fine dining, Rojales, Alicante, pasta, steak, Italian cuisine" />
+  <meta property="og:title" content="Scalinis — Italian Fine Dining" />
+  <meta property="og:description" content="Authentic Italian fine dining in the heart of Rojales, Alicante." />
+  <meta property="og:type" content="restaurant" />
+  <meta name="theme-color" content="#000000" />
+  <title>Scalinis — Italian Fine Dining</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+</head>
+<body>
+
+  <!-- Skip Navigation (Accessibility) -->
+  <a class="skip-nav" href="#main-content">Skip to main content</a>
+
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════════════ -->
+  <header role="banner">
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+
+        <!-- Logo -->
+        <a href="index.html" class="nav-logo" aria-label="Scalinis — Home">
+          <img src="images/logo.jpg" alt="Scalinis Restaurant" />
+        </a>
+
+        <!-- Desktop Links -->
+        <ul class="nav-links" role="list">
+          <li><a href="#dishes"      data-i18n="nav.menu">Menu</a></li>
+          <li><a href="#about"       data-i18n="nav.story">Our Story</a></li>
+          <li><a href="#gallery"     data-i18n="nav.gallery">Gallery</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          <li>
+            <a href="contact.html" class="btn" style="padding:10px 22px; font-size:0.62rem;">
+              <span data-i18n="nav.reserve">Reserve a Table</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Lang Toggle -->
+        <button class="nav-lang lang-toggle" aria-label="Toggle language">
+          <span class="lang-en lang-active">EN</span>
+          &nbsp;|&nbsp;
+          <span class="lang-es">ES</span>
+        </button>
+
+        <!-- Hamburger (Mobile) -->
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+      <a href="#dishes"      data-i18n="nav.menu">Menu</a>
+      <a href="#about"       data-i18n="nav.story">Our Story</a>
+      <a href="#gallery"     data-i18n="nav.gallery">Gallery</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
+      <a href="contact.html" data-i18n="nav.reserve">Reserve a Table</a>
+      <button class="mobile-lang lang-toggle nav-lang" aria-label="Toggle language">
+        <span class="lang-en lang-active">EN</span> | <span class="lang-es">ES</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+       MAIN CONTENT
+  ══════════════════════════════════════════════ -->
+  <main id="main-content">
+
+    <!-- ── HERO ── -->
+    <section id="hero" aria-label="Hero">
+      <div class="hero-bg" role="img" aria-label="Elegant Italian restaurant interior with warm candlelight"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-content">
+        <span class="hero-eyebrow" data-i18n="hero.eyebrow">Est. Milano · 2019</span>
+        <h1 class="hero-title script">Scalinis</h1>
+        <p class="hero-subtitle" data-i18n="hero.subtitle">Authentic Italian Cuisine · Fine Dining</p>
+        <div class="hero-divider" aria-hidden="true"></div>
+        <div class="hero-cta-group">
+          <a href="#dishes" class="btn"><span data-i18n="hero.cta1">Explore the Menu</span></a>
+          <a href="contact.html" class="btn btn-solid"><span data-i18n="hero.cta2">Reserve a Table</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ABOUT / OUR STORY ── -->
+    <section id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-image-wrap reveal">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80"
+                 alt="Scalinis restaurant warm dining room ambience with candles" />
+          </div>
+          <div class="about-text reveal reveal-delay-2">
+            <span class="section-eyebrow" data-i18n="about.eyebrow">Our Story</span>
+            <h2 id="about-title" data-i18n="about.title">A Passion Born in Milan</h2>
+            <div class="gold-line gold-line-left" aria-hidden="true"></div>
+            <br/>
+            <p data-i18n="about.p1">Scalinis was born from a lifelong love affair with Italian tradition. Every recipe is a tribute to the timeless kitchens of northern Italy, where quality ingredients and unhurried craft have always been the only rule.</p>
+            <p data-i18n="about.p2">Our chef, trained in the heart of Milan, brings decades of mastery to every plate — from hand-rolled pasta to slow-braised meats kissed with truffle and aged wine.</p>
+            <br/>
+            <a href="contact.html" class="btn"><span data-i18n="nav.reserve">Reserve a Table</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SIGNATURE DISHES ── -->
+    <section id="dishes" aria-labelledby="dishes-title">
+      <div class="dishes-header reveal">
+        <span class="section-eyebrow" data-i18n="dishes.eyebrow">The Classics</span>
+        <h2 id="dishes-title" data-i18n="dishes.title">Signature Dishes</h2>
+        <div class="gold-line" aria-hidden="true"></div>
+      </div>
+
+      <div class="dishes-grid" role="list">
+
+        <!-- Dish 1 -->
+        <article class="dish-card reveal reveal-delay-1" role="listitem" aria-label="Beef Tenderloin — Chef's Choice">
+          <img src="images/dish1.jpg" alt="Sliced beef tenderloin served medium rare on a wooden board with mustard, onion rings and cherry tomatoes" loading="lazy" />
+          <span class="dish-tag" data-i18n="dishes.tag1">Chef's Choice</span>
+          <div class="dish-card-info">
+            <h3 data-i18n="dishes.d1.name">Beef Tenderloin</h3>
+            <p data-i18n="dishes.d1.desc">Slow-roasted · Mustard jus · Crispy onions</p>
+          </div>
+        </article>
+
+        <!-- Dish 2 -->
+        <article class="dish-card reveal reveal-delay-2" role="listitem" aria-label="Rigatoni Amatriciana — Seasonal">
+          <img src="images/dish2.jpg" alt="Rigatoni pasta with rich Amatriciana tomato sauce and fresh basil" loading="lazy" />
+          <span class="dish-tag" data-i18n="dishes.tag2">Seasonal</span>
+          <div class="dish-card-info">
+            <h3 data-i18n="dishes.d2.name">Rigatoni Amatriciana</h3>
+            <p data-i18n="dishes.d2.desc">San Marzano · Guanciale · Pecorino</p>
+          </div>
+        </article>
+
+        <!-- Dish 3 -->
+        <article class="dish-card reveal reveal-delay-3" role="listitem" aria-label="Tornados Rossini — Signature">
+          <img src="images/dish6.jpg" alt="Tornados Rossini — tenderloin steak topped with foie gras, served with truffle and Madeira jus" loading="lazy" />
+          <span class="dish-tag" data-i18n="dishes.tag3">Signature</span>
+          <div class="dish-card-info">
+            <h3 data-i18n="dishes.d3.name">Tornados Rossini</h3>
+            <p data-i18n="dishes.d3.desc">Foie gras · Truffle · Madeira jus</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ── CAROUSEL / GALLERY ── -->
+    <section id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="gallery-header reveal">
+          <span class="section-eyebrow" data-i18n="gallery.eyebrow">The Table</span>
+          <h2 id="gallery-title" data-i18n="gallery.title">From Our Kitchen</h2>
+          <div class="gold-line" aria-hidden="true"></div>
+        </div>
+
+        <div class="carousel-wrap" role="region" aria-label="Dish gallery carousel" aria-roledescription="carousel">
+          <div class="carousel-track-outer" tabindex="0">
+            <div class="carousel-track" role="list">
+              <div class="carousel-slide" role="listitem">
+                <img src="images/dish1.jpg" alt="Beef tenderloin on wooden board" loading="lazy" />
+              </div>
+              <div class="carousel-slide" role="listitem">
+                <img src="images/dish2.jpg" alt="Rigatoni Amatriciana with basil" loading="lazy" />
+              </div>
+              <div class="carousel-slide" role="listitem">
+                <img src="images/dish3.jpg" alt="Braised short ribs with mashed potato and wine jus" loading="lazy" />
+              </div>
+              <div class="carousel-slide" role="listitem">
+                <img src="images/dish4.jpg" alt="Meatballs in tomato sauce with parmesan and crostini" loading="lazy" />
+              </div>
+              <div class="carousel-slide" role="listitem">
+                <img src="images/dish5.jpg" alt="Grilled sea bass fillet with prawns and herb oil" loading="lazy" />
+              </div>
+              <div class="carousel-slide" role="listitem">
+                <img src="images/dish6.jpg" alt="Tornados Rossini with foie gras" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-controls">
+            <button class="carousel-btn carousel-prev" aria-label="Previous slide">
+              <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            </button>
+            <div class="carousel-dots" role="list" aria-label="Carousel navigation dots"></div>
+            <button class="carousel-btn carousel-next" aria-label="Next slide">
+              <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PHILOSOPHY (Placeholder block 1) ── -->
+    <section id="philosophy" aria-labelledby="philosophy-title">
+      <div class="container">
+        <div class="philosophy-grid">
+          <div class="philosophy-image reveal">
+            <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=900&q=80"
+                 alt="Chef carefully plating an elegant dish with tweezers in a professional kitchen" loading="lazy" />
+          </div>
+          <div class="philosophy-text reveal reveal-delay-2">
+            <span class="section-eyebrow" data-i18n="philosophy.eyebrow">Philosophy</span>
+            <h2 id="philosophy-title" data-i18n="philosophy.title">Craft Over Convenience</h2>
+            <div class="gold-line gold-line-left" aria-hidden="true"></div>
+            <br/>
+            <p data-i18n="philosophy.p1">At Scalinis, we believe fine dining is not merely about food — it is about the ritual of gathering, the ceremony of a shared table, and the quiet pleasure of being truly looked after.</p>
+            <p data-i18n="philosophy.p2">Every detail, from the hand-selected ceramics to the candlelight ambience, is designed to slow time and deepen pleasure.</p>
+            <br/>
+            <a href="contact.html" class="btn"><span data-i18n="philosophy.cta">Read Our Story</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── EXPERIENCE + STATS (Placeholder block 2) ── -->
+    <section id="experience" aria-labelledby="exp-title">
+      <div class="container">
+        <div class="experience-inner reveal">
+          <span class="section-eyebrow" data-i18n="exp.eyebrow">The Experience</span>
+          <h2 id="exp-title" data-i18n="exp.title">Every Evening, Extraordinary</h2>
+          <div class="gold-line" aria-hidden="true"></div>
+          <br/>
+          <p data-i18n="exp.p">Whether you are celebrating a milestone or simply seeking refuge from the ordinary, Scalinis offers a sanctuary of flavour, warmth, and understated elegance.</p>
+          <a href="contact.html" class="btn"><span data-i18n="exp.cta">Book Your Evening</span></a>
+        </div>
+
+        <div class="experience-stats" role="list" aria-label="Restaurant statistics">
+          <div class="stat-box reveal reveal-delay-1" role="listitem">
+            <span class="stat-number script" data-i18n="exp.s1.num">12</span>
+            <span class="stat-label" data-i18n="exp.s1.label">Years of Excellence</span>
+          </div>
+          <div class="stat-box reveal reveal-delay-2" role="listitem">
+            <span class="stat-number script" data-i18n="exp.s2.num">40+</span>
+            <span class="stat-label" data-i18n="exp.s2.label">Seasonal Dishes</span>
+          </div>
+          <div class="stat-box reveal reveal-delay-3" role="listitem">
+            <span class="stat-number script" data-i18n="exp.s3.num">★ 4.9</span>
+            <span class="stat-label" data-i18n="exp.s3.label">Guest Rating</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── RESERVATIONS CTA (Placeholder block 3) ── -->
+    <section id="reservations-cta" aria-labelledby="res-title">
+      <div class="container">
+        <div class="reservations-inner reveal">
+          <span class="section-eyebrow" data-i18n="res.eyebrow">Reservations</span>
+          <h2 id="res-title" data-i18n="res.title">Join Us This Evening</h2>
+          <div class="gold-line" aria-hidden="true"></div>
+          <br/>
+          <p data-i18n="res.p">Tables fill quickly. We recommend booking at least 48 hours in advance for weekend dining. Private events and bespoke menus available on request.</p>
+          <a href="contact.html" class="btn btn-solid"><span data-i18n="res.cta">Reserve Now</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════ -->
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+          <img src="images/logo.jpg" alt="Scalinis Restaurant logo" />
+          <p data-i18n="footer.tagline">Authentic Italian fine dining. Crafted with passion, served with grace.</p>
+          <div class="footer-socials">
+            <a href="https://facebook.com/scalinisrestaurant" class="social-btn" aria-label="Follow us on Facebook" target="_blank" rel="noopener">
+              <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a href="https://instagram.com/scalinisrestaurant" class="social-btn" aria-label="Follow us on Instagram" target="_blank" rel="noopener">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="footer-col" aria-label="Footer navigation">
+          <h4 data-i18n="footer.nav.title">Navigation</h4>
+          <ul>
+            <li><a href="#dishes"      data-i18n="nav.menu">Menu</a></li>
+            <li><a href="#about"       data-i18n="nav.story">Our Story</a></li>
+            <li><a href="#gallery"     data-i18n="nav.gallery">Gallery</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+            <li><a href="contact.html" data-i18n="nav.reserve">Reserve a Table</a></li>
+          </ul>
+        </nav>
+
+        <!-- Contact -->
+        <div class="footer-col">
+          <h4 data-i18n="footer.contact.title">Contact</h4>
+          <address>
+            <p data-i18n="footer.address">Calle Mayor 14, 03170 Rojales, Alicante, España</p>
+            <br/>
+            <a href="tel:+34966000000" data-i18n="footer.phone">+34 966 000 000</a>
+            <br/>
+            <a href="mailto:info@scalinis.es" data-i18n="footer.email">info@scalinis.es</a>
+          </address>
+        </div>
+
+        <!-- Hours -->
+        <div class="footer-col">
+          <h4 data-i18n="footer.hours.title">Opening Hours</h4>
+          <ul>
+            <li><span data-i18n="footer.hours.1">Tue – Fri: 13:00 – 23:00</span></li>
+            <li><span data-i18n="footer.hours.2">Sat – Sun: 12:00 – 24:00</span></li>
+            <li><span data-i18n="footer.hours.3">Monday: Closed</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Footer bottom bar -->
+      <div class="footer-bottom">
+        <p data-i18n="footer.copy">© 2025 Scalinis Restaurant. All rights reserved.</p>
+        <button class="nav-lang lang-toggle" aria-label="Toggle language" style="border-color: rgba(255,255,255,0.15);">
+          <span class="lang-en lang-active">EN</span> | <span class="lang-es">ES</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
